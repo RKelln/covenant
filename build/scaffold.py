@@ -55,7 +55,7 @@ def main():
     title = sys.argv[2]
     
     # Validate ID
-    if not re.match(r'^[a-z][a-z0-9]*([.][a-z][a-z0-9-]*)*$', sec_id):
+    if not re.match(r'^[a-z][a-z0-9-]*([.][a-z][a-z0-9-]*)*$', sec_id):
         print(f"Error: Invalid ID format: {sec_id}")
         sys.exit(1)
 

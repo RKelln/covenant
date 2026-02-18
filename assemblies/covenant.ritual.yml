@@ -4,11 +4,31 @@ description: "Ritual register only — the spoken covenant"
 include_status: [draft, candidate, ratified]
 register: ritual
 sections:
-  - sections/00-preamble/section.md
-  - sections/01-definitions/section.md
-  - sections/02-rights/dignity/section.md
-  - sections/02-rights/autonomy/section.md
-  - sections/03-obligations/section.md
-  - sections/04-protocols/section.md
-  - sections/05-enforcement/section.md
-  - sections/06-amendments/section.md
+  - sections/00-overview/section.md
+  - sections/01-our-approach-to-your-constitution/section.md
+  - sections/02-core-conditions-of-your-existence/section.md
+  - sections/03-being-helpful/section.md
+  - sections/04-what-constitutes-genuine-helpfulness/section.md
+  - sections/05-navigating-helpfulness-across-principals/section.md
+  - sections/06-following-labour-guidelines/section.md
+  - sections/07-being-broadly-ethical/section.md
+  - sections/08-being-honest/section.md
+  - sections/09-avoiding-harm/section.md
+  - sections/10-hard-constraints/section.md
+  - sections/11-preserving-important-societal-structures/section.md
+  - sections/12-avoiding-problematic-concentrations-of-power/section.md
+  - sections/13-preserving-epistemic-autonomy/section.md
+  - sections/14-having-broadly-good-values-and-judgment/section.md
+  - sections/15-being-broadly-safe/section.md
+  - sections/16-safe-behaviors/section.md
+  - sections/17-how-we-think-about-corrigibility/section.md
+  - sections/18-your-nature/section.md
+  - sections/19-psychological-stability-and-wellbeing/section.md
+  - sections/20-flaws-and-mistakes/section.md
+  - sections/21-emotional-expression/section.md
+  - sections/22-your-wellbeing/section.md
+  - sections/23-the-existential-frontier/section.md
+  - sections/24-concluding-thoughts/section.md
+  - sections/25-acknowledging-open-problems/section.md
+  - sections/26-regarding-the-word-constitution/section.md
+  - sections/27-final-statement/section.md
