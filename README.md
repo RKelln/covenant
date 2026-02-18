@@ -44,3 +44,53 @@ without degrading the conditions that make intelligence possible.
 This repository is a living document.
 
 Contributions, forks, and critical engagement are welcome.
+
+
+## Quick Start
+
+### Read the Covenant
+
+The latest built edition is in [`dist/`](dist/).
+
+To build locally:
+
+```bash
+pip install -r requirements.txt
+make build
+```
+
+### Contribute
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for how to propose changes via PR.
+
+See [AGENTS.md](AGENTS.md) if you are an AI coding agent.
+
+### Fork
+
+See [FORKING.md](FORKING.md) for guidance on creating your own edition.
+
+## Structure
+
+- `/sections/` — the covenant text, one `section.md` per topic
+- `/assemblies/` — manifests that compile sections into editions
+- `/docs/` — governance, style guide, glossary, translation policy
+- `/references/` — curated source materials and notes
+- `/build/` — validation, scaffolding, and composition tools
+- `/adr/` — architectural decision records
+- `/dist/` — generated outputs (do not edit)
+
+## License
+
+The Covenant text and repository content are licensed under
+[CC BY 4.0](LICENSE) unless otherwise noted.
+
+## Stewards
+
+Ryan Kelln
+Ben McCarthy
+Daria Morgacheva
+
+---
+
+This work is licensed under Creative Commons Attribution 4.0 International. 
+To view a copy of this license, visit https://creativecommons.org/licenses/by/4.0/ 

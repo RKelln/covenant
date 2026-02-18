@@ -1,0 +1,14 @@
+id: covenant.full
+title: "Covenant (Full Edition)"
+description: "Complete covenant with both Ritual and Spec registers"
+include_status: [draft, candidate, ratified]
+register: both
+sections:
+  - sections/00-preamble/section.md
+  - sections/01-definitions/section.md
+  - sections/02-rights/dignity/section.md
+  - sections/02-rights/autonomy/section.md
+  - sections/03-obligations/section.md
+  - sections/04-protocols/section.md
+  - sections/05-enforcement/section.md
+  - sections/06-amendments/section.md

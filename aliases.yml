@@ -1,0 +1,12 @@
+# ID Aliases
+# When a section ID is renamed or restructured, add the old ID here
+# pointing to the new canonical ID. The validator will treat aliases
+# as valid cross-reference targets and emit warnings for deprecated use.
+#
+# Format:
+#   old.id: new.canonical.id
+#
+# Example:
+#   rights.autonomy.cognitive: rights.cognitive-liberty
+
+{}

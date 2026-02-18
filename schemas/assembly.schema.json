@@ -1,0 +1,43 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "assembly.schema.json",
+  "title": "Covenant Assembly Manifest",
+  "description": "Schema for assembly YAML files that define how sections are compiled into editions",
+  "type": "object",
+  "required": ["id", "title", "include_status", "sections", "register"],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for this assembly"
+    },
+    "title": {
+      "type": "string",
+      "description": "Human-readable title of the assembled edition"
+    },
+    "description": {
+      "type": "string",
+      "description": "What this assembly is for"
+    },
+    "include_status": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["draft", "candidate", "ratified", "deprecated"]
+      },
+      "description": "Only include sections with these statuses"
+    },
+    "register": {
+      "type": "string",
+      "enum": ["ritual", "spec", "both"],
+      "description": "Which register(s) to include. 'both' includes Ritual then Spec per section."
+    },
+    "sections": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Ordered list of section file paths relative to repo root"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+# Covenant References Corpus
+# See references/README.md for tier definitions and policies.
+
+references: []
+
+# Example entry (uncomment and fill when adding references):
+#
+#  - slug: haraway_1985_cyborg-manifesto
+#    title: "A Cyborg Manifesto"
+#    creator: "Donna Haraway"
+#    year: 1985
+#    url: "https://example.com/haraway-cyborg"
+#    license: restricted
+#    tier: A
+#    thesis: "The boundary between human and machine is a leaky distinction."
+#    relevance: "Informs the covenant's refusal of stable human/machine boundaries."
+#    informs_sections:
+#      - definitions
+#      - rights.dignity

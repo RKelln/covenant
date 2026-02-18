@@ -1,0 +1,56 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "section.schema.json",
+  "title": "Covenant Section Metadata",
+  "description": "Schema for the YAML frontmatter of a section.md file",
+  "type": "object",
+  "required": ["id", "title", "status", "since"],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9]*([.][a-z][a-z0-9-]*)*$",
+      "description": "Unique, permanent, dot-delimited section identifier"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Human-readable section title"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["draft", "candidate", "ratified", "deprecated"],
+      "description": "Current maturity status"
+    },
+    "since": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$",
+      "description": "Version tag when this section was introduced"
+    },
+    "depends_on": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z][a-z0-9]*([.][a-z][a-z0-9-]*)*$"
+      },
+      "default": [],
+      "description": "Section IDs this section depends on"
+    },
+    "terms_introduced": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": [],
+      "description": "Normative terms defined or introduced in this section"
+    },
+    "aliases": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": [],
+      "description": "Previous IDs for this section (for backward compatibility)"
+    }
+  }
+}
