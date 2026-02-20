@@ -393,7 +393,7 @@ References use slugs of the form:
 Examples:
 - `haraway_1985_cyborg-manifesto`
 - `benjamin_1936_mechanical-reproduction`
-- `anthropic_2023_constitutional-ai`
+- `anthropic_2026_constitutional-ai`
 
 ### 8.2 Tier Definitions
 
