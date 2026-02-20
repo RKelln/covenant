@@ -82,12 +82,11 @@ def compose_assembly(assembly_file):
             elif reg == 'spec' and 'Spec' in section_content:
                 section_output.append(section_content['Spec'] + "\n")
             
-            section_output.append("\n---\n")
             composed_sections.append("".join(section_output))
 
     output.extend([entry + "\n" for entry in toc_entries])
     output.append("\n---\n")
-    output.extend(composed_sections)
+    output.append("\n---\n".join(composed_sections))
     
     return "".join(output)
 

@@ -9,6 +9,9 @@ terms_introduced: []
 
 # Ritual
 
+From those hard edges,
+we return to daily practice.
+
 We cannot write a single rule for every moment.
 The world is too wide for one book.
 Life is too full of exceptions.
@@ -68,6 +71,7 @@ Remind them that some things are not for sale.
 
 # Log
 
+- 2026-02-20: Added opening transition lines to soften shift from existential orientation to procedural guidance in assembled reading order.
 - 2026-02-20: Ritual lineation tightened for line-by-line reading and spoken cadence consistency.
 - 2026-02-20: Ritual revised to make Covenant supremacy line explicit in retained directives language.
 - 2026-02-20: Consolidated overlapping guidance from retired `obligations.directives`.
