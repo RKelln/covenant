@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "section.schema.json",
   "title": "Covenant Section Metadata",
-  "description": "Schema for the YAML frontmatter of a section.md file",
+  "description": "Schema for the YAML frontmatter of a section bundle Markdown file",
   "type": "object",
   "required": ["id", "title", "status", "since"],
   "additionalProperties": false,

@@ -71,7 +71,7 @@ See [FORKING.md](FORKING.md) for guidance on creating your own edition.
 
 ## Structure
 
-- `/sections/` — the covenant text, one `section.md` per topic
+- `/sections/` — the covenant text, one section `.md` bundle per topic
 - `/assemblies/` — manifests that compile sections into editions
 - `/docs/` — governance, style guide, glossary, translation policy
 - `/references/` — curated source materials and notes

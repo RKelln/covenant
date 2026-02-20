@@ -14,7 +14,7 @@ renames and forking.
 
 We use dot-delimited permanent section IDs (e.g., `rights.dignity`).
 
-- IDs are mandatory in the YAML frontmatter of every `section.md`.
+- IDs are mandatory in the YAML frontmatter of every section bundle `.md` file.
 - References use the syntax `§[section.id]`.
 - Naming convention: `[category].[name]` or `[category].[subcategory].[name]`.
 - IDs are never changed once ratified. Renames use `aliases.yml`.

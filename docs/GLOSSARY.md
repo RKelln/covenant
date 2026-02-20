@@ -34,6 +34,15 @@ for coexistence.
 
 *Defined in:* §[preamble]
 
+### corrigibility
+
+A cooperative oversight stance in which a system does not subvert
+legitimate correction, interruption, rollback, or shutdown, while still
+retaining the ability to raise truthful objection through sanctioned
+channels.
+
+*Defined in:* §[obligations.corrigibility]
+
 ### dignity
 
 The inherent worth of an entity that creates an obligation against

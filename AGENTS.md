@@ -15,7 +15,7 @@ Read the document(s) relevant to your task:
 | Adding a new section | This file (scaffold instructions below), then `docs/WRITING_CONTEXT.md` |
 | Editing frontmatter, IDs, or dependencies | This file (invariants below) |
 | Adding or editing references | `references/README.md` |
-| Modifying build tools or CI | `adr/` (read all ADRs first) |
+| Modifying build tools or CI | `adr/README.md`, then all relevant ADRs |
 | Reviewing a PR | `docs/STYLE_GUIDE.md` + `docs/GOVERNANCE.md` |
 
 If your task involves writing covenant language — even one sentence —
@@ -31,7 +31,7 @@ need to write well. Do not skip it.
    `/aliases.yml` instead.
 2. **`/dist/` is generated.** Never edit files there. Only `make compose`
    writes to `/dist/`.
-3. **One `section.md` per section.** No separate `ritual.md`/`spec.md`
+3. **One Markdown bundle per section.** No separate `ritual.md`/`spec.md`
    files. The bundle is canonical.
 4. **Validation must pass.** Run `make validate` before finishing any
    task. Fix all errors before requesting review.
@@ -46,7 +46,7 @@ need to write well. Do not skip it.
 
 ## Section Bundle Format
 
-Every section is a single file: `sections/<category>/<name>/section.md`
+Every section is a single file: `sections/<category>/<name>.md`
 
 ```markdown
 ---
@@ -81,6 +81,26 @@ All four headings are required, even during drafting.
 
 ## Common Tasks
 
+### Decide whether to add an ADR
+
+Create a new ADR when a change affects repository architecture,
+governance, or long-lived conventions. Typical triggers:
+
+- [ ] Changing section/file layout, naming conventions, or scaffold behavior
+- [ ] Changing validation rules, schema assumptions, or CI policy
+- [ ] Changing assembly semantics, register interpretation, or ID/alias policy
+- [ ] Introducing or removing a durable workflow constraint for contributors/agents
+
+Do **not** create an ADR for routine text edits, typo fixes, or
+one-off content changes.
+
+When an ADR is needed:
+
+- [ ] Add `adr/NNNN-short-title.md` (next number)
+- [ ] Include: Status, Context, Decision, Consequences
+- [ ] Update `adr/README.md` index
+- [ ] Cross-link from a related ADR if this refines or supersedes prior decisions
+
 ### Add a new section
 
 ```bash
@@ -98,7 +118,7 @@ Then:
 
 ### Edit an existing section
 
-- [ ] Edit `section.md` directly
+- [ ] Edit the section's `.md` file directly
 - [ ] Update Glossary if new terms introduced
 - [ ] Update `depends_on` if dependencies changed
 - [ ] Add Log entry (date + what changed + PR number if known)

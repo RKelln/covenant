@@ -17,11 +17,14 @@ The Covenant needs a repository structure that supports:
 
 We use a flat Git + Markdown repository with:
 
-- One `section.md` file per section (the "section bundle")
+- One Markdown section bundle file per section
 - YAML frontmatter for machine-readable metadata
 - Assembly manifests that compile sections into editions
 - Python-based validation and composition tooling
 - CI enforcement via GitHub Actions
+
+For section bundle filename and path naming conventions, including the
+migration away from nested `section.md` files, see ADR 0004.
 
 The canonical source of truth is always the Git repository. Any future
 web frontend, wiki, or reading interface will be a view of the repo,

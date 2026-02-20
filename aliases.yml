@@ -9,4 +9,10 @@
 # Example:
 #   rights.autonomy.cognitive: rights.cognitive-liberty
 
-{}
+enforcement.audit: enforcement
+enforcement.metrics: enforcement
+enforcement.transparency: enforcement
+enforcement.interpretation: enforcement
+enforcement.steward-accountability: enforcement
+enforcement.appeals: enforcement
+obligations.ecological: obligations.ecological-integrity

@@ -10,7 +10,7 @@ All contributions happen through GitHub Pull Requests.
 
 1. Fork this repository
 2. Create a branch for your change
-3. Edit the relevant `section.md` file(s)
+3. Edit the relevant section `.md` file(s)
 4. Update the Log section with a description of your change
 5. Run `make validate` to check structural integrity
 6. Open a PR using the provided template

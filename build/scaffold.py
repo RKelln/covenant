@@ -60,7 +60,7 @@ def main():
         sys.exit(1)
 
     # Check for existing ID
-    for section_file in SECTIONS_DIR.rglob("section.md"):
+    for section_file in SECTIONS_DIR.rglob("*.md"):
         with open(section_file, 'r', encoding='utf-8') as f:
             content = f.read()
             if f"id: {sec_id}" in content:
@@ -87,14 +87,11 @@ def main():
         category_folder = f"{next_num:02d}-{category}"
         print(f"Warning: Category '{category}' not recognized. Creating new category folder: {category_folder}")
 
-    # Final path
-    if len(parts) > 1:
-        target_dir = SECTIONS_DIR / category_folder / folder_name
-    else:
-        target_dir = SECTIONS_DIR / category_folder
+    target_dir = SECTIONS_DIR / category_folder
+    target_file = target_dir / f"{folder_name}.md"
 
-    if (target_dir / "section.md").exists():
-        print(f"Error: Section already exists at {target_dir / 'section.md'}")
+    if target_file.exists():
+        print(f"Error: Section already exists at {target_file}")
         sys.exit(1)
 
     os.makedirs(target_dir, exist_ok=True)
@@ -102,10 +99,10 @@ def main():
     date_str = datetime.now().strftime("%Y-%m-%d")
     content = TEMPLATE.format(id=sec_id, title=title, date=date_str)
     
-    with open(target_dir / "section.md", 'w', encoding='utf-8') as f:
+    with open(target_file, 'w', encoding='utf-8') as f:
         f.write(content)
 
-    print(f"Created: {target_dir / 'section.md'} (id: {sec_id})")
+    print(f"Created: {target_file} (id: {sec_id})")
     print("\nNext steps:")
     print("- Edit the section content")
     print("- Add to an assembly in /assemblies/")

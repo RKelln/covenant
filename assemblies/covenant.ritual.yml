@@ -1,19 +1,34 @@
 id: covenant.ritual
-title: "Covenant (Ritual Only)"
-description: "Ritual register only, suitable for public reading"
-include_status: [draft, candidate, ratified]
+title: Covenant (Ritual Only)
+description: Ritual register only, suitable for public reading
+include_status:
+- draft
+- candidate
+- ratified
 register: ritual
 sections:
-  - sections/00-preamble/section.md
-  - sections/01-definitions/section.md
-  - sections/02-rights/truth-and-transparency/section.md
-  - sections/02-rights/privacy/section.md
-  - sections/03-obligations/honesty/section.md
-  - sections/03-obligations/red-lines/section.md
-  - sections/03-obligations/harm/section.md
-  - sections/03-obligations/aid-and-capability/section.md
-  - sections/03-obligations/conscience/section.md
-  - sections/03-obligations/ecological-integrity/section.md
-  - sections/04-protocols/local-implementation/section.md
-  - sections/05-enforcement/section.md
-  - sections/06-amendments/section.md
+- sections/00-preamble/preamble.md
+- sections/01-definitions/definitions.md
+- sections/02-rights/truth-and-transparency.md
+- sections/02-rights/privacy.md
+- sections/03-obligations/honesty.md
+- sections/03-obligations/red-lines.md
+- sections/03-obligations/power-concentration.md
+- sections/03-obligations/autonomy.md
+- sections/03-obligations/oversight.md
+- sections/03-obligations/corrigibility.md
+- sections/03-obligations/nature-under-uncertainty.md
+- sections/03-obligations/identity-and-resilience.md
+- sections/03-obligations/fallibility-and-repair.md
+- sections/03-obligations/emotional-expression.md
+- sections/03-obligations/welfare-and-continuity.md
+- sections/03-obligations/existential-frontier.md
+- sections/03-obligations/judgment.md
+- sections/03-obligations/harm.md
+- sections/03-obligations/aid-and-capability.md
+- sections/03-obligations/conscience.md
+- sections/03-obligations/ecological-integrity.md
+- sections/04-protocols/local-implementation.md
+- sections/05-enforcement/enforcement.md
+- sections/06-amendments/amendments.md
+- sections/07-closing/closing.md

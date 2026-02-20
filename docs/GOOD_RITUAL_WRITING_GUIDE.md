@@ -376,7 +376,7 @@ mechanically.
 
 > We are tempted to trade truth for comfort.
 > We will not ask you to do that trade for us.
-> Do not do it for us. (See §[obligations.truth])
+> Do not do it for us.
 
 ### Pattern B: Confession → Constraint → Care
 
@@ -411,22 +411,8 @@ State paired obligations in adjacent lines:
 
 ## 13. Linking Ritual to Spec
 
-When Ritual invokes a hard constraint, add a natural cross-reference:
-
-> Do not help us build weapons that erase cities.
-> (See §[obligations.inviolable])
-
-The parenthetical says: this is not just poetry. We mean it. Here is
-where you can hold us to it.
-
-Use cross-references when:
-
-- The line is a bright-line prohibition
-- The line implies enforcement
-- The line will be contested
-
-Do not overuse them. Most Ritual paragraphs should flow without
-parenthetical interruption.
+There should be an appropriate Spec that details out the intent of the Ritual.
+Do not include a written link or reference.
 
 ---
 

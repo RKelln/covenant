@@ -109,7 +109,7 @@ def main():
 
     # Scan sections
     sections_data = []
-    for section_file in SECTIONS_DIR.rglob("section.md"):
+    for section_file in SECTIONS_DIR.rglob("*.md"):
         res = validate_section(section_file, section_schema, all_ids, all_aliases)
         if res:
             sections_data.append((section_file.relative_to(REPO_ROOT), res[0], res[1]))

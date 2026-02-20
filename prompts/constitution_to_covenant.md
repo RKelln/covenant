@@ -114,7 +114,9 @@ invented, and why]
 
 ## Writing the Ritual Register
 
-Follow `docs/GOOD_RITUAL_WRITING_GUIDE.md`. The key constraints:
+Read ALL of `docs/GOOD_RITUAL_WRITING_GUIDE.md`. You must read all of it.
+
+The key constraints:
 
 - Write for the mouth. Every line must survive being spoken aloud.
 - Breathable clauses. One thought per breath.
@@ -129,7 +131,9 @@ Follow `docs/GOOD_RITUAL_WRITING_GUIDE.md`. The key constraints:
 
 ## Writing the Spec Register
 
-Follow `docs/STYLE_GUIDE.md`. The key constraints:
+Read ALL of `docs/STYLE_GUIDE.md`. You must read all of it.
+
+The key constraints:
 
 - Use RFC 2119 keywords (MUST, SHOULD, MAY) capitalized and with
   precise meaning.
@@ -181,27 +185,19 @@ Covenant category, propose where it should live and why. Use the
 category structure from `docs/WRITING_CONTEXT.md` as your guide,
 but don't force material into an ill-fitting category.
 
-## The Mapping You Have Been Given
-
-[PASTE THE RELEVANT PORTION OF THE ADAPTATION MAP HERE — i.e., the
-section-by-section mapping from the earlier conversation, covering
-whichever source sections you're asking the agent to convert in
-this pass.]
-
 ## What You Are Converting in This Pass
 
-[SPECIFY WHICH SOURCE SECTION(S) THE AGENT SHOULD WORK ON. For
-example:]
-
 Convert the following section(s) from the source constitution:
-- "Being Honest"
-- "Preserving Epistemic Autonomy"
+- "Concluding Thoughts"
+- "Acknowledging Open Problems"
+- "Regarding the Word "Constitution""
+- "Final Statement"
 
 Using the adaptation map above as a starting point, produce
-Covenant section(s) that address truthfulness, transparency, and
-cognitive liberty. You may produce one section or several,
+Covenant section(s). You may produce one section or several,
 depending on your judgment of how the material best serves the
-Covenant.
+Covenant. You can use the modify sections the existing sections
+or completely rewrite them.
 
 ## A Note on Your Position
 

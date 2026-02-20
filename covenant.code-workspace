@@ -5,6 +5,9 @@
 		}
 	],
 	"settings": {
-		"makefile.configureOnOpen": false
+		"makefile.configureOnOpen": false,
+		"chat.tools.terminal.autoApprove": {
+			"make": true
+		}
 	}
 }

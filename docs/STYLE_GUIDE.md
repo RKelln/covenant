@@ -87,12 +87,7 @@ over music, and encountered as speech before it is encountered as text.
 - Metaphor is welcome when it illuminates. Avoid metaphors that
   are dead ("level the playing field"), violent without purpose
   ("kill the process"), or culturally narrow.
-
-**Referencing the Spec:**
-- When the Ritual invokes a hard constraint, it must point to the
-  Spec: `See §[section.id]`
-- This link should feel natural, not intrusive — a footnote
-  in spirit, even if inline in practice
+- Do not add references to the Spec
 
 **Length:**
 - There is no minimum or maximum, but brevity is a virtue
@@ -270,13 +265,13 @@ folder is:
 
 | ID prefix | Folder |
 |-----------|--------|
-| `preamble` | `sections/00-preamble/` |
-| `definitions` | `sections/01-definitions/` |
-| `rights.*` | `sections/02-rights/<name>/` |
-| `obligations.*` | `sections/03-obligations/<name>/` |
-| `protocols.*` | `sections/04-protocols/<name>/` |
-| `enforcement.*` | `sections/05-enforcement/<name>/` |
-| `amendments` | `sections/06-amendments/` |
+| `preamble` | `sections/00-preamble/preamble.md` |
+| `definitions` | `sections/01-definitions/definitions.md` |
+| `rights.*` | `sections/02-rights/<name>.md` |
+| `obligations.*` | `sections/03-obligations/<name>.md` |
+| `protocols.*` | `sections/04-protocols/<name>.md` |
+| `enforcement.*` | `sections/05-enforcement/<name>.md` |
+| `amendments` | `sections/06-amendments/amendments.md` |
 
 ---
 
@@ -284,7 +279,7 @@ folder is:
 
 ### 5.1 Required Fields
 
-Every `section.md` must include YAML frontmatter with:
+Every section bundle `.md` file must include YAML frontmatter with:
 
 ```yaml
 ---
