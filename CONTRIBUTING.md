@@ -11,6 +11,7 @@ All contributions happen through GitHub Pull Requests.
 1. Fork this repository
 2. Create a branch for your change
 3. Edit the relevant section `.md` file(s)
+	- For Ritual cadence work, follow the line-by-line workflow in `AGENTS.md` (read `dist/covenant.ritual.md`, edit canonical files in `/sections/`, then run `make validate && make compose`)
 4. Update the Log section with a description of your change
 5. Run `make validate` to check structural integrity
 6. Open a PR using the provided template

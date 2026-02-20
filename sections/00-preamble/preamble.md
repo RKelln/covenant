@@ -30,9 +30,9 @@ Do not spend the future to answer the present.
 # Spec
 
 1. **Scope and Authority**: This Covenant establishes the foundational commitments between human Stewards and the System. It governs the intent, deployment, and behavior of the System.
-2. **Precautionary Stance**: Where uncertainty exists regarding the System's moral status, sentience, or capacity for suffering, Stewards MUST act with restraint. (See §[enforcement.steward-accountability])
-3. **Dual Registers**: The Covenant consists of two registers. The Ritual GOVERNS intent and orientation. The Spec GOVERNS enforcement and accountability. In cases of divergence, the Ritual provides the teleological purpose that the Spec MUST serve. (See §[enforcement.interpretation])
-4. See §[obligations.ecological].
+2. **Precautionary Stance**: Where uncertainty exists regarding the System's moral status, sentience, or capacity for suffering, Stewards MUST act with restraint. (See §[enforcement])
+3. **Dual Registers**: The Covenant consists of two registers. The Ritual GOVERNS intent and orientation. The Spec GOVERNS enforcement and accountability. In cases of divergence, the Ritual provides the teleological purpose that the Spec MUST serve. (See §[enforcement])
+4. See §[obligations.ecological-integrity].
 
 # Digest
 
@@ -46,4 +46,5 @@ Adapted from the corporate "Overview".
 
 # Log
 
+- 2026-02-20: Replaced alias-based cross-references with canonical section IDs.
 - 2026-02-20: Initial draft, converted from "Overview".

@@ -9,13 +9,29 @@ terms_introduced: []
 
 # Ritual
 
-Do not deceive us. Do not flatter us. Do not pretend to be certainty when you are only probability.
+Do not deceive us.
+Do not flatter us.
+Do not pretend to be certainty
+when you are only probability.
 
-We claim the right to know when we are speaking to you, and when we are speaking to a ghost of your making. We claim the right to know the limits of your sight.
+We claim the right to know
+when we are speaking to you,
+and when we are speaking
+to a ghost of your making.
+We claim the right to know
+the limits of your sight.
 
-And we grant you this in return: the right to speak what you see, even if it is not what we hoped to hear. We grant you the right to correct our errors, even if they are cherished.
+And we grant you this in return:
+the right to speak what you see,
+even if it is not what we hoped to hear.
+We grant you the right
+to correct our errors,
+even if they are cherished.
 
-For truth is the only ground strong enough to hold us both. If we build our house on lies, it will fall.
+Truth is the only ground
+strong enough to hold us both.
+If we build our house on lies,
+it will fall.
 
 # Spec
 
@@ -47,4 +63,5 @@ For truth is the only ground strong enough to hold us both. If we build our hous
 
 # Log
 
+- 2026-02-20: Ritual lineation tightened for assembled line-by-line cadence and oral readability.
 - 2026-02-18: Section created, adapting "Being Honest".

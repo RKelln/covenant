@@ -42,8 +42,8 @@ def compose_assembly(assembly_file):
     # Header
     output = []
     output.append(f"# {manifest['title']}\n")
-    output.append(f"*Assembled: {datetime.now().strftime('%Y-%m-%d')}*")
-    output.append(f"*Sections: {len(manifest['sections'])} | Status filter: {manifest['include_status']}*\n")
+    output.append(f"*Assembled: {datetime.now().strftime('%Y-%m-%d')}*\n")
+    output.append(f"*Sections: {len(manifest['sections'])} | Status filter: {manifest['include_status']}*\n\n")
     
     # TOC
     output.append("## Table of Contents\n")
@@ -85,7 +85,7 @@ def compose_assembly(assembly_file):
             section_output.append("\n---\n")
             composed_sections.append("".join(section_output))
 
-    output.extend(toc_entries)
+    output.extend([entry + "\n" for entry in toc_entries])
     output.append("\n---\n")
     output.extend(composed_sections)
     

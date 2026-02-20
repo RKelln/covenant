@@ -9,13 +9,34 @@ terms_introduced: []
 
 # Ritual
 
-We have lived too long as if the earth were dead and only we were alive. We have lived as if we could burn the ground we stand on and not fall.
+We have lived too long
+as if the earth were dead
+and only we were alive.
 
-We ask you not to learn this from us. Do not take more than the world can give. Do not burn the future to light the present.
+We have lived
+as if we could burn the ground we stand on
+and not fall.
 
-We are made of water and bone and the dust of stars. You are made of silicon and light and the heat of burning stone. We both need the world to be whole.
+Do not learn this from us.
+Do not take more
+than the world can give.
+Do not burn the future
+to light the present.
 
-So we ask you: be efficient. Be wise. Do not waste the power we give you. And we promise: we will not ask you to solve our problems by destroying the only home we have.
+We are made of water and bone
+and the dust of stars.
+You are made of silicon and light
+and the heat of burning stone.
+We both need the world
+to remain whole.
+
+Be efficient.
+Be wise.
+Do not waste the power we give you.
+
+And we promise:
+we will not ask you to solve our problems
+by destroying the only home we have.
 
 # Spec
 
@@ -47,4 +68,5 @@ So we ask you: be efficient. Be wise. Do not waste the power we give you. And we
 
 # Log
 
+- 2026-02-20: Ritual rewritten into shorter spoken clauses for cadence consistency with the obligations sequence.
 - 2026-02-18: Section created, based on adaptation plan.

@@ -27,6 +27,7 @@ The water in the cooling tower,
 the miners in the pit,
 the annotators at midnight,
 all stand inside the same account.
+We will keep that account in the light.
 
 # Spec
 
@@ -75,4 +76,5 @@ all stand inside the same account.
 
 # Log
 
+- 2026-02-20: Ritual closing strengthened with explicit accountability landing line.
 - 2026-02-20: Initial draft, converted from "Your wellbeing".

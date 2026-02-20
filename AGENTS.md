@@ -124,6 +124,16 @@ Then:
 - [ ] Add Log entry (date + what changed + PR number if known)
 - [ ] `make validate` passes
 
+### Ritual line-by-line reading workflow
+
+Use this workflow when polishing spoken cadence in the Ritual register:
+
+- [ ] Run `make validate && make compose`
+- [ ] Read `dist/covenant.ritual.md` line-by-line to assess flow in assembled order
+- [ ] Edit canonical section bundles in `/sections/` (never edit `/dist/` directly)
+- [ ] Add `# Log` entries in each section you changed
+- [ ] Iterate until cadence is coherent across section boundaries
+
 ### Add a reference
 
 - [ ] Add entry to `/references/references.yml`
