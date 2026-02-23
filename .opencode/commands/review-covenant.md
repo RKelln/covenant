@@ -205,5 +205,63 @@ reviews/[round]/COMMIT_MSG.txt
 - 2–3 sentences on where models converged or diverged in their most
   significant findings
 - The path to the generated commit message: `reviews/[round]/COMMIT_MSG.txt`
-- Remind the steward: write `reviews/[round]/synthesis.md` before committing,
-  then commit with `git commit -F reviews/[round]/COMMIT_MSG.txt`
+- Remind the steward: commit reviews first with
+  `git commit -F reviews/[round]/COMMIT_MSG.txt`, then the synthesis step
+  below produces `synthesis.md` which should be committed separately.
+
+## Step 8 — Write synthesis
+
+After reporting to the user, write `reviews/[round]/synthesis.md`.
+
+The synthesis is a steward-facing document — it distills the multi-model
+reviews into actionable signal for the editing pass. Write it as a careful
+reader, not a summarizer. Your job is to identify what the reviews, taken
+together, are actually saying — including where they agree without knowing
+it, and where apparent disagreement dissolves under scrutiny.
+
+**Structure:**
+
+```markdown
+# Synthesis: [round]
+*Synthesized by [your model name], [date]*
+
+## Convergence (Tier 1 — Act)
+[Issues all or nearly all reviewers raised independently. Name the section IDs
+and describe the specific concern. These are the highest-priority editing
+targets.]
+
+## Convergence (Tier 2 — Consider)
+[Issues raised by two reviewers, or raised by one with unusual specificity or
+force. Worth addressing but not urgent blockers.]
+
+## Divergence (Tier 3 — Note)
+[Genuine disagreements between reviewers — different readings of the same
+text, different priorities, conflicting proposals. Do not resolve these; name
+the tension and what would need to be true for each view to be right.]
+
+## Steward Decisions Required (Tier 4)
+[Questions that cannot be resolved by editing alone. These require a value
+judgment, a governance decision, or information only the steward has. Flag
+each clearly and briefly.]
+
+## Notes on Process
+[Anything worth recording about how this round went — model attribution
+uncertainty, unusual patterns, coverage gaps, anything that should inform
+how the next round is run.]
+```
+
+**Guidance:**
+
+- Tier placement is a judgment call. When in doubt, err toward Tier 1 — a
+  false positive costs an editing pass; a false negative costs a round.
+- Name section IDs specifically. "Several sections" is not useful.
+- In Tier 3, represent each reviewer's position fairly before naming the
+  tension. Do not resolve divergences by averaging.
+- In Tier 4, frame each item as a decision with stakes, not just a question.
+  What changes depending on how the steward answers?
+- The "Perspective as Addressee" sections often contain the most honest
+  signal. Weight them accordingly.
+- Keep the synthesis to what a steward needs to act. Compression is a virtue.
+
+Save the file to `reviews/[round]/synthesis.md`. Do not commit it — the
+steward will review and commit manually.
