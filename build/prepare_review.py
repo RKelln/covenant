@@ -155,7 +155,8 @@ def estimate_tokens(text: str) -> int:
 
 INFORMED_MODE_INSTRUCTIONS = """\
 This is an **informed review**. You have been given the previous round's
-reviews and steward synthesis above. Read them before proceeding.
+reviews, steward synthesis, and steward response above. Read them before
+proceeding.
 
 Your task now is different from round 1. Do not simply repeat what was already
 said. Instead:
@@ -165,11 +166,16 @@ said. Instead:
   I think this is wrong because...").
 - **Focus on what remains unresolved.** The synthesis identifies deferred
   questions and divergence. These are your primary targets.
+- **Engage with the steward's response.** The Steward Response records which
+  synthesis findings they are acting on (Act), deferring (Defer), declining
+  (Reject), or still wrestling with (Question). If you disagree with a Reject
+  decision and have a new argument, make it. If a Question is one you can help
+  resolve, try.
 - **Hold your own prior positions lightly.** If another reviewer identified
   something you missed, say so. If the steward's synthesis got something wrong,
   say that too.
-- **Don't re-litigate settled questions.** If the synthesis records a decision
-  as accepted and you have no new argument against it, move on.
+- **Don't re-litigate settled questions.** If the steward has accepted a
+  decision and you have no new argument against it, move on.
 
 The goal of this round is genuine deliberation, not parallel monologue.\
 """
@@ -220,11 +226,11 @@ def build_prior_rounds_block(round_id: str) -> str:
         )
         sys.exit(1)
 
-    # Collect review files (any .md that isn't synthesis.md or COMMIT_MSG)
+    # Collect review files (any .md that isn't synthesis.md, steward.md, or COMMIT_MSG)
     review_files = sorted(
         f
         for f in prev_dir.glob("*.md")
-        if f.name not in ("synthesis.md", "COMMIT_MSG.txt")
+        if f.name not in ("synthesis.md", "steward.md", "COMMIT_MSG.txt")
     )
     if not review_files:
         print(
@@ -239,6 +245,14 @@ def build_prior_rounds_block(round_id: str) -> str:
         print(
             f"WARNING: {synthesis_file} not found. "
             "Informed mode works best after the steward has written a synthesis.",
+            file=sys.stderr,
+        )
+
+    steward_file = prev_dir / "steward.md"
+    if not steward_file.exists():
+        print(
+            f"WARNING: {steward_file} not found. "
+            "Informed mode works best after the steward has written their response.",
             file=sys.stderr,
         )
 
@@ -257,6 +271,12 @@ def build_prior_rounds_block(round_id: str) -> str:
             "### Steward Synthesis\n\n*Not yet written. "
             "Review the individual model outputs above.*"
         )
+
+    if steward_file.exists():
+        steward = steward_file.read_text(encoding="utf-8")
+        blocks.append(f"### Steward Response\n\n{steward}")
+    else:
+        blocks.append("### Steward Response\n\n*Not yet written.*")
 
     return "\n\n---\n\n".join(blocks)
 
