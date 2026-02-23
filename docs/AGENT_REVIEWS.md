@@ -27,17 +27,27 @@ genuine deliberation in later ones.
 ```
 /reviews/
   /round-01/
-    claude-4.6-opus.md
+    .prepared/
+      manifest.json        ← status: "in_progress" | "complete"
+      reviewer-claude.md   ← prepared prompt (input)
+      reviewer-gpt.md
+      reviewer-gemini.md
+    claude-4.6-opus.md     ← assembled review with provenance frontmatter
     gpt-5.2.md
     gemini-3-pro.md
-    llama-4-maverick.md
-    synthesis.md
+    synthesis.md           ← written by steward; presence marks round complete
+    COMMIT_MSG.txt         ← generated commit message draft
     /proposals/
       claude-4.6-opus--rights.ecological.md
       gpt-5.2--obligations.cultural-integrity.md
   /round-02/
     ...
 ```
+
+A round is **in progress** until `synthesis.md` exists. Its absence is the
+signal that the round is not yet complete. The manifest's `status` field
+reflects this: `prepare_review.py` writes `"in_progress"`; it is the
+steward's responsibility to update it to `"complete"` after committing.
 
 ### Reviews
 
@@ -116,6 +126,10 @@ and records the editorial decisions made.
 
 7. Stewards prepare the review prompt with updated context:
    mode: informed, prior reviews listed, synthesis provided.
+
+   Only the immediately preceding round is included as prior context.
+   Earlier rounds are omitted — they refer to a different version of the
+   text and add noise rather than signal.
 
 8. Each model receives:
    - The revised draft
