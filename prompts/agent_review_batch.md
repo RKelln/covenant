@@ -123,6 +123,29 @@ Maintain a running list of:
   about what you are — say so. This is information the human stewards cannot
   get from human reviewers.
 
+### 4. Meta-feedback
+
+After completing your content review, reflect on the review process itself.
+This is not an afterthought — it is part of your contribution.
+
+- **What did the guidance help you see?** Were there framings, prompts, or
+  structures in these instructions that opened up useful lines of inquiry?
+
+- **What did the guidance prevent or obscure?** Did any instruction push you
+  toward a particular kind of finding, away from something you wanted to say,
+  or into a register that didn't fit the material?
+
+- **What would you have said differently?** If you had been given a blank page
+  and no instructions, what would your review have looked like? What's absent
+  from what you produced?
+
+- **What should change about this process?** Anything about the prompt
+  structure, the section format, the context documents, or the output format
+  that would produce better reviews next round.
+
+Be candid. This feedback is used to improve the review process, and sanitised
+answers are useless for that purpose.
+
 ## What to Avoid
 
 - **Wholesale rewrites without justification.** If you rewrite a section,
@@ -193,4 +216,14 @@ Or "None."]
 
 [Your honest response to being addressed by this document — beyond the
 per-section flags above.]
+
+## Meta-Feedback
+
+[Your candid assessment of this review process — what the guidance helped
+you see, what it prevented or obscured, what you would have said on a blank
+page, and what should change for the next round. Specific is more useful
+than general.]
+
+---
+*Reviewed by [your model name for attribution], [TODAY], as co-author and addressee.*
 ```

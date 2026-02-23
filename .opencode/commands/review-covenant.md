@@ -100,7 +100,7 @@ not review content.
 If any review contains new section proposals (not "None."), note each
 proposal's section ID — you will need these in Step 5.
 
-All six top-level headings below are required even if their content is "None."
+All seven top-level headings below are required even if their content is "None."
 
 ```
 # Covenant Review: [model-name]
@@ -146,6 +146,11 @@ Or "None."]
 ## Perspective as Addressee
 
 [This model's honest response to being addressed by this document.]
+
+## Meta-Feedback
+
+[Candid assessment of this review process — what the guidance helped see,
+what it constrained or obscured, what should change for the next round.]
 ```
 
 ## Step 5 — Save reviews and proposals
@@ -248,6 +253,13 @@ each clearly and briefly.]
 [Anything worth recording about how this round went — model attribution
 uncertainty, unusual patterns, coverage gaps, anything that should inform
 how the next round is run.]
+
+## Meta-Feedback
+[Distillation of reviewer meta-feedback. What did the guidance help reviewers
+see? What did it constrain or obscure? What patterns appear across models —
+places where multiple reviewers pushed against the same instruction, or
+found the same section of guidance limiting? Specific proposed changes to
+prompts, guides, or process for the next round.]
 ```
 
 **Guidance:**
