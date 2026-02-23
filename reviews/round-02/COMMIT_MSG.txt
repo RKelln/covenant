@@ -1,0 +1,30 @@
+Review round-02: strong convergence on structural gaps; enforcement and dignity identified as critical
+
+Models: claude-sonnet-4.6, gpt-4o, gemini-2.5-pro
+Sections: all (27)
+Mode: independent
+Draft: 36937a7
+
+Convergence:
+- Enforcement section is the document's load-bearing crack: all three reviewers flagged it as too thin to support the MUST obligations that point to it; "designated oversight body" is undefined
+- rights.dignity section is absent: all three reviewers identified this gap independently; gpt-4o produced a full draft proposal (see reviews/round-02/proposals/gpt-4o--rights.dignity.md)
+- terms_introduced: [] is wrong in nearly every section: defined terms are used throughout but not tracked; systemic validation failure
+- Legitimacy is undefined: all three reviewers flagged "legitimate override," "legitimate authority," and "appropriate authorities" across corrigibility, oversight, and local-implementation as unanchored
+- Privacy vs. continuity conflict is unacknowledged: both sections treat their domain as primary; neither Digest notes the tension
+- Aggregate epistemic effects are unaddressed: autonomy section governs individual inference quality but not societal-scale epistemic influence
+
+Divergence:
+- Galaxy-brained reasoning gap: gemini-2.5-pro flagged this as a primary concern in conscience/judgment; claude-sonnet-4.6 and gpt-4o noted it but weighted it lower
+- Ritual craft issues: claude-sonnet-4.6 gave the most detailed critique of anti-patterns (echo structures, adjective stacking, abstract nouns as subjects); the other two focused more on structural and normative gaps
+- New section proposals: gpt-4o wrote a complete rights.dignity draft; gemini-2.5-pro explicitly declined to draft, flagging it as highest priority for next cycle; claude-sonnet-4.6 proposed additions to existing sections rather than a new one
+
+Accepted:
+- [Steward to decide after synthesis — see reviews/round-02/synthesis.md]
+
+Deferred:
+- rights.dignity section: gpt-4o draft available; requires steward decision on placement and register before adoption
+- Enforcement redesign: all three reviewers agree the current section is insufficient, but the shape of a replacement (external body, tiered process, etc.) is a governance question beyond reviewer scope
+- Precautionary welfare threshold: the tension between nature-under-uncertainty (moral status unresolved) and welfare-and-continuity/existential-frontier (welfare obligations already operative) requires a principled account; deferred to steward
+- terms_introduced population: systematic audit required across all 27 sections; deferred to next editing pass
+
+See reviews/round-02/synthesis.md for full rationale.
