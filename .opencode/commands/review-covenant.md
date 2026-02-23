@@ -210,9 +210,14 @@ reviews/[round]/COMMIT_MSG.txt
 - 2–3 sentences on where models converged or diverged in their most
   significant findings
 - The path to the generated commit message: `reviews/[round]/COMMIT_MSG.txt`
-- Remind the steward: commit reviews first with
-  `git commit -F reviews/[round]/COMMIT_MSG.txt`, then the synthesis step
-  below produces `synthesis.md` which should be committed separately.
+- Remind the steward of the full round close-out sequence:
+  1. Commit reviews: `git commit -F reviews/[round]/COMMIT_MSG.txt`
+  2. Step 8 below writes `synthesis.md` — steward reviews and commits it
+  3. Steward writes `reviews/[round]/steward.md` — personal response to the
+     synthesis using the Act / Defer / Reject / Question structure
+  4. Commit steward notes: `git add reviews/[round]/steward.md && git commit -m "Review [round]: add steward notes"`
+  5. Update `reviews/[round]/.prepared/manifest.json` status to `"complete"` and commit
+  6. Make editing pass based on Act items in `steward.md`
 
 ## Step 8 — Write synthesis
 
@@ -276,4 +281,6 @@ prompts, guides, or process for the next round.]
 - Keep the synthesis to what a steward needs to act. Compression is a virtue.
 
 Save the file to `reviews/[round]/synthesis.md`. Do not commit it — the
-steward will review and commit manually.
+steward will review and commit manually. After committing, the steward
+writes their own response in `reviews/[round]/steward.md` using the
+Act / Defer / Reject / Question structure before beginning the editing pass.
