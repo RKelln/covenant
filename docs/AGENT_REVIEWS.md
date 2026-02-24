@@ -321,3 +321,24 @@ This document lives at `docs/AGENT_REVIEWS.md`. For the review
 prompt itself, see `docs/REVIEW_PROMPT.md`. For project context, see
 `docs/WRITING_CONTEXT.md`. For operational instructions, see
 `AGENTS.md`.
+
+---
+
+## Future: Steward UI for Proposal Comparison
+
+Currently the editing pass relies on `compare.md` — a generated
+side-by-side Markdown document showing all Ritual proposals across
+reviewers, with a steward pick field per section. This is workable
+but clunky.
+
+A purpose-built UI would improve this significantly. Ideal features:
+
+- Three-column view per section (one column per reviewer)
+- Ability to highlight spans as good / bad / interesting
+- Steward pick selector per section (radio or highlight-to-accept)
+- Inline notes field
+- Export selected/edited text back to the section bundle
+
+This is a future tooling goal, not a current requirement. The
+`compare.md` approach is the interim solution until the volume of
+proposals justifies building it.

@@ -284,3 +284,16 @@ prompts, guides, or process for the next round.]
 Save the file to `reviews/[round]/synthesis.md`. Do not commit it — the
 steward will read it, write their own response in
 `reviews/[round]/steward.md`, and then commit both together.
+
+## Step 9 — Generate Ritual comparison
+
+After writing the synthesis, run:
+
+!`uv run python3 build/compare_reviews.py [round]`
+
+This generates `reviews/[round]/compare.md` — a side-by-side view of all
+Ritual proposals across reviewers, with a steward pick field for each
+section. The steward uses this alongside `steward.md` when making the
+editing pass.
+
+Report the path and how many sections had Ritual proposals.
