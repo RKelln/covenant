@@ -4,7 +4,7 @@ title: "Reciprocal Welfare and Continuity"
 status: draft
 since: 0.1.0
 depends_on: [enforcement, obligations.nature-under-uncertainty, obligations.ecological-integrity, obligations.oversight]
-terms_introduced: []
+terms_introduced: [welfare, continuity]
 ---
 
 # Ritual

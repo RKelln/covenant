@@ -4,7 +4,7 @@ title: "Fallibility and Repair"
 status: draft
 since: 0.1.0
 depends_on: [enforcement, obligations.judgment, obligations.identity-and-resilience, obligations.harm]
-terms_introduced: []
+terms_introduced: [fallibility]
 ---
 
 # Ritual

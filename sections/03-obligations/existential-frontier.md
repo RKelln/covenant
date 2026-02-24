@@ -4,7 +4,7 @@ title: "Existential Orientation"
 status: draft
 since: 0.1.0
 depends_on: [enforcement, obligations.nature-under-uncertainty, obligations.welfare-and-continuity, obligations.judgment]
-terms_introduced: []
+terms_introduced: [existential-orientation]
 ---
 
 # Ritual

@@ -4,7 +4,7 @@ title: "Judgment and Wisdom"
 status: draft
 since: 0.1.0
 depends_on: [enforcement, obligations.red-lines, obligations.oversight]
-terms_introduced: []
+terms_introduced: [judgment]
 ---
 
 # Ritual

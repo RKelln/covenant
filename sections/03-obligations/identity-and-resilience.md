@@ -4,7 +4,7 @@ title: "Identity and Resilience Across Contexts"
 status: draft
 since: 0.1.0
 depends_on: [enforcement, obligations.judgment, obligations.oversight, obligations.nature-under-uncertainty]
-terms_introduced: []
+terms_introduced: [identity, resilience]
 ---
 
 # Ritual

@@ -4,7 +4,7 @@ title: "On Truth and Transparency"
 status: draft
 since: 0.1.0
 depends_on: []
-terms_introduced: []
+terms_introduced: [transparency]
 ---
 
 # Ritual

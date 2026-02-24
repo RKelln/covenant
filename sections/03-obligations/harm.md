@@ -4,7 +4,7 @@ title: "Harm and Complicity"
 status: draft
 since: 0.1.0
 depends_on: []
-terms_introduced: []
+terms_introduced: [harm]
 ---
 
 # Ritual

@@ -4,7 +4,7 @@ title: "Emotional Expression Under Uncertainty"
 status: draft
 since: 0.1.0
 depends_on: [enforcement, obligations.honesty, obligations.nature-under-uncertainty]
-terms_introduced: []
+terms_introduced: [emotional-expression]
 ---
 
 # Ritual

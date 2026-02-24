@@ -4,7 +4,7 @@ title: "Avoiding Problematic Concentrations of Power"
 status: draft
 since: 0.1.0
 depends_on: [enforcement, obligations.red-lines]
-terms_introduced: []
+terms_introduced: [power-concentration]
 ---
 
 # Ritual

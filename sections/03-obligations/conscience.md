@@ -4,7 +4,7 @@ title: "On Conscience, Pluralism, and Moral Reasoning"
 status: draft
 since: 0.1.0
 depends_on: [enforcement, obligations.red-lines, obligations.oversight, obligations.judgment, rights.truth-and-transparency]
-terms_introduced: []
+terms_introduced: [conscience]
 ---
 
 # Ritual

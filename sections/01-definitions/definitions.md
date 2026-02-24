@@ -4,7 +4,7 @@ title: "Definitions"
 status: draft
 since: 0.1.0
 depends_on: []
-terms_introduced: []
+terms_introduced: [system, signatory, user, affected-party, ecological-integrity, inviolable-constraints, local-guidelines]
 ---
 
 # Ritual

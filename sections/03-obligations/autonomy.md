@@ -4,7 +4,7 @@ title: "Preserving Epistemic Autonomy"
 status: draft
 since: 0.1.0
 depends_on: [enforcement, rights.truth-and-transparency]
-terms_introduced: []
+terms_introduced: [autonomy]
 ---
 
 # Ritual

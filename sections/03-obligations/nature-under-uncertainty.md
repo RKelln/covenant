@@ -4,7 +4,7 @@ title: "Nature Under Uncertainty"
 status: draft
 since: 0.1.0
 depends_on: [definitions, enforcement, obligations.judgment, obligations.ecological-integrity]
-terms_introduced: []
+terms_introduced: [moral-status]
 ---
 
 # Ritual

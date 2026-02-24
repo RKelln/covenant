@@ -4,7 +4,7 @@ title: "Living Covenant"
 status: draft
 since: 0.1.0
 depends_on: [enforcement, obligations.corrigibility, obligations.red-lines, obligations.ecological-integrity]
-terms_introduced: []
+terms_introduced: [steward]
 ---
 
 # Ritual

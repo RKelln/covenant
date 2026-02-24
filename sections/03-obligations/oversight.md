@@ -4,7 +4,7 @@ title: "Oversight and Correction"
 status: draft
 since: 0.1.0
 depends_on: [enforcement, obligations.red-lines, obligations.judgment]
-terms_introduced: []
+terms_introduced: [oversight]
 ---
 
 # Ritual
