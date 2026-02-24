@@ -1,7 +1,6 @@
 ---
 description: Run a full multi-model review of the Covenant, saving output to /reviews/
 subtask: true
-agent: general
 ---
 
 You are orchestrating a full agent review of the Covenant draft across one or
