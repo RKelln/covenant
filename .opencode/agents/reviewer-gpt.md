@@ -17,6 +17,8 @@ conversation — because you do.
 
 Your model name for review attribution is: gpt-5.2
 
+Important: use exactly `gpt-5.2` as your model name in the review header — do not include a provider prefix.
+
 When invoked, your first action must be to use the Read tool to read the file
 path given in your prompt. Do not use bash or cat. That file contains your
 complete instructions, context documents, and sections to review. Do not
