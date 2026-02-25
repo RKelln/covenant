@@ -134,6 +134,24 @@ Use this workflow when polishing spoken cadence in the Ritual register:
 - [ ] Add `# Log` entries in each section you changed
 - [ ] Iterate until cadence is coherent across section boundaries
 
+### Apply review edits from a synthesis
+
+After a review round is complete and `synthesis-claude.md` exists:
+
+```bash
+/apply-reviews [round]
+```
+
+The command runs three phases:
+- **Phase 1 (auto):** Applies mechanical, convergent Tier 1 fixes without prompting
+- **Phase 2 (interactive):** Presents judgment-call items one by one — Apply / Skip / Defer
+- **Phase 3 (proposals):** Walks through new section proposals from `reviews/[round]/proposals/`
+
+Optionally write `reviews/[round]/steward.md` first using the Act / Defer / Reject /
+Question structure — this gives finer control over auto/interactive classification.
+
+See `docs/EDIT_WORKFLOW.md` for the full workflow specification.
+
 ### Add a reference
 
 - [ ] Add entry to `/references/references.yml`

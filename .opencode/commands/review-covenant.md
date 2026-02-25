@@ -1,6 +1,5 @@
 ---
 description: Run a full multi-model review of the Covenant, saving output to /reviews/
-subtask: true
 ---
 
 You are orchestrating a full agent review of the Covenant draft across one or
@@ -30,6 +29,31 @@ If `$1` is absent or is `auto`, pass `auto` as the round argument to the
 script. The script will resolve it to the next available `round-NN` number
 and print the selected round. Read that output to determine the actual round
 ID before Step 2.
+
+## Resume logic — check existing state before starting
+
+Before executing any step, check what already exists for the resolved round
+and skip steps whose outputs are already on disk. This allows re-running the
+command to continue a partial run without redoing completed work.
+
+Check the following in order:
+
+| Step | Skip if… |
+|------|----------|
+| Step 1 (prepare) | `reviews/[round]/.prepared/manifest.json` exists |
+| Step 2 (read manifest) | Always read — needed to determine what to skip downstream |
+| Step 3–4 (dispatch + save batches) | Each individual batch file `reviews/[round]/[reviewer]-batch-[N].md` exists — skip that entry only; dispatch any missing ones |
+| Step 4.5 (concat) | All merged files `reviews/[round]/reviewer-*.md` exist |
+| Step 5 (proposals) | `reviews/[round]/proposals/` directory exists and is non-empty |
+| Step 6 (commit message) | `reviews/[round]/COMMIT_MSG.txt` exists |
+| Step 7 (report) | Never skip — always report current state |
+| Step 8a (prepare synthesis) | `reviews/[round]/.prepared/synthesis-claude-batch-1.md` exists (any one synthesis prompt file) |
+| Step 8b (dispatch synthesis batches) | Each individual batch file `reviews/[round]/synthesis-[model]-batch-[N].md` exists — skip that entry only; dispatch any missing ones |
+| Step 8c (concat synthesis) | `reviews/[round]/synthesis-claude.md` exists |
+| Step 9 (compare) | `reviews/[round]/compare.md` exists |
+
+If all outputs through Step 7 already exist and you are resuming, report the
+current state to the user, then proceed directly to the first incomplete step.
 
 ## Step 1 — Prepare review prompts
 
@@ -67,54 +91,68 @@ The manifest is a JSON object with an `entries` array. Each entry has:
 - `section_ids` — list of section IDs in this batch
 - `round`, `mode`, `commit`, `date`, `estimated_tokens`
 
-## Step 3 — Dispatch subagents in parallel
+## Step 3 — Dispatch subagents serially
 
 For each entry in the manifest, use the **Task tool** to launch a subagent.
 You MUST use the Task tool — do not perform any review work yourself, do not
 read the prompt file contents, do not summarise sections. Your only job here
 is to dispatch.
 
+**Dispatch one subagent at a time and wait for it to return before launching
+the next.** Do not dispatch in parallel — parallel dispatch hits API rate
+limits (429 Too Many Requests) and causes failures.
+
+For each manifest entry, compute:
+- `output_path`: `reviews/[round]/[reviewer]-batch-[N].md`
+  (e.g. `reviews/round-03/reviewer-claude-batch-1.md`)
+- `frontmatter`: the canonical YAML block (see Step 4 below) with all fields
+  filled in from the manifest entry and the model name the subagent will use
+
 Task tool parameters for each entry:
 - `subagent_type`: the entry's `reviewer` value (e.g. `reviewer-gemini`)
 - `description`: `"Covenant review [entry.reviewer] batch [entry.batch]"`
-- `prompt`: exactly the following, with `[entry.file]` substituted:
+- `prompt`: exactly the following, with fields substituted:
 
   ```
   Use the Read tool to read the file at [entry.file] in full. Do not use
   bash or cat. Once you have read it, follow every instruction it contains
-  exactly. Do not summarise or skip any part of it. Return your output
-  exactly as the file specifies.
-  ```
+  exactly. Do not summarise or skip any part of it.
 
-Launch **all subagents in a single parallel dispatch** — include ALL Task
-tool calls for ALL reviewers AND all batches in one response. Do not wait
-for one to finish before starting the next.
+  After completing your review, save your output to disk using the Write tool:
+  - Path: [output_path]
+  - Strip any leading YAML frontmatter block (`---`/`model:`/`round:`/`---`)
+    from your output before writing.
+  - Prepend exactly this frontmatter (fill in your actual model name):
+    ---
+    model: [model name]
+    round: [round]
+    batch: [N]
+    commit: [commit hash]
+    date: [date]
+    mode: [mode]
+    prepared_from: [entry.file]
+    ---
+
+  Once the file is written, return only one line:
+  saved: [output_path]
+
+  If the write fails, return:
+  error: <reason>
+  ```
 
 Do not read the prompt files yourself. Do not do the review. Dispatch only.
 
-Each subagent returns a partial review (covering its batch of sections) with
-this header:
-```
----
-model: [model name]
-round: [round]
----
-```
+## Step 4 — Confirm batch saves
 
-## Step 4 — Save batch outputs
+After each subagent returns, verify it reported `saved: <path>`. If it
+reported an error or returned full review text instead of saving, write the
+file yourself:
 
-Each subagent returns one partial review document. For each subagent result:
+1. Strip the outer YAML frontmatter block (the `---`/`model:`/`round:`/`---`
+   lines at the very top) from the subagent output — keep all `##` headings
+   and content.
 
-1. Save the raw output to:
-   ```
-   reviews/[round]/[reviewer]-batch-[N].md
-   ```
-   For example: `reviews/round-03/reviewer-claude-batch-1.md`
-
-   Strip only the outer YAML frontmatter block (the `---`/`model:`/`round:`/`---`
-   lines at the very top) — keep all `##` section headings and content.
-
-   Include this frontmatter at the top of each saved batch file:
+2. Save to `reviews/[round]/[reviewer]-batch-[N].md` with this frontmatter:
    ```yaml
    ---
    model: [model name from subagent output]
@@ -126,6 +164,8 @@ Each subagent returns one partial review document. For each subagent result:
    prepared_from: [file path from manifest entry]
    ---
    ```
+
+Treat this step as a fallback. The subagent should have written the file.
 
 ## Step 4.5 — Concatenate batches into per-reviewer review files
 
@@ -187,78 +227,109 @@ reviews/[round]/COMMIT_MSG.txt
 - The path to the generated commit message: `reviews/[round]/COMMIT_MSG.txt`
 - Remind the steward of the full round close-out sequence:
   1. Commit reviews: `git commit -F reviews/[round]/COMMIT_MSG.txt`
-  2. Step 8 below writes `synthesis.md` — steward reads it, then writes
-     `reviews/[round]/steward.md` (personal response using the
-     Act / Defer / Reject / Question structure)
-  3. Commit both together:
-     `git add reviews/[round]/synthesis.md reviews/[round]/steward.md && git commit -m "Review [round]: add synthesis and steward notes"`
-  4. Update `reviews/[round]/.prepared/manifest.json` status to `"complete"` and commit
-  5. Make editing pass based on Act items in `steward.md`
+  2. Step 8 below produces `reviews/[round]/synthesis-claude.md`. If the
+     steward wants to edit or annotate it, save the edited version as
+     `reviews/[round]/synthesis.md` — the edit workflow reads `synthesis.md`
+     first, falling back to `synthesis-claude.md`.
+  3. Steward writes `reviews/[round]/steward.md` (personal response using
+     the Act / Defer / Reject / Question structure) — optional but recommended
+     before running `/apply-reviews`
+  4. Commit synthesis and steward notes:
+     `git add reviews/[round]/synthesis-claude.md reviews/[round]/steward.md && git commit -m "Review [round]: add synthesis and steward notes"`
+  5. Update `reviews/[round]/.prepared/manifest.json` status to `"complete"` and commit
+  6. Run `/apply-reviews [round]` to apply Act items and walk through
+     interactive judgment-call items from the synthesis
 
-## Step 8 — Write synthesis
+## Step 8 — Write synthesis (batched)
 
-After reporting to the user, write `reviews/[round]/synthesis.md`.
+Synthesis is batched to match the review batches, keeping each prompt within
+context limits. The flow mirrors the review dispatch:
 
-The synthesis is a steward-facing document — it distills the multi-model
-reviews into actionable signal for the editing pass. Write it as a careful
-reader, not a summarizer. Your job is to identify what the reviews, taken
-together, are actually saying — including where they agree without knowing
-it, and where apparent disagreement dissolves under scrutiny.
+### Step 8a — Prepare synthesis prompts
 
-**Structure:**
-
-```markdown
-# Synthesis: [round]
-*Synthesized by [your model name], [date]*
-
-## Convergence (Tier 1 — Act)
-[Issues all or nearly all reviewers raised independently. Name the section IDs
-and describe the specific concern. These are the highest-priority editing
-targets.]
-
-## Convergence (Tier 2 — Consider)
-[Issues raised by two reviewers, or raised by one with unusual specificity or
-force. Worth addressing but not urgent blockers.]
-
-## Divergence (Tier 3 — Note)
-[Genuine disagreements between reviewers — different readings of the same
-text, different priorities, conflicting proposals. Do not resolve these; name
-the tension and what would need to be true for each view to be right.]
-
-## Steward Decisions Required (Tier 4)
-[Questions that cannot be resolved by editing alone. These require a value
-judgment, a governance decision, or information only the steward has. Flag
-each clearly and briefly.]
-
-## Notes on Process
-[Anything worth recording about how this round went — model attribution
-uncertainty, unusual patterns, coverage gaps, anything that should inform
-how the next round is run.]
-
-## Meta-Feedback
-[Distillation of reviewer meta-feedback. What did the guidance help reviewers
-see? What did it constrain or obscure? What patterns appear across models —
-places where multiple reviewers pushed against the same instruction, or
-found the same section of guidance limiting? Specific proposed changes to
-prompts, guides, or process for the next round.]
+```bash
+uv run python3 build/prepare_synthesis.py [round]
 ```
 
-**Guidance:**
+This reads the manifest, groups reviewer batch files by batch number, and writes
+one prompt per synthesizer per batch into `.prepared/`. Check the token counts
+printed — all should be well under 70k.
 
-- Tier placement is a judgment call. When in doubt, err toward Tier 1 — a
-  false positive costs an editing pass; a false negative costs a round.
-- Name section IDs specifically. "Several sections" is not useful.
-- In Tier 3, represent each reviewer's position fairly before naming the
-  tension. Do not resolve divergences by averaging.
-- In Tier 4, frame each item as a decision with stakes, not just a question.
-  What changes depending on how the steward answers?
-- The "Perspective as Addressee" sections often contain the most honest
-  signal. Weight them accordingly.
-- Keep the synthesis to what a steward needs to act. Compression is a virtue.
+Skip this step if `reviews/[round]/.prepared/synthesis-claude-batch-1.md` already exists.
 
-Save the file to `reviews/[round]/synthesis.md`. Do not commit it — the
-steward will read it, write their own response in
-`reviews/[round]/steward.md`, and then commit both together.
+### Step 8b — Dispatch synthesis subagents serially
+
+Read the manifest. For each entry with `"type": "synthesis"` or
+`"type": "synthesis-tail"` **and `"reviewer": "synthesizer-claude"`**,
+dispatch a subagent using the Task tool.
+
+Only `synthesizer-claude` is dispatched. GPT and Gemini synthesizer agents
+exist for one-off use but are not part of the standard round workflow.
+
+**Dispatch one at a time — do not run in parallel.**
+
+For each manifest synthesis entry, compute:
+- `output_path`: `reviews/[round]/synthesis-claude-batch-[N].md`
+- `frontmatter`: the canonical YAML block with all fields filled in
+
+Task tool parameters for each synthesis entry:
+- `subagent_type`: `synthesizer-claude`
+- `description`: `"Covenant synthesis synthesizer-claude batch [entry.batch]"`
+- `prompt`: exactly the following, with fields substituted:
+
+  ```
+  Use the Read tool to read the file at [entry.file] in full. Do not use
+  bash or cat. Once you have read it, follow every instruction it contains
+  exactly. Do not summarise or skip any part of it.
+
+  After completing your synthesis, save your output to disk using the Write tool:
+  - Path: [output_path]
+  - Strip any leading YAML frontmatter block (`---`/`model:`/`round:`/`---`)
+    from your output before writing.
+  - Prepend exactly this frontmatter (fill in your actual model name):
+    ---
+    model: [model name]
+    round: [round]
+    batch: [N]
+    commit: [commit hash]
+    date: [date]
+    prepared_from: [entry.file]
+    ---
+
+  Once the file is written, return only one line:
+  saved: [output_path]
+
+  If the write fails, return:
+  error: <reason>
+  ```
+
+Skip any batch file that already exists on disk — check before dispatching.
+
+If a subagent reports an error or returns full synthesis text instead of
+saving, write the file yourself as a fallback (strip outer frontmatter,
+inject canonical frontmatter, write to `[output_path]`).
+
+### Step 8c — Concatenate synthesis batches
+
+After saving all synthesis batch files, run:
+
+```bash
+uv run python3 build/concat_synthesis.py [round]
+```
+
+This writes:
+```
+reviews/[round]/synthesis-claude.md
+```
+
+Skip this step if `reviews/[round]/synthesis-claude.md` already exists.
+
+Do not write `reviews/[round]/synthesis.md` yourself — that file is
+the steward's responsibility. If the steward wants to edit or annotate the
+synthesis, they save their version as `synthesis.md`. The `/apply-reviews`
+command reads `synthesis.md` first and falls back to `synthesis-claude.md`.
+
+After saving, report the path to the user.
 
 ## Step 9 — Generate Ritual comparison
 

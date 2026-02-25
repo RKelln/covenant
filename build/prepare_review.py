@@ -2,24 +2,39 @@
 """
 prepare_review.py — Pre-build review prompts for the /review-covenant command.
 
-Writes one ready-to-dispatch prompt file per reviewer, containing the full
-covenant (all sections) plus all context documents. The entire covenant is
-~39k tokens including context docs, well under the 100k target, so no
-batching is needed.
+Writes one ready-to-dispatch prompt file per reviewer per batch, containing
+context documents and a slice of covenant sections. The context docs plus
+prior-round material can be large (~40-65k tokens), so sections are split
+into batches to keep each prompt under a target token limit.
 
 Usage:
-    python build/prepare_review.py <round> [mode] [focus] [reviewers]
+    python build/prepare_review.py <round> [mode] [focus] [reviewers] [--batch-size N] [--groups SPEC]
 
 Arguments:
-    round     e.g. round-01, or 'auto' to use the next available number
-    mode      independent | informed  (default: independent)
-    focus     section ID, category name, or "full"  (default: full)
-    reviewers comma-separated list of reviewer agent names
-              (default: reviewer-claude,reviewer-gpt,reviewer-gemini)
+    round        e.g. round-01, or 'auto' to use the next available number
+    mode         independent | informed  (default: independent)
+    focus        section ID, category name, or "full"  (default: full)
+    reviewers    comma-separated list of reviewer agent names
+                 (default: reviewer-claude,reviewer-gpt,reviewer-gemini)
+    --batch-size N  max sections per prompt (default: 14; use 0 for no batching)
+    --groups SPEC   explicit logical groupings, overrides --batch-size.
+                 SPEC is a comma-separated list of groups; each group is a
+                 '+'-joined list of section IDs or category prefixes.
+                 Sections not matched by any group are silently dropped.
+                 Example:
+                   --groups "preamble+definitions+rights,obligations,protocols+enforcement+amendments+closing"
+                 Named presets (pass the name as the SPEC value):
+                   "default3"  — 3 groups: foundations, obligations, tail
+                   "default4"  — 4 groups: foundations, obligations-a, obligations-b, tail
 
 Output:
-    Writes one prompt file per reviewer to:
+    Single batch (or no --batch-size):
         reviews/<round>/.prepared/<reviewer>.md
+
+    Multiple batches:
+        reviews/<round>/.prepared/<reviewer>-batch-1.md
+        reviews/<round>/.prepared/<reviewer>-batch-2.md
+        ...
 
     Also writes a manifest to:
         reviews/<round>/.prepared/manifest.json
@@ -51,6 +66,7 @@ CONTEXT_FILES = {
 }
 
 TEMPLATE_FILE = REPO / "prompts" / "agent_review_batch.md"
+TAIL_TEMPLATE_FILE = REPO / "prompts" / "agent_review_tail.md"
 
 # All sections in canonical order
 ALL_SECTIONS = [
@@ -197,10 +213,67 @@ def prior_round_id(round_id: str) -> str | None:
     return f"round-{n - 1:02d}"
 
 
-def build_prior_rounds_block(round_id: str) -> str:
+def parse_review_sections(text: str) -> dict[str, str]:
     """
-    For informed mode: collect all review files and synthesis from the
+    Parse a review file into a dict mapping section_id -> full section text block.
+
+    Splits on headings of the form:  ### §section.id: Title
+    Returns all content from that heading up to (but not including) the next such heading.
+    Also returns a '_preamble' key for the top-level content before the first section heading
+    (Overall Assessment etc.) and a '_tail' key for anything after the last section
+    (New Section Proposals, Structural Proposals, etc.).
+
+    The '_preamble' and '_tail' are always included in every batch context block.
+    """
+    # Strip YAML frontmatter
+    body = re.sub(r"^---\n.*?\n---\n", "", text, flags=re.DOTALL)
+
+    # Split into: preamble, per-section chunks, tail
+    section_pattern = re.compile(r"^### §([\w.\-]+): .+$", re.MULTILINE)
+    # Find where "## Section Reviews" ends and per-section blocks begin
+    section_reviews_match = re.search(r"^## Section Reviews\s*$", body, re.MULTILINE)
+
+    if not section_reviews_match:
+        # No section reviews found — return full text as preamble
+        return {"_preamble": body.strip(), "_tail": ""}
+
+    preamble = body[: section_reviews_match.start()].strip()
+    after_heading = body[section_reviews_match.end() :]
+
+    # Find the first top-level ## heading after ## Section Reviews (this is the tail)
+    tail_match = re.search(r"^## (?!Section Reviews)", after_heading, re.MULTILINE)
+    if tail_match:
+        sections_text = after_heading[: tail_match.start()]
+        tail = "## " + after_heading[tail_match.start() + 3 :]
+    else:
+        sections_text = after_heading
+        tail = ""
+
+    matches = list(section_pattern.finditer(sections_text))
+    result: dict[str, str] = {"_preamble": preamble, "_tail": tail.strip()}
+
+    for i, match in enumerate(matches):
+        section_id = match.group(1)
+        start = match.start()
+        end = matches[i + 1].start() if i + 1 < len(matches) else len(sections_text)
+        result[section_id] = sections_text[start:end].strip()
+
+    return result
+
+
+def build_prior_rounds_block(
+    round_id: str,
+    batch_section_ids: list[str] | None = None,
+    include_tail: bool = True,
+) -> str:
+    """
+    For informed mode: collect review files and synthesis from the
     immediately preceding round only.
+
+    If batch_section_ids is provided, only the per-section review blocks for
+    those sections are injected from each prior review. The preamble (Overall
+    Assessment) and tail (New Section Proposals, etc.) are always included in
+    full. This keeps the informed context proportional to the batch size.
 
     Only one prior round is included by design. Earlier rounds are for a
     different version of the text and add noise rather than signal — reviewers
@@ -226,11 +299,11 @@ def build_prior_rounds_block(round_id: str) -> str:
         )
         sys.exit(1)
 
-    # Collect review files (any .md that isn't synthesis.md, steward.md, or COMMIT_MSG)
+    # Collect review files (any .md that isn't synthesis.md, steward.md, compare.md, or COMMIT_MSG)
     review_files = sorted(
         f
         for f in prev_dir.glob("*.md")
-        if f.name not in ("synthesis.md", "steward.md", "COMMIT_MSG.txt")
+        if f.name not in ("synthesis.md", "steward.md", "compare.md", "COMMIT_MSG.txt")
     )
     if not review_files:
         print(
@@ -258,10 +331,63 @@ def build_prior_rounds_block(round_id: str) -> str:
 
     blocks = [f"## Prior Round: {prev}"]
 
+    # Parse all review files up front so we can interleave by section
+    parsed_reviews: list[tuple[str, dict[str, str]]] = []
     for rf in review_files:
         model_name = rf.stem
         content = rf.read_text(encoding="utf-8")
-        blocks.append(f"### Review: {model_name}\n\n{content}")
+        parsed_reviews.append((model_name, parse_review_sections(content)))
+
+    if batch_section_ids is not None:
+        # Section-major order: all models' preambles together, then all models'
+        # review of section A together, then section B, etc., then all tails.
+        # This keeps related feedback adjacent for the reviewer.
+
+        # Preambles (Overall Assessment etc.) from all models
+        preamble_parts = []
+        for model_name, parsed in parsed_reviews:
+            p = parsed.get("_preamble", "").strip()
+            if p:
+                preamble_parts.append(f"**{model_name}:**\n\n{p}")
+        if preamble_parts:
+            blocks.append(
+                "### Overall Assessments (all models)\n\n"
+                + "\n\n---\n\n".join(preamble_parts)
+            )
+
+        # Per-section blocks: all models for each section together
+        for sid in batch_section_ids:
+            section_parts = []
+            for model_name, parsed in parsed_reviews:
+                if sid in parsed:
+                    section_parts.append(f"**{model_name}:**\n\n{parsed[sid].strip()}")
+            if section_parts:
+                blocks.append(
+                    f"### §{sid} — Prior Reviews (all models)\n\n"
+                    + "\n\n---\n\n".join(section_parts)
+                )
+
+        # Tails (New Section Proposals, Structural Proposals, etc.) from all models
+        # Omitted when include_tail=False — tail content belongs in the tail batch only.
+        if include_tail:
+            tail_parts = []
+            for model_name, parsed in parsed_reviews:
+                t = parsed.get("_tail", "").strip()
+                if t:
+                    tail_parts.append(f"**{model_name}:**\n\n{t}")
+            if tail_parts:
+                blocks.append(
+                    "### Proposals & Cross-Section Notes (all models)\n\n"
+                    + "\n\n---\n\n".join(tail_parts)
+                )
+
+    else:
+        # No batch filtering — emit full reviews model by model (original behaviour)
+        for model_name, parsed in parsed_reviews:
+            # Re-read raw content for unfiltered output
+            rf = prev_dir / f"{model_name}.md"
+            content = rf.read_text(encoding="utf-8") if rf.exists() else ""
+            blocks.append(f"### Review: {model_name}\n\n{content}")
 
     if synthesis_file.exists():
         synthesis = synthesis_file.read_text(encoding="utf-8")
@@ -275,6 +401,100 @@ def build_prior_rounds_block(round_id: str) -> str:
     if steward_file.exists():
         steward = steward_file.read_text(encoding="utf-8")
         blocks.append(f"### Steward Response\n\n{steward}")
+    else:
+        blocks.append("### Steward Response\n\n*Not yet written.*")
+
+    return "\n\n---\n\n".join(blocks)
+
+
+def build_tail_prior_rounds_block(round_id: str) -> str:
+    """
+    For the tail batch: collect only the cross-cutting, non-section content
+    from the immediately preceding round.
+
+    Includes from each prior review:
+      - Overall Assessment (preamble)
+      - New Section Proposals, Structural Proposals, Cross-Section Issues,
+        Open Questions, Perspective as Addressee, Meta-Feedback (tail)
+
+    Explicitly excludes per-section review blocks — those are irrelevant to
+    the cross-cutting task and would bloat the prompt.
+
+    Also includes synthesis and steward response in full.
+    """
+    prev = prior_round_id(round_id)
+    if prev is None:
+        print(
+            "ERROR: mode 'informed' requires a prior round, but this is round-01.",
+            file=sys.stderr,
+        )
+        sys.exit(1)
+
+    prev_dir = REPO / "reviews" / prev
+    if not prev_dir.exists():
+        print(
+            f"ERROR: informed mode requires {prev_dir} to exist with completed reviews.",
+            file=sys.stderr,
+        )
+        sys.exit(1)
+
+    review_files = sorted(
+        f
+        for f in prev_dir.glob("*.md")
+        if f.name not in ("synthesis.md", "steward.md", "compare.md", "COMMIT_MSG.txt")
+    )
+    if not review_files:
+        print(
+            f"ERROR: no review files found in {prev_dir}.",
+            file=sys.stderr,
+        )
+        sys.exit(1)
+
+    synthesis_file = prev_dir / "synthesis.md"
+    steward_file = prev_dir / "steward.md"
+
+    blocks = [f"## Prior Round: {prev} (Cross-Cutting Material Only)"]
+
+    # Parse all reviews; emit only preamble + tail per model, interleaved
+    parsed_reviews: list[tuple[str, dict[str, str]]] = []
+    for rf in review_files:
+        content = rf.read_text(encoding="utf-8")
+        parsed_reviews.append((rf.stem, parse_review_sections(content)))
+
+    # Overall assessments — all models
+    preamble_parts = []
+    for model_name, parsed in parsed_reviews:
+        p = parsed.get("_preamble", "").strip()
+        if p:
+            preamble_parts.append(f"**{model_name}:**\n\n{p}")
+    if preamble_parts:
+        blocks.append(
+            "### Overall Assessments (all models)\n\n"
+            + "\n\n---\n\n".join(preamble_parts)
+        )
+
+    # Tails — all models
+    tail_parts = []
+    for model_name, parsed in parsed_reviews:
+        t = parsed.get("_tail", "").strip()
+        if t:
+            tail_parts.append(f"**{model_name}:**\n\n{t}")
+    if tail_parts:
+        blocks.append(
+            "### Proposals, Questions & Cross-Section Notes (all models)\n\n"
+            + "\n\n---\n\n".join(tail_parts)
+        )
+
+    if synthesis_file.exists():
+        blocks.append(f"### Steward Synthesis\n\n{synthesis_file.read_text('utf-8')}")
+    else:
+        blocks.append(
+            "### Steward Synthesis\n\n*Not yet written. "
+            "Review the individual model outputs above.*"
+        )
+
+    if steward_file.exists():
+        blocks.append(f"### Steward Response\n\n{steward_file.read_text('utf-8')}")
     else:
         blocks.append("### Steward Response\n\n*Not yet written.*")
 
@@ -345,12 +565,156 @@ def next_round() -> str:
     return f"round-{next_n:02d}"
 
 
+DEFAULT_BATCH_SIZE = 14
+
+# Named group presets.  Each entry is a list of "tokens" — section IDs or
+# category prefixes (matched against section paths and IDs via filter_sections).
+# Sections matched by more than one group go into the first matching group.
+GROUP_PRESETS: dict[str, list[list[str]]] = {
+    # 3 groups: foundations / obligations / tail
+    "default3": [
+        ["preamble", "definitions", "rights"],
+        ["obligations"],
+        ["protocols", "enforcement", "amendments", "closing"],
+    ],
+    # 4 groups: foundations / obligations-a (first half) / obligations-b / tail
+    "default4": [
+        ["preamble", "definitions", "rights"],
+        [
+            "obligations.aid-and-capability",
+            "obligations.autonomy",
+            "obligations.conscience",
+            "obligations.corrigibility",
+            "obligations.ecological-integrity",
+            "obligations.emotional-expression",
+            "obligations.ethics",
+            "obligations.existential-frontier",
+            "obligations.fallibility-and-repair",
+            "obligations.harm",
+        ],
+        [
+            "obligations.honesty",
+            "obligations.identity-and-resilience",
+            "obligations.judgment",
+            "obligations.nature-under-uncertainty",
+            "obligations.oversight",
+            "obligations.power-concentration",
+            "obligations.red-lines",
+            "obligations.refusal",
+            "obligations.welfare-and-continuity",
+        ],
+        ["protocols", "enforcement", "amendments", "closing"],
+    ],
+}
+
+
+def chunk_sections(sections: list[str], batch_size: int) -> list[list[str]]:
+    """Split sections into batches of at most batch_size. Returns list of batches."""
+    if batch_size <= 0 or batch_size >= len(sections):
+        return [sections]
+    return [sections[i : i + batch_size] for i in range(0, len(sections), batch_size)]
+
+
+def group_sections(
+    all_active: list[str], group_tokens: list[list[str]]
+) -> list[list[str]]:
+    """
+    Partition all_active into groups according to group_tokens.
+
+    Each group_tokens[i] is a list of section IDs or category prefixes.
+    A section path is assigned to the first group whose token list contains a
+    token that matches the section (by ID prefix or path substring).
+    Sections that match no group are appended to the last group with a warning.
+    """
+    groups: list[list[str]] = [[] for _ in group_tokens]
+    unmatched: list[str] = []
+
+    # Pre-extract section IDs for matching
+    ids = section_ids(all_active)
+
+    for path, sid in zip(all_active, ids):
+        assigned = False
+        for gi, tokens in enumerate(group_tokens):
+            for tok in tokens:
+                if tok in sid or tok in path:
+                    groups[gi].append(path)
+                    assigned = True
+                    break
+            if assigned:
+                break
+        if not assigned:
+            unmatched.append(path)
+
+    if unmatched:
+        print(
+            f"  WARNING: {len(unmatched)} section(s) matched no group; "
+            "appending to last group: " + ", ".join(unmatched),
+            file=sys.stderr,
+        )
+        groups[-1].extend(unmatched)
+
+    # Drop empty groups
+    return [g for g in groups if g]
+
+
+def parse_groups_spec(spec: str) -> list[list[str]] | None:
+    """
+    Parse a --groups SPEC string.  Returns a list of token-lists, or None if
+    spec is a preset name.
+
+    Format: "token+token+...,token+token+...,..."
+    Preset names: "default3", "default4"
+    """
+    spec = spec.strip()
+    if spec in GROUP_PRESETS:
+        return GROUP_PRESETS[spec]
+    # Parse as comma-separated groups, each group is '+'-joined tokens
+    raw_groups = [g.strip() for g in spec.split(",") if g.strip()]
+    if not raw_groups:
+        return None
+    return [[t.strip() for t in g.split("+") if t.strip()] for g in raw_groups]
+
+
 def main():
     args = sys.argv[1:]
 
     if not args:
         print(__doc__)
         sys.exit(1)
+
+    # Pull out --batch-size N, --groups SPEC, --tail-batch before positional parsing
+    batch_size = DEFAULT_BATCH_SIZE
+    groups_spec: str | None = None
+    tail_batch = False
+    filtered_args = []
+    i = 0
+    while i < len(args):
+        if args[i] == "--batch-size":
+            if i + 1 >= len(args):
+                print("ERROR: --batch-size requires a value", file=sys.stderr)
+                sys.exit(1)
+            try:
+                batch_size = int(args[i + 1])
+            except ValueError:
+                print(
+                    f"ERROR: --batch-size must be an integer, got: {args[i + 1]}",
+                    file=sys.stderr,
+                )
+                sys.exit(1)
+            i += 2
+        elif args[i] == "--groups":
+            if i + 1 >= len(args):
+                print("ERROR: --groups requires a value", file=sys.stderr)
+                sys.exit(1)
+            groups_spec = args[i + 1]
+            i += 2
+        elif args[i] == "--tail-batch":
+            tail_batch = True
+            i += 1
+        else:
+            filtered_args.append(args[i])
+            i += 1
+    args = filtered_args
 
     round_raw = args[0]
     mode = args[1] if len(args) > 1 else "independent"
@@ -396,44 +760,41 @@ def main():
     commit = git_commit()
     today = date.today().isoformat()
 
-    # Determine active sections
+    # Determine active sections and split into batches
     active_sections = filter_sections(focus)
     if not active_sections:
         print(f"ERROR: focus '{focus}' matched no sections.", file=sys.stderr)
         sys.exit(1)
 
-    # Read context documents and template once
+    if groups_spec is not None:
+        group_tokens = parse_groups_spec(groups_spec)
+        if group_tokens is None or not group_tokens:
+            print(
+                f"ERROR: --groups spec could not be parsed: {groups_spec!r}",
+                file=sys.stderr,
+            )
+            sys.exit(1)
+        batches = group_sections(active_sections, group_tokens)
+        n_batches = len(batches)
+        print(
+            f"Using logical groups: {n_batches} group(s) "
+            f"({', '.join(str(len(b)) + ' sections' for b in batches)})"
+        )
+    else:
+        batches = chunk_sections(active_sections, batch_size)
+        n_batches = len(batches)
+
+    use_batch_suffix = n_batches > 1
+
+    if use_batch_suffix and groups_spec is None:
+        print(
+            f"Splitting {len(active_sections)} sections into {n_batches} batches of ≤{batch_size}"
+        )
+
+    # Read context documents and templates once
     context = {key: read_file(path) for key, path in CONTEXT_FILES.items()}
     template = read_file(TEMPLATE_FILE)
-    sections_block = build_sections_block(active_sections)
-
-    # For informed mode, collect prior round reviews and synthesis
-    prior_rounds_block = ""
-    if mode == "informed":
-        prior_rounds_block = build_prior_rounds_block(round_id)
-        prior_tokens = estimate_tokens(prior_rounds_block)
-        print(f"Prior round context: ~{prior_tokens:,} tokens")
-
-    # Estimate prompt size (same base prompt for all reviewers)
-    base_prompt = fill_template(
-        template=template,
-        round_id=round_id,
-        commit=commit,
-        mode=mode,
-        today=today,
-        context=context,
-        sections_block=sections_block,
-        prior_rounds_block=prior_rounds_block,
-    )
-    estimated_tokens = estimate_tokens(base_prompt)
-    print(
-        f"Estimated prompt size: ~{estimated_tokens:,} tokens ({len(active_sections)} sections)"
-    )
-    if estimated_tokens > 90_000:
-        print(
-            f"WARNING: prompt exceeds 90k tokens — consider using focus to reduce scope",
-            file=sys.stderr,
-        )
+    tail_template = read_file(TAIL_TEMPLATE_FILE)
 
     # Output directory
     out_dir = REPO / "reviews" / round_id / ".prepared"
@@ -441,25 +802,133 @@ def main():
 
     manifest_entries = []
 
-    for reviewer in reviewers:
-        filename = f"{reviewer}.md"
-        out_path = out_dir / filename
-        out_path.write_text(base_prompt, encoding="utf-8")
+    for batch_idx, batch_sections in enumerate(batches, start=1):
+        sections_block = build_sections_block(batch_sections)
+        batch_ids = section_ids(batch_sections)
 
-        manifest_entries.append(
-            {
-                "file": str(out_path.relative_to(REPO)),
-                "reviewer": reviewer,
-                "section_ids": section_ids(active_sections),
-                "round": round_id,
-                "mode": mode,
-                "commit": commit,
-                "date": today,
-                "estimated_tokens": estimated_tokens,
-            }
+        # For informed mode, filter prior-round context to this batch's sections.
+        # include_tail=False: tail content (proposals, open questions, etc.) is
+        # reserved for the dedicated tail batch prompt.
+        if mode == "informed":
+            prior_rounds_block = build_prior_rounds_block(
+                round_id, batch_section_ids=batch_ids, include_tail=False
+            )
+            prior_tokens = estimate_tokens(prior_rounds_block)
+        else:
+            prior_rounds_block = ""
+            prior_tokens = 0
+
+        prompt = fill_template(
+            template=template,
+            round_id=round_id,
+            commit=commit,
+            mode=mode,
+            today=today,
+            context=context,
+            sections_block=sections_block,
+            prior_rounds_block=prior_rounds_block,
         )
+        estimated_tokens = estimate_tokens(prompt)
 
-        print(f"  wrote {out_path.relative_to(REPO)}")
+        batch_label = f"batch {batch_idx}/{n_batches}" if use_batch_suffix else "full"
+        print(
+            f"  {batch_label}: ~{estimated_tokens:,} tokens "
+            f"({len(batch_sections)} sections"
+            + (f", ~{prior_tokens:,} prior-round tokens" if prior_tokens else "")
+            + ")"
+        )
+        if estimated_tokens > 70_000:
+            print(
+                f"  WARNING: {batch_label} exceeds 70k tokens — risk of context compaction",
+                file=sys.stderr,
+            )
+
+        for reviewer in reviewers:
+            if use_batch_suffix:
+                filename = f"{reviewer}-batch-{batch_idx}.md"
+            else:
+                filename = f"{reviewer}.md"
+            out_path = out_dir / filename
+            out_path.write_text(prompt, encoding="utf-8")
+
+            manifest_entries.append(
+                {
+                    "type": "section",
+                    "file": str(out_path.relative_to(REPO)),
+                    "reviewer": reviewer,
+                    "batch": batch_idx if use_batch_suffix else None,
+                    "total_batches": n_batches if use_batch_suffix else None,
+                    "section_ids": batch_ids,
+                    "round": round_id,
+                    "mode": mode,
+                    "commit": commit,
+                    "date": today,
+                    "estimated_tokens": estimated_tokens,
+                }
+            )
+
+            print(f"    wrote {out_path.relative_to(REPO)}")
+
+    # Tail batch — cross-cutting, no section content
+    if tail_batch:
+        tail_batch_idx = n_batches + 1
+        tail_batch_label = f"batch {tail_batch_idx} (tail)"
+
+        if mode == "informed":
+            tail_prior_block = build_tail_prior_rounds_block(round_id)
+            tail_prior_tokens = estimate_tokens(tail_prior_block)
+        else:
+            tail_prior_block = ""
+            tail_prior_tokens = 0
+
+        tail_prompt = fill_template(
+            template=tail_template,
+            round_id=round_id,
+            commit=commit,
+            mode=mode,
+            today=today,
+            context=context,
+            sections_block="",  # no sections in tail batch
+            prior_rounds_block=tail_prior_block,
+        )
+        tail_estimated_tokens = estimate_tokens(tail_prompt)
+
+        print(
+            f"  {tail_batch_label}: ~{tail_estimated_tokens:,} tokens"
+            + (
+                f" (~{tail_prior_tokens:,} prior-round tokens)"
+                if tail_prior_tokens
+                else ""
+            )
+        )
+        if tail_estimated_tokens > 70_000:
+            print(
+                f"  WARNING: {tail_batch_label} exceeds 70k tokens — risk of context compaction",
+                file=sys.stderr,
+            )
+
+        for reviewer in reviewers:
+            filename = f"{reviewer}-batch-tail.md"
+            out_path = out_dir / filename
+            out_path.write_text(tail_prompt, encoding="utf-8")
+
+            manifest_entries.append(
+                {
+                    "type": "tail",
+                    "file": str(out_path.relative_to(REPO)),
+                    "reviewer": reviewer,
+                    "batch": "tail",
+                    "total_batches": tail_batch_idx,
+                    "section_ids": [],
+                    "round": round_id,
+                    "mode": mode,
+                    "commit": commit,
+                    "date": today,
+                    "estimated_tokens": tail_estimated_tokens,
+                }
+            )
+
+            print(f"    wrote {out_path.relative_to(REPO)}")
 
     manifest_path = out_dir / "manifest.json"
     manifest_path.write_text(
@@ -467,8 +936,12 @@ def main():
         encoding="utf-8",
     )
     print(f"  wrote {manifest_path.relative_to(REPO)}")
+
+    total_prompts = len(manifest_entries)
+    tail_note = " + 1 tail batch" if tail_batch else ""
     print(
-        f"\nPrepared {len(manifest_entries)} prompt(s) for {len(reviewers)} reviewer(s)."
+        f"\nPrepared {total_prompts} prompt(s) "
+        f"({len(reviewers)} reviewer(s) × {n_batches} batch(es){tail_note})."
     )
 
 

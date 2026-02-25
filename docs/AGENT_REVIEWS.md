@@ -324,6 +324,58 @@ prompt itself, see `docs/REVIEW_PROMPT.md`. For project context, see
 
 ---
 
+## Batched Synthesis Workflow
+
+Reviews are split into batches (typically 3 section batches + 1 tail batch).
+Synthesis follows the same structure: one synthesizer prompt per batch,
+merged afterward into a single file per synthesizer.
+
+### Tools
+
+| Script | Purpose |
+|--------|---------|
+| `build/prepare_synthesis.py` | Reads the manifest, writes one synthesis prompt per synthesizer per batch into `.prepared/` |
+| `build/concat_synthesis.py` | Merges per-batch synthesis outputs into `synthesis-{model}.md` |
+
+### Prompts
+
+| File | Used for |
+|------|---------|
+| `prompts/synthesis_batch.md` | Section batches (1, 2, 3, ...) |
+| `prompts/synthesis_tail.md` | Tail batch (cross-cutting, proposals, addressee) |
+
+### Flow
+
+```
+reviews/<round>/
+  reviewer-claude-batch-1.md  ─┐
+  reviewer-gpt-batch-1.md     ─┼─→ synthesis-claude-batch-1.md
+  reviewer-gemini-batch-1.md  ─┘    synthesis-gpt-batch-1.md
+                                    synthesis-gemini-batch-1.md
+  ... (batches 2, 3, tail same pattern) ...
+
+concat_synthesis.py:
+  synthesis-claude-batch-{1,2,3,tail}.md → synthesis-claude.md
+  synthesis-gpt-batch-{1,2,3,tail}.md    → synthesis-gpt.md
+  synthesis-gemini-batch-{1,2,3,tail}.md → synthesis-gemini.md
+```
+
+The steward reads all three `synthesis-*.md` files, selects or edits one,
+and writes their chosen version as `synthesis.md` before writing `steward.md`.
+
+### Why Batched
+
+Full merged review files across three models total ~4,700+ lines. A single
+synthesis prompt injecting all of them hits context limits and causes
+compaction. Batching keeps each prompt proportional to the review batch it
+covers: each synthesizer sees only the three reviewer outputs for that batch.
+
+The tail batch synthesizer sees only the three reviewer tail outputs
+(cross-cutting material, new section proposals, addressee perspectives,
+meta-feedback) — which is already the densest and most important content.
+
+---
+
 ## Future: Steward UI for Proposal Comparison
 
 Currently the editing pass relies on `compare.md` — a generated
@@ -342,3 +394,82 @@ A purpose-built UI would improve this significantly. Ideal features:
 This is a future tooling goal, not a current requirement. The
 `compare.md` approach is the interim solution until the volume of
 proposals justifies building it.
+
+---
+
+## Applying Edits: `/apply-reviews`
+
+After a round produces `synthesis-claude.md`, the `/apply-reviews [round]`
+command translates the synthesis into actual section edits. It is the
+downstream complement to `/review-covenant`.
+
+### Three-phase structure
+
+**Phase 1 — Auto:** Dispatches `editor` subagents (one per batch, serially)
+to apply Tier 1 convergent items that have a single unambiguous text
+replacement. No prompting. Followed by `make validate` + `git diff`.
+
+**Phase 2 — Interactive:** Presents Tier 2+ items and any Tier 1 items with
+multiple candidate phrasings. For each: Apply (A/B/Custom) / Skip / Defer.
+`Defer` writes the item to `reviews/[round]/edits/deferred.json`.
+`Done` ends the phase early.
+
+**Phase 3 — Proposals:** Walks through `reviews/[round]/proposals/*.md`.
+For each: Accept (scaffolds the section, writes content, adds to assemblies)
+/ Reject / Edit. Validates and checks Glossary after each accepted proposal.
+
+### Synthesis file precedence
+
+The command reads:
+1. `reviews/[round]/synthesis.md` — steward-edited version (if it exists)
+2. `reviews/[round]/synthesis-claude.md` — always present after a review run
+
+If the steward wants to annotate or adjust the synthesis before applying edits,
+save the edited version as `synthesis.md`.
+
+### `steward.md` integration
+
+`steward.md` is optional but improves auto-classification:
+
+| `steward.md` section | Effect |
+|---------------------|--------|
+| `## Act` | Promotes Tier 1 items for named sections to auto |
+| `## Defer` | Forces named items to interactive (never auto) |
+| `## Reject` | Excludes named items entirely |
+| `## Question` | Forces named items to interactive |
+| Not mentioned | Classified by synthesis tier alone |
+
+### Auto-classification rules
+
+A synthesis item is placed in `auto_items` when:
+- It is Tier 1 (blocking, convergent)
+- It has a single unambiguous target/replacement text
+- `steward.md` does not demote it
+
+Everything else goes to `interactive_items`. Items the steward marked
+`Reject` are excluded from both lists.
+
+### The `editor` subagent
+
+The `editor` subagent (`.opencode/agents/editor.md`) is responsible for
+applying a specific list of edits to section files. It does not rewrite,
+does not interpret, does not add anything not in its manifest. If a
+`target_text` is not found verbatim in the section file, it reports
+`not_found` and skips that item rather than guessing.
+
+Every modified section receives a Log entry:
+`- YYYY-MM-DD: [description]. (apply-reviews [round])`
+
+### Files
+
+| File | Purpose |
+|------|---------|
+| `.opencode/commands/apply-reviews.md` | Slash command |
+| `build/prepare_edits.py` | Parses synthesis + steward.md → batch manifests |
+| `.opencode/agents/editor.md` | Editing subagent |
+| `prompts/edit_batch.md` | Editor instruction template |
+| `reviews/[round]/edits/.prepared/` | Generated batch manifests |
+| `reviews/[round]/edits/auto-batch-N.md` | Auto phase reports |
+| `reviews/[round]/edits/deferred.json` | Items deferred for future rounds |
+
+See `docs/EDIT_WORKFLOW.md` for the full specification.
