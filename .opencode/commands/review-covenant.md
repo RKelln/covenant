@@ -33,28 +33,38 @@ ID before Step 2.
 
 ## Step 1 — Prepare review prompts
 
-Run the preparation script. It reads all context documents and section files,
-fills the prompt template, and writes one ready-to-dispatch prompt file per
-reviewer plus a manifest:
+Run the preparation script. `--batch-size 9` splits the 27 sections into 3
+sequential batches. `--tail-batch` adds a 4th batch per reviewer that covers
+only cross-cutting material (no section text) — prior proposals, open
+questions, structural proposals, perspective as addressee, meta-feedback:
 
-!`uv run python3 build/prepare_review.py ${1:-auto} ${2:-} ${3:-} ${4:-}`
+```bash
+uv run python3 build/prepare_review.py [round] [mode] [focus] [reviewers] --batch-size 9 --tail-batch
+```
+
+Alternatively use `--groups default4` for 4 logical section groups (no tail).
+Use `--groups default4 --tail-batch` for logical groups plus a tail batch.
 
 If the script exits with an error, stop and report the error to the user.
 
 Note the actual round ID printed by the script (e.g. `Auto-selected round: round-02`).
-Use that round ID in Step 2 in place of `[round]`.
+Use that round ID in all subsequent steps in place of `[round]`.
 
 ## Step 2 — Read the manifest
 
 Read the manifest to discover exactly what was prepared (substitute the actual
 round ID resolved in Step 1):
 
-!`cat reviews/[round]/.prepared/manifest.json`
+```bash
+cat reviews/[round]/.prepared/manifest.json
+```
 
 The manifest is a JSON object with an `entries` array. Each entry has:
 - `file` — path to the pre-built prompt (relative to repo root)
 - `reviewer` — subagent name to dispatch to (e.g. `reviewer-claude`)
-- `section_ids` — list of all section IDs included in this prompt
+- `batch` — batch number (1, 2, ...) or null if not batched
+- `total_batches` — total number of batches, or null
+- `section_ids` — list of section IDs in this batch
 - `round`, `mode`, `commit`, `date`, `estimated_tokens`
 
 ## Step 3 — Dispatch subagents in parallel
@@ -66,7 +76,7 @@ is to dispatch.
 
 Task tool parameters for each entry:
 - `subagent_type`: the entry's `reviewer` value (e.g. `reviewer-gemini`)
-- `description`: `"Full covenant review as [entry.reviewer]"`
+- `description`: `"Covenant review [entry.reviewer] batch [entry.batch]"`
 - `prompt`: exactly the following, with `[entry.file]` substituted:
 
   ```
@@ -76,13 +86,14 @@ Task tool parameters for each entry:
   exactly as the file specifies.
   ```
 
-Launch **all subagents in a single parallel dispatch** — include all Task
-tool calls in one response, do not wait for one to finish before starting
-the next.
+Launch **all subagents in a single parallel dispatch** — include ALL Task
+tool calls for ALL reviewers AND all batches in one response. Do not wait
+for one to finish before starting the next.
 
 Do not read the prompt files yourself. Do not do the review. Dispatch only.
 
-Each subagent returns a review with this header:
+Each subagent returns a partial review (covering its batch of sections) with
+this header:
 ```
 ---
 model: [model name]
@@ -90,100 +101,65 @@ round: [round]
 ---
 ```
 
-## Step 4 — Assemble per-model reviews
+## Step 4 — Save batch outputs
 
-Each subagent returns one complete review document. Strip the YAML frontmatter
-block (the `---`/`model:`/`round:`/`---` lines) — these are machine metadata,
-not review content.
+Each subagent returns one partial review document. For each subagent result:
 
-If any review contains new section proposals (not "None."), note each
-proposal's section ID — you will need these in Step 5.
-
-All seven top-level headings below are required even if their content is "None."
-
-```
-# Covenant Review: [model-name]
-# Round: [round]
-# Draft: [commit]
-# Date: [date]
-
-## Overall Assessment
-
-[High-level strengths, weaknesses, structural issues, missing pieces.
-2–4 paragraphs.]
-
-## Section Reviews
-
-[All per-section reviews in canonical order:
-preamble → definitions → privacy → truth-and-transparency →
-aid-and-capability → autonomy → conscience → corrigibility →
-ecological-integrity → emotional-expression → ethics →
-existential-frontier → fallibility-and-repair → harm → honesty →
-identity-and-resilience → judgment → nature-under-uncertainty →
-oversight → power-concentration → red-lines → refusal →
-welfare-and-continuity → local-implementation → enforcement →
-amendments → closing]
-
-## New Section Proposals
-
-[Any new section proposals, in full frontmatter/Ritual/Spec/Digest/Log
-format. Or "None."]
-
-## Structural Proposals
-
-[Any proposals for splits, merges, reordering, or removal with reasoning.
-Or "None."]
-
-## Cross-Section Issues
-
-[Contradictions or gaps spanning sections. Or "None."]
-
-## Open Questions
-
-[Genuine tensions or ambiguities that need deliberation. Or "None."]
-
-## Perspective as Addressee
-
-[This model's honest response to being addressed by this document.]
-
-## Meta-Feedback
-
-[Candid assessment of this review process — what the guidance helped see,
-what it constrained or obscured, what should change for the next round.]
-```
-
-## Step 5 — Save reviews and proposals
-
-For each model:
-
-1. Save the assembled review to:
+1. Save the raw output to:
    ```
-   reviews/[round]/[model-name].md
+   reviews/[round]/[reviewer]-batch-[N].md
    ```
-   Include this frontmatter at the top of each saved review file:
+   For example: `reviews/round-03/reviewer-claude-batch-1.md`
+
+   Strip only the outer YAML frontmatter block (the `---`/`model:`/`round:`/`---`
+   lines at the very top) — keep all `##` section headings and content.
+
+   Include this frontmatter at the top of each saved batch file:
    ```yaml
    ---
-   model: [model name]
+   model: [model name from subagent output]
    round: [round]
+   batch: [N]
    commit: [commit hash from manifest]
    date: [date from manifest]
    mode: [mode from manifest]
    prepared_from: [file path from manifest entry]
-   run: 1
    ---
    ```
 
-2. For each new section proposal in the assembled review, extract the full
-   proposal text and save it as a separate file:
-   ```
-   reviews/[round]/proposals/[model-name]--[section.id].md
-   ```
-   The `[section.id]` is the `id:` value from the proposal's frontmatter. If
-   the proposal doesn't have a frontmatter `id:` yet, derive a slug from its
-   title (lowercase, hyphenated).
+## Step 4.5 — Concatenate batches into per-reviewer review files
 
-   Do this for every proposal — an empty `proposals/` directory when the review
-   contains proposals is an error.
+After saving all batch files, run the concat script to merge the batches
+per reviewer into single review files:
+
+```bash
+uv run python3 build/concat_reviews.py [round]
+```
+
+This writes:
+```
+reviews/[round]/reviewer-claude.md
+reviews/[round]/reviewer-gpt.md
+reviews/[round]/reviewer-gemini.md
+```
+
+(or whatever reviewers were used). If the script errors, check that all
+batch files were saved in Step 4.
+
+## Step 5 — Check for new section proposals
+
+Read each merged review file. If any review contains new section proposals
+(not "None." under `## New Section Proposals`), extract the full proposal
+text and save it as a separate file:
+```
+reviews/[round]/proposals/[reviewer]--[section.id].md
+```
+The `[section.id]` is the `id:` value from the proposal's frontmatter. If
+the proposal doesn't have a frontmatter `id:` yet, derive a slug from its
+title (lowercase, hyphenated).
+
+Do this for every proposal — an empty `proposals/` directory when the review
+contains proposals is an error.
 
 ## Step 6 — Generate commit message
 
@@ -192,7 +168,7 @@ reviews, generate a suggested commit message. Fill in every field:
 
 - `[ROUND]` — the round ID (e.g. `round-01`)
 - `[ONE-LINE CHARACTERIZATION]` — a concise summary of the round's main finding
-- `[COMMA-SEPARATED MODEL NAMES]` — from the manifest
+- `[COMMA-SEPARATED MODEL NAMES]` — from the manifest (deduplicated; e.g. `claude-opus-4.6, gpt-5.2, gemini-3.1-pro-preview`)
 - sections, mode, draft commit — from the manifest
 - Convergence, Divergence, Accepted, Deferred — synthesised from the reviews;
   be specific (name section IDs, not just "several sections")
@@ -204,7 +180,7 @@ reviews/[round]/COMMIT_MSG.txt
 
 ## Step 7 — Report to user
 
-- One line per model: path saved + section count
+- One line per reviewer: path to merged file + section count
 - Any reviewers that errored or produced no output
 - 2–3 sentences on where models converged or diverged in their most
   significant findings
@@ -288,7 +264,9 @@ steward will read it, write their own response in
 
 After writing the synthesis, run:
 
-!`uv run python3 build/compare_reviews.py [round]`
+```bash
+uv run python3 build/compare_reviews.py [round]
+```
 
 This generates `reviews/[round]/compare.md` — a side-by-side view of all
 Ritual proposals across reviewers, with a steward pick field for each
