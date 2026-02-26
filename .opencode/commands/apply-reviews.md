@@ -148,10 +148,11 @@ steward one at a time.
 
 **You are the orchestrating agent here.** You do not dispatch subagents for
 presentation — you read the manifest yourself and present items directly to
-the steward. You dispatch an `editor` subagent only when the steward confirms
-they are done editing.
+the steward. Phase 2 is a conversation: present each item with full context
+and synthesized options, discuss with the steward, and dispatch an `editor`
+subagent only once the steward has decided what change (if any) to make.
 
-### Step 4 — Present items and let the steward edit directly
+### Step 4 — Present items and discuss with the steward
 
 For each interactive item, do the following:
 
@@ -159,13 +160,10 @@ For each interactive item, do the following:
 
 1. `reviews/[round]/compare.md` — find the `## §[section_id]` block and
    extract it in full (from the `## §` heading down to the next `---`
-   separator). This shows what each reviewer proposed for the Ritual of that
-   section.
+   separator).
 
-2. The section file itself (e.g. `sections/02-rights/dignity.md`) — read it
-   in full so you can show the steward the current state of the relevant
-   register (Ritual, Spec, or Digest, depending on which register the item
-   targets).
+2. The section file itself — read it in full so you have the current state of
+   the relevant register (Ritual, Spec, or Digest, depending on the item).
 
 **4b. Present the item.** Display everything in one block:
 
@@ -177,44 +175,79 @@ For each interactive item, do the following:
 ── Current [Ritual/Spec/Digest] ────────────
 [current register text from the section file]
 
-── Reviewer proposals from compare.md ──────
-[the full ## §[section_id] block extracted from compare.md,
+── Reviewer proposals ───────────────────────
+[the full ## §[section_id] block from compare.md,
  showing each reviewer's proposal side by side]
 
 ── Synthesis options ────────────────────────
 Option 1 — [brief label]:
-  [A concrete integration suggestion derived from the proposals above.
-   If the reviewers agree or nearly agree, Option 1 should be a
-   merged/synthesized version. If they diverge, make each a distinct
-   integration approach.]
+  [merged/synthesized version if reviewers largely agree;
+   or the strongest distinct direction if they diverge]
 
 Option 2 — [brief label]:
-  [Second integration approach, if the proposals diverge meaningfully]
+  [second direction, or "keep current text" as a fallback]
 
 Option 3 — [brief label, if warranted]:
-  [Third approach, e.g. "keep current text" or a minimal-change option]
+  [third direction]
 ─────────────────────────────────────────────
-The section file is: sections/[path-to-section]
+Section file: sections/[path-to-section]
 
-Options: [E] Edit section file directly  [S] Skip  [D] Defer  [X] Done — no more changes
+What would you like to do?
 ```
 
-Synthesize 2–3 options yourself from the compare.md proposals. Do not just
-copy-paste individual reviewer suggestions — integrate them. If reviewers
-largely agree, show one merged option and one "keep current" fallback. If
-they diverge significantly, show each major direction as a distinct option.
+Synthesize 2–3 options from the proposals. Do not copy-paste individual
+reviewer suggestions — integrate them. If reviewers largely agree, show one
+merged option plus a "keep current" fallback. If they diverge, show each
+major direction as a distinct option.
 
-Omit "Current [register]" if the register is empty (new section, no text
-yet). Omit the compare.md block if `compare.md` does not contain a section
-entry for this ID.
+Omit "Current [register]" if that register is empty. Omit the reviewer
+proposals block if `compare.md` has no entry for this section.
 
-**4c. Wait for the steward's response.**
+**4c. Open discussion.** After presenting, wait for the steward to respond.
+This is a conversation — the steward may:
 
-**E (Edit directly):**
-Remind the steward of the section file path. Wait for them to confirm they
-have finished editing (they will say something like "done" or "edited").
-Once confirmed, dispatch an `editor` subagent to append a Log entry only
-(no content edits — the steward already made them):
+- Ask questions or request clarification about the options
+- Suggest a direction or dictate specific wording
+- Say they want to edit the file themselves
+
+Engage with whatever the steward says. Answer questions, offer your own
+judgment on the options if asked, and help them arrive at a decision.
+
+Continue the discussion until the steward gives a clear instruction. The
+instruction will be one of:
+
+**"Apply option N" / "Use this text: …" / "Make this change: …"**
+The steward has decided. Dispatch an `editor` subagent to apply the change:
+
+- `subagent_type`: `editor`
+- `description`: `"Apply interactive item to §[section_id]"`
+- `prompt`:
+  ```
+  Use the Read tool to read sections/[path-to-section] in full.
+  Do not use bash or cat.
+
+  Apply the following change to the [Ritual/Spec/Digest] register:
+
+  Target text (replace this):
+  [target_text from the manifest, or "Insert after: [context]" if none]
+
+  Replacement:
+  [the agreed text]
+
+  Append a Log entry: [YYYY-MM-DD]: [item description] (interactive, round-[N])
+
+  Run make validate. Report:
+    applied: [section_id]
+    validate: PASS  or  validate: FAIL <error>
+
+  Return only: saved: [section_id]
+  Or: error: <reason>
+  ```
+
+**"I'll edit it myself" / "I'm editing the file"**
+Acknowledge. Wait for the steward to confirm they are done (e.g. "done",
+"edited"). Once confirmed, dispatch an `editor` subagent to append the Log
+entry only (do not re-apply content — the steward already changed it):
 
 - `subagent_type`: `editor`
 - `description`: `"Add Log entry for §[section_id] interactive edit"`
@@ -234,10 +267,10 @@ Once confirmed, dispatch an `editor` subagent to append a Log entry only
   Or: error: <reason>
   ```
 
-**S:** Skip this item; move to the next without any dispatch.
+**"Skip"** — Move to the next item without any edit.
 
-**D:** Append the item to `reviews/[round]/edits/deferred.json`. Create the
-file if it does not exist. Format:
+**"Defer"** — Append to `reviews/[round]/edits/deferred.json`. Create the
+file if it does not exist:
 ```json
 [
   {
@@ -251,11 +284,12 @@ file if it does not exist. Format:
 ```
 Then move to the next item.
 
-**X:** End Phase 2 immediately. Do not present any remaining items.
+**"Done" / "No more"** — End Phase 2 immediately. Do not present any
+remaining items.
 
-After each confirmed edit (E), run `make validate`. If it fails, show the
-error and ask: "Validation failed. Fix the section file and confirm again, or
-skip this item?"
+After each applied edit (agent or steward), run `make validate`. If it
+fails, show the full error output and ask the steward how to resolve it
+before moving on.
 
 ### Step 5 — Validate after Phase 2
 
