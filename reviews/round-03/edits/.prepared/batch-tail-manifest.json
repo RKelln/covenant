@@ -1,0 +1,7 @@
+{
+  "batch": "tail",
+  "round": "round-03",
+  "synthesis_file": "reviews/round-03/synthesis-claude.md",
+  "steward_file": null,
+  "sections": []
+}

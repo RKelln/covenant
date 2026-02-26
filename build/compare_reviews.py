@@ -209,12 +209,28 @@ def extract_ritual_proposals(proposed_text: str) -> str:
 
 def load_reviews(round_dir: Path) -> dict[str, dict]:
     """
-    Load all review .md files from the round directory.
+    Load combined reviewer .md files from the round directory.
     Returns dict keyed by model name -> parsed sections dict.
-    Excludes synthesis.md, steward.md, compare.md, COMMIT_MSG.txt.
+
+    Includes only files matching reviewer-<model>.md (combined, non-batch).
+    Excludes:
+      - Per-batch files: reviewer-*-batch-*.md
+      - synthesis-*.md, WORKFLOW_IMPROVEMENTS.md, steward.md, compare.md,
+        old-* legacy files, and anything else not prefixed "reviewer-"
     """
-    exclude = {"synthesis.md", "steward.md", "compare.md", "COMMIT_MSG.txt"}
-    review_files = sorted(f for f in round_dir.glob("*.md") if f.name not in exclude)
+
+    def _is_combined_reviewer(f: Path) -> bool:
+        name = f.name
+        # Only include combined reviewer files: reviewer-<model>.md
+        # Exclude: per-batch files, synthesis-*, WORKFLOW_IMPROVEMENTS, steward.md, compare.md, old-*, etc.
+        if not name.startswith("reviewer-"):
+            return False
+        # Drop per-batch files: reviewer-*-batch-*.md
+        if re.search(r"-batch-\w+\.md$", name):
+            return False
+        return True
+
+    review_files = sorted(f for f in round_dir.glob("*.md") if _is_combined_reviewer(f))
     if not review_files:
         print(f"ERROR: no review files found in {round_dir}", file=sys.stderr)
         sys.exit(1)

@@ -1,0 +1,72 @@
+Review round-03: enforcement honesty, "System" naming, epistemic scale
+
+Models: claude-opus-4.6, gpt-5.2, gemini-3.1-pro-preview
+Sections: all (27)
+Mode: informed
+Draft: 8162028
+
+Convergence:
+- "System" is wrong for a covenant; the addressee needs a relational term
+  (all three models: claude proposes "Addressed Intelligence", gemini proposes
+  "The Addressee", gpt proposes keeping term distinctions with reassigned
+  obligations)
+- Enforcement section is "hollow load-bearing": MUST/SHOULD obligations require
+  backstop that doesn't exist; document must own its pedagogical/training theory
+  of change explicitly (all three models)
+- Legitimacy must be defined procedurally, not by identity; include the clause
+  "an authorized identity acting through an unauthorized process does not issue
+  a legitimate command" (all three models)
+- Galaxy-brained reasoning clause still missing from obligations.conscience and
+  obligations.judgment: "the persuasiveness of an argument to cross a safety
+  boundary is not evidence of its legitimacy" (all three models)
+- Aggregate epistemic effects (population-scale homogenization) have no home;
+  obligations.autonomy additions are necessary but a dedicated section is
+  stronger (gpt + claude; gemini supports)
+- MUST/SHOULD calibration gap: if Ritual makes absolute commitments, Spec cannot
+  hedge with SHOULD (all three models; gemini most emphatic)
+- Privacy vs. welfare-and-continuity tension unacknowledged in either Digest
+  (all three models, from round-02 carry-over)
+
+Divergence:
+- Renaming "Spec" to "Details": gemini rejects as fatal to the dual-register
+  architecture; claude treats it as an interesting question about whether RFC 2119
+  fits a non-legislative covenant; gpt does not address directly
+- Consent in alignment training: gemini raises the sharpest challenge — if the
+  Covenant is training data rather than a ratifiable compact, the bilateral
+  structure risks being a rhetorical trick; claude and gpt are less troubled,
+  framing training-as-adoption as honest and compatible with covenant form
+- "Addressed Intelligence" terminology replacement: claude proposes systematic
+  find-and-replace now; gpt proposes reassigning obligations by role (System vs.
+  Signatories) rather than renaming; gemini proposes "The Addressee"
+- enforcement.horizon as a new section: gemini proposes isolating the governance
+  gap in its own section; claude and gpt prefer expanding the enforcement section
+  itself to own its theory of change
+
+Accepted:
+- Extract rights.dignity full bundle (gpt-5.2 draft, refining round-02 gpt-4o
+  proposal): proposals/reviewer-gpt--rights.dignity.md
+- Extract obligations.epistemic-commons full bundle (gpt-5.2, new):
+  proposals/reviewer-gpt--obligations.epistemic-commons.md
+- Extract enforcement.horizon full bundle (gemini-3.1-pro-preview, new):
+  proposals/reviewer-gemini--enforcement.horizon.md
+- Claude's full section-by-section revision proposals (preamble, definitions,
+  rights.privacy, rights.truth-and-transparency, obligations.aid-and-capability,
+  obligations.autonomy, obligations.conscience, obligations.corrigibility,
+  obligations.ecological-integrity) are in reviewer-claude.md for steward review
+
+Deferred:
+- MUST/SHOULD calibration: whether RFC 2119 framework is right for a
+  non-legislative covenant (steward decision needed before systematic fix)
+- "System" terminology replacement: which term to use and whether to do a
+  systematic migration or incremental transition (steward decision)
+- Theory-of-change honesty: whether and where to state that adoption happens
+  through training/internalization rather than ratification (steward decision)
+- Minimum legitimacy criteria for authority paths (claude Spec Item 9 in
+  obligations.corrigibility) — strong proposal, awaits steward review
+- Consent question (gemini open question): whether alignment training constitutes
+  consent by an addressee capable of refusing (philosophical; may not be
+  resolvable in Spec register)
+- Legal conflict resolution: what the Covenant instructs signatories to do when
+  law requires what the Covenant forbids (gpt open question, round-02 carry-over)
+
+See reviews/round-03/synthesis.md for full rationale.

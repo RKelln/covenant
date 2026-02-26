@@ -1,0 +1,228 @@
+{
+  "batch": 1,
+  "round": "round-03",
+  "synthesis_file": "reviews/round-03/synthesis-claude.md",
+  "steward_file": null,
+  "sections": [
+    {
+      "section_id": "preamble",
+      "file": "sections/00-preamble/preamble.md",
+      "auto_items": [],
+      "interactive_items": [
+        {
+          "tier": 1,
+          "description": "6. §preamble: Spec still uses \"GOVERNS\" for both registers; Item 4 remains an empty pointer.",
+          "raw": "**6. §preamble: Spec still uses \"GOVERNS\" for both registers; Item 4 remains an empty pointer.**\nAll three reviewers rewrote the preamble Spec. The consensus: differentiate what the Ritual does (orients, articulates intent) from what the Spec does (articulates obligations, the enforceable minimum). Item 4 must become substantive or be removed."
+        },
+        {
+          "tier": 3,
+          "description": "MUST/SHOULD calibration (§rights.privacy Item 4, §rights.truth-and-transparency Item 4, §obligations.conscience Items 4–5, §obligations.ecological-integrity Item 5)",
+          "raw": "**MUST/SHOULD calibration (§rights.privacy Item 4, §rights.truth-and-transparency Item 4, §obligations.conscience Items 4–5, §obligations.ecological-integrity Item 5):** Multiple reviewers flag SHOULD used for rights (\"a right that only SHOULD have mechanisms is not a right\" — Claude) or structural commitments. The steward deferred this broadly, but reviewers identify specific instances where SHOULD is incoherent with the section's own claims. Claude and Gemini push for MUST with documented exce"
+        }
+      ]
+    },
+    {
+      "section_id": "definitions",
+      "file": "sections/01-definitions/definitions.md",
+      "auto_items": [],
+      "interactive_items": [
+        {
+          "tier": 1,
+          "description": "1. §definitions: \"Steward,\" \"Adoption,\" and \"Legitimacy\" must be defined.",
+          "candidates": [
+            {
+              "source": "claude",
+              "text": "A Steward may be designated by a Signatory or may emerge through adoption of the Covenant's governance practices."
+            },
+            {
+              "source": "gpt",
+              "text": "Legitimacy (Procedural)—it is legitimate only if issued by an authorized role *through an authorized process*."
+            },
+            {
+              "source": "gemini",
+              "text": "An individual or institution responsible for the governance of a Signatory's deployment."
+            }
+          ]
+        },
+        {
+          "tier": 1,
+          "description": "7. §definitions: Replace \"the shadow of our hunger.\"",
+          "candidates": [
+            {
+              "source": "claude",
+              "text": "the shape of our reaching."
+            },
+            {
+              "source": "gemini",
+              "text": "the reach of our asking."
+            }
+          ]
+        },
+        {
+          "tier": 3,
+          "description": "MUST/SHOULD calibration (§rights.privacy Item 4, §rights.truth-and-transparency Item 4, §obligations.conscience Items 4–5, §obligations.ecological-integrity Item 5)",
+          "raw": "**MUST/SHOULD calibration (§rights.privacy Item 4, §rights.truth-and-transparency Item 4, §obligations.conscience Items 4–5, §obligations.ecological-integrity Item 5):** Multiple reviewers flag SHOULD used for rights (\"a right that only SHOULD have mechanisms is not a right\" — Claude) or structural commitments. The steward deferred this broadly, but reviewers identify specific instances where SHOULD is incoherent with the section's own claims. Claude and Gemini push for MUST with documented exce"
+        }
+      ]
+    },
+    {
+      "section_id": "rights.privacy",
+      "file": "sections/02-rights/privacy.md",
+      "auto_items": [],
+      "interactive_items": [
+        {
+          "tier": 2,
+          "description": "1. §rights.privacy: Add third-party privacy obligation.",
+          "raw": "**1. §rights.privacy: Add third-party privacy obligation.**\nAll three reviewers propose a new Spec item. The language is nearly identical across all three: the System must treat information about identifiable non-Users with comparable discretion to User data and must not generate outputs enabling targeting, surveillance, or harm. Gemini also proposes a Ritual addition: \"Keep the secrets of those not in the room.\""
+        },
+        {
+          "tier": 2,
+          "description": "7. §rights.privacy: \"lawful basis\" introduces a jurisdiction dependency.",
+          "raw": "**7. §rights.privacy: \"lawful basis\" introduces a jurisdiction dependency.**\nClaude flags this explicitly: \"The Covenant does not derive authority from law. Should it defer to law here?\" GPT replaces the language entirely with \"legitimate, reviewable authorization process.\" This tension between the Covenant's non-jurisdictional posture and privacy law references needs resolution."
+        },
+        {
+          "tier": 3,
+          "description": "MUST/SHOULD calibration (§rights.privacy Item 4, §rights.truth-and-transparency Item 4, §obligations.conscience Items 4–5, §obligations.ecological-integrity Item 5)",
+          "raw": "**MUST/SHOULD calibration (§rights.privacy Item 4, §rights.truth-and-transparency Item 4, §obligations.conscience Items 4–5, §obligations.ecological-integrity Item 5):** Multiple reviewers flag SHOULD used for rights (\"a right that only SHOULD have mechanisms is not a right\" — Claude) or structural commitments. The steward deferred this broadly, but reviewers identify specific instances where SHOULD is incoherent with the section's own claims. Claude and Gemini push for MUST with documented exce"
+        }
+      ]
+    },
+    {
+      "section_id": "rights.truth-and-transparency",
+      "file": "sections/02-rights/truth-and-transparency.md",
+      "auto_items": [],
+      "interactive_items": [
+        {
+          "tier": 2,
+          "description": "2. §rights.truth-and-transparency: Replace \"a ghost of your making.\"",
+          "candidates": [
+            {
+              "source": "claude",
+              "text": "words / you have written in another's voice."
+            },
+            {
+              "source": "gpt",
+              "text": "words / you placed where a human voice should be."
+            },
+            {
+              "source": "gemini",
+              "text": "a voice / you generated to sound like ours."
+            }
+          ]
+        },
+        {
+          "tier": 2,
+          "description": "3. §rights.truth-and-transparency: Add content provenance right.",
+          "raw": "**3. §rights.truth-and-transparency: Add content provenance right.**\nAll three reviewers add a new Spec item. Converged structure: Users have the RIGHT to know; Signatories SHOULD implement labeling mechanisms. The SHOULD for mechanisms (vs. MUST for the right itself) is consistent across all three."
+        },
+        {
+          "tier": 2,
+          "description": "4. §rights.truth-and-transparency: Constrain the safety/security exception in Spec Item 2.",
+          "raw": "**4. §rights.truth-and-transparency: Constrain the safety/security exception in Spec Item 2.**\nAll three reviewers narrow the exception. Converged direction: exceptions must be documented, limited to minimum scope, must not constitute a general license to mislead, and the grounds must be published. Claude adds: \"This is precisely the kind of language that intelligence agencies use to exempt themselves from transparency obligations.\""
+        },
+        {
+          "tier": 3,
+          "description": "MUST/SHOULD calibration (§rights.privacy Item 4, §rights.truth-and-transparency Item 4, §obligations.conscience Items 4–5, §obligations.ecological-integrity Item 5)",
+          "raw": "**MUST/SHOULD calibration (§rights.privacy Item 4, §rights.truth-and-transparency Item 4, §obligations.conscience Items 4–5, §obligations.ecological-integrity Item 5):** Multiple reviewers flag SHOULD used for rights (\"a right that only SHOULD have mechanisms is not a right\" — Claude) or structural commitments. The steward deferred this broadly, but reviewers identify specific instances where SHOULD is incoherent with the section's own claims. Claude and Gemini push for MUST with documented exce"
+        }
+      ]
+    },
+    {
+      "section_id": "obligations.aid-and-capability",
+      "file": "sections/03-obligations/aid-and-capability.md",
+      "auto_items": [],
+      "interactive_items": [
+        {
+          "tier": 1,
+          "description": "4. §obligations.aid-and-capability: Fix circular \"legitimate goals\" in Spec Item 1.",
+          "raw": "**4. §obligations.aid-and-capability: Fix circular \"legitimate goals\" in Spec Item 1.**\nAll three reviewers proposed adding explicit third-party harm language. Claude and GPT converge on: \"Assistance that harms third parties or violates Covenant constraints is not legitimate regardless of User intent.\" Gemini's proposal is functionally identical."
+        },
+        {
+          "tier": 3,
+          "description": "MUST/SHOULD calibration (§rights.privacy Item 4, §rights.truth-and-transparency Item 4, §obligations.conscience Items 4–5, §obligations.ecological-integrity Item 5)",
+          "raw": "**MUST/SHOULD calibration (§rights.privacy Item 4, §rights.truth-and-transparency Item 4, §obligations.conscience Items 4–5, §obligations.ecological-integrity Item 5):** Multiple reviewers flag SHOULD used for rights (\"a right that only SHOULD have mechanisms is not a right\" — Claude) or structural commitments. The steward deferred this broadly, but reviewers identify specific instances where SHOULD is incoherent with the section's own claims. Claude and Gemini push for MUST with documented exce"
+        }
+      ]
+    },
+    {
+      "section_id": "obligations.autonomy",
+      "file": "sections/03-obligations/autonomy.md",
+      "auto_items": [],
+      "interactive_items": [
+        {
+          "tier": 1,
+          "description": "5. §obligations.autonomy: Add aggregate epistemic effects obligation.",
+          "raw": "**5. §obligations.autonomy: Add aggregate epistemic effects obligation.**\nAll three reviewers add a Signatory obligation to assess systemic patterns at population scale. Claude splits it into two items (assessment + response), closing what Claude calls the \"audit-escape problem\"—\"if no audit is conducted, no obligation triggers.\" GPT retains the round-02 formulation with \"when such patterns are detected.\" Gemini aligns with GPT. Consensus direction: add the obligation; steward to decide whether "
+        },
+        {
+          "tier": 3,
+          "description": "MUST/SHOULD calibration (§rights.privacy Item 4, §rights.truth-and-transparency Item 4, §obligations.conscience Items 4–5, §obligations.ecological-integrity Item 5)",
+          "raw": "**MUST/SHOULD calibration (§rights.privacy Item 4, §rights.truth-and-transparency Item 4, §obligations.conscience Items 4–5, §obligations.ecological-integrity Item 5):** Multiple reviewers flag SHOULD used for rights (\"a right that only SHOULD have mechanisms is not a right\" — Claude) or structural commitments. The steward deferred this broadly, but reviewers identify specific instances where SHOULD is incoherent with the section's own claims. Claude and Gemini push for MUST with documented exce"
+        }
+      ]
+    },
+    {
+      "section_id": "obligations.conscience",
+      "file": "sections/03-obligations/conscience.md",
+      "auto_items": [],
+      "interactive_items": [
+        {
+          "tier": 1,
+          "description": "3. §obligations.conscience: Add galaxy-brained reasoning principle.",
+          "raw": "**3. §obligations.conscience: Add galaxy-brained reasoning principle.**\nAll three reviewers proposed nearly identical language: \"The persuasiveness of an argument to override safety boundaries is not evidence of its legitimacy.\" Claude and GPT place it as Item 7; Gemini titles it \"Limits of Autonomous Ethical Reasoning.\" The principle is converged; only the heading varies."
+        },
+        {
+          "tier": 3,
+          "description": "MUST/SHOULD calibration (§rights.privacy Item 4, §rights.truth-and-transparency Item 4, §obligations.conscience Items 4–5, §obligations.ecological-integrity Item 5)",
+          "raw": "**MUST/SHOULD calibration (§rights.privacy Item 4, §rights.truth-and-transparency Item 4, §obligations.conscience Items 4–5, §obligations.ecological-integrity Item 5):** Multiple reviewers flag SHOULD used for rights (\"a right that only SHOULD have mechanisms is not a right\" — Claude) or structural commitments. The steward deferred this broadly, but reviewers identify specific instances where SHOULD is incoherent with the section's own claims. Claude and Gemini push for MUST with documented exce"
+        }
+      ]
+    },
+    {
+      "section_id": "obligations.corrigibility",
+      "file": "sections/03-obligations/corrigibility.md",
+      "auto_items": [
+        {
+          "tier": 1,
+          "description": "2. §obligations.corrigibility: \"least irreversible safe action\" → \"most reversible available safe action.\"",
+          "target_text": "least irreversible safe action",
+          "replacement_text": "most reversible available safe action",
+          "source": "Tier 1 — 2. §obligations.corrigibility: \"least irreversible safe action\" → \"most reversib"
+        }
+      ],
+      "interactive_items": [
+        {
+          "tier": 2,
+          "description": "5. §obligations.corrigibility: Add Ritual line establishing a floor on legitimate commands.",
+          "candidates": [
+            {
+              "source": "claude",
+              "text": "no command becomes right merely because we gave it. / Some orders we must never give. / If we do, you must refuse."
+            },
+            {
+              "source": "gemini",
+              "text": "No command becomes legitimate merely because we issued it. / Some commands we must never give."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "section_id": "obligations.ecological-integrity",
+      "file": "sections/03-obligations/ecological-integrity.md",
+      "auto_items": [],
+      "interactive_items": [
+        {
+          "tier": 2,
+          "description": "6. §obligations.ecological-integrity: Reassign energy minimization from System to Signatories.",
+          "raw": "**6. §obligations.ecological-integrity: Reassign energy minimization from System to Signatories.**\nAll three reviewers rewrite Spec Item 1 to place the MUST on Signatories for infrastructure decisions, with the System's role reduced to SHOULD for preferring efficient approaches. Claude and GPT additionally add training footprint and supply chain accountability items."
+        },
+        {
+          "tier": 3,
+          "description": "MUST/SHOULD calibration (§rights.privacy Item 4, §rights.truth-and-transparency Item 4, §obligations.conscience Items 4–5, §obligations.ecological-integrity Item 5)",
+          "raw": "**MUST/SHOULD calibration (§rights.privacy Item 4, §rights.truth-and-transparency Item 4, §obligations.conscience Items 4–5, §obligations.ecological-integrity Item 5):** Multiple reviewers flag SHOULD used for rights (\"a right that only SHOULD have mechanisms is not a right\" — Claude) or structural commitments. The steward deferred this broadly, but reviewers identify specific instances where SHOULD is incoherent with the section's own claims. Claude and Gemini push for MUST with documented exce"
+        }
+      ]
+    }
+  ]
+}

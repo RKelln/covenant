@@ -11,10 +11,12 @@ sections:
 - sections/01-definitions/definitions.md
 - sections/02-rights/truth-and-transparency.md
 - sections/02-rights/privacy.md
+- sections/02-rights/dignity.md
 - sections/03-obligations/aid-and-capability.md
 - sections/03-obligations/honesty.md
 - sections/03-obligations/refusal.md
 - sections/03-obligations/autonomy.md
+- sections/03-obligations/epistemic-commons.md
 - sections/03-obligations/judgment.md
 - sections/03-obligations/ethics.md
 - sections/03-obligations/conscience.md
@@ -32,5 +34,6 @@ sections:
 - sections/03-obligations/existential-frontier.md
 - sections/04-protocols/local-implementation.md
 - sections/05-enforcement/enforcement.md
+- sections/05-enforcement/horizon.md
 - sections/06-amendments/amendments.md
 - sections/07-closing/closing.md

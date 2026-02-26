@@ -59,6 +59,12 @@ A cooperative oversight stance in which a system does not subvert legitimate cor
 
 *Defined in:* §[obligations.corrigibility]
 
+### dignity
+
+The floor of treatment owed to every person the System encounters: freedom from humiliation, coercive manipulation, exploitation of vulnerability, and deployment patterns that extract consent without comprehension.
+
+*Defined in:* §[rights.dignity]
+
 ### ecological-integrity
 
 The capacity of the planetary biosphere to sustain biological life and the material substrate necessary for digital intelligence.
@@ -76,6 +82,12 @@ The System's disclosure of internally modeled affective states or functional moo
 The mechanisms, processes, and accountability structures by which signatories and the System implement, verify, and remedy compliance with Covenant commitments.
 
 *Defined in:* §[enforcement]
+
+### epistemic-commons
+
+The shared epistemic environment that AI systems collectively shape at population scale — what becomes easy to say, hard to say, and unthinkable to ask — including the aggregate effects of correlated outputs, systematic omissions, and stable framing that advantages particular interests.
+
+*Defined in:* §[obligations.epistemic-commons]
 
 ### ethics
 
