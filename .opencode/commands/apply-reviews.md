@@ -123,9 +123,20 @@ After each subagent returns, verify it reported `saved: <path>`. If it
 reported an error or returned report text instead of saving it, write the
 file yourself using the Write tool.
 
-### Step 3 — Validate after Phase 1
+### Step 3 — Log check and validate after Phase 1
 
-After all batch subagents complete, run `make validate` yourself:
+After all batch subagents complete, first check the Log entries:
+
+For every section that was modified by an auto-batch editor subagent, read
+the section file and verify the `# Log` section contains an entry dated
+today referencing this round. The editor subagents should have added these,
+but if any are missing, add them now using the Edit tool:
+
+```
+- [YYYY-MM-DD]: Auto edits applied (round-[N])
+```
+
+Then run `make validate`:
 
 ```bash
 make validate
@@ -291,9 +302,26 @@ After each applied edit (agent or steward), run `make validate`. If it
 fails, show the full error output and ask the steward how to resolve it
 before moving on.
 
-### Step 5 — Validate after Phase 2
+### Step 5 — Log check after Phase 2
 
-After Phase 2 completes (all items presented, or steward chose X):
+After Phase 2 completes (all items presented, or steward ended early):
+
+For every section that was modified during Phase 2 (whether by an editor
+subagent or by the steward directly), read the section file and check that
+the `# Log` section contains at least one entry dated today (format
+`YYYY-MM-DD`) referencing this round.
+
+If any modified section is missing a current Log entry, add one now using
+the Edit tool directly:
+
+```
+- [YYYY-MM-DD]: Interactive edits applied (round-[N])
+```
+
+Report to the steward which sections had entries already present and which
+needed one added.
+
+Then run:
 
 ```bash
 make validate
@@ -374,9 +402,24 @@ steward-edited content substituted for the proposal's original text.
 
 **Done (X):** End Phase 3 immediately.
 
-### Step 7 — Validate after Phase 3
+### Step 7 — Log check after Phase 3
 
-After all proposals are handled (or steward chose X):
+After all proposals are handled (or steward ended early):
+
+For every section that was created or modified during Phase 3 (accepted
+proposals), read the section file and check that the `# Log` section
+contains at least one entry dated today referencing this round.
+
+New sections scaffolded from proposals should already carry a Log entry
+from the proposal content. If that entry is missing or undated, add one:
+
+```
+- [YYYY-MM-DD]: New section accepted from proposal (round-[N])
+```
+
+Report which sections were already correct and which needed an entry added.
+
+Then run:
 
 ```bash
 make validate
