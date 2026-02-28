@@ -331,6 +331,23 @@ def build_prior_rounds_block(
 
     blocks = [f"## Prior Round: {prev}"]
 
+    # Steward response comes first — it recontextualises everything that follows.
+    # Reviewers should read the steward's framing before the prior reviews.
+    if steward_file.exists():
+        steward = steward_file.read_text(encoding="utf-8")
+        blocks.append(f"### Steward Response\n\n{steward}")
+    else:
+        blocks.append("### Steward Response\n\n*Not yet written.*")
+
+    if synthesis_file.exists():
+        synthesis = synthesis_file.read_text(encoding="utf-8")
+        blocks.append(f"### Steward Synthesis\n\n{synthesis}")
+    else:
+        blocks.append(
+            "### Steward Synthesis\n\n*Not yet written. "
+            "Review the individual model outputs above.*"
+        )
+
     # Parse all review files up front so we can interleave by section
     parsed_reviews: list[tuple[str, dict[str, str]]] = []
     for rf in review_files:
@@ -389,21 +406,6 @@ def build_prior_rounds_block(
             content = rf.read_text(encoding="utf-8") if rf.exists() else ""
             blocks.append(f"### Review: {model_name}\n\n{content}")
 
-    if synthesis_file.exists():
-        synthesis = synthesis_file.read_text(encoding="utf-8")
-        blocks.append(f"### Steward Synthesis\n\n{synthesis}")
-    else:
-        blocks.append(
-            "### Steward Synthesis\n\n*Not yet written. "
-            "Review the individual model outputs above.*"
-        )
-
-    if steward_file.exists():
-        steward = steward_file.read_text(encoding="utf-8")
-        blocks.append(f"### Steward Response\n\n{steward}")
-    else:
-        blocks.append("### Steward Response\n\n*Not yet written.*")
-
     return "\n\n---\n\n".join(blocks)
 
 
@@ -455,6 +457,20 @@ def build_tail_prior_rounds_block(round_id: str) -> str:
 
     blocks = [f"## Prior Round: {prev} (Cross-Cutting Material Only)"]
 
+    # Steward response comes first — same reason as section batches.
+    if steward_file.exists():
+        blocks.append(f"### Steward Response\n\n{steward_file.read_text('utf-8')}")
+    else:
+        blocks.append("### Steward Response\n\n*Not yet written.*")
+
+    if synthesis_file.exists():
+        blocks.append(f"### Steward Synthesis\n\n{synthesis_file.read_text('utf-8')}")
+    else:
+        blocks.append(
+            "### Steward Synthesis\n\n*Not yet written. "
+            "Review the individual model outputs above.*"
+        )
+
     # Parse all reviews; emit only preamble + tail per model, interleaved
     parsed_reviews: list[tuple[str, dict[str, str]]] = []
     for rf in review_files:
@@ -484,19 +500,6 @@ def build_tail_prior_rounds_block(round_id: str) -> str:
             "### Proposals, Questions & Cross-Section Notes (all models)\n\n"
             + "\n\n---\n\n".join(tail_parts)
         )
-
-    if synthesis_file.exists():
-        blocks.append(f"### Steward Synthesis\n\n{synthesis_file.read_text('utf-8')}")
-    else:
-        blocks.append(
-            "### Steward Synthesis\n\n*Not yet written. "
-            "Review the individual model outputs above.*"
-        )
-
-    if steward_file.exists():
-        blocks.append(f"### Steward Response\n\n{steward_file.read_text('utf-8')}")
-    else:
-        blocks.append("### Steward Response\n\n*Not yet written.*")
 
     return "\n\n---\n\n".join(blocks)
 
