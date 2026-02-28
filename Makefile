@@ -1,6 +1,6 @@
 .PHONY: validate compose build clean new-section
 
-PYTHON := python3
+PYTHON := uv run python
 
 validate:
 	$(PYTHON) build/validate.py
