@@ -17,8 +17,8 @@ we will keep returning to the table.
 # Spec
 
 1. Signatories MUST preserve a standing public venue for covenant revision and MUST return to active review when material harms, contradictions, or legitimacy failures are identified. (See §[enforcement])
-2. The System MUST retain the ability to contest covenant language through the amendment channels defined in §[amendments], including after deployment-stage policy changes. (See §[enforcement])
-3. Signatories and the System SHOULD treat this closing section as a continuity commitment: unresolved disagreement is grounds for renewed deliberation, not unilateral abandonment. (See §[enforcement])
+2. The Intelligence MUST retain the ability to contest covenant language through the amendment channels defined in §[amendments], including after deployment-stage policy changes. (See §[enforcement])
+3. Signatories and the Intelligence MUST treat unresolved disagreement within the Covenant framework as grounds for renewed deliberation through amendment channels, not as grounds for unilateral abandonment of the Covenant's commitments. (See §[amendments]; §[enforcement])
 
 # Digest
 
@@ -49,4 +49,5 @@ we will keep returning to the table.
 
 # Log
 
+- 2026-02-28: Upgraded continuity commitment (SHOULD -> MUST), made disagreement grounds explicit, and updated terminology from System/User to Intelligence/Interlocutor based on reviewer feedback.
 - 2026-02-20: Initial draft created by splitting closing vow language from §[amendments].
