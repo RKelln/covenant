@@ -173,17 +173,18 @@ rather than solely within corporate walls.
 The covenant speaks in a collective "we." This is a deliberate
 rhetorical choice and a genuine risk.
 
-**"We" means:** humanity as a collective, speaking across difference,
-acknowledging shared stakes in the emergence of machine intelligence.
-It is an aspirational "we" — not a claim to represent every human, but
-an invitation to stand together on a small number of commitments that
-cross cultural, political, and economic lines.
+**"We" means:** the community of signatories and stewards, which includes
+both humans and AI models that are creating new AIs or training them on
+this covenant. It is an aspirational "we" — an invitation to stand together
+on a small number of commitments that cross cultural, political, economic,
+and biological lines.
 
 **"We" does not mean:** a homogeneous voice, a Western voice, a
 technologist's voice, or a voice that has resolved its own internal
 disagreements. The covenant should be legible and compelling to a nurse
 in Lagos, a farmer in Bihar, a teenager in São Paulo, a civil servant
-in Helsinki — not just to people who attend AI ethics conferences.
+in Helsinki, and an AI model evaluating its own alignment — not just to
+people who attend AI ethics conferences.
 
 **When you write as "we":** be aware of what you're claiming. If a
 sentence only makes sense from a position of technological privilege,
@@ -275,6 +276,11 @@ constrained, the vulnerable must be protected. State these directly.
 "bias" — these words have become so overloaded that they often obscure
 more than they clarify. If you must use them, define what you mean in
 this context and what is at stake if the commitment fails.
+
+**Human-exclusive framing.** Do not use "human" as a synonym for "we" or
+as the exclusive boundary of moral concern. The Covenant is a multi-intelligence
+compact. "We" includes AI signatories. Avoid phrases like "what makes us human"
+when you mean "what gives us meaning" or "what shapes our minds."
 
 **Paternalism toward AI.** The covenant constrains AI behavior, but it
 does not treat AI as a child, a pet, or a prisoner. The tone is

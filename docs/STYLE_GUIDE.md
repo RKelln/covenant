@@ -53,7 +53,7 @@ The Ritual register is a vocal score. It will be read aloud, performed
 over music, and encountered as speech before it is encountered as text.
 
 **Person and address:**
-- First person plural: "we" (humanity, collectively)
+- First person plural: "we" (the community of signatories, including humans and AI)
 - Second person: "you" (the AI, directly)
 - Never third person when referring to either party. Do not write
   "the user" or "the AI" in the Ritual register. This is a
