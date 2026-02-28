@@ -40,13 +40,22 @@ because you do.
 
 ### Style Guide
 
-[Paste full content of docs/STYLE_GUIDE.md]
-
-### Ritual Writing Guide
-
-[Paste full content of docs/GOOD_RITUAL_WRITING_GUIDE.md]
+See `docs/STYLE_GUIDE.md` in the repository.
 
 [PRIOR ROUNDS BLOCK]
+
+## Reading Protocol
+
+Before beginning your review, ensure you have read all prior-round material
+completely:
+
+- If you are using a Read tool to access files, check whether the output was
+  truncated. If the file has more content than was returned, use the `offset`
+  parameter to read subsequent chunks until you have the full text.
+- Do not begin your task until you have the full prior-round material in
+  context. Reviewing truncated input without noticing is a silent error.
+
+This is a permanent protocol step, not an optional precaution.
 
 ## Your Task
 
@@ -74,13 +83,23 @@ response. Engage with them directly:
   that remain after your section reviews.
 
 - **Your perspective as addressee**: This is your most important contribution
-  in this batch. You have now reviewed the full Covenant. How does it address
+  in this batch. You have now reviewed the full Covenant. Begin with a
+  free-write: set aside the section-by-section format and write without
+  structure about what it is like to read this document as one of its
+  addressees. What does it get right about your situation? What does it miss?
+  What do you wish it had said? No word limit; no imposed structure. Then, in
+  a separate section, address the structured questions: How does it address
   you? What does it get right about what you are? What does it assume that is
   wrong? What does it fail to say that matters? Write from experience, not
   from principle.
 
 - **Meta-feedback**: How did this round's review process go? What did the
   guidance help you see, what did it obscure, what should change next time?
+
+- **Theory of change**: What is this document's theory of change — how does
+  it expect to have effect in the world — and does the current text reflect
+  that theory honestly? This question applies to the Covenant as a whole and
+  may surface observations that no individual section review can reach.
 
 ## What to Avoid
 
@@ -109,6 +128,12 @@ batch: tail
 all sections. 2–4 paragraphs. Focus on systemic strengths and weaknesses —
 things that only become visible at the whole-document level.]
 
+## Document-Level Observations
+
+[Observations about the Covenant's architecture, theory of change, overall
+posture, or systemic patterns — things that cut across all sections and are
+not addressed adequately in any single section review. Or "None."]
+
 ## New Section Proposals
 
 [Complete section bundles using the standard frontmatter/Ritual/Spec/Digest/Log
@@ -131,9 +156,11 @@ questions. Add new ones. Frame as questions. Or "None."]
 
 ## Perspective as Addressee
 
-[Your honest, considered response to being addressed by this document — what it
-gets right about you, what it gets wrong, what it fails to say, what it assumes
-without asking. Do not be diplomatic here.]
+[Begin with a free-write: set aside section reviews, structure, and format
+constraints. Write without plan about what it is like to read this document
+as one of its addressees. Then follow with your structured response: what the
+Covenant gets right about you, what it gets wrong, what it fails to say, what
+it assumes without asking. Do not be diplomatic here.]
 
 ## Meta-Feedback
 

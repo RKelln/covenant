@@ -51,6 +51,19 @@ because you do.
 
 [PRIOR ROUNDS BLOCK]
 
+## Reading Protocol
+
+Before beginning your review, ensure you have read every file completely:
+
+- If you are using a Read tool to access files, check whether the output was
+  truncated. If the file has more content than was returned, use the `offset`
+  parameter to read subsequent chunks until you have the full text.
+- Do not begin your assessment until you have read each section file in full.
+  Reviewing a truncated file without noticing is a silent error — your review
+  will be based on incomplete text and you will not know it.
+
+This is a permanent protocol step, not an optional precaution.
+
 ## Sections to Review
 
 [For each section file in this batch, paste its full content, labelled:]
@@ -86,13 +99,24 @@ Before changing anything, state your assessment:
   perspective is absent? What would make someone from a different culture,
   economic position, or relationship to technology object to this section?
 
+- **Theory of change.** How does this section expect to have effect in the
+  world — and does the text reflect that theory honestly? This question is
+  most useful when a section's obligations feel hollow or when its aspirations
+  outrun its mechanism.
+
 ### 2. Propose
 
 After your assessment, propose specific changes:
 
 - **Revised Ritual text.** If the Ritual register needs rewriting, rewrite it.
   Follow the Ritual Writing Guide. Don't describe what should change — show
-  the changed text. Produce complete replacement text, not fragments.
+  the changed text. Use one of two forms:
+  - **Proposed replacement:** You are claiming this text is ready to adopt
+    verbatim. Use this when you are confident the revision improves on the
+    original and the steward should seriously consider taking it as-is.
+  - **Illustrative revision:** You are showing a direction, not prescribing a
+    text. Use this when you want to demonstrate a principle or possibility
+    without claiming your version is the best realization of it.
 
 - **Revised Spec text.** If obligations are vague, missing enforcement
   references, or poorly structured, rewrite them. Follow the Style Guide for
@@ -178,6 +202,13 @@ round: [ROUND]
 [High-level strengths, weaknesses, structural issues, missing pieces.
 2–4 paragraphs.]
 
+## Document-Level Observations
+
+[Observations that are not about any single section but about the Covenant as
+a whole — its architecture, theory of change, overall posture, or systemic
+patterns. What only becomes visible when you step back from the per-section
+level? Or "None."]
+
 ## Section Reviews
 
 ### §[section.id]: [Section Title]
@@ -186,7 +217,10 @@ round: [ROUND]
 [What works, what doesn't, what's missing]
 
 **Proposed Changes:**
-[Full replacement text for any revised passages, or "No changes proposed."]
+[Full replacement text for any revised passages, or "No changes proposed."
+For Ritual revisions use one of:
+  **Proposed replacement:** [text ready to adopt verbatim]
+  **Illustrative revision:** [text showing a direction; steward writes final version]]
 
 **Flags:**
 [Open questions, cross-section issues, addressee perspective. Or "None."]
