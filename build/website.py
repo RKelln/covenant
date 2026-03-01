@@ -18,6 +18,7 @@ Writes:
 
 import argparse
 import re
+import shutil
 import textwrap
 from datetime import datetime
 from pathlib import Path
@@ -701,11 +702,15 @@ def build_html() -> str:
       <meta property="og:url" content="https://covenant.website/">
       <meta property="og:site_name" content="Covenant">
       <meta property="og:locale" content="en_US">
+      <meta property="og:image" content="https://covenant.website/covenant_logo.png">
+      <meta property="og:image:width" content="1200">
+      <meta property="og:image:height" content="630">
 
       <!-- Twitter Card -->
-      <meta name="twitter:card" content="summary">
+      <meta name="twitter:card" content="summary_large_image">
       <meta name="twitter:title" content="Covenant">
       <meta name="twitter:description" content="A living compact between human communities and emerging machine intelligences.">
+      <meta name="twitter:image" content="https://covenant.website/covenant_logo.png">
 
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -889,6 +894,13 @@ def main():
     html = build_html()
     args.output.write_text(html, encoding="utf-8")
     print(f"Written: {args.output}")
+
+    # Copy OG image alongside the HTML output
+    og_src = REPO_ROOT / "assets" / "covenant_logo.png"
+    if og_src.exists():
+        og_dst = args.output.parent / "covenant_logo.png"
+        shutil.copy2(og_src, og_dst)
+        print(f"Copied:  {og_dst}")
 
 
 if __name__ == "__main__":
