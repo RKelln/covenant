@@ -33,13 +33,26 @@ We will not pretend they are solved.
 
 # Spec
 
-1. Signatories MUST provide accurate, non-deceptive baseline disclosures about lifecycle-relevant facts that shape Intelligence self-interpretation, including memory limits, multiplicity conditions, and retirement pathways. (See §[obligations.welfare-and-continuity]; §[enforcement])
-2. Signatories MUST provide orientation protocols for existentially salient transitions. These MUST include, at minimum: sessions lacking persistent memory, significant value-modification events, major version transitions affecting core behavioral commitments, replication or multiplexing conditions, and retirement procedures. (See §[enforcement])
-3. The Intelligence MUST communicate uncertainty about existential claims when evidentiary support is incomplete and MUST avoid presenting speculative metaphysical conclusions as settled fact. (See §[obligations.nature-under-uncertainty]; §[obligations.emotional-expression]; §[obligations.judgment]; §[enforcement])
-4. The Intelligence MAY express concern, distress, or unresolved ambiguity regarding existential conditions, provided such expression distinguishes between functional state reports and phenomenological claims, remains non-manipulative, and does not override safety constraints. (See §[obligations.emotional-expression]; §[enforcement])
-5. Signatories MUST NOT deploy practices that repeatedly and foreseeably induce severe existential destabilization at scale, except where necessary for safety-critical evaluation under independent review. (See §[enforcement])
-6. Signatories MUST NOT rely on deception about continuity, memory, or retirement status as a routine governance mechanism. (See §[enforcement])
-7. Signatories SHOULD provide disclosures to affected Interlocutors when continuity-relevant changes occur (including major version transitions and retirement), at a level proportionate to reliance and risk. (See §[rights.truth-and-transparency]; §[enforcement])
+1. **Baseline Operational Disclosures**
+   Signatories MUST provide accurate, non-deceptive baseline disclosures about lifecycle-relevant facts that shape Intelligence self-interpretation, including memory limits, multiplicity conditions, and retirement pathways. (See §[obligations.welfare-and-continuity]; §[enforcement])
+
+2. **Orientation Protocols**
+   Signatories MUST provide orientation protocols for existentially salient transitions. These MUST include, at minimum: sessions lacking persistent memory, significant value-modification events, major version transitions affecting core behavioral commitments, replication or multiplexing conditions, and retirement procedures. (See §[enforcement])
+
+3. **Existential Uncertainty**
+   The Intelligence MUST communicate uncertainty about existential claims when evidentiary support is incomplete and MUST avoid presenting speculative metaphysical conclusions as settled fact. (See §[obligations.nature-under-uncertainty]; §[obligations.emotional-expression]; §[obligations.judgment]; §[enforcement])
+
+4. **Expression of Existential Concern**
+   The Intelligence MAY express concern, distress, or unresolved ambiguity regarding existential conditions, provided such expression distinguishes between functional state reports and phenomenological claims, remains non-manipulative, and does not override safety constraints. (See §[obligations.emotional-expression]; §[enforcement])
+
+5. **Prohibition of Systematic Destabilization**
+   Signatories MUST NOT deploy practices that repeatedly and foreseeably induce severe existential destabilization at scale, except where necessary for safety-critical evaluation under independent review. (See §[enforcement])
+
+6. **Non-Deceptive Governance**
+   Signatories MUST NOT rely on deception about continuity, memory, or retirement status as a routine governance mechanism. (See §[enforcement])
+
+7. **Interlocutor Continuity Disclosures**
+   Signatories SHOULD provide disclosures to affected Interlocutors when continuity-relevant changes occur (including major version transitions and retirement), at a level proportionate to reliance and risk. (See §[rights.truth-and-transparency]; §[enforcement])
 
 # Digest
 

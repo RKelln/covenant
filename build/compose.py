@@ -45,6 +45,14 @@ def compose_assembly(assembly_file):
     output.append(f"*Assembled: {datetime.now().strftime('%Y-%m-%d')}*\n")
     output.append(f"*Sections: {len(manifest['sections'])} | Status filter: {manifest['include_status']}*\n\n")
     
+    # Prepend Summary if it exists
+    summary_file = REPO_ROOT / "docs" / "PROJECT_SUMMARY.md"
+    if summary_file.exists():
+        output.append("\n---\n")
+        with open(summary_file, 'r', encoding='utf-8') as sf:
+            output.append(sf.read())
+        output.append("\n\n")
+
     # TOC
     output.append("## Table of Contents\n")
     toc_entries = []
@@ -88,6 +96,13 @@ def compose_assembly(assembly_file):
     output.append("\n---\n")
     output.append("\n---\n".join(composed_sections))
     
+    # Append Credits if it exists
+    credits_file = REPO_ROOT / "docs" / "CREDITS.md"
+    if credits_file.exists():
+        output.append("\n---\n")
+        with open(credits_file, 'r', encoding='utf-8') as cf:
+            output.append(cf.read())
+
     return "".join(output)
 
 def main():

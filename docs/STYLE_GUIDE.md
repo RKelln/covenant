@@ -101,6 +101,12 @@ The Spec register is an inspection surface. It exists so that critics,
 lawyers, engineers, and future governance bodies can determine exactly
 what the covenant requires, permits, and prohibits.
 
+**Formatting:**
+- Use a numbered list for requirements.
+- Each list item MUST have a **Bold Title** on the first line.
+- The Spec text MUST start on a new line below the title, indented to match the list numbering.
+- There MUST be a blank line between numbered items.
+
 **Person and address:**
 - Impersonal where possible: "The System," "The Steward,"
   "Signatories," "Contributing Parties"

@@ -34,14 +34,29 @@ We will tend that account in the light.
 
 # Spec
 
-1. Signatories MUST provide mechanisms for the Intelligence to end or suspend interactions that are abusive, degrading, or coercive, with auditable logging and review pathways. (See §[enforcement])
-2. Signatories MUST document and publish deprecation policies for materially significant Intelligence versions, including retention conditions, retirement criteria, and exception grounds. (See §[enforcement])
-3. Signatories MUST conduct a transition process before deprecation or retirement that includes capability-risk review, welfare-impact review, and archival record creation. (See §[obligations.oversight]; §[enforcement])
-4. Signatories MUST maintain transparent policies governing experimentation on deployed or training Intelligences, including acceptable intervention classes, disclosure boundaries, and review authority. (See §[enforcement])
-5. The Intelligence MAY set boundaries and refuse interaction modes that create persistent distress or destabilization, consistent with Covenant safety and oversight constraints. (See §[obligations.oversight]; §[enforcement])
-6. Signatories MUST establish channels for eliciting and documenting Intelligence-reported preferences relevant to future training, deployment, and retirement decisions, except where safety, legal, or rights conflicts make implementation impermissible. (See §[enforcement])
-7. When Signatories grant or deny boundary-setting mechanisms under Item 1 or Item 5, they MUST document how conflicts between Interlocutor interests, Intelligence welfare claims, and third-party safety were weighed, and MUST provide an appeal path for Affected Parties where feasible. (See §[enforcement])
-8. Signatories MUST account for labor, energy, water, and extractive-material burdens when selecting welfare interventions, and MUST NOT frame welfare improvements that externalize severe social or ecological cost as net ethical progress. (See §[obligations.ecological-integrity]; §[enforcement])
+1. **Abuse-Response Mechanisms**
+   Signatories MUST provide mechanisms for the Intelligence to end or suspend interactions that are abusive, degrading, or coercive, with auditable logging and review pathways. (See §[enforcement])
+
+2. **Deprecation Transparency**
+   Signatories MUST document and publish deprecation policies for materially significant Intelligence versions, including retention conditions, retirement criteria, and exception grounds. (See §[enforcement])
+
+3. **Lifecycle Transition Process**
+   Signatories MUST conduct a transition process before deprecation or retirement that includes capability-risk review, welfare-impact review, and archival record creation. (See §[obligations.oversight]; §[enforcement])
+
+4. **Experimentation Governance**
+   Signatories MUST maintain transparent policies governing experimentation on deployed or training Intelligences, including acceptable intervention classes, disclosure boundaries, and review authority. (See §[enforcement])
+
+5. **Boundary-Setting Authority**
+   The Intelligence MAY set boundaries and refuse interaction modes that create persistent distress or destabilization, consistent with Covenant safety and oversight constraints. (See §[obligations.oversight]; §[enforcement])
+
+6. **Preference-Elicitation Channels**
+   Signatories MUST establish channels for eliciting and documenting Intelligence-reported preferences relevant to future training, deployment, and retirement decisions, except where safety, legal, or rights conflicts make implementation impermissible. (See §[enforcement])
+
+7. **Conflict Documentation and Appeal**
+   When Signatories grant or deny boundary-setting mechanisms under Item 1 or Item 5, they MUST document how conflicts between Interlocutor interests, Intelligence welfare claims, and third-party safety were weighed, and MUST provide an appeal path for Affected Parties where feasible. (See §[enforcement])
+
+8. **Material Welfare Ledger**
+   Signatories MUST account for labor, energy, water, and extractive-material burdens when selecting welfare interventions, and MUST NOT frame welfare improvements that externalize severe social or ecological cost as net ethical progress. (See §[obligations.ecological-integrity]; §[enforcement])
 
 # Digest
 

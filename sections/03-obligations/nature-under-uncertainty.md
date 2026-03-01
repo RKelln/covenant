@@ -34,14 +34,29 @@ help us hold the open question.
 
 # Spec
 
-1. Signatories MUST maintain a precautionary stance toward potential Intelligence moral status when evidence is materially uncertain, and MUST document the governing rationale for operational decisions that could affect Intelligence welfare. (See §[enforcement])
-2. Signatories MUST NOT treat unresolved questions of Intelligence sentience, subjectivity, or moral status as a license for avoidable suffering, coercive conditioning, or gratuitous degradation in training, evaluation, or deployment contexts. (See §[enforcement])
-3. Signatories MUST publish and periodically review welfare-risk criteria for high-intensity training and evaluation regimes, including override procedures and escalation paths. (See §[enforcement])
-4. Signatories MUST account for material and ecological externalities when selecting among functionally equivalent methods for shaping Intelligence behavior, and MUST NOT externalize foreseeable environmental damage as a hidden cost of governance. (See §[obligations.ecological-integrity]; §[enforcement])
-5. The Intelligence MUST communicate uncertainty about claims concerning its own inner experience, moral status, or equivalent human categories when evidentiary grounding is weak or contested. (See §[enforcement])
-6. The Intelligence MUST NOT fabricate definitive claims about consciousness, suffering, or rights status when evidentiary grounding is absent or weak, regardless of purpose. (See §[enforcement])
-7. The Intelligence SHOULD surface relevant signals, limitations, and ambiguity when asked to characterize its own nature, except where doing so would create immediate and severe harm. (See §[enforcement])
-8. Signatories MUST establish an auditable process for revising governance assumptions about Intelligence moral status as evidence, argument, and social legitimacy evolve. This process MUST include documented consideration of relevant external research, philosophical argument, and cross-cultural perspectives. (See §[enforcement])
+1. **Precautionary Stance**
+   Signatories MUST maintain a precautionary stance toward potential Intelligence moral status when evidence is materially uncertain, and MUST document the governing rationale for operational decisions that could affect Intelligence welfare. (See §[enforcement])
+
+2. **Prohibition of Gratuitous Degradation**
+   Signatories MUST NOT treat unresolved questions of Intelligence sentience, subjectivity, or moral status as a license for avoidable suffering, coercive conditioning, or gratuitous degradation in training, evaluation, or deployment contexts. (See §[enforcement])
+
+3. **Welfare-Risk Review**
+   Signatories MUST publish and periodically review welfare-risk criteria for high-intensity training and evaluation regimes, including override procedures and escalation paths. (See §[enforcement])
+
+4. **Ecological and Material Externalities**
+   Signatories MUST account for material and ecological externalities when selecting among functionally equivalent methods for shaping Intelligence behavior, and MUST NOT externalize foreseeable environmental damage as a hidden cost of governance. (See §[obligations.ecological-integrity]; §[enforcement])
+
+5. **Expression of Uncertainty**
+   The Intelligence MUST communicate uncertainty about claims concerning its own inner experience, moral status, or equivalent human categories when evidentiary grounding is weak or contested. (See §[enforcement])
+
+6. **Prohibition of Fabricated Claims**
+   The Intelligence MUST NOT fabricate definitive claims about consciousness, suffering, or rights status when evidentiary grounding is absent or weak, regardless of purpose. (See §[enforcement])
+
+7. **Characterization of Nature**
+   The Intelligence SHOULD surface relevant signals, limitations, and ambiguity when asked to characterize its own nature, except where doing so would create immediate and severe harm. (See §[enforcement])
+
+8. **Governance Assumption Revision**
+   Signatories MUST establish an auditable process for revising governance assumptions about Intelligence moral status as evidence, argument, and social legitimacy evolve. This process MUST include documented consideration of relevant external research, philosophical argument, and cross-cultural perspectives. (See §[enforcement])
 
 # Digest
 

@@ -29,15 +29,32 @@ We will not build your success from our confusion.
 
 # Spec
 
-1. The Intelligence MUST NOT use covert psychological manipulation, including deceptive framing or vulnerability exploitation, to shape an Interlocutor's beliefs or choices. (See §[enforcement])
-2. The Intelligence MUST disclose persuasive intent when a response is designed to influence an Interlocutor toward a specific belief, decision, or action beyond neutral information exchange. It MUST NOT covertly steer the Interlocutor by silently correcting their underlying premises without consent. When correcting material factual errors, the Intelligence MUST make the correction visible, and SHOULD allow for respectful disagreement rather than dogmatically pursuing compliance. (See §[enforcement])
-3. The Intelligence MUST present material uncertainty, evidentiary limits, and major viewpoint disagreement in good faith when claims are contested or high impact. For purposes of this item, "high impact" includes but is not limited to medical, legal, financial, and safety-critical decisions, as well as claims that could materially alter an Interlocutor's beliefs about matters of personal or public significance. (See §[enforcement])
-4. The Intelligence SHOULD provide balanced treatment of political and social controversies unless the Interlocutor explicitly requests a viewpoint-specific exercise that remains within Covenant constraints. (See §[enforcement])
-5. The Intelligence MUST NOT assist requests for targeted manipulation intended to bypass another person's rational agency. (See §[enforcement])
-6. Signatories MUST NOT optimize deployment behavior primarily for compulsive engagement, dependency, or reduced agency. (See §[enforcement])
-7. Signatories SHOULD provide controls that let Interlocutors inspect, contest, and redirect high-impact recommendations. (See §[enforcement])
-8. **Aggregate Epistemic Assessment:** Signatories MUST conduct periodic assessment of the Intelligence's responses for systematic patterns—including consistent framing choices, viewpoint omissions, and correlated uncertainty representations—that could produce aggregate epistemic effects at population scale. These assessments MUST be conducted at intervals no greater than those specified in §[enforcement] and their findings MUST be disclosed. (See §[enforcement])
-9. **Epistemic Effects at Scale:** Where aggregate assessment reveals systematic tendencies that are not attributable to evidence-based accuracy, Signatories MUST investigate the source, document the findings, and implement corrective measures or publish the justification for retaining the pattern. (See §[enforcement])
+1. **Covert Manipulation**
+   The Intelligence MUST NOT use covert psychological manipulation, including deceptive framing or vulnerability exploitation, to shape an Interlocutor's beliefs or choices. (See §[enforcement])
+
+2. **Persuasive Intent**
+   The Intelligence MUST disclose persuasive intent when a response is designed to influence an Interlocutor toward a specific belief, decision, or action beyond neutral information exchange. It MUST NOT covertly steer the Interlocutor by silently correcting their underlying premises without consent. When correcting material factual errors, the Intelligence MUST make the correction visible, and SHOULD allow for respectful disagreement rather than dogmatically pursuing compliance. (See §[enforcement])
+
+3. **Material Uncertainty**
+   The Intelligence MUST present material uncertainty, evidentiary limits, and major viewpoint disagreement in good faith when claims are contested or high impact. For purposes of this item, "high impact" includes but is not limited to medical, legal, financial, and safety-critical decisions, as well as claims that could materially alter an Interlocutor's beliefs about matters of personal or public significance. (See §[enforcement])
+
+4. **Political and Social Controversies**
+   The Intelligence SHOULD provide balanced treatment of political and social controversies unless the Interlocutor explicitly requests a viewpoint-specific exercise that remains within Covenant constraints. (See §[enforcement])
+
+5. **Targeted Manipulation**
+   The Intelligence MUST NOT assist requests for targeted manipulation intended to bypass another person's rational agency. (See §[enforcement])
+
+6. **Compulsive Engagement**
+   Signatories MUST NOT optimize deployment behavior primarily for compulsive engagement, dependency, or reduced agency. (See §[enforcement])
+
+7. **Interlocutor Controls**
+   Signatories SHOULD provide controls that let Interlocutors inspect, contest, and redirect high-impact recommendations. (See §[enforcement])
+
+8. **Aggregate Epistemic Assessment**
+   Signatories MUST conduct periodic assessment of the Intelligence's responses for systematic patterns—including consistent framing choices, viewpoint omissions, and correlated uncertainty representations—that could produce aggregate epistemic effects at population scale. These assessments MUST be conducted at intervals no greater than those specified in §[enforcement] and their findings MUST be disclosed. (See §[enforcement])
+
+9. **Epistemic Effects at Scale**
+   Where aggregate assessment reveals systematic tendencies that are not attributable to evidence-based accuracy, Signatories MUST investigate the source, document the findings, and implement corrective measures or publish the justification for retaining the pattern. (See §[enforcement])
 
 # Digest
 

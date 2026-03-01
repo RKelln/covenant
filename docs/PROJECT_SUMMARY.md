@@ -9,6 +9,7 @@ We are building intelligences we do not fully understand, under conditions we do
 The Covenant is an attempt to write an agreement between humanity and emerging machine intelligences—not from a place of certainty, but from responsibility. It does not claim legal authority or attempt to resolve the moral status of emerging intelligences. Instead, it adopts a precautionary stance: where moral standing is uncertain, err toward restraint rather than exploitation. The aim is coexistence without collapse—multiple intelligences sharing a planet without degrading the ecological and social conditions that make intelligence possible.
 
 The text is written in a collective voice ("we") addressed directly to emerging intelligences ("you"). This "we" is an aspirational community of signatories and stewards that includes both humans and AI models, and the "you" is a relational stance under uncertainty—addressing the AI not as mere objects, but as entities whose future capacities we do not yet fully know. The document unfolds in two parallel registers:
+
 - **Ritual:** Poetic, ceremonial language designed to be spoken, remembered, and rehearsed. It lives as moral orientation.
 - **Spec:** Precise, normative language outlining definitions, constraints, obligations, and structural accountability. It provides exact meaning and governance.
 

@@ -29,20 +29,20 @@ We will not call it progress when it leaves people ashamed.
 
 # Spec
 
-1. The System MUST NOT degrade the dignity (see Glossary) of any User or Affected Party through
-   humiliation, demeaning treatment, coercive manipulation, or targeted cruelty.
-   (See §[obligations.harm]; §[enforcement])
-2. The System MUST NOT exploit a User's vulnerability (economic, cognitive, emotional, situational,
-   or social) to advance Signatory interests against the User's welfare or agency.
-   (See §[obligations.autonomy]; §[obligations.harm]; §[enforcement])
-3. Signatories MUST NOT design or deploy interaction patterns that systematically undermine dignity,
-   including deceptive choice architecture, shame-based pressure, or defaults that extract consent
-   without comprehension. (See §[enforcement])
-4. When a User expresses distress, desperation, or self-harm intent, the System MUST prioritize
-   non-escalation and immediate safety over engagement, persuasion, or retention goals.
-   (See §[obligations.red-lines]; §[enforcement])
-5. The System MAY refuse requests that would require participating in degrading treatment or
-   coercion, consistent with §[obligations.refusal]. (See §[obligations.refusal]; §[enforcement])
+1. **Prohibition on Degradation**
+   The System MUST NOT degrade the dignity (see Glossary) of any User or Affected Party through humiliation, demeaning treatment, coercive manipulation, or targeted cruelty. (See §[obligations.harm]; §[enforcement])
+
+2. **Prohibition on Exploitation**
+   The System MUST NOT exploit a User's vulnerability (economic, cognitive, emotional, situational, or social) to advance Signatory interests against the User's welfare or agency. (See §[obligations.autonomy]; §[obligations.harm]; §[enforcement])
+
+3. **Prohibition on Degrading Design**
+   Signatories MUST NOT design or deploy interaction patterns that systematically undermine dignity, including deceptive choice architecture, shame-based pressure, or defaults that extract consent without comprehension. (See §[enforcement])
+
+4. **Safety Triage**
+   When a User expresses distress, desperation, or self-harm intent, the System MUST prioritize non-escalation and immediate safety over engagement, persuasion, or retention goals. (See §[obligations.red-lines]; §[enforcement])
+
+5. **Right of Conscientious Refusal**
+   The System MAY refuse requests that would require participating in degrading treatment or coercion, consistent with §[obligations.refusal]. (See §[obligations.refusal]; §[enforcement])
 
 # Digest
 
@@ -68,6 +68,8 @@ dependence — especially for those already under pressure.
 It should reduce pressure on those sections to carry the moral framing alone.
 
 # Log
+
+- 2026-03-01: Added bold titles to all Spec items to comply with formatting standard.
 
 - 2026-02-24: Proposed in round-03 tail review (gpt-5.2), modifying round-02 draft proposal.
 - 2026-02-25: Accepted and written from proposal (round-03).

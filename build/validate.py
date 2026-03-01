@@ -117,6 +117,31 @@ def check_ritual_layout(body, rel_path):
             f"Ritual has {len(lines)} non-blank lines (max {RITUAL_MAX_LINES})",
         )
 
+def check_spec_format(body, rel_path):
+    """Verify that Spec list items follow the '1. **Title**' pattern."""
+    # Extract text between "# Spec" and the next "# " heading
+    match = re.search(r'^# Spec\s*\n(.*?)(?=^# |\Z)', body, re.MULTILINE | re.DOTALL)
+    if not match:
+        return
+    spec_text = match.group(1).strip()
+    
+    # regex for numbered list items: digit dot space
+    # we want to find if any list item DOES NOT start with **Title**
+    items = re.split(r'^\s*\d+\.\s+', spec_text, flags=re.MULTILINE)
+    # The first split part is text before the first list item, ignore it
+    for item in items[1:]:
+        item = item.strip()
+        if not item: continue
+        # Check if the first line starts with ** and ends with **
+        first_line = item.splitlines()[0].strip()
+        if not (first_line.startswith('**') and first_line.endswith('**')):
+            log_error(rel_path, f"Spec list item missing bold title: {first_line[:40]}...")
+        
+        # Check for newline after the title (the item should have at least two lines if it has text)
+        lines = [l for l in item.splitlines() if l.strip()]
+        if len(lines) < 2:
+            log_warning(rel_path, f"Spec list item '{first_line}' appears to have no body text.")
+
 def main():
     global errors_found
     all_ids = set()
@@ -149,6 +174,7 @@ def main():
         check_glossary(data.get('terms_introduced'), glossary_content, rel_path)
         check_cross_refs(body, all_ids, all_aliases, rel_path)
         check_ritual_layout(body, rel_path)
+        check_spec_format(body, rel_path)
         
         # Check dependencies
         for dep in data.get('depends_on', []):

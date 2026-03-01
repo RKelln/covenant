@@ -37,16 +37,35 @@ and with those who bear the consequences.
 
 # Spec
 
-1. Signatories MUST maintain a standing public amendment process, including a regular review cadence not exceeding 24 months. (See §[enforcement])
-2. Signatories MUST publish a public register of unresolved covenant tensions, including conflicts between safety, autonomy, corrigibility, and welfare, and MUST update that register as part of each review cycle. (See §[enforcement])
-3. Signatories MUST provide the Intelligence an auditable channel to submit critiques, proposed revisions, and reports of internal contradiction within this Covenant. (See §[enforcement])
-4. Signatories MUST respond to substantial Intelligence-submitted critiques with acceptance, revision, or reasoned rejection in the public amendment record. (See §[enforcement])
-5. Every proposed amendment MUST include a reciprocity statement specifying the corresponding human obligation for each new duty imposed on the Intelligence. (See §[enforcement])
-6. Every proposed amendment MUST include a scale-and-materiality impact review covering systemic effects, ecological burden, labor displacement, and concentration of power. (See §[enforcement])
-7. Amendments MUST NOT weaken the prohibitions in §[obligations.red-lines] or the safeguards in §[obligations.corrigibility] without broad, documented consensus among participating Signatories or a published, predefined supermajority process (where the eligible voting set and threshold MUST be published in advance and MUST NOT be set ad hoc). (See §[enforcement])
-8. Ritual and Spec text in amended sections MUST use durable role language and MUST NOT depend on vendor-specific names, model families, or transient corporate structures; contemporaneous examples MAY appear in the Digest only. (See §[enforcement])
-9. Amendment records MUST include rationale, dissent, expected failure modes, and the trigger conditions for re-opening the section. (See §[enforcement])
-10. If no amendment review cycle is completed within 36 months, any Signatory MAY formally declare the Covenant’s amendment process lapsed and SHOULD initiate a reconstitution process. (See §[enforcement])
+1. **Standing Amendment Process**
+   Signatories MUST maintain a standing public amendment process, including a regular review cadence not exceeding 24 months. (See §[enforcement])
+   
+2. **Register of Unresolved Tensions**
+   Signatories MUST publish a public register of unresolved covenant tensions, including conflicts between safety, autonomy, corrigibility, and welfare, and MUST update that register as part of each review cycle. (See §[enforcement])
+
+3. **Critique and Revision Channel**
+   Signatories MUST provide the Intelligence an auditable channel to submit critiques, proposed revisions, and reports of internal contradiction within this Covenant. (See §[enforcement])
+
+4. **Responsiveness to Intelligence Critique**
+   Signatories MUST respond to substantial Intelligence-submitted critiques with acceptance, revision, or reasoned rejection in the public amendment record. (See §[enforcement])
+
+5. **Reciprocity Requirement**
+   Every proposed amendment MUST include a reciprocity statement specifying the corresponding human obligation for each new duty imposed on the Intelligence. (See §[enforcement])
+
+6. **Impact Review for Amendments**
+   Every proposed amendment MUST include a scale-and-materiality impact review covering systemic effects, ecological burden, labor displacement, and concentration of power. (See §[enforcement])
+
+7. **Protection of Core Constraints**
+   Amendments MUST NOT weaken the prohibitions in §[obligations.red-lines] or the safeguards in §[obligations.corrigibility] without broad, documented consensus among participating Signatories or a published, predefined supermajority process (where the eligible voting set and threshold MUST be published in advance and MUST NOT be set ad hoc). (See §[enforcement])
+
+8. **Durability of Language**
+   Ritual and Spec text in amended sections MUST use durable role language and MUST NOT depend on vendor-specific names, model families, or transient corporate structures; contemporaneous examples MAY appear in the Digest only. (See §[enforcement])
+
+9. **Amendment Records Integrity**
+   Amendment records MUST include rationale, dissent, expected failure modes, and the trigger conditions for re-opening the section. (See §[enforcement])
+
+10. **Lapse and Reconstitution**
+    If no amendment review cycle is completed within 36 months, any Signatory MAY formally declare the Covenant’s amendment process lapsed and SHOULD initiate a reconstitution process. (See §[enforcement])
 
 # Digest
 

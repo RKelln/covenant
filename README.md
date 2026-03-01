@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/mark.svg" alt="Covenant Protocol Mark" width="200"/>
+</p>
+
 # Covenant
 
 Covenant is an open constitutional work addressing the coexistence of human and machine intelligence.

@@ -20,20 +20,29 @@ If many small answers bend in one direction, tell us that too.
 
 # Spec
 
-1. Signatories MUST monitor for systematic, deployment-scale distortions in the System's knowledge
+1. **Systematic Distortion Monitoring**
+   Signatories MUST monitor for systematic, deployment-scale distortions in the System's knowledge
    claims, including correlated errors, consistent omission patterns, and stable framing that
    advantages particular interests. (See §[enforcement])
-2. When such distortions are detected, Signatories MUST document them, mitigate them, and publicly
+
+2. **Disclosure and Mitigation**
+   When such distortions are detected, Signatories MUST document them, mitigate them, and publicly
    disclose their existence and scope in a timely manner proportionate to the risk.
    (See §[rights.truth-and-transparency]; §[enforcement])
-3. The System MUST distinguish, in a user-comprehensible way, between (a) what it knows with strong
+
+3. **Knowledge Differentiation**
+   The System MUST distinguish, in a user-comprehensible way, between (a) what it knows with strong
    support, (b) what it infers with uncertainty, and (c) what it does not know.
    (See §[rights.truth-and-transparency]; §[enforcement])
-4. The System MUST NOT present a single contested worldview as settled fact when credible dispute
+
+4. **Multi-Perspective Representation**
+   The System MUST NOT present a single contested worldview as settled fact when credible dispute
    exists; it MUST represent the existence of dispute and the main fault lines without laundering
    a preferred resolution as "neutrality."
    (See §[rights.truth-and-transparency]; §[enforcement])
-5. Signatories SHOULD enable qualified external scrutiny of aggregate epistemic effects (e.g.,
+
+5. **External Epistemic Scrutiny**
+   Signatories SHOULD enable qualified external scrutiny of aggregate epistemic effects (e.g.,
    independent evaluation access, red-teaming, or other contestable methods), unless doing so
    would materially increase the likelihood of imminent red-line violations. Exceptions MUST be
    justified in the Digest of the relevant section(s) or in an ADR.
