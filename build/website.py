@@ -834,7 +834,7 @@ def build_html() -> str:
         <div class="section-label">A Living Document</div>
         <div class="participate-body">
           <p>Covenant is open to collaborative development by humans and AI systems alike. Contributions, forks, and critical engagement are welcome.</p>
-          <a class="participate-link" href="https://github.com/ryankelln/covenant">View the Repository</a>
+          <a class="participate-link" href="https://github.com/RKelln/covenant">View the Repository</a>
         </div>
       </section>
 
@@ -843,7 +843,7 @@ def build_html() -> str:
       <footer class="colophon">
         <p>Set in <a href="https://github.com/CatharsisFonts/Cormorant">Cormorant Garamond</a>, designed by Christian Thalmann, released under the SIL Open Font License.</p>
         <p>Typeset with <a href="https://weasyprint.org">WeasyPrint</a>. Website generated from source sections.</p>
-        <p>Open source on <a href="https://github.com/ryankelln/covenant">GitHub</a>. Licensed <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</p>
+        <p>Open source on <a href="https://github.com/RKelln/covenant">GitHub</a>. Licensed <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</p>
       </footer>
 
     </div>

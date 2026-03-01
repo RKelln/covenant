@@ -436,7 +436,7 @@ code   { font-family: monospace; font-size: 9.5pt; }
     font-size: 9pt;
     color: #777;
     letter-spacing: 0.05em;
-    margin-bottom: 0;
+    margin-bottom: 3em;
 }
 .credits-content hr + p + p {
     font-size: 9pt;

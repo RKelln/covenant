@@ -22,3 +22,5 @@ Inspired and made in part from
 *released under the SIL Open Font License.*
 
 *Generated via [WeasyPrint](https://weasyprint.org/).*
+
+*[covenant.website](https://covenant.website/) · [GitHub](https://github.com/RKelln/covenant)*
