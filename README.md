@@ -108,6 +108,10 @@ See [FORKING.md](FORKING.md) for guidance on creating your own edition.
 The Covenant text and repository content are licensed under
 [CC BY 4.0](LICENSE) unless otherwise noted.
 
+## Contact
+
+[info@covenant.website](mailto:info@covenant.website)
+
 ## Stewards
 
 * [Ryan Kelln](https://ryankelln.com)
