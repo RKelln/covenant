@@ -103,6 +103,33 @@ def cover_html(manifest: dict) -> str:
     )
 
 
+def summary_html() -> str:
+    """Shared project summary page HTML."""
+    try:
+        summary_path = REPO_ROOT / "docs" / "PROJECT_SUMMARY.md"
+        if not summary_path.exists():
+            return ""
+        
+        content = summary_path.read_text(encoding="utf-8")
+        try:
+            import markdown as md_lib
+            body_html = md_lib.markdown(content, extensions=["extra"])
+        except ImportError:
+            # Minimal fallback
+            paras = re.split(r"\n\s*\n", content.strip())
+            body_html = "\n".join(f"<p>{inline_md(p.strip())}</p>" for p in paras if p.strip())
+            body_html = re.sub(r"^#\s+(.+)$", r"<h2>\1</h2>", body_html, flags=re.MULTILINE)
+        
+        return (
+            '<div class="summary-page" id="project-summary">\n'
+            f'  <div class="summary-content">\n{body_html}\n  </div>\n'
+            '</div>'
+        )
+    except Exception as e:
+        print(f"Warning: Failed to load summary: {e}")
+        return ""
+
+
 def toc_html(sections: list) -> str:
     """Shared table of contents page HTML for all formats."""
     link_style = 'style="color: #333; text-decoration: none; cursor: pointer;"'
@@ -368,7 +395,54 @@ def cover_toc_css(ps: dict) -> str:
     padding: 1in 1.2in;
     page-break-after: always;
 }}
+/* ── project summary page ───────────────────────────────────────────── */
 
+@page covenant-summary {{
+    size: {ps['css']};
+    margin: 1in 1.1in 1.1in 1.1in;
+}}
+
+.summary-page {{
+    page: covenant-summary;
+    page-break-after: always;
+    font-size: 11pt;
+    line-height: 1.65;
+}}
+
+.summary-page h1 {{
+    font-size: 11pt;
+    font-weight: normal;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #555;
+    margin: 0 0 1.2em;
+    border-bottom: 0.5px solid #ccc;
+    padding-bottom: 0.3em;
+    text-align: center;
+}}
+
+.summary-page h2 {{
+    font-size: 10pt;
+    font-weight: normal;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #666;
+    margin: 1.5em 0 0.8em;
+}}
+
+.summary-page p {{
+    margin: 0 0 1em;
+    text-align: left;
+}}
+
+.summary-page ul {{
+    margin: 0 0 1em 1.5em;
+    text-align: left;
+}}
+
+.summary-page li {{
+    margin-bottom: 0.4em;
+}}
 .toc-heading {{
     font-size: 8pt;
     letter-spacing: 0.25em;
@@ -456,7 +530,13 @@ def build_ritual_pdf(assembly_file: Path, output_path: Path, size: str = "letter
         manifest = yaml.safe_load(f)
 
     sections = load_manifest_sections(manifest)
-    pages_html = [cover_html(manifest), toc_html([d for d, _ in sections])]
+    pages_html = [cover_html(manifest)]
+    
+    summary = summary_html()
+    if summary:
+        pages_html.append(summary)
+        
+    pages_html.append(toc_html([d for d, _ in sections]))
 
     for data, parts in sections:
         if "Ritual" not in parts:
@@ -526,7 +606,13 @@ def build_flow_pdf(assembly_file: Path, output_path: Path, size: str = "letter")
     sections = load_manifest_sections(manifest)
     register = manifest.get("register", "both")
 
-    body_parts = [cover_html(manifest), toc_html([d for d, _ in sections])]
+    body_parts = [cover_html(manifest)]
+    
+    summary = summary_html()
+    if summary:
+        body_parts.append(summary)
+        
+    body_parts.append(toc_html([d for d, _ in sections]))
 
     for data, parts in sections:
         section_html = [f'<div class="section-block" id="{section_anchor(data)}">']
@@ -586,7 +672,13 @@ def build_hybrid_pdf(assembly_file: Path, output_path: Path, size: str = "letter
         manifest = yaml.safe_load(f)
 
     sections = load_manifest_sections(manifest)
-    pages_html = [cover_html(manifest), toc_html([d for d, _ in sections])]
+    pages_html = [cover_html(manifest)]
+    
+    summary = summary_html()
+    if summary:
+        pages_html.append(summary)
+        
+    pages_html.append(toc_html([d for d, _ in sections]))
 
     for data, parts in sections:
         # Ritual page (centred)
@@ -687,8 +779,8 @@ def main() -> None:
     parser.add_argument(
         "--align",
         choices=["center", "left"],
-        default="center",
-        help="Ritual text alignment: center (default) or left-justified in a centred column",
+        default="left",
+        help="Ritual text alignment: left (default) or center in a centred column",
     )
     parser.add_argument(
         "--all",
