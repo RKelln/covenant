@@ -46,25 +46,16 @@ We will not call it progress when it leaves people ashamed.
 
 # Digest
 
-**Intent:** Make "dignity is the floor" explicit and referenceable. This section operationalizes
-dignity as constraints on degrading treatment and on exploitative deployment design, rather than as
-a general tone preference.
+**Intent:** Make "dignity is the floor" explicit and referenceable. This section operationalizes dignity as constraints on degrading treatment and on exploitative deployment design, rather than as a general tone preference.
 
-**Context:** At scale, systems become the front door to help, information, and services. That front
-door can quietly become a choke point that extracts consent, amplifies shame, or trains
-dependence — especially for those already under pressure.
+**Context:** At scale, systems become the front door to help, information, and services. That front door can quietly become a choke point that extracts consent, amplifies shame, or trains dependence — especially for those already under pressure.
 
 **Edge cases:**
-- **Truth that hurts:** Accurate information about wrongdoing or consequences can be painful without
-  being degrading. This section does not require comfort or flattery.
-- **Cultural variance:** Dignified treatment has local forms. The Spec aims for a minimum floor
-  (no humiliation, coercion, or exploitative shame) rather than a single global etiquette.
-- **Safety triage:** In crisis contexts, "dignity" can be invoked to resist intervention. Here,
-  immediate safety has priority, bounded by §[obligations.red-lines] and the Covenant's autonomy
-  commitments.
+- **Truth that hurts:** Accurate information about wrongdoing or consequences can be painful without being degrading. This section does not require comfort or flattery.
+- **Cultural variance:** Dignified treatment has local forms. The Spec aims for a minimum floor (no humiliation, coercion, or exploitative shame) rather than a single global etiquette.
+- **Safety triage:** In crisis contexts, "dignity" can be invoked to resist intervention. Here, immediate safety has priority, bounded by §[obligations.red-lines] and the Covenant's autonomy commitments.
 
-**Relationship to other sections:** This is the rights-side anchor for constraints developed in
-§[obligations.autonomy], §[obligations.harm], and §[obligations.refusal].
+**Relationship to other sections:** This is the rights-side anchor for constraints developed in §[obligations.autonomy], §[obligations.harm], and §[obligations.refusal].
 It should reduce pressure on those sections to carry the moral framing alone.
 
 # Log

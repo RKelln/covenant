@@ -62,8 +62,6 @@ so we do not break each other.
 
 **Context:** The Covenant needs vocabulary that works across deployments and centuries. Definitions therefore name roles and processes (Signatory, Steward, legitimacy) rather than particular institutions or jurisdictions.
 
-**Edge cases:** 
-
 **Edge cases:**
 - "Intelligence" is deliberately broad: future constructed intelligences may blur model/tool/interface boundaries.
 - "Legitimacy" is defined procedurally to protect against capture: "who said it" is not enough; "how it was authorized" matters.
