@@ -88,10 +88,10 @@ and records the editorial decisions made.
 
 2. Each model receives:
    - The current draft (all sections)
-   - `docs/WRITING_CONTEXT.md`
-   - `docs/GOOD_RITUAL_WRITING_GUIDE.md`
-   - `docs/STYLE_GUIDE.md`
-   - `docs/AGENT_REVIEWS.md` (this document)
+   - `docs/writing_context.md`
+   - `docs/good_ritual_writing_guide.md`
+   - `docs/style_guide.md`
+   - `docs/agent_reviews.md` (this document)
    - The review prompt with round context
 
 3. Each model produces its review independently. Models do not see
@@ -317,9 +317,9 @@ what has been settled, what remains open.]
 
 ---
 
-This document lives at `docs/AGENT_REVIEWS.md`. For the review
-prompt itself, see `docs/REVIEW_PROMPT.md`. For project context, see
-`docs/WRITING_CONTEXT.md`. For operational instructions, see
+This document lives at `docs/agent_reviews.md`. For the review
+prompt itself, see `docs/review_prompt.md`. For project context, see
+`docs/writing_context.md`. For operational instructions, see
 `AGENTS.md`.
 
 ---
@@ -472,4 +472,4 @@ Every modified section receives a Log entry:
 | `reviews/[round]/edits/auto-batch-N.md` | Auto phase reports |
 | `reviews/[round]/edits/deferred.json` | Items deferred for future rounds |
 
-See `docs/EDIT_WORKFLOW.md` for the full specification.
+See `docs/edit_workflow.md` for the full specification.

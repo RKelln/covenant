@@ -8,8 +8,8 @@
 >
 > **What this document is not:** A craft guide. For sentence-level
 > writing technique in the Ritual register, see
-> `docs/GOOD_RITUAL_WRITING_GUIDE.md`. For formatting conventions and
-> structural rules, see `docs/STYLE_GUIDE.md`.
+> `docs/good_ritual_writing_guide.md`. For formatting conventions and
+> structural rules, see `docs/style_guide.md`.
 
 ---
 
@@ -62,7 +62,7 @@ Every hard constraint invoked in the Ritual must have a corresponding
 commitment in the Spec register.
 
 > For detailed craft guidance on writing Ritual, see
-> `docs/GOOD_RITUAL_WRITING_GUIDE.md`.
+> `docs/good_ritual_writing_guide.md`.
 
 ### Spec
 
@@ -79,7 +79,7 @@ The Spec register is not bureaucratic filler. It is where the covenant
 earns its right to be taken seriously as governance, not just as art.
 
 > For formatting conventions and normative keyword usage, see
-> `docs/STYLE_GUIDE.md`.
+> `docs/style_guide.md`.
 
 ### The Relationship Between Them
 
@@ -387,8 +387,8 @@ terms_introduced: []
 
 ---
 
-This document lives at `docs/WRITING_CONTEXT.md`. For craft-level
+This document lives at `docs/writing_context.md`. For craft-level
 guidance on writing in the Ritual register, see
-`docs/GOOD_RITUAL_WRITING_GUIDE.md`. For formatting conventions, see
-`docs/STYLE_GUIDE.md`. For operational instructions (how to create
+`docs/good_ritual_writing_guide.md`. For formatting conventions, see
+`docs/style_guide.md`. For operational instructions (how to create
 sections, run validation, submit PRs), see `AGENTS.md`.

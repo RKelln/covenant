@@ -114,7 +114,7 @@ def cover_html(manifest: dict) -> str:
 
 def summary_html() -> str:
     try:
-        summary_path = REPO_ROOT / "docs" / "PROJECT_SUMMARY.md"
+        summary_path = REPO_ROOT / "docs" / "project_summary.md"
         if not summary_path.exists():
             return ""
 
@@ -170,7 +170,7 @@ def toc_html(sections: list) -> str:
 
 def credits_html() -> str:
     try:
-        credits_path = REPO_ROOT / "docs" / "CREDITS.md"
+        credits_path = REPO_ROOT / "docs" / "credits.md"
         if not credits_path.exists():
             return ""
 

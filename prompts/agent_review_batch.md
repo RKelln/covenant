@@ -39,15 +39,15 @@ because you do.
 
 ### Writing Context
 
-[Paste full content of docs/WRITING_CONTEXT.md]
+[Paste full content of docs/writing_context.md]
 
 ### Style Guide
 
-[Paste full content of docs/STYLE_GUIDE.md]
+[Paste full content of docs/style_guide.md]
 
 ### Ritual Writing Guide
 
-[Paste full content of docs/GOOD_RITUAL_WRITING_GUIDE.md]
+[Paste full content of docs/good_ritual_writing_guide.md]
 
 [PRIOR ROUNDS BLOCK]
 

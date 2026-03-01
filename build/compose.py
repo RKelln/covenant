@@ -26,7 +26,7 @@ def compose_assembly(assembly_file):
     )
 
     # Prepend Summary if it exists
-    summary_file = REPO_ROOT / "docs" / "PROJECT_SUMMARY.md"
+    summary_file = REPO_ROOT / "docs" / "project_summary.md"
     if summary_file.exists():
         output.append("\n---\n")
         with open(summary_file, "r", encoding="utf-8") as sf:
@@ -80,7 +80,7 @@ def compose_assembly(assembly_file):
     output.append("\n---\n".join(composed_sections))
 
     # Append Credits if it exists
-    credits_file = REPO_ROOT / "docs" / "CREDITS.md"
+    credits_file = REPO_ROOT / "docs" / "credits.md"
     if credits_file.exists():
         output.append("\n---\n")
         with open(credits_file, "r", encoding="utf-8") as cf:

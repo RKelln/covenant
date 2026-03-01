@@ -4,7 +4,7 @@ description: Apply edits from a review round — auto fixes, interactive items, 
 
 You are orchestrating an agent-driven editing pass that translates a completed
 review synthesis into actual changes to the Covenant sections. The full workflow
-is documented in `docs/EDIT_WORKFLOW.md`.
+is documented in `docs/edit_workflow.md`.
 
 ## Arguments
 
@@ -370,7 +370,7 @@ For each proposal file (in directory order):
    `terms_introduced` from the proposal's frontmatter if they differ.
 
 4. If the proposal introduced new terms, check that each term in
-   `terms_introduced` exists in `docs/GLOSSARY.md`. If any are missing,
+   `terms_introduced` exists in `docs/glossary.md`. If any are missing,
    ask the steward to add them before continuing (or add them yourself if
    the proposal text defines them clearly).
 
@@ -450,7 +450,7 @@ Then remind the steward of the close-out steps:
    ```
    (Or include new section files explicitly: `git add -u sections/ assemblies/`)
 2. If any new terms were introduced in accepted proposals, verify they appear
-   in `docs/GLOSSARY.md`.
+   in `docs/glossary.md`.
 3. Update `reviews/[round]/.prepared/manifest.json` status to `"complete"` and commit:
    ```bash
    git add reviews/[round]/.prepared/manifest.json && git commit -m "Review [round]: mark complete"

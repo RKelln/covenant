@@ -8,9 +8,9 @@ Usage:
 Reads from:
     - assemblies/covenant.full.yml  (section manifest)
     - sections/                      (Ritual + Spec content)
-    - docs/PROJECT_SUMMARY.md        (opening paragraph)
-    - docs/CREDITS.md                (colophon source)
-    - docs/DESIGN.md                 (Silcrow meaning)
+    - docs/project_summary.md        (opening paragraph)
+    - docs/credits.md                (colophon source)
+    - docs/design.md                 (Silcrow meaning)
 
 Writes:
     - docs/index.html (default)
@@ -78,12 +78,12 @@ def get_section_spec(category: str, name: str) -> str:
 
 
 def get_opening_paragraphs() -> list:
-    """Extract opening paragraphs from PROJECT_SUMMARY.md.
+    """Extract opening paragraphs from project_summary.md.
 
     Returns the first two substantial prose paragraphs as a list,
     providing a rich introduction without reproducing the full summary.
     """
-    path = REPO_ROOT / "docs" / "PROJECT_SUMMARY.md"
+    path = REPO_ROOT / "docs" / "project_summary.md"
     if not path.exists():
         return []
     content = path.read_text(encoding="utf-8")

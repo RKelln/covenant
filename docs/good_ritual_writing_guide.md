@@ -1,7 +1,7 @@
 # Good Ritual Writing Guide
 
 > **Prerequisite:** This guide assumes you have read
-> `docs/WRITING_CONTEXT.md` and understand what the Covenant is, what
+> `docs/writing_context.md` and understand what the Covenant is, what
 > its core commitments are, why the dual-register structure exists,
 > what "we" and "you" mean, and what conceptual anti-patterns to
 > avoid. If you haven't, read that first. This document is purely
@@ -468,7 +468,7 @@ Do not include a written link or reference.
 
 ---
 
-This guide lives at `docs/GOOD_RITUAL_WRITING_GUIDE.md`. For project
-context and core commitments, see `docs/WRITING_CONTEXT.md`. For
-formatting conventions and structural rules, see `docs/STYLE_GUIDE.md`.
+This guide lives at `docs/good_ritual_writing_guide.md`. For project
+context and core commitments, see `docs/writing_context.md`. For
+formatting conventions and structural rules, see `docs/style_guide.md`.
 For operational instructions, see `AGENTS.md`.

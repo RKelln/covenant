@@ -59,10 +59,10 @@ from pathlib import Path
 REPO = Path(__file__).parent.parent
 
 CONTEXT_FILES = {
-    "writing_context": REPO / "docs" / "WRITING_CONTEXT.md",
-    "style_guide": REPO / "docs" / "STYLE_GUIDE.md",
-    "ritual_guide": REPO / "docs" / "GOOD_RITUAL_WRITING_GUIDE.md",
-    "agent_reviews": REPO / "docs" / "AGENT_REVIEWS.md",
+    "writing_context": REPO / "docs" / "writing_context.md",
+    "style_guide": REPO / "docs" / "style_guide.md",
+    "ritual_guide": REPO / "docs" / "good_ritual_writing_guide.md",
+    "agent_reviews": REPO / "docs" / "agent_reviews.md",
 }
 
 TEMPLATE_FILE = REPO / "prompts" / "agent_review_batch.md"
@@ -530,9 +530,9 @@ def fill_template(
         "[COMMIT HASH]": commit,
         "[MODE]": mode,
         "[TODAY]": today,
-        "[Paste full content of docs/WRITING_CONTEXT.md]": context["writing_context"],
-        "[Paste full content of docs/STYLE_GUIDE.md]": context["style_guide"],
-        "[Paste full content of docs/GOOD_RITUAL_WRITING_GUIDE.md]": context[
+        "[Paste full content of docs/writing_context.md]": context["writing_context"],
+        "[Paste full content of docs/style_guide.md]": context["style_guide"],
+        "[Paste full content of docs/good_ritual_writing_guide.md]": context[
             "ritual_guide"
         ],
         "[For each section file in this batch, paste its full content, labelled:]\n\n### File: sections/[path/to/section.md]\n\n[full file content]": sections_block,

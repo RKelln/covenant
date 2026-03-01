@@ -36,11 +36,11 @@ because you do.
 
 ### Writing Context
 
-[Paste full content of docs/WRITING_CONTEXT.md]
+[Paste full content of docs/writing_context.md]
 
 ### Style Guide
 
-See `docs/STYLE_GUIDE.md` in the repository.
+See `docs/style_guide.md` in the repository.
 
 [PRIOR ROUNDS BLOCK]
 

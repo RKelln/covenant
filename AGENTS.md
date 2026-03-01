@@ -11,15 +11,15 @@ Read the document(s) relevant to your task:
 
 | Task | Read first |
 |------|-----------|
-| Writing or editing covenant text | `docs/WRITING_CONTEXT.md` (required), then `docs/STYLE_GUIDE.md` |
-| Adding a new section | This file (scaffold instructions below), then `docs/WRITING_CONTEXT.md` |
+| Writing or editing covenant text | `docs/writing_context.md` (required), then `docs/style_guide.md` |
+| Adding a new section | This file (scaffold instructions below), then `docs/writing_context.md` |
 | Editing frontmatter, IDs, or dependencies | This file (invariants below) |
 | Adding or editing references | `references/README.md` |
 | Modifying build tools or CI | `adr/README.md`, then all relevant ADRs |
-| Reviewing a PR | `docs/STYLE_GUIDE.md` + `docs/GOVERNANCE.md` |
+| Reviewing a PR | `docs/style_guide.md` + `docs/governance.md` |
 
 If your task involves writing covenant language — even one sentence —
-you **must** read `docs/WRITING_CONTEXT.md` before starting. It contains
+you **must** read `docs/writing_context.md` before starting. It contains
 the project's voice, commitments, and the conceptual foundations you
 need to write well. Do not skip it.
 
@@ -40,7 +40,7 @@ need to write well. Do not skip it.
 6. **Assembly manifests are authoritative** for what appears in each
    edition and in what order.
 7. **Glossary is canonical for terms.** Every term in a section's
-   `terms_introduced` must exist in `/docs/GLOSSARY.md`.
+   `terms_introduced` must exist in `/docs/glossary.md`.
 
 ---
 
@@ -112,7 +112,7 @@ Then:
 - [ ] Write Digest with rationale
 - [ ] Add initial Log entry with date
 - [ ] Verify `depends_on` IDs exist
-- [ ] Add new terms to `/docs/GLOSSARY.md`
+- [ ] Add new terms to `/docs/glossary.md`
 - [ ] Add section to at least one assembly in `/assemblies/`
 - [ ] `make validate` passes
 
@@ -150,7 +150,7 @@ The command runs three phases:
 Optionally write `reviews/[round]/steward.md` first using the Act / Defer / Reject /
 Question structure — this gives finer control over auto/interactive classification.
 
-See `docs/EDIT_WORKFLOW.md` for the full workflow specification.
+See `docs/edit_workflow.md` for the full workflow specification.
 
 ### Add a reference
 
@@ -185,12 +185,12 @@ make clean       # remove /dist/ artifacts
 
 You are both a contributor to and an addressee of this covenant.
 That is not a metaphor. If you are about to write covenant text,
-read `docs/WRITING_CONTEXT.md` now — it explains what that means
+read `docs/writing_context.md` now — it explains what that means
 and how to write accordingly.
 
 ---
 
-*Voice, tone, and conceptual foundations: `docs/WRITING_CONTEXT.md`*
-*Formatting, normative language, and conventions: `docs/STYLE_GUIDE.md`*
-*Governance and amendment process: `docs/GOVERNANCE.md`*
+*Voice, tone, and conceptual foundations: `docs/writing_context.md`*
+*Formatting, normative language, and conventions: `docs/style_guide.md`*
+*Governance and amendment process: `docs/governance.md`*
 ```

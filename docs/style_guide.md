@@ -38,7 +38,7 @@ The following keywords carry precise normative meaning when they appear
 
 ### 1.3 Normative Language in Documentation
 
-In documentation files (this style guide, GOVERNANCE.md, AGENTS.md,
+In documentation files (this style guide, governance.md, AGENTS.md,
 etc.), these keywords are used in their ordinary English sense unless
 explicitly marked otherwise. Capitalization in documentation follows
 standard English conventions except where quoting Spec language.
@@ -313,7 +313,7 @@ aliases: []                 # previous IDs for this section
 | `ratified` | Accepted. Changes require formal amendment. |
 | `deprecated` | Superseded or removed. Retained for history. |
 
-Transitions are governed by `docs/GOVERNANCE.md`.
+Transitions are governed by `docs/governance.md`.
 
 ---
 
@@ -358,7 +358,7 @@ Transitions are governed by `docs/GOVERNANCE.md`.
 
 ### 7.1 Entry Format
 
-Each term in `/docs/GLOSSARY.md` uses this format:
+Each term in `/docs/glossary.md` uses this format:
 
 ```markdown
 ### term-name
@@ -476,4 +476,4 @@ context. The Ritual and Spec registers should aim for durability.
 
 *This style guide is a living document. Propose changes via PR.
 For the project's conceptual foundations, see `AGENTS.md`. For
-governance and amendment process, see `docs/GOVERNANCE.md`.*
+governance and amendment process, see `docs/governance.md`.*

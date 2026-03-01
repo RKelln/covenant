@@ -4,7 +4,7 @@ description: Run a full multi-model review of the Covenant, saving output to /re
 
 You are orchestrating a full agent review of the Covenant draft across one or
 more model families. The review follows the process defined in
-`docs/AGENT_REVIEWS.md`.
+`docs/agent_reviews.md`.
 
 ## Arguments
 

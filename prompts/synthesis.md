@@ -29,7 +29,7 @@ If running a manual (non-batched) synthesis, read:
 1. `reviews/[round]/.prepared/manifest.json` — `commit`, `date`, `mode`,
    and reviewer names.
 
-2. `docs/WRITING_CONTEXT.md` — to assess whether reviewer proposals are
+2. `docs/writing_context.md` — to assess whether reviewer proposals are
    consistent with the project's voice and commitments.
 
 3. For each unique reviewer in the manifest, the merged review file:

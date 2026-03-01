@@ -3,6 +3,7 @@ dist/*
 !dist/.gitkeep
 debug.html
 installations/**/*.pdf
+reviews/**/.prepared/
 
 # Python
 __pycache__/

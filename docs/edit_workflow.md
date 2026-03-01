@@ -270,5 +270,5 @@ The command checks for existing outputs before each phase:
 
 ---
 
-*See also: `docs/AGENT_REVIEWS.md` for the review phase. `AGENTS.md` for
+*See also: `docs/agent_reviews.md` for the review phase. `AGENTS.md` for
 the common tasks table and invariants.*
