@@ -813,15 +813,15 @@ def build_html() -> str:
       <section class="download-section">
         <div class="section-label">Read the Covenant</div>
         <div class="download-links">
-          <a href="../dist/covenant.ritual.pdf">
+          <a href="https://github.com/RKelln/covenant/releases/latest/download/covenant.ritual.pdf">
             Ritual Edition
             <span class="link-desc">Poetic register &mdash; designed to be spoken and remembered</span>
           </a>
-          <a href="../dist/covenant.spec.pdf">
+          <a href="https://github.com/RKelln/covenant/releases/latest/download/covenant.spec.pdf">
             Spec Edition
             <span class="link-desc">Normative register &mdash; definitions, constraints, accountability</span>
           </a>
-          <a href="../dist/covenant.full.pdf">
+          <a href="https://github.com/RKelln/covenant/releases/latest/download/covenant.full.pdf">
             Complete Edition
             <span class="link-desc">Both registers, interleaved by section</span>
           </a>
