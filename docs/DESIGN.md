@@ -66,9 +66,9 @@ The hairline rule (`0.5px solid #ddd`, `1.2in` wide, centred above the date) is 
 
 **Colour principle for cover elements:** Use `#000` for anything at display scale (silcrow, title). Greyscale is reserved for subordinate text only (subtitle `#777`, date `#888`). At large sizes, grey reads as a printing failure.
 
+---
 
-
-The typographic system is incredibly restrained, relying predominantly on variations in spacing and scale within a single classical type family.
+## 2. TypographyThe typographic system is incredibly restrained, relying predominantly on variations in spacing and scale within a single classical type family.
 
 * **Primary Typeface:** **Cormorant Garamond** (open-source, SIL OFL). Weights 400 (body) and 500 (display/headings/cover). Falls back to **Georgia**, `"Times New Roman"`, `serif`. Chosen for its classical authority, high optical elegance at large display sizes, and the visual drama of its § glyph when rotated as the cover textmark.
 
@@ -87,7 +87,34 @@ The typographic system is incredibly restrained, relying predominantly on variat
 
 ---
 
-## 3. The Layout Registers
+## 3. Separator Grammar
+
+The design system uses exactly two visual separator elements. Each has a single, consistent meaning across all outputs (PDF, website).
+
+### The Textmark Divider (small rotated silcrow)
+
+A small rotated silcrow (`§`) rendered in `#bbb` (the tailpiece colour). Signals a **thematic transition** — the content on either side belongs to different conceptual regions.
+
+* **PDF:** Used between sections and to denote the closing of a major vow.
+* **Website:** Placed between each major content section (e.g. "What it is" → "The Registers" → "The Textmark" → "Read the Covenant").
+* **Rendering:** Same SVG as the cover mark, scaled down (24px on web). Always centred. Never carries text or links.
+
+### The Hairline Rule
+
+A thin horizontal line (`0.5px solid #ddd`, typically 80–120px wide, centred). Signals a **subordination boundary** — the content below steps down in hierarchy relative to what is above.
+
+* **PDF:** Used in the cover (between title and date), and as `h2` bottom borders in the body.
+* **Website:** Used in the hero (between subtitle and date) and as the colophon's `border-top`.
+* **Constraint:** Never used between peer-level sections. If two sections are thematic equals, use a textmark divider instead.
+
+### What not to use
+
+* The silcrow MUST NOT be used as a UI affordance (e.g. scroll indicators, loading spinners, buttons). UI chrome that requires animation or interactivity should use neutral geometric forms (chevrons, circles) that carry no ceremonial weight.
+* No other decorative separator (ornamental rules, flourishes, icons) is permitted. The vocabulary is exactly two elements.
+
+---
+
+## 4. The Layout Registers
 
 The document's literal CSS page layouts directly mirror the narrative registers. 
 
@@ -105,7 +132,7 @@ The Spec pages are treated as legal, normative logic.
 
 ---
 
-## 4. Output Architecture & Orchestration
+## 5. Output Architecture & Orchestration
 
 The Covenant is not typeset in a traditional WYSIWYG editor like InDesign. 
 

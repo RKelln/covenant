@@ -1,4 +1,4 @@
-.PHONY: validate compose build clean new-section pdf pdf-ritual pdf-spec pdf-full fonts
+.PHONY: validate compose build clean new-section pdf pdf-ritual pdf-spec pdf-full fonts website
 
 PYTHON := uv run python
 
@@ -42,6 +42,14 @@ pdf-spec: compose
 
 pdf-full: compose
 	$(PYTHON) build/pdf.py --assembly covenant.full --format hybrid --size $(SIZE) --align $(ALIGN)
+
+# ── Website ─────────────────────────────────────────────────────────────────
+#
+#   make website              — generate docs/index.html from section sources
+#
+
+website:
+	$(PYTHON) build/website.py
 
 # ── Housekeeping ────────────────────────────────────────────────────────────
 

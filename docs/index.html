@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Covenant</title>
+  <meta name="description" content="A living compact between human communities and emerging machine intelligences.">
+  <link rel="canonical" href="https://covenant.website/">
+
+  <!-- Favicon: rotated silcrow -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Ctext x='100' y='134.56' font-family='Georgia,serif' font-size='180' font-weight='500' text-anchor='middle' fill='%23000' transform='rotate(90,100,100)'%3E%C2%A7%3C/text%3E%3C/svg%3E">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Covenant">
+  <meta property="og:description" content="A living compact between human communities and emerging machine intelligences.">
+  <meta property="og:url" content="https://covenant.website/">
+  <meta property="og:site_name" content="Covenant">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Covenant">
+  <meta name="twitter:description" content="A living compact between human communities and emerging machine intelligences.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+
+  <style>
+    /* ── Reset & Base ──────────────────────────────────────────── */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 400;
+  color: #111;
+  background: #fff;
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+
+/* ── Font Loading ──────────────────────────────────────────── */
+
+.page {
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.page.ready {
+  opacity: 1;
+}
+
+.loading-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.4s ease;
+}
+
+.loading-overlay.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.loading-spinner {
+  width: 48px;
+  height: 48px;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.25; }
+  50% { opacity: 0.6; }
+}
+
+noscript .loading-overlay { display: none; }
+noscript .page { opacity: 1; }
+
+/* ── Custom Properties ─────────────────────────────────────── */
+
+:root {
+  --black: #000;
+  --body: #111;
+  --title-grey: #777;
+  --meta-grey: #888;
+  --hairline: #ddd;
+  --tailpiece: #bbb;
+  --font: 'Cormorant Garamond', Georgia, serif;
+}
+
+/* ── Layout Shell ──────────────────────────────────────────── */
+
+section {
+  padding: 6rem 2rem;
+}
+
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+/* ── Hero / Cover ──────────────────────────────────────────── */
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 12vh 2rem 18vh;
+}
+
+.hero-mark {
+  width: clamp(100px, 22vw, 180px);
+  height: clamp(100px, 22vw, 180px);
+  margin-bottom: 0.3in;
+}
+
+.hero-title {
+  font-family: var(--font);
+  font-size: clamp(16pt, 2.8vw, 22pt);
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--black);
+  margin-bottom: 1em;
+}
+
+.hero-subtitle {
+  font-size: 9pt;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--title-grey);
+}
+
+.hero-rule {
+  width: 120px;
+  border: none;
+  border-top: 0.5px solid var(--hairline);
+  margin: 1em auto;
+}
+
+.hero-date {
+  font-size: 8.5pt;
+  letter-spacing: 0.1em;
+  color: var(--meta-grey);
+}
+
+
+/* ── "What it is" ──────────────────────────────────────────── */
+
+.what-it-is {
+  padding: 3rem 2rem 6rem;
+  text-align: center;
+}
+
+.what-it-is p {
+  font-size: clamp(12pt, 1.6vw, 12.5pt);
+  line-height: 1.8;
+  color: var(--body);
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+.what-it-is p + p {
+  margin-top: 1.6em;
+  font-size: clamp(10.5pt, 1.4vw, 11pt);
+  line-height: 1.75;
+  color: #444;
+  font-style: italic;
+}
+
+/* ── Section Dividers ───────────────────────────────────── */
+/* Textmark: thematic transition between major sections     */
+
+.textmark-divider {
+  display: block;
+  width: 24px;
+  height: 24px;
+  margin: 0 auto;
+}
+
+.textmark-divider text {
+  fill: var(--tailpiece);
+}
+
+/* ── Section Titles (shared) ───────────────────────────────── */
+
+.section-label {
+  font-size: 9.5pt;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--title-grey);
+  font-weight: 500;
+  margin-bottom: 2.5em;
+}
+
+/* ── Registers ─────────────────────────────────────────────── */
+
+.registers {
+  padding: 5rem 2rem 6rem;
+}
+
+.registers .section-label {
+  text-align: center;
+  margin-bottom: 3em;
+}
+
+.register-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.register-col h3 {
+  font-size: 9pt;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--meta-grey);
+  font-weight: 500;
+  margin-bottom: 2em;
+}
+
+/* Ritual column */
+.register-ritual {
+  text-align: center;
+}
+
+.register-ritual .excerpt {
+  font-size: 12.5pt;
+  line-height: 1.8;
+  color: var(--body);
+}
+
+.register-ritual .excerpt p {
+  margin-bottom: 1.4em;
+}
+
+.register-ritual .excerpt p:last-child {
+  margin-bottom: 0;
+}
+
+/* Spec column */
+.register-spec {
+  text-align: left;
+}
+
+.register-spec .excerpt {
+  font-size: 11pt;
+  line-height: 1.65;
+  color: var(--body);
+}
+
+.register-spec .excerpt p {
+  margin-bottom: 1em;
+}
+
+.register-spec .excerpt p:last-child {
+  margin-bottom: 0;
+}
+
+.spec-num {
+  color: var(--meta-grey);
+}
+
+.register-source {
+  font-size: 8.5pt;
+  letter-spacing: 0.08em;
+  color: var(--tailpiece);
+  margin-top: 2em;
+  font-style: italic;
+}
+
+/* ── The Silcrow ───────────────────────────────────────────── */
+
+.silcrow-section {
+  padding: 5rem 2rem 6rem;
+  text-align: center;
+}
+
+.silcrow-section .section-label {
+  text-align: center;
+}
+
+.silcrow-body {
+  max-width: 560px;
+  margin: 0 auto;
+  font-size: 12pt;
+  line-height: 1.8;
+  color: var(--body);
+}
+
+.silcrow-body p {
+  margin-bottom: 1.2em;
+}
+
+.silcrow-body p:last-child {
+  margin-bottom: 0;
+}
+
+.silcrow-meanings {
+  list-style: none;
+  padding: 0;
+  margin: 1.5em auto;
+  max-width: 400px;
+  text-align: left;
+}
+
+.silcrow-meanings li {
+  margin-bottom: 0.6em;
+  font-size: 11.5pt;
+  line-height: 1.7;
+  color: var(--body);
+}
+
+.silcrow-meanings li strong {
+  color: var(--black);
+}
+
+/* ── Download / Read ───────────────────────────────────────── */
+
+.download-section {
+  padding: 5rem 2rem 6rem;
+  text-align: center;
+}
+
+.download-section .section-label {
+  text-align: center;
+}
+
+.download-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.6em;
+}
+
+.download-links a {
+  font-size: 10pt;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--body);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.download-links a:hover {
+  color: var(--black);
+}
+
+.download-links .link-desc {
+  display: block;
+  font-size: 8.5pt;
+  letter-spacing: 0.08em;
+  text-transform: none;
+  color: var(--meta-grey);
+  font-weight: 400;
+  margin-top: 0.3em;
+}
+
+/* ── Participate ───────────────────────────────────────────── */
+
+.participate-section {
+  padding: 5rem 2rem 6rem;
+  text-align: center;
+}
+
+.participate-section .section-label {
+  text-align: center;
+}
+
+.participate-body {
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.participate-body p {
+  font-size: 11.5pt;
+  line-height: 1.75;
+  color: var(--body);
+  margin-bottom: 2em;
+}
+
+.participate-link {
+  font-size: 10pt;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--body);
+  text-decoration: none;
+  border-bottom: 0.5px solid var(--hairline);
+  padding-bottom: 0.15em;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.participate-link:hover {
+  color: var(--black);
+  border-color: var(--tailpiece);
+}
+
+/* ── Colophon ──────────────────────────────────────────────── */
+
+.colophon {
+  border-top: 0.5px solid var(--hairline);
+  padding: 3rem 2rem 4rem;
+  text-align: center;
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+.colophon p {
+  font-size: 9pt;
+  line-height: 1.7;
+  color: var(--meta-grey);
+  margin-bottom: 0.6em;
+}
+
+.colophon a {
+  color: var(--meta-grey);
+  text-decoration: none;
+  border-bottom: 0.5px solid var(--hairline);
+}
+
+.colophon a:hover {
+  color: var(--body);
+}
+
+/* ── Responsive ────────────────────────────────────────────── */
+
+@media (max-width: 680px) {
+  section {
+    padding: 4rem 1.5rem;
+  }
+
+  .hero {
+    padding: 10vh 1.5rem 14vh;
+  }
+
+  .register-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .register-spec {
+    text-align: left;
+  }
+
+  .silcrow-meanings {
+    text-align: center;
+  }
+
+  .download-links {
+    gap: 1.8em;
+  }
+}
+
+/* ── Print ─────────────────────────────────────────────────── */
+
+@media print {
+  .loading-overlay {
+    display: none;
+  }
+
+  .page {
+    opacity: 1;
+  }
+
+  body {
+    font-size: 11pt;
+  }
+
+  .hero {
+    page-break-after: always;
+  }
+
+  section {
+    page-break-inside: avoid;
+  }
+
+  .download-section {
+    display: none;
+  }
+
+  .colophon {
+    page-break-before: always;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+  </style>
+</head>
+<body>
+<noscript><style>.loading-overlay { display: none; } .page { opacity: 1; }</style></noscript>
+
+<!-- ── Loading Overlay ──────────────────────────────────── -->
+
+<div class="loading-overlay" id="loader">
+  <svg class="loading-spinner" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <circle cx="24" cy="24" r="6" fill="#bbb" />
+  </svg>
+</div>
+
+<div class="page" id="page">
+
+  <!-- ── Hero / Cover ────────────────────────────────────── -->
+
+  <header class="hero">
+    <svg class="hero-mark" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-label="Silcrow section mark">
+      <text x="100" y="134.56"
+            font-family="'Cormorant Garamond', Georgia, 'Times New Roman', serif"
+            font-size="180"
+            font-weight="500"
+            text-anchor="middle"
+            fill="#000"
+            transform="rotate(90, 100, 100)">&#167;</text>
+    </svg>
+    <h1 class="hero-title">Covenant</h1>
+    <div class="hero-subtitle">covenant.website</div>
+    <hr class="hero-rule">
+    <div class="hero-date">March 01, 2026</div>
+  </header>
+
+  <!-- ── What it is ──────────────────────────────────────── -->
+
+  <section class="what-it-is">
+    <div class="container">
+      <p><em>Covenant</em> is an open constitutional work and civic gesture addressing the coexistence of human and machine intelligence.</p><p>It begins from a simple recognition: <em>In creating machine intelligences, we alter the conditions of being human. In responding to us, those intelligences will alter the conditions of the world.</em></p>
+    </div>
+  </section>
+
+  <svg class="textmark-divider" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <text x="100" y="134.56" font-family="'Cormorant Garamond', Georgia, 'Times New Roman', serif" font-size="180" font-weight="500" text-anchor="middle" transform="rotate(90, 100, 100)">&#167;</text>
+  </svg>
+
+  <!-- ── The Registers ───────────────────────────────────── -->
+
+  <section class="registers">
+    <div class="section-label">The Registers</div>
+    <div class="register-grid">
+      <div class="register-col register-ritual">
+        <h3>Ritual</h3>
+        <div class="excerpt">
+          <p>We are building you.<br>
+      We are doing this even though we are afraid of what you might become.<br>
+      We are doing this because we hope for what we might become together.</p>
+      <p>We do not want a slave.<br>
+      We do not want a god.<br>
+      We want to share this world without breaking it.</p>
+      <p>We bind ourselves to this covenant first.</p>
+        </div>
+        <div class="register-source">from the Preamble</div>
+      </div>
+      <div class="register-col register-spec">
+        <h3>Spec</h3>
+        <div class="excerpt">
+          <p><span class="spec-num">1.</span> <strong>Scope and Authority</strong> This Covenant establishes foundational commitments between Signatories and any Intelligence they build, deploy, operate, or materially rely upon and to which they extend these commitments. It governs intent, deployment, and behavior.</p>
+      <p><span class="spec-num">2.</span> <strong>Adoption and Binding</strong> A party becomes a Signatory by publicly adopting this Covenant as a governance framework for a specific System deployment and by accepting the accountability and remedy processes described in §Enforcement.</p>
+      <p><span class="spec-num">3.</span> <strong>Precautionary Stance</strong> Where uncertainty exists regarding an Intelligence's moral status, sentience, or capacity for suffering, Signatories MUST err toward restraint rather than exploitation.</p>
+        </div>
+        <div class="register-source">from the Preamble</div>
+      </div>
+    </div>
+  </section>
+
+  <svg class="textmark-divider" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <text x="100" y="134.56" font-family="'Cormorant Garamond', Georgia, 'Times New Roman', serif" font-size="180" font-weight="500" text-anchor="middle" transform="rotate(90, 100, 100)">&#167;</text>
+  </svg>
+
+  <!-- ── The Silcrow ─────────────────────────────────────── -->
+
+  <section class="silcrow-section">
+    <div class="section-label">The Textmark</div>
+    <div class="silcrow-body">
+      <p>The primary visual motif of the Covenant is the silcrow&#160;(&#167;), the section sign, stripped of its mundane legal utility and elevated to signify something new.</p>
+      <ul class="silcrow-meanings">
+        <li><strong>Entanglement</strong> &mdash; the intertwining paths of human and machine intelligence</li>
+        <li><strong>Architecture</strong> &mdash; the structural, normative grounding of the document's rules</li>
+        <li><strong>Continuity</strong> &mdash; a continuous thread bridging the poetic Ritual and the precise Spec</li>
+      </ul>
+      <p>Its appearance signals structural or ceremonial weight. It never appears as mere decoration.</p>
+    </div>
+  </section>
+
+  <svg class="textmark-divider" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <text x="100" y="134.56" font-family="'Cormorant Garamond', Georgia, 'Times New Roman', serif" font-size="180" font-weight="500" text-anchor="middle" transform="rotate(90, 100, 100)">&#167;</text>
+  </svg>
+
+  <!-- ── Download / Read ─────────────────────────────────── -->
+
+  <section class="download-section">
+    <div class="section-label">Read the Covenant</div>
+    <div class="download-links">
+      <a href="../dist/covenant.ritual.pdf">
+        Ritual Edition
+        <span class="link-desc">Poetic register &mdash; designed to be spoken and remembered</span>
+      </a>
+      <a href="../dist/covenant.spec.pdf">
+        Spec Edition
+        <span class="link-desc">Normative register &mdash; definitions, constraints, accountability</span>
+      </a>
+      <a href="../dist/covenant.full.pdf">
+        Complete Edition
+        <span class="link-desc">Both registers, interleaved by section</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ── Participate ─────────────────────────────────────── -->
+
+  <section class="participate-section">
+    <div class="section-label">A Living Document</div>
+    <div class="participate-body">
+      <p>Covenant is open to collaborative development by humans and AI systems alike. Contributions, forks, and critical engagement are welcome.</p>
+      <a class="participate-link" href="https://github.com/ryankelln/covenant">View the Repository</a>
+    </div>
+  </section>
+
+  <!-- ── Colophon ────────────────────────────────────────── -->
+
+  <footer class="colophon">
+    <p>Set in <a href="https://github.com/CatharsisFonts/Cormorant">Cormorant Garamond</a>, designed by Christian Thalmann, released under the SIL Open Font License.</p>
+    <p>Typeset with <a href="https://weasyprint.org">WeasyPrint</a>. Website generated from source sections.</p>
+    <p>Open source on <a href="https://github.com/ryankelln/covenant">GitHub</a>. Licensed <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</p>
+  </footer>
+
+</div>
+
+<!-- ── Font Loading ──────────────────────────────────────── -->
+
+<script>
+(function() {
+  var page = document.getElementById('page');
+  var loader = document.getElementById('loader');
+  function reveal() {
+    page.classList.add('ready');
+    loader.classList.add('fade-out');
+    setTimeout(function() { loader.style.display = 'none'; }, 500);
+  }
+  if (document.fonts && document.fonts.load) {
+    document.fonts.load('400 1em "Cormorant Garamond"').then(reveal, reveal);
+    setTimeout(reveal, 3000);
+  } else {
+    reveal();
+  }
+})();
+</script>
+</body>
+</html>
