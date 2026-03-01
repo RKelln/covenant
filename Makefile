@@ -1,6 +1,14 @@
-.PHONY: validate compose build clean new-section pdf pdf-ritual pdf-spec pdf-full fonts website
+.PHONY: all validate compose build clean new-section pdf pdf-ritual pdf-spec pdf-full fonts website
 
 PYTHON := uv run python
+
+# ── Primary targets ────────────────────────────────────────────────────────
+#
+#   make all                  — validate, compose, generate PDFs + website
+#   make build                — validate + compose (markdown only)
+#
+
+all: validate pdf website
 
 validate:
 	$(PYTHON) build/validate.py

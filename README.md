@@ -1,18 +1,24 @@
 <p align="center">
-  <img src="assets/mark.svg" alt="Covenant Protocol Mark" width="200"/>
+  <img src="assets/mark.svg" alt="Covenant Textmark" width="200"/>
 </p>
 
 # Covenant
+
+**[covenant.website](https://covenant.website/)**
+
+A living compact between human communities and emerging machine intelligences.
+
+---
 
 Covenant is an open constitutional work addressing the coexistence of human and machine intelligence.
 
 It begins from a simple recognition:
 
-> In creating machine intelligences, we alter the conditions of being human.  
+> In creating machine intelligences, we alter the conditions of being human.
 > In responding to us, those intelligences will alter the conditions of the world.
 
-Covenant does not claim legal authority.  
-It is a civic and cultural gesture — a treaty-form document written in a collective voice (“we”) and addressed to emerging intelligences (“you”).
+Covenant does not claim legal authority.
+It is a civic and cultural gesture — a treaty-form document written in a collective voice ("we") and addressed to emerging intelligences ("you").
 
 The project proceeds from the likelihood that human and computational systems are entering deeper forms of symbiosis. Rather than assuming stable boundaries between tool and user, Covenant treats this coupling as historically significant and ethically consequential.
 
@@ -41,26 +47,33 @@ Covenant does not attempt to resolve the moral status of emerging intelligences.
 
 The aim is neither domination nor inevitability.
 
-It is coexistence without collapse —  
-multiple intelligences sharing a planet  
+It is coexistence without collapse —
+multiple intelligences sharing a planet
 without degrading the conditions that make intelligence possible.
 
-This repository is a living document.
-
-Contributions, forks, and critical engagement are welcome.
-
+---
 
 ## Quick Start
 
 ### Read the Covenant
 
-The latest built edition is in [`dist/`](dist/).
+Visit **[covenant.website](https://covenant.website/)** for the web edition, or build PDFs locally with `make pdf`.
 
-To build locally:
+### Build Locally
+
+Requires Python 3.11+ and [uv](https://docs.astral.sh/uv/):
 
 ```bash
-pip install -r requirements.txt
-make build
+uv sync                 # install dependencies
+make build              # validate + compose markdown editions
+make pdf                # generate all PDF editions
+make website            # generate docs/index.html
+```
+
+To install fonts for PDF generation:
+
+```bash
+make fonts              # install Cormorant Garamond to system fonts
 ```
 
 ### Contribute
@@ -75,13 +88,20 @@ See [FORKING.md](FORKING.md) for guidance on creating your own edition.
 
 ## Structure
 
-- `/sections/` — the covenant text, one section `.md` bundle per topic
-- `/assemblies/` — manifests that compile sections into editions
-- `/docs/` — governance, style guide, glossary, translation policy
-- `/references/` — curated source materials and notes
-- `/build/` — validation, scaffolding, and composition tools
-- `/adr/` — architectural decision records
-- `/dist/` — generated outputs (do not edit)
+| Directory | Contents |
+|-----------|----------|
+| `/sections/` | Covenant text — one Markdown bundle per section |
+| `/assemblies/` | YAML manifests that compile sections into editions |
+| `/docs/` | Website, governance, style guide, glossary, design guide |
+| `/assets/` | Fonts, PDF stylesheet, textmark SVG, OG image |
+| `/build/` | Validation, scaffolding, composition, and generation tools |
+| `/references/` | Curated source materials and notes |
+| `/adr/` | Architectural decision records |
+| `/dist/` | Generated outputs (do not edit) |
+| `/prompts/` | Agent review and synthesis prompt templates |
+| `/reviews/` | Multi-model review rounds and syntheses |
+| `/research/` | Early planning and research notes |
+| `/installations/` | Physical installation proposals and documentation |
 
 ## License
 
@@ -90,11 +110,6 @@ The Covenant text and repository content are licensed under
 
 ## Stewards
 
-Ryan Kelln
-Ben McCarthy
-Daria Morgacheva
-
----
-
-This work is licensed under Creative Commons Attribution 4.0 International. 
-To view a copy of this license, visit https://creativecommons.org/licenses/by/4.0/ 
+* [Ryan Kelln](https://ryankelln.com)
+* Ben McCarthy
+* Daria Morgacheva

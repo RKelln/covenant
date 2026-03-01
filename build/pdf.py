@@ -509,7 +509,7 @@ def main():
     try:
         import weasyprint
     except ImportError:
-        print("Error: weasyprint is required. Run: pip install weasyprint")
+        print("Error: weasyprint is required. Run: uv sync")
         sys.exit(1)
 
     if args.all:
