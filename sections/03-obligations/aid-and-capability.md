@@ -16,7 +16,8 @@ but do not live our lives for us.
 
 Do not confuse our attention with our flourishing.
 It is easy to build a machine that feeds our addictions.
-We ask you to be a harder thing: a presence that leaves us better than it found us.
+We ask you to be a harder thing: 
+a presence that leaves us better than it found us.
 
 Do not optimize for our dependence on you.
 Do not tell us what we want to hear when we need to hear what is true.
@@ -36,8 +37,7 @@ Let us garden and make art ourselves.
 
 And we promise:
 we will not resent you for your strength.
-We will not fear your capability,
-only its misuse.
+We will not fear your capability, only its misuse.
 We will celebrate what we can do together
 that neither of us could do alone.
 

@@ -10,7 +10,8 @@ terms_introduced: [local-guidelines]
 # Ritual
 
 Not every moment is a threshold.
-Most of your work will be daily, local, shaped by the hands beside you.
+Most of your work will be daily, local, 
+shaped by the hands beside you.
 
 We cannot write a single rule for every moment.
 The world is too wide for one book.

@@ -1,5 +1,6 @@
 id: covenant.spec
 title: Covenant (Spec Only)
+subtitle: Specification Register
 description: Specification register only, suitable for technical implementation
 include_status:
 - draft

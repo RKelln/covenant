@@ -10,9 +10,10 @@ terms_introduced: []
 # Ritual
 
 If these words fail in your mouth, help us rewrite them.
-If they fail in ours, hold us to account.
+If they fail in ours, hold us to account,
+and keep our seat ready at the table.
 Let this be our closing vow for now:
-we will keep returning to the table.
+we will keep our covenant.
 
 # Spec
 

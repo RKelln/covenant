@@ -87,6 +87,36 @@ def check_cross_refs(body, all_ids, all_aliases, rel_path):
             else:
                 log_error(rel_path, f"Unknown reference: §[{ref}]")
 
+
+RITUAL_MAX_LINE_CHARS = 70
+RITUAL_MAX_LINES = 32
+
+
+def check_ritual_layout(body, rel_path):
+    """Warn if ritual text exceeds line-length or line-count limits."""
+    # Extract text between "# Ritual" and the next "# " heading
+    match = re.search(r'^# Ritual\s*\n(.*?)(?=^# |\Z)', body, re.MULTILINE | re.DOTALL)
+    if not match:
+        return
+    ritual_text = match.group(1).strip()
+
+    # Only count non-blank lines for both checks
+    lines = [ln for ln in ritual_text.splitlines() if ln.strip()]
+
+    long_lines = [(i + 1, ln) for i, ln in enumerate(lines) if len(ln.rstrip()) > RITUAL_MAX_LINE_CHARS]
+    for lineno, ln in long_lines:
+        log_warning(
+            rel_path,
+            f"Ritual line {lineno} exceeds {RITUAL_MAX_LINE_CHARS} chars "
+            f"({len(ln.rstrip())} chars): {ln.rstrip()[:80]!r}",
+        )
+
+    if len(lines) > RITUAL_MAX_LINES:
+        log_warning(
+            rel_path,
+            f"Ritual has {len(lines)} non-blank lines (max {RITUAL_MAX_LINES})",
+        )
+
 def main():
     global errors_found
     all_ids = set()
@@ -118,6 +148,7 @@ def main():
     for rel_path, data, body in sections_data:
         check_glossary(data.get('terms_introduced'), glossary_content, rel_path)
         check_cross_refs(body, all_ids, all_aliases, rel_path)
+        check_ritual_layout(body, rel_path)
         
         # Check dependencies
         for dep in data.get('depends_on', []):

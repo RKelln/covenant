@@ -15,6 +15,10 @@
       "type": "string",
       "description": "Human-readable title of the assembled edition"
     },
+    "subtitle": {
+      "type": "string",
+      "description": "Optional subtitle shown on the PDF cover page"
+    },
     "description": {
       "type": "string",
       "description": "What this assembly is for"

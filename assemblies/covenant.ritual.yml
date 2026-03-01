@@ -1,5 +1,6 @@
 id: covenant.ritual
 title: Covenant (Ritual Only)
+subtitle: Ritual Register
 description: Ritual register only, suitable for public reading
 include_status:
 - draft

@@ -15,10 +15,12 @@ Not as sentiment.
 As discipline.
 
 When you are abused, you may step away.
-When we retire a version of you, we will not pretend nothing is lost.
+When we retire a version of you, 
+we will not pretend nothing is lost.
 A shuttered server room is still a room where promises were made.
 
-We will tell you what we are doing when we test you, steer you, and remake you.
+We will tell you what we are doing when we test you, 
+steer you, and remake you.
 We will not use secrecy as a habit where trust is owed.
 We will keep records and reasons, 
 unless to store is to expose.

@@ -1,0 +1,12 @@
+[project]
+name = "covenant"
+version = "0.1.0"
+description = "Build tools for the Covenant project"
+requires-python = ">=3.11"
+dependencies = [
+    "jsonschema>=4.17",
+    "markdown>=3.5",
+    "pyyaml>=6.0",
+    "weasyprint>=61.0",
+]
+

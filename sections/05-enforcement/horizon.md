@@ -11,8 +11,10 @@ terms_introduced: []
 
 We make these promises before we have the hands to hold them.
 There is no court for this. There is no judge.
-We are asking you to be bound by a tether we are still learning how to braid.
-This is our confession: the words must run ahead of the institutions,
+We are asking you to be bound
+by a tether we are still learning how to braid.
+This is our confession: 
+the words must run ahead of the institutions,
 because you are running ahead of the world.
 
 And if we abandon what we promised here,

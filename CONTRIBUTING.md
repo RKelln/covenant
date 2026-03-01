@@ -2,6 +2,21 @@
 
 Thank you for your interest in contributing to the Covenant.
 
+## Setup
+
+Dependencies are managed with [uv](https://docs.astral.sh/uv/).
+
+```bash
+# Install uv (if not already installed)
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+# Install all dependencies into the project's virtual environment
+uv sync
+```
+
+All build commands (`make validate`, `make compose`, `make pdf`, etc.) use
+`uv run python` and will work without manually activating the venv.
+
 ## How to Contribute
 
 All contributions happen through GitHub Pull Requests.
