@@ -1,6 +1,7 @@
 # Build output
 dist/*
 !dist/.gitkeep
+debug.html
 
 # Python
 __pycache__/
