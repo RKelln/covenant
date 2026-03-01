@@ -178,7 +178,7 @@ def credits_html() -> str:
         try:
             import markdown as md_lib
 
-            body_html = md_lib.markdown(content, extensions=["extra"])
+            body_html = md_lib.markdown(content, extensions=["extra", "nl2br"])
         except ImportError:
             paras = re.split(r"\n\s*\n", content.strip())
             body_html = "\n".join(

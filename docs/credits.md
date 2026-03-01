@@ -21,4 +21,4 @@ Inspired and made in part from
 *designed by Christian Thalmann (Catharsis Fonts),*
 *released under the SIL Open Font License.*
 
-*Generated via WeasyPrint.*
+*Generated via [WeasyPrint](https://weasyprint.org/).*
