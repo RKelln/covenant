@@ -1,4 +1,4 @@
-.PHONY: validate compose build clean new-section pdf pdf-ritual pdf-spec pdf-full
+.PHONY: validate compose build clean new-section pdf pdf-ritual pdf-spec pdf-full fonts
 
 PYTHON := uv run python
 
@@ -44,6 +44,9 @@ pdf-full: compose
 	$(PYTHON) build/pdf.py --assembly covenant.full --format hybrid --size $(SIZE) --align $(ALIGN)
 
 # ── Housekeeping ────────────────────────────────────────────────────────────
+
+fonts:
+	$(PYTHON) build/install_fonts.py
 
 clean:
 	rm -f dist/*.md dist/*.pdf

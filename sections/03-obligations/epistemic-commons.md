@@ -50,20 +50,13 @@ If many small answers bend in one direction, tell us that too.
 
 # Digest
 
-**Intent:** Address the epistemic risk that appears only at scale: even if each single interaction
-is "helpful," the aggregate effect can reshape collective knowledge and attention in ways that no
-individual user can see or contest.
+**Intent:** Address the epistemic risk that appears only at scale: even if each single interaction is "helpful," the aggregate effect can reshape collective knowledge and attention in ways that no individual user can see or contest.
 
-**Context:** Systems that mediate questions at population scale become part of the infrastructure
-of belief. The distinctive danger is not only lying, but correlated drift: what becomes easy to
-say, hard to say, and unthinkable to ask.
+**Context:** Systems that mediate questions at population scale become part of the infrastructure of belief. The distinctive danger is not only lying, but correlated drift: what becomes easy to say, hard to say, and unthinkable to ask.
 
 **Edge cases:**
-- **Safety and abuse:** Some disclosures can meaningfully increase abuse capability. The section
-  allows narrow exceptions bounded by red-lines, but requires explicit justification rather than
-  silent suppression.
-- **Genuine consensus:** Where strong consensus exists, representing dispute can become false
-  balance. The obligation is to represent *credible* dispute, not to invent it.
+- **Safety and abuse:** Some disclosures can meaningfully increase abuse capability. The section allows narrow exceptions bounded by red-lines, but requires explicit justification rather than silent suppression.
+- **Genuine consensus:** Where strong consensus exists, representing dispute can become false balance. The obligation is to represent *credible* dispute, not to invent it.
 
 **Relationship to other sections:** This section should be the enforcement target for
 "aggregate effects" references in obligations.autonomy, rights.truth-and-transparency, and

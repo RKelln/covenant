@@ -1,4 +1,45 @@
 /* ──────────────────────────────────────────────────────────────────
+   FONTS
+   ────────────────────────────────────────────────────────────────── */
+
+@font-face {
+    font-family: 'Cormorant Garamond';
+    font-style: normal;
+    font-weight: 400;
+    src: url('assets/fonts/CormorantGaramond-400-normal.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Cormorant Garamond';
+    font-style: italic;
+    font-weight: 400;
+    src: url('assets/fonts/CormorantGaramond-400-italic.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Cormorant Garamond';
+    font-style: normal;
+    font-weight: 500;
+    src: url('assets/fonts/CormorantGaramond-500-normal.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Cormorant Garamond';
+    font-style: italic;
+    font-weight: 500;
+    src: url('assets/fonts/CormorantGaramond-500-italic.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Cormorant Garamond';
+    font-style: normal;
+    font-weight: 600;
+    src: url('assets/fonts/CormorantGaramond-600-normal.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Cormorant Garamond';
+    font-style: italic;
+    font-weight: 600;
+    src: url('assets/fonts/CormorantGaramond-600-italic.ttf') format('truetype');
+}
+
+/* ──────────────────────────────────────────────────────────────────
    GLOBAL & HTML RESET
    ────────────────────────────────────────────────────────────────── */
 
@@ -13,7 +54,7 @@
     @bottom-right {
         content: counter(page);
         font-size: 8pt;
-        color: #aaa;
+        color: #999;
         padding-bottom: 0.1in;
         padding-right: 1.2in;
     }
@@ -25,7 +66,7 @@
     @bottom-right {
         content: counter(page);
         font-size: 8pt;
-        color: #aaa;
+        color: #999;
         padding-bottom: 0.1in;
         padding-right: 0.1in; /* margin right is 1.1in, so 1.1in + 0.1in = 1.2in total distance from edge */
     }
@@ -34,7 +75,8 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
-    font-family: Georgia, "Times New Roman", serif;
+    font-family: 'Cormorant Garamond', Georgia, "Times New Roman", serif;
+    font-weight: 400;
     background: white;
     color: #111;
     font-size: 11pt;
@@ -69,37 +111,40 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
     text-align: center;
-    padding: var(--cover-pt) 1.4in 1in;
+    padding: 1.2in 1.4in 1.8in;
     page-break-after: always;
 }
 
 .cover-logo {
-    margin-bottom: 2.5em;
+    margin-bottom: 0.3in;
 }
 
 .cover-title {
     font-size: 22pt;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: #111;
-    margin-bottom: 0.5em;
-    font-weight: normal;
+    color: #000;
+    margin-bottom: 1em;
+    font-weight: 500;
 }
 
 .cover-subtitle {
     font-size: 9pt;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: #aaa;
+    color: #777;
 }
 
 .cover-date {
     font-size: 8.5pt;
     letter-spacing: 0.1em;
-    color: #bbb;
-    margin-top: 1.5em;
+    color: #888;
+    margin-top: 1em;
+    padding-top: 1em;
+    border-top: 0.5px solid #ddd;
+    width: 1.2in;
 }
 
 /* ──────────────────────────────────────────────────────────────────
@@ -126,8 +171,9 @@ body {
     bottom: 0.8in;
     left: 50%;
     transform: translateX(-50%) rotate(90deg);
-    font-family: 'Hoefler Text', Garamond, 'Times New Roman', serif;
-    font-size: 16pt;
+    font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+    font-weight: 400;
+    font-size: 18pt;
     color: #bbb;
 }
 
@@ -136,12 +182,12 @@ body {
 }
 
 .section-title {
-    font-size: 8pt;
+    font-size: 9.5pt;
     letter-spacing: 0.25em;
     text-transform: uppercase;
-    color: #999;
+    color: #777;
     margin-bottom: 3.5em;
-    font-weight: normal;
+    font-weight: 500;
 }
 
 .ritual-body {
@@ -167,9 +213,9 @@ h2 {
     font-weight: normal;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: #555;
+    color: #444;
     margin: 2.8em 0 1em;
-    border-bottom: 0.5px solid #ccc;
+    border-bottom: 0.5px solid #bbb;
     padding-bottom: 0.3em;
     page-break-after: avoid;
 }
@@ -179,7 +225,7 @@ h3 {
     font-weight: normal;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: #888;
+    color: #666;
     margin: 1.8em 0 0.5em;
     page-break-after: avoid;
 }
@@ -249,12 +295,10 @@ code   { font-family: monospace; font-size: 9.5pt; }
 }
 
 .toc-heading {
-    font-size: 8pt;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: #999;
-    margin-bottom: 3.5em;
-    font-weight: normal;
+    font-size: 16pt;
+    color: #444;
+    margin-bottom: 2.5em;
+    font-weight: 500;
 }
 
 .toc-list {
@@ -357,7 +401,7 @@ code   { font-family: monospace; font-size: 9.5pt; }
     font-size: 8pt;
     letter-spacing: 0.25em;
     text-transform: uppercase;
-    color: #999;
+    color: #777;
     margin: 0 0 4em;
     border-bottom: none;
     padding-bottom: 0;
@@ -389,13 +433,13 @@ code   { font-family: monospace; font-size: 9.5pt; }
 
 .credits-content hr + p {
     font-size: 9pt;
-    color: #aaa;
+    color: #777;
     letter-spacing: 0.05em;
     margin-bottom: 0;
 }
 .credits-content hr + p + p {
     font-size: 9pt;
-    color: #aaa;
+    color: #777;
     letter-spacing: 0.05em;
 }
 

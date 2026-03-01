@@ -107,10 +107,8 @@ def cover_html(manifest: dict) -> str:
     return (
         '<div class="cover-page">\n'
         '  <div class="cover-logo">\n'
-        '    <svg width="200" height="100" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">\n'
-        '      <g transform="translate(100, 50) rotate(90) translate(-100, -50)">\n'
-        '        <text x="100" y="105" font-family="\'Hoefler Text\', Garamond, \'Times New Roman\', serif" font-size="180" font-weight="normal" text-anchor="middle" fill="#000">§</text>\n'
-        '      </g>\n'
+        '    <svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">\n'
+        '      <text x="100" y="134.56" font-family="\'Cormorant Garamond\', Georgia, \'Times New Roman\', serif" font-size="180" font-weight="500" text-anchor="middle" fill="#000" transform="rotate(90, 100, 100)">§</text>\n'
         '    </svg>\n'
         '  </div>\n'
         '  <div class="cover-title">Covenant</div>\n'
@@ -161,7 +159,7 @@ def toc_html(sections: list) -> str:
     items_html = "\n".join(items)
     return (
         '<div class="toc-page">\n'
-        '  <div class="toc-heading">Index</div>\n'
+        '  <div class="toc-heading">§</div>\n'
         '  <ul class="toc-list">\n'
         f'{items_html}\n'
         '  </ul>\n'
@@ -273,7 +271,7 @@ def build_ritual_pdf(manifest_file: Path, output_path: Path, size: str = "letter
 
     HTML(string=raw_html, base_url=str(REPO_ROOT)).write_pdf(
         target=str(output_path),
-        stylesheets=[CSS(string=css_string)],
+        stylesheets=[CSS(string=css_string, base_url=str(REPO_ROOT))],
         presentational_hints=True
     )
 
@@ -325,7 +323,7 @@ def build_flow_pdf(manifest_file: Path, output_path: Path, size: str = "letter")
 
     HTML(string=raw_html, base_url=str(REPO_ROOT)).write_pdf(
         target=str(output_path),
-        stylesheets=[CSS(string=css_string)],
+        stylesheets=[CSS(string=css_string, base_url=str(REPO_ROOT))],
         presentational_hints=True
     )
 
@@ -389,7 +387,7 @@ def build_hybrid_pdf(manifest_file: Path, output_path: Path, size: str = "letter
     
     HTML(string=raw_html, base_url=str(REPO_ROOT)).write_pdf(
         target=str(output_path),
-        stylesheets=[CSS(string=css_string)],
+        stylesheets=[CSS(string=css_string, base_url=str(REPO_ROOT))],
         presentational_hints=True
     )
 

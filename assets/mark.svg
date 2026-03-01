@@ -1,5 +1,12 @@
-<svg width="200" height="100" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
-  <g transform="translate(100, 50) rotate(90) translate(-100, -50)">
-    <text class="silcrow" x="100" y="105" font-family="'Hoefler Text', Garamond, 'Times New Roman', serif" font-size="180" font-weight="normal" text-anchor="middle" fill="#000">§</text>
-  </g>
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Baseline y=134.56 derived from font metrics: § visual y-centre = 192 font units above baseline -->
+  <!-- At font-size 180 (scale=0.18): offset = 192*0.18 = 34.56; y = 100 + 34.56 = 134.56              -->
+  <!-- rotate(90, 100, 100) pivots around the viewBox centre so visual centre lands at x=100           -->
+  <text x="100" y="134.56"
+    font-family="'Cormorant Garamond', Georgia, 'Times New Roman', serif"
+    font-size="180"
+    font-weight="500"
+    text-anchor="middle"
+    fill="#000"
+    transform="rotate(90, 100, 100)">§</text>
 </svg>
