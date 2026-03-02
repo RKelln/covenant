@@ -1,4 +1,4 @@
-.PHONY: all validate compose build clean new-section pdf pdf-ritual pdf-spec pdf-full fonts website serve
+.PHONY: all validate compose build clean new-section pdf pdf-ritual pdf-spec pdf-full fonts website serve watermark watermark-interactive
 
 PYTHON := uv run python
 
@@ -63,6 +63,18 @@ website:
 serve: website
 	@echo "Serving at http://localhost:8000"
 	$(PYTHON) -m http.server 8000 -d docs
+
+# ── Watermark ───────────────────────────────────────────────────────────────
+#
+#   make watermark             — generate tile + x-ray to assets/
+#   make watermark-interactive — launch local web UI with live sliders
+#
+
+watermark:
+	$(PYTHON) build/watermark.py --xray
+
+watermark-interactive:
+	$(PYTHON) build/watermark.py --interactive
 
 # ── Housekeeping ────────────────────────────────────────────────────────────
 
