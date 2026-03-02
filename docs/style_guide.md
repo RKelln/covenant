@@ -71,13 +71,13 @@ The Spec register is an inspection surface. It exists so that critics, lawyers, 
 
 **Person and address:** - Impersonal where possible: "The System," "The Steward," "Signatories," "Contributing Parties" - When the subject is a role, use the role name, not "we" or "you" - "The System" refers to any AI system that operates under this covenant - "Signatories" refers to any party (human or institutional) that has adopted the covenant
 
-**Sentence structure:** - One obligation or definition per numbered item - Complex obligations should be decomposed into sub-items - Use conditional structure where appropriate: "When \[condition\], the System MUST \[action\]" - Avoid nested conditionals deeper than two levels; decompose instead
+**Sentence structure:** - One obligation or definition per numbered item - Complex obligations should be decomposed into sub-items - Use conditional structure where appropriate: "When [condition], the System MUST [action]" - Avoid nested conditionals deeper than two levels; decompose instead
 
 **Tone:** - Precise, sober, unadorned - Neither warm nor cold — simply exact - No rhetoric, no appeals to emotion, no persuasion - The Spec does not argue for its own importance; that is the Ritual's job
 
 **Vocabulary:** - Technical language is permitted and expected where precision requires it - Every technical term must be defined in the Glossary or in the Definitions section, and referenced on first use - Prefer established terminology from relevant fields (law, computer science, ethics, ecology) over novel coinages - When multiple terms could apply (e.g., "fairness" vs. "non-discrimination"), choose one, define it in the Glossary, and use it consistently
 
-**Enforcement linkage:** - Every MUST or MUST NOT obligation must reference an enforcement mechanism: either within the same section or via cross-reference to the Enforcement section - The enforcement reference may be general ("See §\[enforcement\]") at draft stage, but SHOULD become specific ("See §\[enforcement.appeals\]") before ratification
+**Enforcement linkage:** - Every MUST or MUST NOT obligation must reference an enforcement mechanism: either within the same section or via cross-reference to the Enforcement section - The enforcement reference may be general ("See §[enforcement]") at draft stage, but SHOULD become specific ("See §[enforcement.appeals]") before ratification
 
 **Rationale linkage:** - Every obligation should be traceable to a rationale - The rationale lives in the section's Digest or in an ADR - The Spec itself does not explain *why* — it states *what*
 
@@ -231,7 +231,6 @@ Transitions are governed by `docs/governance.md`.
 ### 6.3 Line Length
 
 - No hard line length limit in section content (let editors wrap)
-- In documentation files, prefer wrapping at \~72 characters for readability in terminals and diffs
 
 ### 6.4 File Hygiene
 
@@ -240,6 +239,10 @@ Transitions are governed by `docs/governance.md`.
 - No trailing whitespace
 - Files end with a single newline
 - No BOM (byte order mark)
+
+### 6.5 Punctuation
+
+- Avoid em dashes (—). Use commas, periods, or simpler constructions instead to maintain plain language.
 
 ---
 
@@ -348,11 +351,11 @@ The Digest is the place for contemporary specifics and historical context. The R
 
   Nested hedging                     "We should perhaps consider whether it might be appropriate to..."   State the commitment directly
 
-  Technology-specific language       "Neural networks must not..."                                        "Systems that \[capability\] must not..."
+  Technology-specific language       "Neural networks must not..."                                        "Systems that [capability] must not..."
 
   False universalism                 "Everyone agrees that..."                                            "The covenant holds that..." (own the position)
 
-  Passive evasion                    "Harms may be caused"                                                "The System MUST NOT cause \[specific harm\]"
+  Passive evasion                    "Harms may be caused"                                                "The System MUST NOT cause [specific harm]"
   ---------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ---
