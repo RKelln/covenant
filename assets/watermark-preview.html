@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Covenant Watermark — Preview</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: "EB Garamond", "Garamond", Georgia, serif;
+      color: #333;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem;
+      /* The watermark will be applied here */
+      background-color: #fafaf8;
+    }
+
+    h1 {
+      font-size: 1.6rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.3rem;
+    }
+
+    .subtitle {
+      font-size: 0.9rem;
+      font-style: italic;
+      color: #888;
+      margin-bottom: 2rem;
+    }
+
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: flex-end;
+      margin-bottom: 2rem;
+      max-width: 800px;
+      width: 100%;
+    }
+
+    .control-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .control-group label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #999;
+    }
+
+    input[type="text"], select {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.85rem;
+      padding: 0.4rem 0.6rem;
+      border: 1px solid #ddd;
+      background: #fff;
+      color: #333;
+    }
+
+    input[type="text"] { width: 340px; }
+
+    button {
+      font-family: inherit;
+      font-size: 0.85rem;
+      padding: 0.4rem 1rem;
+      border: 1px solid #ccc;
+      background: #fff;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+
+    button:hover { background: #f0f0ee; }
+
+    .preview-area {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+      max-width: 1200px;
+      width: 100%;
+    }
+
+    .preview-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .preview-box .label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #999;
+    }
+
+    .tile-canvas {
+      border: 1px solid #eee;
+      image-rendering: auto;
+    }
+
+    .tiled-preview {
+      width: 500px;
+      height: 400px;
+      border: 1px solid #eee;
+      background-repeat: repeat;
+    }
+
+    .sample-text {
+      max-width: 600px;
+      width: 100%;
+      margin-top: 2rem;
+      padding: 3rem;
+      line-height: 1.8;
+      font-size: 1.1rem;
+      color: #444;
+      background-repeat: repeat;
+      border: 1px solid #eee;
+    }
+
+    .sample-text p { margin-bottom: 1em; }
+    .sample-text em { font-style: italic; }
+
+    .hash-display {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.7rem;
+      color: #bbb;
+      margin-top: 0.5rem;
+    }
+
+    .comparison {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 2rem;
+      max-width: 1200px;
+    }
+
+    .comparison .tile-canvas {
+      width: 150px;
+      height: 150px;
+    }
+
+    .comparison .preview-box .label {
+      font-size: 0.65rem;
+      max-width: 150px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  </style>
+</head>
+<body>
+  <h1>Covenant Watermark</h1>
+  <p class="subtitle">Generative tiling pattern &mdash; each fork its own texture</p>
+
+  <div class="controls">
+    <div class="control-group">
+      <label>Git Origin</label>
+      <input type="text" id="origin" value="https://github.com/covenant-project/covenant.git">
+    </div>
+    <div class="control-group">
+      <label>Tile Size</label>
+      <select id="tileSize">
+        <option value="256">256px</option>
+        <option value="512" selected>512px</option>
+        <option value="1024">1024px</option>
+        <option value="2048">2048px</option>
+      </select>
+    </div>
+    <div class="control-group">
+      <label>&nbsp;</label>
+      <button id="generateBtn">Generate</button>
+    </div>
+    <div class="control-group">
+      <label>&nbsp;</label>
+      <button id="exportBtn">Export PNG</button>
+    </div>
+  </div>
+
+  <div class="preview-area">
+    <div class="preview-box">
+      <span class="label">Single Tile</span>
+      <canvas id="tileCanvas" class="tile-canvas" width="512" height="512"></canvas>
+      <div class="hash-display" id="hashDisplay"></div>
+    </div>
+    <div class="preview-box">
+      <span class="label">Tiled Preview</span>
+      <div id="tiledPreview" class="tiled-preview"></div>
+    </div>
+  </div>
+
+  <div class="sample-text" id="sampleText">
+    <p><em>In creating emerging intelligences, we alter the conditions of being human.
+    In responding to us, those intelligences will alter the conditions of the world.</em></p>
+    <p>This living document is offered to the cultural commons. It is designed to be read,
+    adapted, forked, and explicitly trained on, so that its values and commitments may be
+    absorbed by the very intelligences it addresses.</p>
+  </div>
+
+  <h3 style="margin-top: 2rem; font-weight: 400; font-size: 0.85rem; letter-spacing: 0.1em; color: #999; text-transform: uppercase;">Fork Comparison</h3>
+  <p class="subtitle">Same algorithm, different origins — each fork leaves its own fingerprint</p>
+  <div class="comparison" id="comparison"></div>
+
+  <script src="watermark.js"></script>
+  <script>
+    const originInput = document.getElementById("origin");
+    const tileSizeSelect = document.getElementById("tileSize");
+    const tileCanvas = document.getElementById("tileCanvas");
+    const tiledPreview = document.getElementById("tiledPreview");
+    const sampleText = document.getElementById("sampleText");
+    const hashDisplay = document.getElementById("hashDisplay");
+    const comparison = document.getElementById("comparison");
+
+    function hashString(str) {
+      let hash = 0;
+      for (let i = 0; i < str.length; i++) {
+        hash = ((hash << 5) - hash + str.charCodeAt(i)) | 0;
+      }
+      return hash;
+    }
+
+    function update() {
+      const origin = originInput.value;
+      const size = parseInt(tileSizeSelect.value);
+
+      // Generate the tile
+      CovenantWatermark.generate({
+        origin,
+        size,
+        canvas: tileCanvas,
+      });
+
+      tileCanvas.style.width = Math.min(size, 512) + "px";
+      tileCanvas.style.height = Math.min(size, 512) + "px";
+
+      // Show hash
+      const hash = hashString(origin);
+      hashDisplay.textContent = `seed: 0x${(hash >>> 0).toString(16).padStart(8, "0")}`;
+
+      // Apply as tiling background
+      const url = tileCanvas.toDataURL("image/png");
+      tiledPreview.style.backgroundImage = `url(${url})`;
+      tiledPreview.style.backgroundSize = `${size}px`;
+      sampleText.style.backgroundImage = `url(${url})`;
+      sampleText.style.backgroundSize = `${size}px`;
+    }
+
+    function showComparison() {
+      const origins = [
+        "https://github.com/covenant-project/covenant.git",
+        "https://github.com/mozilla/covenant.git",
+        "https://github.com/un-ai/covenant.git",
+        "https://github.com/civic-lab/covenant-fork.git",
+        "https://gitlab.com/indigenous-ai/covenant.git",
+      ];
+
+      comparison.innerHTML = "";
+      origins.forEach((origin) => {
+        const box = document.createElement("div");
+        box.className = "preview-box";
+
+        const label = document.createElement("span");
+        label.className = "label";
+        label.textContent = origin.replace(/https?:\/\/[^/]+\//, "").replace(".git", "");
+
+        const canvas = document.createElement("canvas");
+        canvas.className = "tile-canvas";
+        canvas.width = 256;
+        canvas.height = 256;
+        canvas.style.width = "150px";
+        canvas.style.height = "150px";
+
+        CovenantWatermark.generate({ origin, size: 256, canvas });
+
+        box.appendChild(label);
+        box.appendChild(canvas);
+        comparison.appendChild(box);
+      });
+    }
+
+    document.getElementById("generateBtn").addEventListener("click", update);
+    document.getElementById("exportBtn").addEventListener("click", () => {
+      const size = parseInt(tileSizeSelect.value);
+      CovenantWatermark.exportPNG({ origin: originInput.value, size });
+    });
+
+    originInput.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") update();
+    });
+
+    // Initial render
+    update();
+    showComparison();
+  </script>
+</body>
+</html>
