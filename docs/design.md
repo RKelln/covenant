@@ -82,6 +82,7 @@ The hairline rule (`0.5px solid #ddd`, `1.2in` wide, centred above the date) is 
   This copies the fonts to the correct OS directory (`~/.local/share/fonts/` on Linux, `~/Library/Fonts/` on macOS, `%LOCALAPPDATA%\Microsoft\Windows\Fonts` on Windows) and refreshes the font cache. The `@font-face` rules in `assets/pdf.css` exist only for browser-based HTML preview.
 
   > **If the font is changed or re-installed:** run `make fonts` again, then verify with `pdffonts dist/covenant.ritual.pdf | grep -i cormorant`.
+* **Background:** Warm ivory (`#fdfcfa`) on web — a barely perceptible shift from pure white that approximates uncoated paper without calling attention to itself. PDF output retains `white` for print fidelity.
 * **Headers:** Always structural, never loud. Set in wide-spaced uppercase (`letter-spacing: 0.18em` to `0.2em`), often in a slightly lighter charcoal (`#555`) rather than pure black. They do not rely on heavy font weights. Major headers are grounded by ultra-thin hairline borders (`0.5px solid #ccc`).
 * **Body Text (Standard Base):** `11pt` size with an airy `1.65` line-height for uninterrupted readability during dense reading.
 

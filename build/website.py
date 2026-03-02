@@ -191,7 +191,7 @@ def build_css() -> str:
       font-family: 'Cormorant Garamond', Georgia, serif;
       font-weight: 400;
       color: #111;
-      background: #fff;
+      background: #fdfcfa;
       line-height: 1.65;
       overflow-x: hidden;
     }
@@ -213,7 +213,7 @@ def build_css() -> str:
       position: fixed;
       inset: 0;
       z-index: 1000;
-      background: #fff;
+      background: #fdfcfa;
       display: flex;
       align-items: center;
       justify-content: center;
