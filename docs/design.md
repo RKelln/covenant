@@ -96,7 +96,7 @@ The design system uses exactly two visual separator elements. Each has a single,
 A small rotated silcrow (`§`) rendered in `#bbb` (the tailpiece colour). Signals a **thematic transition** — the content on either side belongs to different conceptual regions.
 
 * **PDF:** Used between sections and to denote the closing of a major vow.
-* **Website:** Placed between each major content section (e.g. "What it is" → "The Registers" → "The Textmark" → "Read the Covenant").
+* **Website:** Placed between each major content section (e.g. "What it is" → "The Registers" → "Why Covenant" → "Read the Covenant").
 * **Rendering:** Same SVG as the cover mark, scaled down (24px on web). Always centred. Never carries text or links.
 
 ### The Hairline Rule

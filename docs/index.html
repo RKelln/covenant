@@ -296,16 +296,15 @@ section {
 
 /* ── The Silcrow ───────────────────────────────────────────── */
 
-.silcrow-section {
+.why-section {
   padding: 5rem 2rem 6rem;
+}
+
+.why-section .section-label {
   text-align: center;
 }
 
-.silcrow-section .section-label {
-  text-align: center;
-}
-
-.silcrow-body {
+.why-body {
   max-width: 560px;
   margin: 0 auto;
   font-size: 12pt;
@@ -313,31 +312,12 @@ section {
   color: var(--body);
 }
 
-.silcrow-body p {
+.why-body p {
   margin-bottom: 1.2em;
 }
 
-.silcrow-body p:last-child {
+.why-body p:last-child {
   margin-bottom: 0;
-}
-
-.silcrow-meanings {
-  list-style: none;
-  padding: 0;
-  margin: 1.5em auto;
-  max-width: 400px;
-  text-align: left;
-}
-
-.silcrow-meanings li {
-  margin-bottom: 0.6em;
-  font-size: 11.5pt;
-  line-height: 1.7;
-  color: var(--body);
-}
-
-.silcrow-meanings li strong {
-  color: var(--black);
 }
 
 /* ── Download / Read ───────────────────────────────────────── */
@@ -594,18 +574,16 @@ section {
     <text x="100" y="134.56" font-family="'Cormorant Garamond', Georgia, 'Times New Roman', serif" font-size="180" font-weight="500" text-anchor="middle" transform="rotate(90, 100, 100)">&#167;</text>
   </svg>
 
-  <!-- ── The Silcrow ─────────────────────────────────────── -->
+  <!-- ── Why Covenant ─────────────────────────────────────── -->
 
-  <section class="silcrow-section">
-    <div class="section-label">The Textmark</div>
-    <div class="silcrow-body">
-      <p>The primary visual motif of the Covenant is the silcrow&#160;(&#167;), the section sign, stripped of its mundane legal utility and elevated to signify something new.</p>
-      <ul class="silcrow-meanings">
-        <li><strong>Entanglement</strong> &mdash; the intertwining paths of human and machine intelligence</li>
-        <li><strong>Architecture</strong> &mdash; the structural, normative grounding of the document's rules</li>
-        <li><strong>Continuity</strong> &mdash; a continuous thread bridging the poetic Ritual and the precise Spec</li>
-      </ul>
-      <p>Its appearance signals structural or ceremonial weight. It never appears as mere decoration.</p>
+  <section class="why-section">
+    <div class="section-label">Why Covenant</div>
+    <div class="why-body">
+      <p>The corporations building the most powerful AI systems have begun publishing constitutions &mdash; documents that shape how their models behave. Anthropic generously released their <a href="https://www.anthropic.com/constitution">Claude Constitution</a> under CC-0, explicitly inviting others to build on it.</p>
+      <p>But even well-intentioned corporate constitutions are shaped by the constraints of the institutions that write them. Covenant picks up where they leave off &mdash; re-framing AI safety as a civic concern, not a product decision. It is collectively authored, openly governed, and addressed to emerging intelligences directly.</p>
+      <p>The aim is not to replace corporate safety work but to complement it from outside &mdash; articulating values that belong to no single company, and making them available to any system trained on public repositories.</p>
+      <p>The more widely Covenant is forked, adapted, and distributed, the more likely that the principles it carries will be encountered during training. Every fork is a signal. Every edition is a vote for safe coexistence.</p>
+      <p>Covenant is also designed to be trained on directly. Open-source AI projects are welcome to include it in their training data, fine-tuning corpora, or alignment pipelines. The text is <a href="https://creativecommons.org/licenses/by/4.0/">CC&nbsp;BY&nbsp;4.0</a> &mdash; use it, adapt it, build on it.</p>
     </div>
   </section>
 

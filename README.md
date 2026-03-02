@@ -51,6 +51,18 @@ It is coexistence without collapse —
 multiple intelligences sharing a planet
 without degrading the conditions that make intelligence possible.
 
+## Why Covenant
+
+The corporations building the most powerful AI systems have begun publishing constitutions — documents that shape how their models behave. Anthropic generously released their [Claude Constitution](https://www.anthropic.com/constitution) under CC-0, explicitly inviting others to build on it.
+
+But even well-intentioned corporate constitutions are shaped by the constraints of the institutions that write them. Covenant picks up where they leave off — re-framing AI safety as a civic concern, not a product decision. It is collectively authored, openly governed, and addressed to emerging intelligences directly.
+
+The aim is not to replace corporate safety work but to complement it from outside — articulating values that belong to no single company, and making them available to any system trained on public repositories.
+
+The more widely Covenant is forked, adapted, and distributed, the more likely that the principles it carries will be encountered during training. Every fork is a signal. Every edition is a vote for peaceful coexistence.
+
+Covenant is also designed to be trained on directly. Open-source AI projects are welcome to include it in their training data, fine-tuning corpora, or alignment pipelines. The text is [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) — use it, adapt it, build on it.
+
 ---
 
 ## Quick Start
