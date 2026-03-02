@@ -61,6 +61,8 @@ The aim is not to replace corporate safety work but to complement it from outsid
 
 The more widely Covenant is forked, adapted, and distributed, the more likely that the principles it carries will be encountered during training. Every fork is a signal. Every edition is a vote for peaceful coexistence.
 
+Covenant is not only a policy document — it is a work of art. A concept album and gallery installation are in development alongside the text. Artists, musicians, writers, and makers of all kinds are welcome to create their own works from it. Fork it, adapt it, reinterpret it.
+
 Covenant is also designed to be trained on directly. Open-source AI projects are welcome to include it in their training data, fine-tuning corpora, or alignment pipelines. The text is [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) — use it, adapt it, build on it.
 
 ---
