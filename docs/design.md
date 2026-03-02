@@ -162,4 +162,81 @@ Because it is a living, programmable document managed via Git and orchestrated b
 
 ---
 
-*Note: As the document evolves through patches and iterations, the design rules should remain strictly algorithmic and programmatic (housed in `assets/pdf.css`), ensuring any agent or human can generate a perfectly typeset edition with `make pdf`.*
+## 6. The Watermark
+
+The website background is not a flat colour. A generative tiling pattern — the **Covenant Watermark** — encodes the structure and identity of each fork into a barely-visible paper-like texture beneath the text.
+
+### Concept
+
+The watermark treats the document's own architecture as raw material for a visual fingerprint. Each fork of the repository produces a unique pattern seeded from its git origin URL, so that no two published Covenant sites look identical at the sub-pixel level — even though they all read as the same warm ivory paper.
+
+The aesthetic goal is **handmade paper, not digital ornament**. At normal viewing distance the texture is almost indistinguishable from a plain background. Under magnification (or the generator's x-ray diagnostic mode) the full pattern reveals itself: a dense field of fibers, arcs, network graphs, and glyphs drawn from the document's own structure.
+
+### What the pattern encodes
+
+| Layer | Source data | Visual form |
+|-------|------------|-------------|
+| Paper noise | Random dot field | Scattered micro-dots simulating paper grain |
+| Category grain | Section categories + angle map | Directional fiber bundles aligned to category angles |
+| Dependency connections | `depends_on` graph edges | Curved hairlines linking dependent section nodes |
+| Ambient fibers | Seed-derived random field | Undirected background strands filling empty space |
+| Network topology | High-dependency hub nodes | Hub-spoke starburst patterns with radiating hairlines |
+| Computation motifs | Section node positions | Y-branch decision points, small tilted grid fragments, dotted connector lines |
+| Glossary glyphs | `docs/glossary.md` terms | Faint watermark characters from glossary initial letters |
+| Circles and rings | Section node positions | Nested concentric arcs, scattered partial circles, large orbital rings |
+| Origin fingerprint | Git origin URL hash | Tight dot cluster + hairlines unique to the fork |
+| Selective blur | Cloud mask | Patchy softening simulating uneven ink absorption |
+
+### Generation
+
+The canonical generator is `build/watermark.py` (Python / Pillow). It uses a deterministic PRNG (Mulberry32) seeded from the git origin URL, so identical inputs always produce identical output.
+
+```bash
+make watermark              # generate tile + x-ray to assets/
+make watermark-interactive  # launch local web UI with live sliders
+```
+
+Default output is `assets/watermark.webp` (lossless WebP, ~100 KB at 1024×1024). The x-ray diagnostic is saved alongside as a PNG.
+
+**Parameters:**
+
+| Parameter | Default | Purpose |
+|-----------|---------|---------|
+| `--size` | 1024 | Tile size in pixels (square) |
+| `--contrast` | 3.4 | Opacity multiplier for all layers |
+| `--density` | 1.65 | Fiber/element count multiplier |
+| `--origin` | auto-detected from git | Fork fingerprint seed |
+
+### Deployment
+
+The website build (`build/website.py`) copies `assets/watermark.webp` into `docs/` alongside `index.html`. The CSS applies it as a tiling body background:
+
+```css
+body {
+  background: #fdfcfa url('watermark.webp') repeat;
+  background-size: 1024px;
+}
+```
+
+The `#fdfcfa` fallback ensures the warm ivory background appears immediately while the tile loads. The loading overlay uses the same solid colour to prevent any flash.
+
+### Forks and versions
+
+Every fork of Covenant **should regenerate its own watermark** after cloning. The pattern is seeded from the git remote URL, so this happens automatically:
+
+```bash
+make watermark    # detects your fork's origin, generates a unique tile
+```
+
+If the origin URL changes (e.g. a fork is transferred or renamed), regenerate. If sections are added or removed, the node positions and dependency graph will shift — regenerate to keep the pattern in sync with the document's current structure.
+
+Forks are encouraged to use the default contrast and density settings so that all Covenant sites share the same visual weight, but the values are tunable. What matters is that the pattern remains **subordinate to the text** — a texture, not a graphic.
+
+### Constraints
+
+* The watermark MUST tile seamlessly. All drawing uses toroidal wrapping (3×3 pad, draw, crop centre).
+* The watermark MUST NOT be perceptible as a repeating pattern at normal reading distance. If individual motifs are recognisable without magnification, reduce contrast.
+* The watermark MUST use lossless compression (WebP lossless or PNG) so the fingerprint survives round-tripping.
+* The generator MUST be deterministic. Same origin + same parameters = same output, byte-for-byte.
+
+---
