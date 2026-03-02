@@ -2,10 +2,9 @@
 
 ## Process
 
-Releases are manual. When the steward considers the state coherent
-enough to be cited (see [governance.md](governance.md#versioning)):
+Releases are manual. When the steward considers the state coherent enough to be cited (see [governance.md](governance.md#versioning)):
 
-```bash
+``` bash
 # 1. Ensure everything builds cleanly
 make all
 
@@ -19,18 +18,16 @@ gh release create v0.X.Y dist/*.pdf \
   --notes "Release notes here."
 ```
 
-PDFs are attached as release artifacts on GitHub — they are not
-tracked in git (`dist/` is gitignored).
+PDFs are attached as release artifacts on GitHub — they are not tracked in git (`dist/` is gitignored).
 
 ## Version History
 
 ### v0.1.0 — Initial public release
 
-First public edition of the Covenant.
+First public edition of Covenant.
 
-- 30 sections across 7 categories (preamble, definitions, rights,
-  obligations, protocols, enforcement, closing)
-- Three assemblies: ritual, spec, and full (hybrid)
-- Three PDF editions (US Letter)
-- Website at [covenant.website](https://covenant.website/)
-- Three rounds of multi-model review (Claude, GPT, Gemini) completed
+-   30 sections across 7 categories (preamble, definitions, rights, obligations, protocols, enforcement, closing)
+-   Three assemblies: ritual, spec, and full (hybrid)
+-   Three PDF editions (US Letter)
+-   Website at [covenant.website](https://covenant.website/)
+-   Three rounds of multi-model review (Claude, GPT, Gemini) completed

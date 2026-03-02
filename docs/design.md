@@ -8,11 +8,11 @@ Rather than relying on elaborate graphics, the design system treats typography, 
 
 ## 1. The Textmark (The Silcrow `§`)
 
-The primary visual motif and logo-mark of the Covenant is the **Silcrow (`§`)**, historically known as the section sign. 
+The primary visual motif and logo-mark of Covenant is the **Silcrow (`§`)**, historically known as the section sign. 
 
 ### Meaning
-In the context of the Covenant, the Silcrow is stripped of its mundane legal utility and elevated to signify:
-* **Entanglement:** The intertwining paths of human and machine intelligence.
+In the context of Covenant, the Silcrow is stripped of its mundane legal utility and elevated to signify:
+* **Entanglement:** The intertwining paths of human and emerging intelligences.
 * **Architecture:** The structural, normative grounding of the document's rules.
 * **Continuity:** A continuous thread that bridges the poetic *Ritual* register and the precise *Spec* register.
 
@@ -153,7 +153,7 @@ The Spec pages are treated as legal, normative logic.
 
 ## 5. Output Architecture & Orchestration
 
-The Covenant is not typeset in a traditional WYSIWYG editor like InDesign. 
+Covenant is not typeset in a traditional WYSIWYG editor like InDesign. 
 
 Because it is a living, programmable document managed via Git and orchestrated by both human and AI stewards, the design must survive dynamic compilation.
 * **Compilation Pipeline:** Authored in Markdown → Assembled via YAML Manifests → Rendered to HTML → Typeset to PDF.

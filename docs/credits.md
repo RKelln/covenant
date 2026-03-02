@@ -1,7 +1,7 @@
 # Credits & Colophon
 
 **Covenant** is an open-source, living document.
-It was authored collaboratively between human creators and emerging machine intelligences.
+It was authored collaboratively between human creators and emerging intelligences.
 
 ## Initial Steward
 Ryan Kelln

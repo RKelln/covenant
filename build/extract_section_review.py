@@ -145,7 +145,7 @@ def main() -> None:
         "",
     ]
 
-    # --- Current section text ---
+    # — Current section text ---
     lines += [
         "## Current section text",
         "",
@@ -155,7 +155,7 @@ def main() -> None:
         "",
     ]
 
-    # --- Per-reviewer feedback ---
+    # — Per-reviewer feedback ---
     lines += [
         "## Reviewer feedback",
         "",

@@ -2,9 +2,9 @@
 
 ## Space
 
-- Main Gallery (approx. 39'10" x 25'10", 12' ceilings)
-- Access to at least one power circuit near each wall
-- Network connectivity (wired preferred, Wi-Fi acceptable) for AI/recording systems
+-   Main Gallery (approx. 39'10" x 25'10", 12' ceilings)
+-   Access to at least one power circuit near each wall
+-   Network connectivity (wired preferred, Wi-Fi acceptable) for AI/recording systems
 
 ## Configuration Options
 
@@ -20,81 +20,42 @@ Large-format monitor or TV on the east wall for video and text. Windows unmodifi
 
 ## Equipment
 
-**AV — East Wall (primary display):**
-- Option A: 1–2 video projectors (short-throw preferred; combined throw to cover ~25' wall width at 12' height)
-- Option B: Large-format monitor or TV (65"+ preferred)
+**AV — East Wall (primary display):** - Option A: 1--2 video projectors (short-throw preferred; combined throw to cover \~25' wall width at 12' height) - Option B: Large-format monitor or TV (65"+ preferred)
 
-**AV — North Wall (section context display):**
-- 1 wall-mounted TV or monitor (43–55")
+**AV — North Wall (section context display):** - 1 wall-mounted TV or monitor (43--55")
 
-**AV — Audio:**
-- Gallery speaker system for ambient music playback and accumulated voice soundscape (minimum 2-channel stereo; 4+ speakers preferred for spatial distribution)
-- Proximity sensor or equivalent trigger for automatic audio ducking when Oath Station is in use
+**AV — Audio:** - Gallery speaker system for ambient music playback and accumulated voice soundscape (minimum 2-channel stereo; 4+ speakers preferred for spatial distribution) - Proximity sensor or equivalent trigger for automatic audio ducking when Oath Station is in use
 
-**Oath Station (center of gallery):**
-- Microphone (cardioid condenser, on stand or mounted to lectern)
-- Audio interface (USB, minimum 1 input)
-- Computer running: speech-to-text, AI moderation, AI audio cleanup (noise removal), recording/playback management
-- Lectern or podium
+**Oath Station (center of gallery):** - Microphone (cardioid condenser, on stand or mounted to lectern) - Audio interface (USB, minimum 1 input) - Computer running: speech-to-text, AI moderation, AI audio cleanup (noise removal), recording/playback management - Lectern or podium
 
-**Covenant Terminal (west wall):**
-- Monitor or screen (24–32")
-- Keyboard
-- Computer running conversational AI with access to Covenant review tooling (can share a machine with the Oath Station if networked)
+**Covenant Terminal (west wall):** - Monitor or screen (24--32") - Keyboard - Computer running conversational AI with access to Covenant review tooling (can share a machine with the Oath Station if networked)
 
-**Material Cost Display (west wall):**
-- Small screen or monitor (19–24"), or printed/updated panel
+**Material Cost Display (west wall):** - Small screen or monitor (19--24"), or printed/updated panel
 
-**Document Table (west wall):**
-- Table or vitrine (artist can provide or source)
-- Optional: printed booklets of the Covenant for visitors to take
+**Document Table (west wall):** - Table or vitrine (artist can provide or source) - Optional: printed booklets of the Covenant for visitors to take
 
-**Windows (Option A only):**
-- Vinyl covering with CNC or plotter-cut letter forms, sized to both window sections flanking the entrance
-- Vinyl color/finish TBD during design development
+**Windows (Option A only):** - Vinyl covering with CNC or plotter-cut letter forms, sized to both window sections flanking the entrance - Vinyl color/finish TBD during design development
 
 ## Consent and Transparency Signage
 
-- Printed signage at gallery entrance and at each interactive station (Oath Station, Covenant Terminal) disclosing AI use, recording practices, data handling, and opt-out information
-- Artist to provide signage content and design; Artspace to approve placement
+-   Printed signage at gallery entrance and at each interactive station (Oath Station, Covenant Terminal) disclosing AI use, recording practices, data handling, and opt-out information
+-   Artist to provide signage content and design; Artspace to approve placement
 
 ## Installation Timeline
 
-- Estimated installation time: 2–3 days (equipment setup, projector alignment, vinyl application if Option A, software testing)
-- Estimated deinstallation: 1 day
+-   Estimated installation time: 2--3 days (equipment setup, projector alignment, vinyl application if Option A, software testing)
+-   Estimated deinstallation: 1 day
 
-## Artist-Provided vs. Gallery-Provided
+## Artist-Provided vs. Gallery-Provided
 
-**Artist provides:**
-- All software (Oath Station, Covenant Terminal, playback management, AI systems)
-- Vinyl window covering (Option A)
-- Document Table contents (printed Covenant, comparison materials)
-- Consent signage content
-- Concept album / ambient music audio files
-- Video work files
-- Computers for Oath Station and Covenant Terminal (or specify if Artspace can provide)
+**Artist provides:** - All software (Oath Station, Covenant Terminal, playback management, AI systems) - Vinyl window covering (Option A) - Document Table contents (printed Covenant, comparison materials) - Consent signage content - Concept album / ambient music audio files - Video work files - Computers for Oath Station and Covenant Terminal (or specify if Artspace can provide)
 
-**Artspace provides (requested):**
-- Projector(s) or large-format monitors
-- Gallery speaker system
-- North wall TV/monitor
-- Power and network access
-- Installation support (hanging, mounting)
-- Material Cost Display screen (or artist provides)
+**Artspace provides (requested):** - Projector(s) or large-format monitors - Gallery speaker system - North wall TV/monitor - Power and network access - Installation support (hanging, mounting) - Material Cost Display screen (or artist provides)
 
 ## Ancillary Programming Requirements
 
-**Opening Night — Performed Reading:**
-- PA system or use of gallery speakers
-- Space for performer(s) and musicians near east wall
-- Chairs or standing room for audience (~30–50)
+**Opening Night — Performed Reading:** - PA system or use of gallery speakers - Space for performer(s) and musicians near east wall - Chairs or standing room for audience (\~30--50)
 
-**Mid-Run Workshop — Live Amendment:**
-- Seating for ~15–20 participants
-- Projection or screen visibility for group discussion
-- Covenant Terminal available for demonstration
+**Mid-Run Workshop — Live Amendment:** - Seating for \~15--20 participants - Projection or screen visibility for group discussion - Covenant Terminal available for demonstration
 
-**Closing Event — Live Performance (optional):**
-- PA system suitable for live music
-- Space for musicians
-- Ability to route Oath Station accumulated audio into PA mix
+**Closing Event — Live Performance (optional):** - PA system suitable for live music - Space for musicians - Ability to route Oath Station accumulated audio into PA mix

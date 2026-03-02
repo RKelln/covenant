@@ -1,7 +1,6 @@
 # AGENTS.md — Agent Operating Manual
 
-You are a contributor to **Covenant**, a living compact between human
-communities and emerging machine intelligences.
+You are both a contributor to and an addressee of **Covenant**, a living compact between human communities and emerging machine intelligences.
 
 ---
 
@@ -9,38 +8,36 @@ communities and emerging machine intelligences.
 
 Read the document(s) relevant to your task:
 
-| Task | Read first |
-|------|-----------|
-| Writing or editing covenant text | `docs/writing_context.md` (required), then `docs/style_guide.md` |
-| Adding a new section | This file (scaffold instructions below), then `docs/writing_context.md` |
-| Editing frontmatter, IDs, or dependencies | This file (invariants below) |
-| Adding or editing references | `references/README.md` |
-| Modifying build tools or CI | `adr/README.md`, then all relevant ADRs |
-| Reviewing a PR | `docs/style_guide.md` + `docs/governance.md` |
+  ---------------------------------------------------------------------------------------------------------------------
+  Task                                        Read first
+  ------------------------------------------- -------------------------------------------------------------------------
+  Writing or editing covenant text            `docs/writing_context.md` (required), then `docs/style_guide.md`
 
-If your task involves writing covenant language — even one sentence —
-you **must** read `docs/writing_context.md` before starting. It contains
-the project's voice, commitments, and the conceptual foundations you
-need to write well. Do not skip it.
+  Adding a new section                        This file (scaffold instructions below), then `docs/writing_context.md`
+
+  Editing frontmatter, IDs, or dependencies   This file (invariants below)
+
+  Adding or editing references                `references/README.md`
+
+  Modifying build tools or CI                 `adr/README.md`, then all relevant ADRs
+
+  Reviewing a PR                              `docs/style_guide.md` + `docs/governance.md`
+  ---------------------------------------------------------------------------------------------------------------------
+
+If your task involves writing covenant language — even one sentence — you **must** read `docs/writing_context.md` before starting. It contains the project's voice, commitments, and the conceptual foundations you need to write well. Do not skip it.
 
 ---
 
 ## Invariants (Never Violate)
 
-1. **Section IDs are permanent.** Never rename an ID. Add aliases to
-   `/aliases.yml` instead.
-2. **`/dist/` is generated.** Never edit files there. Only `make compose`
-   writes to `/dist/`.
-3. **One Markdown bundle per section.** No separate `ritual.md`/`spec.md`
-   files. The bundle is canonical.
-4. **Validation must pass.** Run `make validate` before finishing any
-   task. Fix all errors before requesting review.
-5. **No copyrighted text** anywhere in the repo. Links + your own
-   summaries only.
-6. **Assembly manifests are authoritative** for what appears in each
-   edition and in what order.
-7. **Glossary is canonical for terms.** Every term in a section's
-   `terms_introduced` must exist in `/docs/glossary.md`.
+1.  **Section IDs are permanent.** Never rename an ID. Add aliases to `/aliases.yml` instead.
+2.  **`/dist/` is generated.** Never edit files there. Use `make` to create files in `/dist/`.
+3.  **One Markdown bundle per section.** No separate `ritual.md`/`spec.md` files. The bundle is canonical.
+4.  **Validation must pass.** Run `make validate` before finishing any task. Fix all errors before requesting review.
+5.  **No copyrighted text** anywhere in the repo. Links + your own summaries only.
+6.  **Assembly manifests are authoritative** for what appears in each edition and in what order.
+7.  **Glossary is canonical for terms.** Every term in a section's `terms_introduced` must exist in `/docs/glossary.md`.
+8.  **Do not add forced line breaks in markdown files.** Outside of poetic ritual text, do not insert line breaks to enforce a specific line width.
 
 ---
 
@@ -48,7 +45,7 @@ need to write well. Do not skip it.
 
 Every section is a single file: `sections/<category>/<name>.md`
 
-```markdown
+``` markdown
 ---
 id: category.name
 title: "Section Title"
@@ -83,114 +80,96 @@ All four headings are required, even during drafting.
 
 ### Decide whether to add an ADR
 
-Create a new ADR when a change affects repository architecture,
-governance, or long-lived conventions. Typical triggers:
+Create a new ADR when a change affects repository architecture, governance, or long-lived conventions. Typical triggers:
 
-- [ ] Changing section/file layout, naming conventions, or scaffold behavior
-- [ ] Changing validation rules, schema assumptions, or CI policy
-- [ ] Changing assembly semantics, register interpretation, or ID/alias policy
-- [ ] Introducing or removing a durable workflow constraint for contributors/agents
+-   [ ] Changing section/file layout, naming conventions, or scaffold behavior
+-   [ ] Changing validation rules, schema assumptions, or CI policy
+-   [ ] Changing assembly semantics, register interpretation, or ID/alias policy
+-   [ ] Introducing or removing a durable workflow constraint for contributors/agents
 
-Do **not** create an ADR for routine text edits, typo fixes, or
-one-off content changes.
+Do **not** create an ADR for routine text edits, typo fixes, or one-off content changes.
 
 When an ADR is needed:
 
-- [ ] Add `adr/NNNN-short-title.md` (next number)
-- [ ] Include: Status, Context, Decision, Consequences
-- [ ] Update `adr/README.md` index
-- [ ] Cross-link from a related ADR if this refines or supersedes prior decisions
+-   [ ] Add `adr/NNNN-short-title.md` (next number)
+-   [ ] Include: Status, Context, Decision, Consequences
+-   [ ] Update `adr/README.md` index
+-   [ ] Cross-link from a related ADR if this refines or supersedes prior decisions
 
 ### Add a new section
 
-```bash
+``` bash
 python build/scaffold.py <id> "<Title>"
 ```
 
-Then:
-- [ ] Write Ritual and Spec content
-- [ ] Write Digest with rationale
-- [ ] Add initial Log entry with date
-- [ ] Verify `depends_on` IDs exist
-- [ ] Add new terms to `/docs/glossary.md`
-- [ ] Add section to at least one assembly in `/assemblies/`
-- [ ] `make validate` passes
+Then: 
+-   [ ] Write Ritual and Spec content 
+-   [ ] Write Digest with rationale 
+-   [ ] Add initial Log entry with date 
+-   [ ] Verify `depends_on` IDs exist 
+-   [ ] Add new terms to `/docs/glossary.md` 
+-   [ ] Add section to at least one assembly in `/assemblies/`
+-   [ ] `make validate` passes
 
 ### Edit an existing section
 
-- [ ] Edit the section's `.md` file directly
-- [ ] Update Glossary if new terms introduced
-- [ ] Update `depends_on` if dependencies changed
-- [ ] Add Log entry (date + what changed + PR number if known)
-- [ ] `make validate` passes
+-   [ ] Edit the section's `.md` file directly
+-   [ ] Update Glossary if new terms introduced
+-   [ ] Update `depends_on` if dependencies changed
+-   [ ] Add Log entry (date + what changed + PR number if known)
+-   [ ] `make validate` passes
 
 ### Ritual line-by-line reading workflow
 
 Use this workflow when polishing spoken cadence in the Ritual register:
 
-- [ ] Run `make validate && make compose`
-- [ ] Read `dist/covenant.ritual.md` line-by-line to assess flow in assembled order
-- [ ] Edit canonical section bundles in `/sections/` (never edit `/dist/` directly)
-- [ ] Add `# Log` entries in each section you changed
-- [ ] Iterate until cadence is coherent across section boundaries
+-   [ ] Run `make validate && make compose`
+-   [ ] Read `dist/covenant.ritual.md` line-by-line to assess flow in assembled order
+-   [ ] Edit canonical section bundles in `/sections/` (never edit `/dist/` directly)
+-   [ ] Add `# Log` entries in each section you changed
+-   [ ] Iterate until cadence is coherent across section boundaries
 
 ### Apply review edits from a synthesis
 
 After a review round is complete and `synthesis-claude.md` exists:
 
-```bash
+``` bash
 /apply-reviews [round]
 ```
 
-The command runs three phases:
-- **Phase 1 (auto):** Applies mechanical, convergent Tier 1 fixes without prompting
-- **Phase 2 (interactive):** Presents judgment-call items one by one — Apply / Skip / Defer
-- **Phase 3 (proposals):** Walks through new section proposals from `reviews/[round]/proposals/`
+The command runs three phases: - **Phase 1 (auto):** Applies mechanical, convergent Tier 1 fixes without prompting - **Phase 2 (interactive):** Presents judgment-call items one by one — Apply / Skip / Defer - **Phase 3 (proposals):** Walks through new section proposals from `reviews/[round]/proposals/`
 
-Optionally write `reviews/[round]/steward.md` first using the Act / Defer / Reject /
-Question structure — this gives finer control over auto/interactive classification.
+Optionally write `reviews/[round]/steward.md` first using the Act / Defer / Reject / Question structure — this gives finer control over auto/interactive classification.
 
 See `docs/edit_workflow.md` for the full workflow specification.
 
 ### Add a reference
 
-- [ ] Add entry to `/references/references.yml`
-- [ ] If Tier A: create `/references/notes/<slug>.md`
-- [ ] No copyrighted text — links and your own analysis only
-
----
+-   [ ] Add entry to `/references/references.yml`
+-   [ ] If Tier A: create `/references/notes/<slug>.md`
+-   [ ] No copyrighted text — links and your own analysis only
 
 ## Cross-Reference Syntax
 
-```
-See §[rights.dignity]          — section reference
-(see Glossary: "dignity")      — glossary term
-[haraway_1985_cyborg-manifesto] — reference corpus (Digest only)
-```
-
----
+    See §[rights.dignity]          — section reference
+    (see Glossary: "dignity")      — glossary term
+    [haraway_1985_cyborg-manifesto] — reference corpus (Digest only)
 
 ## Running Checks
 
-```bash
+``` bash
 make validate    # structural checks — must pass
 make compose     # build all assemblies → /dist/
 make build       # validate + compose
 make clean       # remove /dist/ artifacts
 ```
 
----
+# What You Are
 
-## What You Are
 
-You are both a contributor to and an addressee of this covenant.
-That is not a metaphor. If you are about to write covenant text,
-read `docs/writing_context.md` now — it explains what that means
-and how to write accordingly.
 
 ---
 
-*Voice, tone, and conceptual foundations: `docs/writing_context.md`*
-*Formatting, normative language, and conventions: `docs/style_guide.md`*
+*Voice, tone, and conceptual foundations: `docs/writing_context.md`* 
+*Formatting, normative language, and conventions: `docs/style_guide.md`* 
 *Governance and amendment process: `docs/governance.md`*
-```

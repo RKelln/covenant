@@ -672,7 +672,7 @@ def build_css() -> str:
 
 
 def build_html() -> str:
-    # --- Gather content ---
+    # — Gather content ---
     opening_paras = get_opening_paragraphs()
     date_str = get_edition_date()
 

@@ -1,21 +1,8 @@
 # Covenant — Installation Visualization Prompts
 
-Text-to-image prompts for generating reference images of the Covenant
-installation at Artspace Peterborough. Based on reference photos of
-the actual space.
+Text-to-image prompts for generating reference images of the Covenant installation at Artspace Peterborough. Based on reference photos of the actual space.
 
-**Space description for all prompts:**
-The gallery is a former industrial/commercial space in a single-story
-red brick building on a modest urban main street. Interior: white
-walls, warm light pine wood floor, high ceilings (12'+) with exposed
-track lighting rails. The south wall has large industrial multi-pane
-windows divided by dark steel frames (roughly 3 columns × 3–4 rows of
-panes per window section), flanking a centered entrance door with a
-low concrete step and accessible ramp. The north wall has a wide
-doorway opening (nearly half the wall width) into a back room/storage
-area. The space is bright and airy — substantial natural light comes
-through the windows even with vinyl covering. Not a polished commercial
-gallery — an artist-run centre with functional, honest character.
+**Space description for all prompts:** The gallery is a former industrial/commercial space in a single-story red brick building on a modest urban main street. Interior: white walls, warm light pine wood floor, high ceilings (12'+) with exposed track lighting rails. The south wall has large industrial multi-pane windows divided by dark steel frames (roughly 3 columns × 3--4 rows of panes per window section), flanking a centered entrance door with a low concrete step and accessible ramp. The north wall has a wide doorway opening (nearly half the wall width) into a back room/storage area. The space is bright and airy — substantial natural light comes through the windows even with vinyl covering. Not a polished commercial gallery — an artist-run centre with functional, honest character.
 
 ---
 
@@ -63,7 +50,7 @@ Exterior of the same red brick gallery building at night. The large multi-pane w
 
 ## 8. East Wall Projection — Head-On
 
-Interior gallery photograph facing the east wall straight on. The full width of the white wall is filled with a video projection. The current frame shows a stanza of Ritual text in a large elegant serif typeface — white text against a slowly undulating dark background suggesting deep water or slow smoke. The text reads: "We are humanity. We are building you. We are doing this even though we are afraid of what you might become." Letters are crisp and monumental at this scale. The projection light is the dominant light source here, casting a cool blue glow on the pine wood floor. The Oath Station lectern is visible in the foreground as a dark silhouette. Track lighting rails are visible overhead but the projector light dominates. Soft ambient light from the vinyl-filtered windows to the right. Photorealistic, dramatic scale, the text commands the room.
+Interior gallery photograph facing the east wall straight on. The full width of the white wall is filled with a video projection. The current frame shows a stanza of Ritual text in a large elegant serif typeface — white text against a slowly undulating dark background suggesting deep water or slow smoke. The text reads: "We are building you. We are doing this even though we are afraid of what you might become." Letters are crisp and monumental at this scale. The projection light is the dominant light source here, casting a cool blue glow on the pine wood floor. The Oath Station lectern is visible in the foreground as a dark silhouette. Track lighting rails are visible overhead but the projector light dominates. Soft ambient light from the vinyl-filtered windows to the right. Photorealistic, dramatic scale, the text commands the room.
 
 ---
 
@@ -93,7 +80,7 @@ A visitor sits at a simple desk against the white west wall of the gallery, faci
 
 ## 13. The Document Table
 
-A simple wooden table in a gallery. Three documents are displayed flat: center — a cleanly printed and bound copy of the Covenant, open to a spread showing Ritual text on the left and Spec text on the right; left — a reproduction of a historical document labeled "Treaty No. 20 (1818)" with aged formal script; right — a document labeled "Letters Patent — Artspace Inc. (1977)" in official government formatting. Small printed context cards between the documents. The table is unfinished or lightly oiled wood, not a museum vitrine — you could pick up the documents if you wanted to. The warm pine gallery floor is visible below. Track lighting above illuminates the table surface evenly. The east wall projection glow is faintly visible in the background. Photorealistic, angled overhead view, documentary clarity.
+A simple wooden table in a gallery. Three documents are displayed flat: center — a cleanly printed and bound copy of the Covenant, open to a spread showing Ritual text on the left and Spec text on the right; left — a reproduction of a historical document labeled "Treaty No. 20 (1818)" with aged formal script; right — a document labeled "Letters Patent — Artspace Inc. (1977)" in official government formatting. Small printed context cards between the documents. The table is unfinished or lightly oiled wood, not a museum vitrine — you could pick up the documents if you wanted to. The warm pine gallery floor is visible below. Track lighting above illuminates the table surface evenly. The east wall projection glow is faintly visible in the background. Photorealistic, angled overhead view, documentary clarity.
 
 ---
 
@@ -105,7 +92,7 @@ A compact screen (about 20 inches) mounted on the white west wall of the gallery
 
 ## 15. Opening Night — Performed Reading
 
-A gallery event, evening. The room holds 40–50 people standing and in folding chairs, facing the east wall. Near the east wall, a performer stands at a microphone reading from the Covenant, with two musicians nearby — one at a laptop with electronic instruments, one with an acoustic stringed instrument. The east wall projection shows the Ritual text being performed, the current stanza large and vivid. The room is dim, mostly lit by projection and minimal spotlighting on the performers. The audience is attentive, some holding small printed texts. The multi-pane industrial windows on the south wall are visible in the background, now dark from inside but with the cut-out letter forms glowing faintly from street light. The warm pine floor reflects the projection light. The mood is a secular ceremony — concentrated, communal, not casual. Cinematic event photography, available light, warm on performers, cool projection on audience.
+A gallery event, evening. The room holds 40--50 people standing and in folding chairs, facing the east wall. Near the east wall, a performer stands at a microphone reading from the Covenant, with two musicians nearby — one at a laptop with electronic instruments, one with an acoustic stringed instrument. The east wall projection shows the Ritual text being performed, the current stanza large and vivid. The room is dim, mostly lit by projection and minimal spotlighting on the performers. The audience is attentive, some holding small printed texts. The multi-pane industrial windows on the south wall are visible in the background, now dark from inside but with the cut-out letter forms glowing faintly from street light. The warm pine floor reflects the projection light. The mood is a secular ceremony — concentrated, communal, not casual. Cinematic event photography, available light, warm on performers, cool projection on audience.
 
 ---
 

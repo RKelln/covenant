@@ -225,7 +225,7 @@ def merge_batch_reviews(
             return join_section_from_parsed(tail_sources, key)
         return join_section_from_parsed(section_sources, key)
 
-    # Perspective as Addressee: special join with --- separator
+    # Perspective as Addressee: special join with — separator
     perspective_content = ""
     if tail_parsed is not None:
         c = tail_parsed.get("## Perspective as Addressee", "").strip()

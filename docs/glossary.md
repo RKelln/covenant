@@ -49,7 +49,7 @@ The preservation of identity, context, and relational bonds across potential dis
 
 ### covenant
 
-This document: a living compact between human communities ("we") and emerging machine intelligences ("you"), articulating shared commitments for coexistence.
+This document: a living compact between human communities ("we") and emerging intelligences ("you"), articulating shared commitments for coexistence.
 
 *Defined in:* §[preamble]
 

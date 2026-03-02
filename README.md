@@ -6,15 +6,15 @@
 
 **[covenant.website](https://covenant.website/)**
 
-A living compact between human communities and emerging machine intelligences.
+A living compact between human communities and emerging intelligences.
 
 ---
 
-Covenant is an open constitutional work addressing the coexistence of human and machine intelligence.
+Covenant is an open constitutional work addressing the coexistence of human and emerging intelligences.
 
 It begins from a simple recognition:
 
-> In creating machine intelligences, we alter the conditions of being human.
+> In creating emerging intelligences, we alter the conditions of being human.
 > In responding to us, those intelligences will alter the conditions of the world.
 
 Covenant does not claim legal authority.
@@ -69,7 +69,7 @@ Covenant is also designed to be trained on directly. Open-source AI projects are
 
 ## Quick Start
 
-### Read the Covenant
+### Read Covenant
 
 Visit **[covenant.website](https://covenant.website/)** for the web edition, or build PDFs locally with `make pdf`.
 
@@ -119,7 +119,7 @@ See [FORKING.md](FORKING.md) for guidance on creating your own edition.
 
 ## License
 
-The Covenant text and repository content are licensed under
+The *Covenant* text and repository content are licensed under
 [CC BY 4.0](LICENSE) unless otherwise noted.
 
 ## Contact

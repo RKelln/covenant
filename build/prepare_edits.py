@@ -810,7 +810,7 @@ def main() -> int:
         print(f"ERROR: round directory not found: {round_dir}", file=sys.stderr)
         return 1
 
-    # --- Locate synthesis file ---
+    # — Locate synthesis file ---
     synthesis_path = round_dir / "synthesis.md"
     if not synthesis_path.exists():
         synthesis_path = round_dir / "synthesis-claude.md"
@@ -825,7 +825,7 @@ def main() -> int:
     synthesis_file = str(synthesis_path.relative_to(REPO))
     print(f"Synthesis file: {synthesis_file}")
 
-    # --- Locate steward file ---
+    # — Locate steward file ---
     steward_path = round_dir / "steward.md"
     steward: dict | None = None
     steward_file: str | None = None
@@ -836,7 +836,7 @@ def main() -> int:
     else:
         print("Steward file:   (not found — classifying by synthesis tier only)")
 
-    # --- Locate review manifest ---
+    # — Locate review manifest ---
     manifest_path = round_dir / ".prepared" / "manifest.json"
     if not manifest_path.exists():
         print(f"ERROR: review manifest not found: {manifest_path}", file=sys.stderr)
@@ -847,17 +847,17 @@ def main() -> int:
         print("ERROR: no batches found in manifest", file=sys.stderr)
         return 1
 
-    # --- Parse synthesis ---
+    # — Parse synthesis ---
     synthesis_text = synthesis_path.read_text(encoding="utf-8")
     synthesis_batches = parse_synthesis(synthesis_text)
 
-    # --- Output directory ---
+    # — Output directory ---
     out_dir = round_dir / "edits" / ".prepared"
     if out_dir.exists():
         print(f"WARN: output directory already exists — overwriting: {out_dir}")
     out_dir.mkdir(parents=True, exist_ok=True)
 
-    # --- Produce manifests ---
+    # — Produce manifests ---
     batch_keys_ordered = sorted(
         batch_sections.keys(),
         key=lambda k: (0, int(k)) if k.isdigit() else (1, k),
