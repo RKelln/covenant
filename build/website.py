@@ -252,7 +252,7 @@ def build_css() -> str:
 
       /* Type scale — 4 steps, all relative to html font-size (16px).
          To resize everything: change the single html font-size value. */
-      --fs-display: 1.333rem;   /* hero title — used in clamp bounds */
+      --fs-display: 1.75rem;    /* hero title — used in clamp bounds */
       --fs-body:    1.125rem;   /* all body/paragraph text */
       --fs-ui:      0.917rem;   /* links, labels, interactive elements */
       --fs-meta:    0.833rem;   /* colophon, dates, captions, sources */
@@ -281,14 +281,14 @@ def build_css() -> str:
     }
 
     .hero-mark {
-      width: clamp(100px, 22vw, 180px);
-      height: clamp(100px, 22vw, 180px);
+      width: clamp(130px, 22vw, 180px);
+      height: clamp(130px, 22vw, 180px);
       margin-bottom: 0.3in;
     }
 
     .hero-title {
       font-family: var(--font);
-      font-size: clamp(var(--fs-display), 2.8vw, 1.5rem);
+      font-size: clamp(var(--fs-display), 3.5vw, 1.85rem);
       font-weight: 500;
       letter-spacing: 0.12em;
       text-transform: uppercase;
@@ -494,7 +494,7 @@ def build_css() -> str:
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 1.6em;
+      gap: 2.2em;
     }
 
     .download-links a {
@@ -511,9 +511,19 @@ def build_css() -> str:
       color: var(--black);
     }
 
+    .download-links .link-title {
+      border-bottom: 0.5px solid var(--hairline);
+      padding-bottom: 0.15em;
+      transition: border-color 0.2s;
+    }
+
+    .download-links a:hover .link-title {
+      border-color: var(--tailpiece);
+    }
+
     .download-links .link-desc {
       display: block;
-      font-size: var(--fs-meta);
+      font-size: var(--fs-ui);
       letter-spacing: 0.08em;
       text-transform: none;
       color: var(--meta-grey);
@@ -811,15 +821,15 @@ def build_html() -> str:
         <div class="section-label">Read the Covenant</div>
         <div class="download-links">
           <a href="https://github.com/RKelln/covenant/releases/latest/download/covenant.ritual.pdf">
-            Ritual Edition
+            <span class="link-title">Ritual Edition</span>
             <span class="link-desc">Poetic register &mdash; designed to be spoken and remembered</span>
           </a>
           <a href="https://github.com/RKelln/covenant/releases/latest/download/covenant.spec.pdf">
-            Spec Edition
+            <span class="link-title">Specification Edition</span>
             <span class="link-desc">Normative register &mdash; definitions, constraints, accountability</span>
           </a>
           <a href="https://github.com/RKelln/covenant/releases/latest/download/covenant.full.pdf">
-            Complete Edition
+            <span class="link-title">Complete Edition</span>
             <span class="link-desc">Both registers, interleaved by section</span>
           </a>
         </div>
