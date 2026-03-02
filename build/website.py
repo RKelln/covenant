@@ -191,7 +191,8 @@ def build_css() -> str:
       font-family: 'Cormorant Garamond', Georgia, serif;
       font-weight: 400;
       color: #111;
-      background: #fdfcfa;
+      background: #fdfcfa url('watermark.webp') repeat;
+      background-size: 1024px;
       line-height: 1.65;
       overflow-x: hidden;
     }
@@ -908,6 +909,13 @@ def main():
         og_dst = args.output.parent / "covenant_logo.png"
         shutil.copy2(og_src, og_dst)
         print(f"Copied:  {og_dst}")
+
+    # Copy watermark tile alongside the HTML output
+    wm_src = REPO_ROOT / "assets" / "watermark.webp"
+    if wm_src.exists():
+        wm_dst = args.output.parent / "watermark.webp"
+        shutil.copy2(wm_src, wm_dst)
+        print(f"Copied:  {wm_dst}")
 
 
 if __name__ == "__main__":
