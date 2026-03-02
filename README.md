@@ -34,10 +34,10 @@ The work treats AI not as disembodied software but as materially instantiated in
 
 > Intelligence must not expand by degrading the ecological substrate that makes intelligence possible.
 
-Covenant unfolds in two parallel registers:
+Covenant unfolds in two parallel registers — Ritual, inspired by poetry and song, and Specification, by law and protocol:
 
 - **Ritual** — language designed to be spoken, remembered, and rehearsed.
-- **Spec** — definitions, constraints, amendment paths, and structural accountability.
+- **Specification** — definitions, constraints, amendment paths, and structural accountability.
 
 The repository treats governance as infrastructure. Sections are modular, versioned, auditable, and open to collaborative development by humans and AI systems alike.
 

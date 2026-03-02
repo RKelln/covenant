@@ -86,6 +86,24 @@ The hairline rule (`0.5px solid #ddd`, `1.2in` wide, centred above the date) is 
 * **Headers:** Always structural, never loud. Set in wide-spaced uppercase (`letter-spacing: 0.18em` to `0.2em`), often in a slightly lighter charcoal (`#555`) rather than pure black. They do not rely on heavy font weights. Major headers are grounded by ultra-thin hairline borders (`0.5px solid #ccc`).
 * **Body Text (Standard Base):** `11pt` size with an airy `1.65` line-height for uninterrupted readability during dense reading.
 
+### Type Scale
+
+The design uses a **four-step type scale** that applies across all outputs. Hierarchy comes from spacing, weight, and layout — not from imperceptible fractional-point differences. Every text element maps to exactly one of these four roles:
+
+| Step | Role | Website (rem) | PDF (pt) |
+|------|------|---------------|----------|
+| **Display** | Titles, hero headings | `1.333rem` | 16–22pt (context-dependent) |
+| **Body** | All paragraph text — ritual, spec, editorial, descriptive | `1.125rem` | 11–12.5pt (register-dependent) |
+| **UI** | Section labels, links, interactive elements | `0.917rem` | — (web only) |
+| **Meta** | Dates, captions, colophon, source attributions | `0.833rem` | 8.5–9pt |
+
+**Principles:**
+
+* **One knob to scale.** On the website, all sizes are `rem`-based. Changing `html { font-size }` scales everything proportionally. The PDF uses absolute `pt` values in `assets/pdf.css` because print output requires fixed sizing for page geometry.
+* **Four steps, no exceptions.** If a new element doesn't fit one of these four roles, it belongs to the nearest step — do not introduce a fifth. The visual distinction between adjacent steps must be clearly perceptible; sub-point differences are noise.
+* **Register differentiation through layout, not size.** The Ritual and Spec registers use the same Body step. They are distinguished by line-height (1.8 vs 1.65), alignment (centred vs left), and page geometry — not by font size.
+* **Maintain the ratios across formats.** When adjusting sizes for a new output format (e.g. gallery installation, projection, e-reader), preserve the proportional relationships between steps even if absolute sizes change. Display should always be noticeably larger than Body; Meta should always be noticeably smaller.
+
 ---
 
 ## 3. Separator Grammar

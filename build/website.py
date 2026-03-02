@@ -249,6 +249,13 @@ def build_css() -> str:
       --hairline: #ddd;
       --tailpiece: #bbb;
       --font: 'Cormorant Garamond', Georgia, serif;
+
+      /* Type scale — 4 steps, all relative to html font-size (16px).
+         To resize everything: change the single html font-size value. */
+      --fs-display: 1.333rem;   /* hero title — used in clamp bounds */
+      --fs-body:    1.125rem;   /* all body/paragraph text */
+      --fs-ui:      0.917rem;   /* links, labels, interactive elements */
+      --fs-meta:    0.833rem;   /* colophon, dates, captions, sources */
     }
 
     /* ── Layout Shell ──────────────────────────────────────────── */
@@ -281,7 +288,7 @@ def build_css() -> str:
 
     .hero-title {
       font-family: var(--font);
-      font-size: clamp(16pt, 2.8vw, 22pt);
+      font-size: clamp(var(--fs-display), 2.8vw, 1.5rem);
       font-weight: 500;
       letter-spacing: 0.12em;
       text-transform: uppercase;
@@ -290,7 +297,7 @@ def build_css() -> str:
     }
 
     .hero-subtitle {
-      font-size: 9pt;
+      font-size: var(--fs-meta);
       letter-spacing: 0.15em;
       text-transform: uppercase;
       color: var(--title-grey);
@@ -304,7 +311,7 @@ def build_css() -> str:
     }
 
     .hero-date {
-      font-size: 8.5pt;
+      font-size: var(--fs-meta);
       letter-spacing: 0.1em;
       color: var(--meta-grey);
     }
@@ -318,7 +325,7 @@ def build_css() -> str:
     }
 
     .what-it-is p {
-      font-size: clamp(12pt, 1.6vw, 12.5pt);
+      font-size: var(--fs-body);
       line-height: 1.8;
       color: var(--body);
       max-width: 620px;
@@ -327,7 +334,7 @@ def build_css() -> str:
 
     .what-it-is p + p {
       margin-top: 1.6em;
-      font-size: clamp(10.5pt, 1.4vw, 11pt);
+      font-size: var(--fs-body);
       line-height: 1.75;
       color: #444;
       font-style: italic;
@@ -350,7 +357,7 @@ def build_css() -> str:
     /* ── Section Titles (shared) ───────────────────────────────── */
 
     .section-label {
-      font-size: 9.5pt;
+      font-size: var(--fs-ui);
       letter-spacing: 0.25em;
       text-transform: uppercase;
       color: var(--title-grey);
@@ -366,7 +373,16 @@ def build_css() -> str:
 
     .registers .section-label {
       text-align: center;
-      margin-bottom: 3em;
+      margin-bottom: 1.5em;
+    }
+
+    .register-intro {
+      font-size: var(--fs-body);
+      line-height: 1.8;
+      color: var(--body);
+      text-align: center;
+      max-width: 560px;
+      margin: 0 auto 3em;
     }
 
     .register-grid {
@@ -378,12 +394,13 @@ def build_css() -> str:
     }
 
     .register-col h3 {
-      font-size: 9pt;
+      font-size: var(--fs-meta);
       letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--meta-grey);
       font-weight: 500;
       margin-bottom: 2em;
+      text-align: center;
     }
 
     /* Ritual column */
@@ -392,7 +409,7 @@ def build_css() -> str:
     }
 
     .register-ritual .excerpt {
-      font-size: 12.5pt;
+      font-size: var(--fs-body);
       line-height: 1.8;
       color: var(--body);
     }
@@ -411,7 +428,7 @@ def build_css() -> str:
     }
 
     .register-spec .excerpt {
-      font-size: 11pt;
+      font-size: var(--fs-body);
       line-height: 1.65;
       color: var(--body);
     }
@@ -429,7 +446,7 @@ def build_css() -> str:
     }
 
     .register-source {
-      font-size: 8.5pt;
+      font-size: var(--fs-meta);
       letter-spacing: 0.08em;
       color: var(--tailpiece);
       margin-top: 2em;
@@ -449,7 +466,7 @@ def build_css() -> str:
     .why-body {
       max-width: 560px;
       margin: 0 auto;
-      font-size: 12pt;
+      font-size: var(--fs-body);
       line-height: 1.8;
       color: var(--body);
     }
@@ -481,7 +498,7 @@ def build_css() -> str:
     }
 
     .download-links a {
-      font-size: 10pt;
+      font-size: var(--fs-ui);
       letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--body);
@@ -496,7 +513,7 @@ def build_css() -> str:
 
     .download-links .link-desc {
       display: block;
-      font-size: 8.5pt;
+      font-size: var(--fs-meta);
       letter-spacing: 0.08em;
       text-transform: none;
       color: var(--meta-grey);
@@ -521,14 +538,14 @@ def build_css() -> str:
     }
 
     .participate-body p {
-      font-size: 11.5pt;
+      font-size: var(--fs-body);
       line-height: 1.75;
       color: var(--body);
       margin-bottom: 2em;
     }
 
     .participate-link {
-      font-size: 10pt;
+      font-size: var(--fs-ui);
       letter-spacing: 0.18em;
       text-transform: uppercase;
       font-weight: 500;
@@ -555,7 +572,7 @@ def build_css() -> str:
     }
 
     .colophon p {
-      font-size: 9pt;
+      font-size: var(--fs-meta);
       line-height: 1.7;
       color: var(--meta-grey);
       margin-bottom: 0.6em;
@@ -747,6 +764,7 @@ def build_html() -> str:
 
       <section class="registers">
         <div class="section-label">The Registers</div>
+        <p class="register-intro">Each section presents the same commitments in two voices &mdash; Ritual, inspired by poetry and song, and Specification, by law and protocol.</p>
         <div class="register-grid">
           <div class="register-col register-ritual">
             <h3>Ritual</h3>
@@ -756,7 +774,7 @@ def build_html() -> str:
             <div class="register-source">from the Preamble</div>
           </div>
           <div class="register-col register-spec">
-            <h3>Spec</h3>
+            <h3>Specification</h3>
             <div class="excerpt">
     {textwrap.indent(spec_html, "          ")}
             </div>

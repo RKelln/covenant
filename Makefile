@@ -1,4 +1,4 @@
-.PHONY: all validate compose build clean new-section pdf pdf-ritual pdf-spec pdf-full fonts website
+.PHONY: all validate compose build clean new-section pdf pdf-ritual pdf-spec pdf-full fonts website serve
 
 PYTHON := uv run python
 
@@ -54,10 +54,15 @@ pdf-full: compose
 # ── Website ─────────────────────────────────────────────────────────────────
 #
 #   make website              — generate docs/index.html from section sources
+#   make serve                — build website + start local preview server
 #
 
 website:
 	$(PYTHON) build/website.py
+
+serve: website
+	@echo "Serving at http://localhost:8000"
+	$(PYTHON) -m http.server 8000 -d docs
 
 # ── Housekeeping ────────────────────────────────────────────────────────────
 
