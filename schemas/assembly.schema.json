@@ -42,6 +42,30 @@
         "type": "string"
       },
       "description": "Ordered list of section file paths relative to repo root"
+    },
+    "groups": {
+      "type": "array",
+      "description": "Optional groupings of sections into named songs or collections, with optional URLs",
+      "items": {
+        "type": "object",
+        "required": ["title"],
+        "additionalProperties": false,
+        "properties": {
+          "title": {
+            "type": "string",
+            "description": "Display title for the group or song"
+          },
+          "url": {
+            "type": "string",
+            "description": "URL to a playable or published version of this group"
+          },
+          "sections": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "Section IDs belonging to this group"
+          }
+        }
+      }
     }
   }
 }

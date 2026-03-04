@@ -18,6 +18,32 @@ REPO_ROOT = Path(__file__).parent.parent
 SECTIONS_DIR = REPO_ROOT / "sections"
 ASSEMBLIES_DIR = REPO_ROOT / "assemblies"
 
+
+# ---------------------------------------------------------------------------
+# Version
+# ---------------------------------------------------------------------------
+
+_VERSION = None
+
+
+def get_version() -> str:
+    """Return the project version from pyproject.toml (cached after first call).
+
+    Format: 'v0.1.0' — suitable for display on all outputs.
+    """
+    global _VERSION
+    if _VERSION is None:
+        pyproject = REPO_ROOT / "pyproject.toml"
+        for line in pyproject.read_text(encoding="utf-8").splitlines():
+            if line.strip().startswith("version"):
+                # Parse: version = "0.1.0"
+                _VERSION = "v" + line.split("=", 1)[1].strip().strip('"').strip("'")
+                break
+        if _VERSION is None:
+            _VERSION = "v0.0.0"
+    return _VERSION
+
+
 # ---------------------------------------------------------------------------
 # Section parsing
 # ---------------------------------------------------------------------------

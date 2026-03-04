@@ -34,6 +34,7 @@ from sections import (
     html_escape,
     get_title_map,
     resolve_title,
+    get_version,
 )
 
 # ---------------------------------------------------------------------------
@@ -676,6 +677,7 @@ def build_html() -> str:
     # — Gather content ---
     opening_paras = get_opening_paragraphs()
     date_str = get_edition_date()
+    version = get_version()
 
     # Ritual excerpt: from the Preamble (the opening stanzas)
     preamble_ritual, preamble_spec = get_preamble_parts()
@@ -756,7 +758,7 @@ def build_html() -> str:
         <h1 class="hero-title">Covenant</h1>
         <div class="hero-subtitle">covenant.website</div>
         <hr class="hero-rule">
-        <div class="hero-date">{date_str}</div>
+        <div class="hero-date">{version} &mdash; {date_str}</div>
       </header>
 
       <!-- ── What it is ──────────────────────────────────────── -->

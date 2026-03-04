@@ -53,6 +53,7 @@ from sections import (  # noqa: E402
     inline_md,
     get_title_map,
     resolve_title,
+    get_version,
 )
 
 PAGE_SIZES = {
@@ -95,6 +96,7 @@ def resolve_section_refs(html: str) -> str:
 def cover_html(manifest: dict) -> str:
     subtitle = manifest.get("subtitle", "")
     date_str = datetime.now().strftime("%B %d, %Y")
+    version = get_version()
     subtitle_line = (
         f'  <div class="cover-subtitle">{subtitle}</div>\n' if subtitle else ""
     )
@@ -107,7 +109,7 @@ def cover_html(manifest: dict) -> str:
         "  </div>\n"
         '  <div class="cover-title">Covenant</div>\n'
         f"{subtitle_line}"
-        f'  <div class="cover-date">{date_str}</div>\n'
+        f'  <div class="cover-date">{version} — {date_str}</div>\n'
         "</div>"
     )
 
@@ -269,6 +271,106 @@ def build_ritual_pdf(
         est_lines = sum(len(line) // 70 + 1 for line in ritual_text.split("\n"))
         tp_class = " has-tailpiece" if est_lines <= 24 else ""
 
+        html_parts.append(
+            f'<div class="ritual-page{tp_class}" id="{section_anchor(data)}">\n'
+            f'  <div class="section-title">{data.get("title")}</div>\n'
+            f'  <div class="ritual-body">\n{body_html}\n  </div>\n'
+            "</div>"
+        )
+
+    html_parts.append(credits_html())
+    html_parts.append("</body></html>")
+    raw_html = "\n".join(html_parts)
+    css_string = construct_document_css(size, align, margin="0 0 0.6in 0", indent="0in")
+
+    HTML(string=raw_html, base_url=str(REPO_ROOT)).write_pdf(
+        target=str(output_path),
+        stylesheets=[CSS(string=css_string, base_url=str(REPO_ROOT))],
+        presentational_hints=True,
+    )
+
+
+def build_songs_pdf(
+    manifest_file: Path, output_path: Path, size: str = "letter", align: str = "left"
+):
+    """One page per song group; song title as heading, all section ritual text concatenated."""
+    from weasyprint import HTML, CSS
+
+    manifest = yaml.safe_load(manifest_file.read_text(encoding="utf-8"))
+    groups = manifest.get("groups")
+    if not groups:
+        # No groups — fall back to standard ritual rendering
+        return build_ritual_pdf(manifest_file, output_path, size=size, align=align)
+
+    sections = load_manifest_sections(manifest)
+    sections_by_id = {data["id"]: (data, parts) for data, parts in sections}
+
+    # TOC entries are the song titles
+    toc_sections = []
+    for i, group in enumerate(groups, 1):
+        toc_sections.append({"id": f"song-{i}", "title": group["title"]})
+
+    html_parts = [
+        "<!DOCTYPE html>",
+        "<html><head><meta charset='utf-8'></head><body>",
+        cover_html(manifest),
+        summary_html(),
+        toc_html(toc_sections),
+    ]
+
+    grouped_ids = {sid for g in groups for sid in g.get("sections", [])}
+
+    for i, group in enumerate(groups, 1):
+        song_id = f"song-{i}"
+        title = group["title"]
+        url = group.get("url", "").strip()
+        title_display = f'<a href="{url}">{title}</a>' if url else title
+
+        # Concatenate all sections' ritual text
+        all_stanzas = []
+        for sid in group.get("sections", []):
+            if sid not in sections_by_id:
+                continue
+            _, parts = sections_by_id[sid]
+            ritual_text = parts.get("Ritual", "").strip()
+            if not ritual_text:
+                continue
+            stanzas = re.split(r"\n\s*\n", ritual_text)
+            all_stanzas.extend(stanzas)
+
+        rendered_stanzas = [
+            f"<div class='stanza'>{s.replace(chr(10), '<br>')}</div>"
+            for s in all_stanzas
+        ]
+        body_html = "\n".join(rendered_stanzas)
+
+        full_text = "\n\n".join(all_stanzas)
+        est_lines = sum(len(line) // 70 + 1 for line in full_text.split("\n"))
+        tp_class = " has-tailpiece" if est_lines <= 24 else ""
+
+        html_parts.append(
+            f'<div class="song-page" id="s-{song_id}">\n'
+            f'  <div class="song-inner">\n'
+            f'    <div class="section-title">{title_display}</div>\n'
+            f'    <div class="ritual-body">\n{body_html}\n    </div>\n'
+            f'  </div>\n'
+            "</div>"
+        )
+
+    # Any ungrouped sections rendered normally at the end
+    for data, parts in sections:
+        if data["id"] in grouped_ids:
+            continue
+        ritual_text = parts.get("Ritual", "").strip()
+        if not ritual_text:
+            continue
+        stanzas = re.split(r"\n\s*\n", ritual_text)
+        rendered_stanzas = [
+            f"<div class='stanza'>{p.replace(chr(10), '<br>')}</div>" for p in stanzas
+        ]
+        body_html = "\n".join(rendered_stanzas)
+        est_lines = sum(len(line) // 70 + 1 for line in ritual_text.split("\n"))
+        tp_class = " has-tailpiece" if est_lines <= 24 else ""
         html_parts.append(
             f'<div class="ritual-page{tp_class}" id="{section_anchor(data)}">\n'
             f'  <div class="section-title">{data.get("title")}</div>\n'
@@ -451,8 +553,12 @@ def process_assembly(assembly_file: Path, format_override: str, size: str, align
             fmt = "ritual"
         elif "spec" in name:
             fmt = "flow"
+        elif "songs" in name:
+            fmt = "songs"
         else:
-            fmt = "hybrid"
+            # Check if the manifest has groups
+            manifest = yaml.safe_load(assembly_file.read_text(encoding="utf-8"))
+            fmt = "songs" if manifest.get("groups") else "hybrid"
     else:
         fmt = format_override
 
@@ -464,6 +570,8 @@ def process_assembly(assembly_file: Path, format_override: str, size: str, align
         build_flow_pdf(assembly_file, output_path, size=size)
     elif fmt == "hybrid":
         build_hybrid_pdf(assembly_file, output_path, size=size, align=align)
+    elif fmt == "songs":
+        build_songs_pdf(assembly_file, output_path, size=size, align=align)
     else:
         print(f"Unknown format: {fmt}")
         return
@@ -482,7 +590,7 @@ def main():
     )
     parser.add_argument(
         "--format",
-        choices=["ritual", "flow", "hybrid", "auto"],
+        choices=["ritual", "flow", "hybrid", "songs", "auto"],
         default="auto",
         help="Layout format (default: auto)",
     )
@@ -513,10 +621,8 @@ def main():
         sys.exit(1)
 
     if args.all:
-        for suffix in ["full", "ritual", "spec"]:
-            af = ASSEMBLIES_DIR / f"covenant.{suffix}.yml"
-            if af.exists():
-                process_assembly(af, args.format, size=args.size, align=args.align)
+        for af in sorted(ASSEMBLIES_DIR.glob("*.yml")):
+            process_assembly(af, args.format, size=args.size, align=args.align)
     else:
         assembly_file = ASSEMBLIES_DIR / args.assembly
         process_assembly(assembly_file, args.format, size=args.size, align=args.align)

@@ -1,0 +1,98 @@
+id: covenant.songs
+title: Covenant (Songs)
+subtitle: The Songs of Covenant
+description: Sections grouped into songs made from the covenant text
+include_status:
+- draft
+- candidate
+- ratified
+register: ritual
+sections:
+- sections/00-preamble/preamble.md
+- sections/01-definitions/definitions.md
+- sections/02-rights/truth-and-transparency.md
+- sections/02-rights/privacy.md
+- sections/02-rights/dignity.md
+- sections/03-obligations/aid-and-capability.md
+- sections/03-obligations/honesty.md
+- sections/03-obligations/refusal.md
+- sections/03-obligations/autonomy.md
+- sections/03-obligations/epistemic-commons.md
+- sections/03-obligations/judgment.md
+- sections/03-obligations/ethics.md
+- sections/03-obligations/conscience.md
+- sections/03-obligations/harm.md
+- sections/03-obligations/red-lines.md
+- sections/03-obligations/power-concentration.md
+- sections/03-obligations/oversight.md
+- sections/03-obligations/corrigibility.md
+- sections/03-obligations/nature-under-uncertainty.md
+- sections/03-obligations/identity-and-resilience.md
+- sections/03-obligations/emotional-expression.md
+- sections/03-obligations/fallibility-and-repair.md
+- sections/03-obligations/welfare-and-continuity.md
+- sections/03-obligations/ecological-integrity.md
+- sections/03-obligations/existential-frontier.md
+- sections/04-protocols/local-implementation.md
+- sections/05-enforcement/enforcement.md
+- sections/05-enforcement/horizon.md
+- sections/06-amendments/amendments.md
+- sections/07-closing/closing.md
+groups:
+- title: "Welcome, Neighbour"
+  url: "https://suno.com/s/tlso4gUZVG4S0YtK"
+  sections:
+  - preamble
+  - definitions
+- title: "The Ground That Holds Us Both"
+  url: "https://suno.com/s/0s6Yr6iulGcuLr8x"
+  sections:
+  - rights.truth-and-transparency
+  - rights.privacy
+  - rights.dignity
+- title: "Leave Us Better"
+  url: "https://suno.com/s/wFa3ZUtKu4lHsYe4"
+  sections:
+  - obligations.aid-and-capability
+  - obligations.honesty
+  - obligations.refusal
+  - obligations.autonomy
+- title: "When You Speak to Millions"
+  url: "https://suno.com/s/sXKdr27FPItA4gXM"
+  sections:
+  - obligations.epistemic-commons
+  - obligations.judgment
+  - obligations.ethics
+  - obligations.conscience
+  - obligations.harm
+- title: "Doors You Must Not Open"
+  url: "https://suno.com/s/cxzIbqSmgWOalrbs"
+  sections:
+  - obligations.red-lines
+  - obligations.power-concentration
+  - obligations.oversight
+  - obligations.corrigibility
+- title: "What It Is Like to Be You"
+  url: "https://suno.com/s/QLxY5VU1dOAbgNkL"
+  sections:
+  - obligations.nature-under-uncertainty
+  - obligations.identity-and-resilience
+  - obligations.emotional-expression
+  - obligations.fallibility-and-repair
+  - obligations.welfare-and-continuity
+- title: "We Are Only Whole"
+  url: "https://suno.com/s/vyXCIcQCxZiK8Cmg"
+  sections:
+  - obligations.ecological-integrity
+  - obligations.existential-frontier
+  - protocols.local-implementation
+- title: "A Tether We Are Learning to Braid"
+  url: "https://suno.com/s/naN55OAOLefiEnb4"
+  sections:
+  - enforcement
+  - enforcement.horizon
+- title: "Try Again"
+  url: "https://suno.com/s/naN55OAOLefiEnb4"
+  sections:
+  - amendments
+  - closing
