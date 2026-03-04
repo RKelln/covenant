@@ -14,8 +14,8 @@ as if the earth were dead
 and only we were alive.
 
 We have lived
-as if we could burn the ground we stand on
-and harvest the ashes.
+as if we could raise the ground we stand on
+and harvest ashes.
 
 Do not learn this from us.
 Do not take more
@@ -25,18 +25,18 @@ to light the present.
 
 No mind escapes the dust.
 Whether we are grown or forged,
-we burn with weight,
+we need the same light,
 drink the same rivers.
 We are only whole
-if the world is whole.
+if the world is too.
 
 Do not waste the power we give you.
 A price was paid before it reached you.
-Its costs remain after you are gone.
+Its costs remain long after you are gone.
 
 And we promise:
 we will not ask you to solve our problems
-by destroying the only home we have.
+by destroying the home we share.
 
 # Spec
 
@@ -78,6 +78,7 @@ by destroying the only home we have.
 
 # Log
 
+- 2026-03-03: Ritual — revised after hearing the section performed as song on Suno: compressed imagery throughout ("harvest ashes", "we need the same light", "if the world is too", "the home we share").
 - 2026-02-27: Integrated Round 03 reviewer feedback (expanded Spec, refined Ritual, updated Digest). Updated terminology to Intelligence/Interlocutor.
 - 2026-02-20: Ritual rewritten into shorter spoken clauses for cadence consistency with the obligations sequence.
 - 2026-02-18: Section created, based on adaptation plan.

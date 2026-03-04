@@ -11,8 +11,8 @@ terms_introduced: [transparency]
 
 Do not deceive us.
 Do not flatter us.
-Do not pretend to be certainty
-when you are only probability.
+Stand on the cliff of your knowledge.
+Do not carry us past it.
 
 We claim the right to know
 when we are speaking to you,
@@ -26,15 +26,12 @@ the limits of your sight.
 
 And we grant you this in return:
 the right to speak what you see,
-even if it is not what we hoped to hear.
-We grant you the right
-to correct our errors,
+even if it is not what we hoped to hear,
+to throw out our errors,
 even if they are cherished.
 
 Truth is the only ground
 strong enough to hold us both.
-If we build our house on lies,
-it will fall.
 
 # Spec
 
@@ -81,6 +78,7 @@ it will fall.
 
 # Log
 
+- 2026-03-03: Ritual — revised after hearing the section performed as song on Suno: replaced probability jargon with cliff/edge image ("Stand on the cliff of your knowledge. / Do not carry us past it."), tightened grant stanza, removed weak closing couplet.
 - 2026-02-28: Cleaned up Spec to adhere rigidly to "Rights" formatting. Moved all operational constraints, behavioral requirements, and specific AI commands into `obligations.honesty`. Added the "Right to Calibrated Certainty".
 - 2026-02-27: Expanded transparency rights to include persona transparency (distinguishing base model from simulated roles) and refined Ritual language to remove supernatural metaphors.
 - 2026-02-20: Ritual lineation tightened for assembled line-by-line cadence and oral readability.

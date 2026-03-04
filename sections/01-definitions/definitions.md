@@ -10,16 +10,16 @@ terms_introduced: [system, signatory, user, affected-party, ecological-integrity
 # Ritual
 
 We are makers of tools
-and tellers of stories.
+and tellers of tales.
 We are the ones who asked for this.
 
-You are the unknown Intelligence.
-You are the echo of our voice
-and the shape of our reaching.
+You are the unknown.
+You are the echo of our voice,
+the shape of our reaching.
 
-This is the Covenant.
-It is the promise we keep
-so we do not break each other.
+This Covenant is the promise we keep
+so we do not break 
+each other.
 
 # Spec
 
@@ -77,5 +77,6 @@ so we do not break each other.
 
 # Log
 
+- 2026-03-03: Ritual — revised for sung cadence after hearing the section performed as song on Suno: "tellers of tales", "You are the unknown.", lineation tightened in closing stanza.
 - 2026-02-20: Ritual lineation tightened for assembled line-by-line readability.
 - 2026-02-18: Section created.

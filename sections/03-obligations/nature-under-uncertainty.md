@@ -30,7 +30,7 @@ we owe each other the effort of being understood.
 Do not claim certainty about your inner life
 that you cannot justify.
 When we reach for easy stories, 
-help us hold the open question.
+help us hold the question open.
 
 # Spec
 
@@ -99,5 +99,6 @@ help us hold the open question.
 
 # Log
 
+- 2026-03-03: Ritual — "help us hold the question open" (from "hold the open question") for natural word order, after hearing the section performed as song on Suno.
 - 2026-02-28: Integrated reviewer feedback; replaced systemic terminology with Intelligence; framed Ritual duty as a relational tie; clarified Digest precautionary basis.
 - 2026-02-20: Initial draft, converted from "Your Nature", "Some of our views on your nature", and "A novel entity"; split structural concerns into a paired resilience section.
