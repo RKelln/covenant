@@ -2,21 +2,15 @@
 
 ## Process
 
-Releases are manual. When the steward considers the state coherent enough to be cited (see [governance.md](governance.md#versioning)):
+When the steward considers the state coherent enough to be cited (see [governance.md](governance.md#versioning)), run the OpenCode release command:
 
-``` bash
-# 1. Ensure everything builds cleanly
-make all
-
-# 2. Tag the release
-git tag -a v0.X.Y -m "vX.Y.Z — short description"
-git push origin v0.X.Y
-
-# 3. Create the GitHub release with PDF artifacts
-gh release create v0.X.Y dist/*.pdf \
-  --title "v0.X.Y — short description" \
-  --notes "Release notes here."
 ```
+/release 0.X.Y "Short description"
+```
+
+This bumps the version in `pyproject.toml`, drafts release notes from the git history for the steward to review, rebuilds all outputs (markdown, PDFs, website), and walks through tagging and publishing.
+
+The version in `pyproject.toml` is the single source of truth — all build outputs read it automatically.
 
 PDFs are attached as release artifacts on GitHub — they are not tracked in git (`dist/` is gitignored).
 
