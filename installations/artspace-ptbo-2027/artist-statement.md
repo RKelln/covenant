@@ -1,7 +1,7 @@
 # Artist Statement
 
 ```{=html}
-<!-- TARGET: 250 words max. Current: ~248 words. -->
+<!-- TARGET: 250 words max. Current: ~242 words. -->
 ```
 We are building intelligences we do not fully understand, under conditions we do not fully control. Knowledge remains incomplete. Consequences exceed intention. Yet civilizations do not wait for perfect conditions before articulating the principles they hope will guide them.
 
