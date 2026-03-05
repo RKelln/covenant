@@ -115,25 +115,37 @@ Guidelines for drafting:
   `"Website polish and watermark system"`)
 - Match the style of existing entries in `docs/releases.md`
 
-Present the full draft to the steward:
+Write the full draft (including the `### v{new}` heading) to:
 
 ```
-── Draft release notes ──────────────────────────
+dist/RELEASE_NOTES_DRAFT.md
+```
+
+Then present a short summary to the steward:
+
+```
+── Draft release notes written to dist/RELEASE_NOTES_DRAFT.md ──
 
 ### v{new} — {description}
 
-{drafted content}
+{first 3-4 bullet points as a preview…}
 
-──────────────────────────────────────────────────
+(full notes in dist/RELEASE_NOTES_DRAFT.md)
 ```
 
-Ask: **"Edit these notes or approve as-is?"**
+Ask: **"Edit the file and let me know when ready, or approve as-is?"**
 
 Wait for the steward to respond. They may:
-- **Approve** ("looks good", "approve", "ok") — use the draft as-is
-- **Edit** — provide revised text or specific corrections. Apply their
-  changes and show the updated version for confirmation.
+- **Approve** ("looks good", "approve", "ok", "we're good") — read
+  `dist/RELEASE_NOTES_DRAFT.md` back and use it as-is.
+- **Edit** — they will edit the file directly; when they say they're
+  done, read it back, show the full updated notes, and confirm.
+- **Provide inline corrections** — apply their changes to the draft file,
+  show the updated version, and ask for confirmation.
 - **Ask questions** — answer them, then re-present for approval.
+
+Before proceeding, proofread the approved notes for typos (section names,
+URLs, filenames are common spots). Fix any found silently and note them.
 
 Do not proceed to Step 4 until the steward has approved the release notes.
 
@@ -228,4 +240,11 @@ Next steps:
 ```
 
 Ask the steward if they want you to run any of these steps, or if they
-prefer to do them manually.
+prefer to do them manually. If they say "run all" or "all", execute all
+four steps sequentially, stopping and reporting on any failure.
+
+After all steps complete successfully, delete the draft file:
+
+```bash
+rm dist/RELEASE_NOTES_DRAFT.md
+```
