@@ -89,10 +89,13 @@ def spec_to_html(text: str) -> str:
             f"<p>{inline_md(html_escape(p.strip()))}</p>" for p in paras if p.strip()
         )
 
-    # Resolve §[section-id] cross-references to plain §Title (no links — not worth
-    # generating anchors that may not exist on this page)
+    # Resolve §[section-id] cross-references to linked §Title anchors.
+    # All three pages include all sections, so anchors are always present.
     def resolve_ref(m: re.Match) -> str:
-        return f"§{resolve_title(m.group(1))}"
+        sec_id = m.group(1)
+        anchor = "s-" + sec_id.replace(".", "-").replace(" ", "-").lower()
+        title = resolve_title(sec_id)
+        return f'<a href="#{anchor}">§{title}</a>'
 
     body = re.sub(r"§\[([^\]]+)\]", resolve_ref, body)
     return body
