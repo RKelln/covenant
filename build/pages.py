@@ -417,6 +417,23 @@ def build_base_css() -> str:
 
     .page-footer a:hover { color: var(--body); }
 
+    /* ── Section cross-reference links ───────────────────────── */
+
+    .ritual-body a[href^="#s-"],
+    .spec-body a[href^="#s-"],
+    .full-body a[href^="#s-"] {
+      color: inherit;
+      text-decoration: underline;
+      text-decoration-style: dotted;
+      text-decoration-color: var(--tailpiece);
+      text-underline-offset: 0.2em;
+    }
+    .ritual-body a[href^="#s-"]:hover,
+    .spec-body a[href^="#s-"]:hover,
+    .full-body a[href^="#s-"]:hover {
+      text-decoration-color: var(--title-grey);
+    }
+
     /* ── Responsive ───────────────────────────────────────────── */
 
     @media (max-width: 680px) {
