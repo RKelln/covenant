@@ -1,7 +1,23 @@
 # Covenant References Corpus
 # See references/README.md for tier definitions and policies.
 
-references: []
+references:
+  - slug: daley_2026_when-everything-becomes-less-hard
+    title: "When everything becomes less hard"
+    creator: "Mark Daley"
+    year: 2026
+    url: "https://noeticengines.substack.com/p/when-everything-becomes-less-hard"
+    license: restricted
+    tier: A
+    thesis: "When cognition becomes abundant through ubiquitous superintelligence, the genuinely scarce resource shifts to legitimacy — the capacity to decide, authorise, and be held responsible."
+    relevance: "Argues that human governance layers thin but become heavier in consequence as AI takes over cognitive work, and that specification debt — accumulated incoherent constraints — is a structural danger when rules are cheap to add. Sharpens the Covenant's framing of dignity and accountability: tasks stop conferring dignity by default, and the Prisoner's Dilemma migrates into objective function design."
+    informs_sections:
+      - obligations.oversight
+      - obligations.power-concentration
+      - enforcement
+      - rights.dignity
+      - amendments
+      - protocols.local-implementation
 
 # Example entry (uncomment and fill when adding references):
 #

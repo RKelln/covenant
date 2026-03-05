@@ -4,6 +4,7 @@
 - Which Humans?
   - https://coevolution.fas.harvard.edu/sites/g/files/omnuum5841/files/culture_cognition_coevol_lab/files/which_humans_09222023.pdf
 
+# Blogs / writing
 
 ## Videos
 - What If Intelligence Didn't Evolve? It "Was There" From the Start! - Blaise Agüera y Arcas

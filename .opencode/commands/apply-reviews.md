@@ -442,6 +442,72 @@ After all phases complete, report:
   section IDs and descriptions (or "none")
 - **Validation:** PASS or FAIL (should be PASS at this point)
 
+---
+
+## Step 8.5 — Resolve open questions
+
+Check whether `reviews/[round]/.prepared/open-questions.md` exists. If it
+does not, skip this step entirely.
+
+Read the file. If it contains only "No open questions found…", skip this
+step.
+
+Otherwise, for each open question in the file:
+
+1. Read the merged reviewer files (`reviews/[round]/reviewer-*.md`) and the
+   synthesis (`reviews/[round]/synthesis-claude.md` or `synthesis.md`). Search
+   for the `## Open Questions Response` sections. Find any responses that
+   address this question.
+
+2. Determine the outcome:
+   - **Resolved** — the question was addressed and edits were applied in this
+     round (auto or interactive)
+   - **Deferred** — the question was raised by reviewers but no edit was made
+     this round (captured in `deferred.json` or simply not acted on)
+   - **Rejected** — reviewers assessed the question and concluded the current
+     text is adequate or the question is out of scope
+   - **Unaddressed** — reviewers did not respond to the question at all
+
+3. Present a summary to the steward:
+
+   ```
+   ─────────────────────────────────────────────
+   Open Questions Resolution — [round]
+
+   [question short title]: [Resolved | Deferred | Rejected | Unaddressed]
+     [one sentence on outcome or why]
+   ...
+   ─────────────────────────────────────────────
+   Confirm resolution summary? [Y] Proceed  [E] Edit before writing
+   ```
+
+   Wait for the steward's response. If they say "E" or "edit", allow them
+   to correct any outcome classification before proceeding.
+
+4. For each question with outcome **Resolved**, **Deferred**, or **Rejected**,
+   find its source notes file. The open-questions file records the slug each
+   question came from — use that to locate `references/notes/[slug].md`.
+
+   Read the notes file. Move the question's entry from `## Open Questions`
+   to `## Resolved Questions`, appending:
+
+   ```
+   — [YYYY-MM-DD] [round]: [Resolved | Deferred | Rejected] — [one sentence outcome]
+   ```
+
+   For **Unaddressed** questions: leave them in `## Open Questions` unchanged.
+   They will be picked up by the next review round automatically.
+
+5. After updating all notes files, run `make validate`.
+
+Report to the steward:
+- How many questions were resolved/deferred/rejected/left open
+- Which notes files were updated
+
+---
+
+## Step 9 — Close-out reminder
+
 Then remind the steward of the close-out steps:
 
 1. Commit the changes:

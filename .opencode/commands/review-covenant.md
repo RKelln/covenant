@@ -41,6 +41,7 @@ Check the following in order:
 | Step | Skip if… |
 |------|----------|
 | Step 1 (prepare) | `reviews/[round]/.prepared/manifest.json` exists |
+| Step 1.5 (open questions) | `reviews/[round]/.prepared/open-questions.md` exists |
 | Step 2 (read manifest) | Always read — needed to determine what to skip downstream |
 | Step 3–4 (dispatch + save batches) | Each individual batch file `reviews/[round]/[reviewer]-batch-[N].md` exists — skip that entry only; dispatch any missing ones |
 | Step 4.5 (concat) | All merged files `reviews/[round]/reviewer-*.md` exist |
@@ -73,6 +74,55 @@ If the script exits with an error, stop and report the error to the user.
 
 Note the actual round ID printed by the script (e.g. `Auto-selected round: round-02`).
 Use that round ID in all subsequent steps in place of `[round]`.
+
+## Step 1.5 — Collect open questions from Tier A notes
+
+After Step 1 succeeds, read `references/references.yml`. Find all entries
+with `tier: A`. For each, check whether a notes file exists at
+`references/notes/[slug].md`. Read any that exist and extract the full
+`## Open Questions` section (everything between `## Open Questions` and the
+next `##` heading). Ignore entries with an empty `## Open Questions` section.
+
+If any open questions were found, write them to:
+```
+reviews/[round]/.prepared/open-questions.md
+```
+
+Use this format:
+
+```markdown
+# Open Questions from References Corpus
+
+The following open questions were surfaced by Tier A references. Each names a
+gap or blind spot the current Covenant sections may not address. Treat these
+as required probes: your review MUST address each question that is relevant to
+the sections you are assessing. If a question is not relevant to your batch,
+note that explicitly.
+
+## From [slug]
+
+[the full ## Open Questions content from that notes file, verbatim]
+
+## From [slug]
+
+[...]
+```
+
+If no Tier A notes files exist or all have empty `## Open Questions` sections,
+write a minimal file noting this:
+```
+reviews/[round]/.prepared/open-questions.md
+```
+```markdown
+# Open Questions from References Corpus
+
+No open questions found in Tier A notes files for this round.
+```
+
+Skip this step if `reviews/[round]/.prepared/open-questions.md` already
+exists (resume logic).
+
+---
 
 ## Step 2 — Read the manifest
 
@@ -117,6 +167,21 @@ Task tool parameters for each entry:
   Use the Read tool to read the file at [entry.file] in full. Do not use
   bash or cat. Once you have read it, follow every instruction it contains
   exactly. Do not summarise or skip any part of it.
+
+  Also read the file at reviews/[round]/.prepared/open-questions.md in full.
+  These are live open questions surfaced by the references corpus. For each
+  question that is relevant to the sections in your batch, your review MUST
+  include an explicit response under a heading:
+
+  ## Open Questions Response
+
+  For each relevant question: restate it briefly, then give your assessment —
+  does the current section text address it, partially address it, or leave it
+  open? If open, propose how it should be addressed (edit to existing section,
+  new section, or out of scope for the Covenant).
+
+  If no questions are relevant to your batch, include the heading with a single
+  line: "No open questions relevant to this batch."
 
   After completing your review, save your output to disk using the Write tool:
   - Path: [output_path]
