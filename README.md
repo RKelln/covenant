@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/mark.svg" alt="Covenant Textmark" width="200"/>
+  <img src="assets/covenant_mark.svg" alt="Covenant Textmark" width="200"/>
 </p>
 
 # Covenant
