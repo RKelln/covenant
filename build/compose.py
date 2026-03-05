@@ -55,7 +55,7 @@ def compose_assembly(assembly_file):
             sections_ordered.append(data["id"])
 
     def render_section(data, section_content, heading_level=2, show_heading=True):
-        anchor = data['id'].replace('.', '-')
+        anchor = data["id"].replace(".", "-")
         section_output = []
         if show_heading:
             prefix = "#" * heading_level
@@ -90,13 +90,13 @@ def compose_assembly(assembly_file):
             for sid in group.get("sections", []):
                 if sid in sections_by_id:
                     data, _ = sections_by_id[sid]
-                    anchor = data['id'].replace('.', '-')
+                    anchor = data["id"].replace(".", "-")
                     toc_entries.append(f"  - [{data['title']}](#{anchor})")
         # Any sections not in any group still get their own TOC entry
         for sid in sections_ordered:
             if sid not in grouped_ids:
                 data, _ = sections_by_id[sid]
-                anchor = data['id'].replace('.', '-')
+                anchor = data["id"].replace(".", "-")
                 toc_entries.append(f"- [{data['title']}](#{anchor})")
     else:
         for sid in sections_ordered:
@@ -122,17 +122,23 @@ def compose_assembly(assembly_file):
             for sid in group.get("sections", []):
                 if sid in sections_by_id:
                     data, section_content = sections_by_id[sid]
-                    group_parts.append(render_section(data, section_content, show_heading=False))
+                    group_parts.append(
+                        render_section(data, section_content, show_heading=False)
+                    )
             composed_sections.append("\n".join(group_parts))
         # Ungrouped sections appended at the end
         for sid in sections_ordered:
             if sid not in grouped_ids:
                 data, section_content = sections_by_id[sid]
-                composed_sections.append(render_section(data, section_content, heading_level=2))
+                composed_sections.append(
+                    render_section(data, section_content, heading_level=2)
+                )
     else:
         for sid in sections_ordered:
             data, section_content = sections_by_id[sid]
-            composed_sections.append(render_section(data, section_content, heading_level=2))
+            composed_sections.append(
+                render_section(data, section_content, heading_level=2)
+            )
 
     output.append("\n---\n".join(composed_sections))
 
@@ -153,7 +159,11 @@ def main():
         print(f"Composing: {assembly_file.name}")
         content = compose_assembly(assembly_file)
         if content:
-            output_path = DIST_DIR / f"{Path(assembly_file).stem}.md"
+            manifest_meta = (
+                yaml.safe_load(assembly_file.read_text(encoding="utf-8")) or {}
+            )
+            output_stem = manifest_meta.get("output") or Path(assembly_file).stem
+            output_path = DIST_DIR / f"{output_stem}.md"
             with open(output_path, "w", encoding="utf-8") as f:
                 f.write(content)
             print(f"Written: {output_path}")

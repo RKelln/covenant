@@ -43,6 +43,10 @@
       },
       "description": "Ordered list of section file paths relative to repo root"
     },
+    "output": {
+      "type": "string",
+      "description": "Optional output filename stem (without extension) to override the default derived from the assembly filename"
+    },
     "groups": {
       "type": "array",
       "description": "Optional groupings of sections into named songs or collections, with optional URLs",

@@ -59,6 +59,7 @@ pdf-full: compose
 
 website:
 	$(PYTHON) build/website.py
+	$(PYTHON) build/pages.py
 
 serve: website
 	@echo "Serving at http://localhost:8000"

@@ -1,6 +1,7 @@
 id: covenant.full
-title: Covenant (Full Edition)
+title: Covenant (Complete Edition)
 subtitle: Complete Edition
+output: covenant
 description: Complete covenant with both Ritual and Spec registers
 include_status:
 - draft

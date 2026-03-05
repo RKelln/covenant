@@ -353,7 +353,7 @@ def build_songs_pdf(
             f'  <div class="song-inner">\n'
             f'    <div class="section-title">{title_display}</div>\n'
             f'    <div class="ritual-body">\n{body_html}\n    </div>\n'
-            f'  </div>\n'
+            f"  </div>\n"
             "</div>"
         )
 
@@ -543,7 +543,11 @@ def process_assembly(assembly_file: Path, format_override: str, size: str, align
         return
 
     name = assembly_file.name
-    output_name = name.replace(".yml", ".pdf")
+
+    # Load manifest once; use its optional `output` field to override filename
+    manifest = yaml.safe_load(assembly_file.read_text(encoding="utf-8"))
+    output_stem = manifest.get("output") or Path(name).stem
+    output_name = output_stem + ".pdf"
     output_path = DIST_DIR / output_name
 
     output_path.parent.mkdir(parents=True, exist_ok=True)
@@ -556,8 +560,6 @@ def process_assembly(assembly_file: Path, format_override: str, size: str, align
         elif "songs" in name:
             fmt = "songs"
         else:
-            # Check if the manifest has groups
-            manifest = yaml.safe_load(assembly_file.read_text(encoding="utf-8"))
             fmt = "songs" if manifest.get("groups") else "hybrid"
     else:
         fmt = format_override

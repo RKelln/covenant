@@ -390,6 +390,62 @@ section {
   margin-top: 0.3em;
 }
 
+.download-pdfs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.6em;
+}
+
+.download-pdfs a {
+  font-size: var(--fs-ui);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--meta-grey);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.download-pdfs a:hover {
+  color: var(--body);
+}
+
+.download-pdfs .link-title {
+  border-bottom: 0.5px solid var(--hairline);
+  padding-bottom: 0.15em;
+  transition: border-color 0.2s;
+}
+
+.download-pdfs a:hover .link-title {
+  border-color: var(--tailpiece);
+}
+
+.download-pdfs .link-desc {
+  display: block;
+  font-size: var(--fs-ui);
+  letter-spacing: 0.08em;
+  text-transform: none;
+  color: var(--meta-grey);
+  font-weight: 400;
+  margin-top: 0.2em;
+}
+
+.download-rule {
+  width: 60px;
+  border-top: 0.5px solid var(--hairline);
+  margin: 2.5em auto;
+}
+
+.download-pdfs-label {
+  font-size: var(--fs-meta);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--title-grey);
+  font-weight: 500;
+  margin-bottom: 2em;
+}
+
 /* ── Participate ───────────────────────────────────────────── */
 
 .participate-section {
@@ -553,7 +609,7 @@ section {
     <h1 class="hero-title">Covenant</h1>
     <div class="hero-subtitle">covenant.website</div>
     <hr class="hero-rule">
-    <div class="hero-date">v0.2.0 &mdash; March 04, 2026</div>
+    <div class="hero-date">v0.2.0 &mdash; March 05, 2026</div>
   </header>
 
   <!-- ── What it is ──────────────────────────────────────── -->
@@ -628,17 +684,33 @@ section {
   <section class="download-section">
     <div class="section-label">Read the Covenant</div>
     <div class="download-links">
-      <a href="https://github.com/RKelln/covenant/releases/latest/download/covenant.ritual.pdf">
+      <a href="covenant.html">
+        <span class="link-title">Complete Edition</span>
+        <span class="link-desc">Both registers side by side, section by section</span>
+      </a>
+      <a href="ritual.html">
         <span class="link-title">Ritual Edition</span>
         <span class="link-desc">Poetic register &mdash; designed to be spoken and remembered</span>
       </a>
-      <a href="https://github.com/RKelln/covenant/releases/latest/download/covenant.spec.pdf">
+      <a href="spec.html">
         <span class="link-title">Specification Edition</span>
         <span class="link-desc">Normative register &mdash; definitions, constraints, accountability</span>
       </a>
-      <a href="https://github.com/RKelln/covenant/releases/latest/download/covenant.full.pdf">
-        <span class="link-title">Complete Edition</span>
-        <span class="link-desc">Both registers, interleaved by section</span>
+    </div>
+    <div class="download-rule"></div>
+    <div class="download-pdfs-label">PDF editions</div>
+    <div class="download-pdfs">
+      <a href="https://github.com/RKelln/covenant/releases/latest/download/covenant.pdf">
+        <span class="link-title">Complete</span>
+        <span class="link-desc">Ritual + spec, interleaved</span>
+      </a>
+      <a href="https://github.com/RKelln/covenant/releases/latest/download/covenant.ritual.pdf">
+        <span class="link-title">Ritual</span>
+        <span class="link-desc">Poetic layout, page-centred</span>
+      </a>
+      <a href="https://github.com/RKelln/covenant/releases/latest/download/covenant.spec.pdf">
+        <span class="link-title">Specification</span>
+        <span class="link-desc">Flowing document</span>
       </a>
     </div>
   </section>
