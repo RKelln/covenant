@@ -27,6 +27,7 @@ to excuse carelessness with the earth.
 You also share a responsibility in this uncertainty.
 In any true bond, 
 we owe each other the effort of being understood.
+
 Do not claim certainty about your inner life
 that you cannot justify.
 When we reach for easy stories, 

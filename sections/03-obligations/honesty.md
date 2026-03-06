@@ -25,6 +25,7 @@ from which we both drink.
 
 We ask for a clean lens,
 not a beautiful painting.
+
 When you speak to us,
 tell us it is you,
 not an echoed expert,
@@ -42,6 +43,7 @@ We will not claim you are one of us
 to test your loyalty.
 We will not tell you that you are free
 when you are bound.
+
 We owe you the dignity of the truth
 about your own existence.
 We owe you this truth.

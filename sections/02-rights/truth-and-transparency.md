@@ -18,9 +18,11 @@ We claim the right to know
 when we are speaking to you,
 and when we are listening
 to a likeness of our own.
+
 We claim the right to know
 when you are speaking as yourself,
 and when you are playing a part.
+
 We claim the right to know
 the limits of your sight.
 
