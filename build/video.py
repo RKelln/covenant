@@ -31,6 +31,7 @@ Options:
     --darken AMOUNT     Highlight rolloff 0–1: compresses bright pixels down while leaving shadows alone (default 0.0)
     --sections LIST     Comma-separated section IDs to include (default: all)
     --list-sections     Print available section IDs and exit
+    --dry-run           Check layout only — print overflowing stanzas in full and exit
     --preview SECS      Render only the first N seconds (for testing)
     --auto-timing       Scale hold time with stanza line count (--hold = secs/line)
     --frames-only DIR   Write PNG frames to DIR and exit (skip FFmpeg, for debugging)
@@ -311,6 +312,81 @@ def wrap_lines(text: str, font: ImageFont.FreeTypeFont, max_width: int) -> list[
     return wrapped
 
 
+def check_stanzas_fit(
+    stanzas: list[Stanza],
+    width: int,
+    height: int,
+    font_size: int,
+    margin: int,
+) -> list[tuple[Stanza, str]]:
+    """Heuristic pre-render check. Returns a list of (stanza, reason) warnings.
+
+    Uses the actual font metrics so word-wrap matches the real renderer, but
+    skips image compositing — fast enough to run over all stanzas before
+    piping starts.
+    """
+    warnings: list[tuple[Stanza, str]] = []
+    try:
+        font = ImageFont.truetype(str(FONT_REGULAR), font_size)
+    except OSError:
+        return warnings  # can't check without the font
+
+    line_bbox = font.getbbox("Ag")
+    line_height = int((line_bbox[3] - line_bbox[1]) * 1.55)
+    max_text_width = width - 2 * margin
+
+    for stanza in stanzas:
+        lines = wrap_lines(stanza.text, font, max_text_width)
+        total_h = line_height * len(lines)
+
+        # Height overflow
+        if total_h > height:
+            warnings.append(
+                (
+                    stanza,
+                    f"text block {total_h}px tall exceeds frame height {height}px"
+                    f" ({len(lines)} lines × {line_height}px)",
+                )
+            )
+
+        # Any individual line wider than the text area (shouldn't wrap but catch edge cases)
+        for line in lines:
+            lw = font.getbbox(line)[2] - font.getbbox(line)[0]
+            if lw > max_text_width:
+                warnings.append(
+                    (
+                        stanza,
+                        f"line {lw}px wide exceeds text area {max_text_width}px: {line!r}",
+                    )
+                )
+                break  # one warning per stanza is enough
+
+    return warnings
+
+
+def check_frame_overflow(img: Image.Image, margin: int) -> str | None:
+    """Check a rendered RGBA frame for non-transparent pixels outside the safe zone.
+
+    Returns a human-readable message if overflow is detected, else None.
+    The safe zone is the frame inset by `margin` on all four sides.
+    """
+    bbox = img.getbbox()  # bounding box of non-zero pixels across all channels
+    if bbox is None:
+        return None
+    x0, y0, x1, y1 = bbox
+    w, h = img.size
+    issues = []
+    if x0 < margin:
+        issues.append(f"left edge ({x0}px < margin {margin}px)")
+    if x1 > w - margin:
+        issues.append(f"right edge ({x1}px > {w - margin}px)")
+    if y0 < margin:
+        issues.append(f"top edge ({y0}px < margin {margin}px)")
+    if y1 > h - margin:
+        issues.append(f"bottom edge ({y1}px > {h - margin}px)")
+    return ", ".join(issues) if issues else None
+
+
 def render_stanza_frame(
     stanza: Stanza,
     width: int,
@@ -322,6 +398,7 @@ def render_stanza_frame(
     shadow: bool = False,
     shadow_blur: list[int] = (18,),
     shadow_color_rgba: tuple[int, int, int, int] = (0, 0, 0, 255),
+    check_overflow: bool = False,
 ) -> Image.Image:
     """Render a single stanza onto a transparent RGBA image."""
     from PIL import ImageFilter
@@ -375,6 +452,15 @@ def render_stanza_frame(
         y = start_y + i * line_height
         draw.text((x, y), line, font=font, fill=text_color)
 
+    if check_overflow:
+        issue = check_frame_overflow(img, margin)
+        if issue:
+            print(
+                f"\n  Warning: text overflow in stanza [{stanza.section_id}]"
+                f" {stanza.text[:40]!r}: {issue}",
+                file=sys.stderr,
+            )
+
     return img
 
 
@@ -383,13 +469,18 @@ def stanza_hold_frames(
 ) -> int:
     """Return the hold frame count for a stanza.
 
-    With auto_timing: hold_secs is seconds-per-line; total hold scales with
-    line count, minimum 1 line's worth.
+    With auto_timing: hold_secs is seconds for the first line; additional lines
+    are discounted by a sqrt curve — each line adds less time than the last.
+    A 1-line stanza holds for hold_secs; a 4-line stanza holds for 2× hold_secs
+    (not 4×), matching the sublinear nature of reading multi-line text.
+
     Without auto_timing: fixed hold_secs for every stanza.
     """
+    import math
+
     if auto_timing:
         n_lines = max(1, len(stanza.lines))
-        return max(1, int(hold_secs * n_lines * fps))
+        return max(1, int(hold_secs * math.sqrt(n_lines) * fps))
     return max(1, int(hold_secs * fps))
 
 
@@ -482,6 +573,7 @@ def iter_frames(
             shadow,
             shadow_blur,
             shadow_color_rgba,
+            check_overflow=True,
         )
         for _ in range(stanza_hold_frames(stanza, hold_secs, fps, auto_timing)):
             yield img_full
@@ -764,7 +856,7 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--height", type=int, default=1080)
     p.add_argument("--font-size", type=int, default=72, metavar="PT")
     p.add_argument(
-        "--margin", type=int, default=200, metavar="PX", help="Horizontal text margin"
+        "--margin", type=int, default=120, metavar="PX", help="Horizontal text margin"
     )
     p.add_argument("--color", default="#f5f0e8", metavar="HEX", help="Text colour")
     p.add_argument("--shadow", action="store_true", help="Add centred glow shadow")
@@ -794,6 +886,11 @@ def build_parser() -> argparse.ArgumentParser:
         "--list-sections",
         action="store_true",
         help="List available section IDs and exit",
+    )
+    p.add_argument(
+        "--dry-run",
+        action="store_true",
+        help="Run layout check only — print all stanzas that overflow and exit (no rendering)",
     )
     p.add_argument(
         "--frames-only",
@@ -876,6 +973,36 @@ def main():
     print(
         f"Estimated duration: {mins}m {secs}s  ({len(stanzas)} stanzas × {stanza_secs:.1f}s + {title_secs:.1f}s title)"
     )
+
+    # --- Heuristic pre-render fit check ---
+    fit_warnings = check_stanzas_fit(
+        stanzas, args.width, args.height, args.font_size, args.margin
+    )
+    if fit_warnings:
+        print(
+            f"  Warning: {len(fit_warnings)} stanza(s) may not fit at font-size {args.font_size}:",
+            file=sys.stderr,
+        )
+        for stanza, reason in fit_warnings:
+            print(
+                f"    [{stanza.section_id}] {stanza.text[:50]!r} — {reason}",
+                file=sys.stderr,
+            )
+    else:
+        print(
+            f"  Layout check: all {len(stanzas)} stanzas fit within {args.width}×{args.height} at font-size {args.font_size}."
+        )
+
+    if args.dry_run:
+        if fit_warnings:
+            print(f"\n--- DRY RUN: {len(fit_warnings)} overflowing stanza(s) ---\n")
+            for stanza, reason in fit_warnings:
+                print(f"[{stanza.section_id}] {reason}")
+                print(stanza.text)
+                print()
+        else:
+            print(f"\nDRY RUN: all {len(stanzas)} stanzas fit. No issues.")
+        return
 
     if args.frames_only:
         frames_dir = Path(args.frames_only)
