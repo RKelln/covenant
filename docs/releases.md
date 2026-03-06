@@ -149,3 +149,80 @@ an open-questions lifecycle that routes new references into review rounds.
     in notes files with round/outcome notation
 -   `references/README.md`: Tier A notes format documented; references-as-amendment-engine
     lifecycle and known structural gaps summarised
+
+### v0.2.2 — Ritual video renderer, section rhythm fixes, and cross-reference links
+
+Introduces a full ritual video renderer (`build/video.py`) that pipes
+Pillow-rendered text frames into FFmpeg for HEVC output — enabling the
+Covenant text to be rendered as a contemplative video artifact. Ritual
+stanza spacing is tightened in four sections. Website reading pages gain
+working cross-reference anchor links between sections.
+
+**Covenant text**
+-   Stanza spacing restored in four sections — blank lines added between
+    stanzas in `rights.truth-and-transparency`, `obligations.honesty`,
+    `obligations.nature-under-uncertainty`, and `amendments` to clarify
+    rhythmic breaks in the Ritual register
+
+**Build tools**
+-   `build/video.py`: new ritual video renderer — parses stanzas from
+    `dist/covenant.ritual.md`, renders RGBA overlay frames with Pillow, and
+    pipes them directly into FFmpeg (no temp files); outputs HEVC/libx265 at
+    CRF 22 with `hvc1` tag for broad compatibility
+
+    Title card sequence: the Covenant mark fades in first, then the wordmark
+    fades in beneath it, the full card holds, then fades out before stanzas begin.
+
+    Per-stanza animation: each stanza fades in, holds at full opacity, fades
+    out, then a silent gap plays before the next stanza.
+
+    Full CLI options:
+
+    | Option | Default | Description |
+    |---|---|---|
+    | `--bg PATH` | *(required)* | Background video to loop |
+    | `--out PATH` | `dist/covenant_ritual.mp4` | Output file |
+    | `--ritual PATH` | `dist/covenant.ritual.md` | Ritual markdown to parse |
+    | `--fps INT` | 30 | Frames per second |
+    | `--hold SECS` | 5.0 | Seconds each stanza is fully visible |
+    | `--fade SECS` | 1.5 | Fade in / fade out duration |
+    | `--gap SECS` | 0.5 | Silent gap between stanzas |
+    | `--title-hold SECS` | 4.0 | Seconds title card is fully visible |
+    | `--title-fade SECS` | 1.5 | Fade duration for title card elements |
+    | `--logo-scale FRAC` | 0.44 | Logo height as fraction of frame height |
+    | `--width INT` | 1920 | Output width in pixels |
+    | `--height INT` | 1080 | Output height in pixels |
+    | `--font-size PT` | 72 | Base font size in points (Cormorant Garamond) |
+    | `--margin PX` | 120 | Horizontal text margin in pixels |
+    | `--color HEX` | `#f5f0e8` | Text colour |
+    | `--shadow` | off | Add centred Gaussian glow shadow behind text |
+    | `--shadow-blur PX[,PX...]` | 18 | Comma-separated blur radii stacked additively |
+    | `--shadow-color HEX` | `000000FF` | Shadow colour as hex RGB or RGBA |
+    | `--darken AMOUNT` | 0.0 | Highlight rolloff 0–1: compresses bright pixels while leaving shadows alone |
+    | `--auto-timing` | off | Scale hold time with stanza line count using sqrt curve (sublinear) |
+    | `--sections ID,ID,...` | all | Comma-separated section IDs to include |
+    | `--list-sections` | — | Print available section IDs and exit |
+    | `--dry-run` | — | Layout check only — print overflowing stanzas and exit without rendering |
+    | `--preview SECS` | — | Render only the first N seconds (title card + stanzas that fit) |
+    | `--frames-only DIR` | — | Write PNG frames to DIR and exit, skipping FFmpeg |
+    | `--seamless-loop` | off | Pad tail to next multiple of background video duration |
+
+    Performance: stanza frames rendered once at full opacity; fade frames
+    derived via alpha channel scaling — eliminates ~90× redundant font loads
+    per stanza. Logo tinted once per invocation — eliminates ~135 redundant
+    PNG decode/resize cycles per title card.
+
+-   `settings/era_cycle.args`: known-good render parameters for the Era Cycle
+    video (readable by the `@`-file argparse prefix, e.g.
+    `uv run python build/video.py @settings/era_cycle.args`)
+
+**Website & design**
+-   Section cross-reference links (`§[section-id]` syntax) now resolve to
+    in-page anchor links in `ritual.html`, `spec.html`, and `covenant.html`
+-   Cross-reference links styled with dotted underline and no color change —
+    visually subordinate to prose, consistent with the document's typographic register
+
+**Infrastructure**
+-   `installations/artspace-ptbo-2027/`: artist statement, image list, and
+    technical requirements updated; `image-list.md` added with installation
+    image documentation

@@ -15,6 +15,8 @@
 - Anthropic's Claude Constitution
   - https://www.anthropic.com/constitution
 - https://sammyjankis.com/
+- https://github.com/agentic-phenomenology/ai-phenomenology-lexicon
+- 
 
 ## Potential References to Verify and Add
 - [anthropic_2026_constitution]: Anthropic's "Claude's Constitution"
