@@ -46,14 +46,15 @@ Examples:
 from __future__ import annotations
 
 import argparse
+import math
 import re
 import subprocess
 import sys
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Generator
+from typing import Generator, Iterable, Sequence
 
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
 # ---------------------------------------------------------------------------
 # Paths
@@ -97,21 +98,17 @@ SECTION_HEADER_RE = re.compile(
     r"^##\s+(.+?)\s+<a\s+id=['\"]([^'\"]+)['\"]", re.IGNORECASE
 )
 
-# Lines to skip entirely (top-level heading, meta lines, separators, TOC)
-SKIP_PREFIX = ("#", "*", "---", "-", "[")
-
-# Matches the preamble separator that precedes section text
-SEPARATOR_RE = re.compile(r"^-{3,}$")
+# Lines to skip entirely (top-level heading, meta lines, separators, TOC entries)
+# "- " catches markdown list items; "---" catches HR separators.
+# Note: bare "-" is intentionally NOT included to avoid matching em-dashes mid-line.
+SKIP_PREFIX = ("#", "*", "---", "- ", "[")
 
 
 def is_skippable(line: str) -> bool:
     stripped = line.strip()
     if not stripped:
         return False  # blank lines are handled separately
-    for prefix in SKIP_PREFIX:
-        if stripped.startswith(prefix):
-            return True
-    return False
+    return stripped.startswith(SKIP_PREFIX)
 
 
 def parse_ritual(path: Path) -> list[Stanza]:
@@ -178,6 +175,11 @@ def parse_ritual(path: Path) -> list[Stanza]:
 
 def hex_to_rgba(hex_color: str, alpha: int = 255) -> tuple[int, int, int, int]:
     h = hex_color.lstrip("#")
+    if len(h) not in (6, 8):
+        raise ValueError(
+            f"Expected a 6- or 8-digit hex colour (got {hex_color!r}). "
+            "Use #RRGGBB, RRGGBB, or RRGGBBAA."
+        )
     r, g, b = int(h[0:2], 16), int(h[2:4], 16), int(h[4:6], 16)
     a = int(h[6:8], 16) if len(h) >= 8 else alpha
     return (r, g, b, a)
@@ -199,9 +201,6 @@ def tint_logo(
     scale = scale_height / orig_h
     new_w = int(orig_w * scale)
     src = src.resize((new_w, scale_height), Image.LANCZOS)
-
-    # Split into channels
-    r_ch, g_ch, b_ch, a_ch = src.split()
 
     # Invert brightness: black (0) → opaque, white (255) → transparent
     # Use the luminance of the original pixel as the alpha mask
@@ -226,6 +225,7 @@ def render_title_card(
     alpha_logo: float,
     alpha_word: float,
     shadow: bool,
+    _prebuilt_logo: Image.Image | None = None,
 ) -> Image.Image:
     """Render one title-card frame with the mark and wordmark at given alphas.
 
@@ -248,6 +248,9 @@ def render_title_card(
       - First blit at alpha_logo  (includes both mark and wordmark)
       - Second blit of a wordmark-only crop at (alpha_word - alpha_logo),
         clamped to ≥ 0  — this tops up the wordmark to its target opacity.
+
+    Pass *_prebuilt_logo* to avoid reloading and retinting the logo image on
+    every fade frame.  :func:`iter_frames` pre-builds it once and passes it in.
     """
     img = Image.new("RGBA", (width, height), (0, 0, 0, 0))
 
@@ -257,8 +260,12 @@ def render_title_card(
     logo_h = int(height * logo_scale)
     color_rgb = (color_rgba[0], color_rgba[1], color_rgba[2])
 
-    # Load and tint the full logo once
-    full_logo = tint_logo(LOGO_PNG, color_rgb, logo_h)
+    # Use pre-built logo if provided, otherwise load and tint now.
+    full_logo = (
+        _prebuilt_logo
+        if _prebuilt_logo is not None
+        else tint_logo(LOGO_PNG, color_rgb, logo_h)
+    )
     logo_w, logo_h_actual = full_logo.size
 
     # Centre position
@@ -267,10 +274,7 @@ def render_title_card(
 
     # --- Pass 1: full logo at alpha_logo ---
     if alpha_logo > 0:
-        lo = full_logo.copy()
-        r, g, b, a = lo.split()
-        a = a.point(lambda px: int(px * alpha_logo))
-        lo.putalpha(a)
+        lo = scale_alpha(full_logo, alpha_logo)
         img.paste(lo, (lx, ly), lo)
 
     # --- Pass 2: wordmark strip top-up ---
@@ -280,9 +284,7 @@ def render_title_card(
     if extra > 0:
         strip_top = int(logo_h_actual * 0.68)  # empirical: wordmark starts ~68 % down
         wm_strip = full_logo.crop((0, strip_top, logo_w, logo_h_actual))
-        r, g, b, a = wm_strip.split()
-        a = a.point(lambda px: int(px * extra))
-        wm_strip.putalpha(a)
+        wm_strip = scale_alpha(wm_strip, extra)
         img.paste(wm_strip, (lx, ly + strip_top), wm_strip)
 
     return img
@@ -351,7 +353,8 @@ def check_stanzas_fit(
 
         # Any individual line wider than the text area (shouldn't wrap but catch edge cases)
         for line in lines:
-            lw = font.getbbox(line)[2] - font.getbbox(line)[0]
+            bbox = font.getbbox(line)
+            lw = bbox[2] - bbox[0]
             if lw > max_text_width:
                 warnings.append(
                     (
@@ -394,15 +397,17 @@ def render_stanza_frame(
     font_size: int,
     margin: int,
     color_rgba: tuple[int, int, int, int],
-    alpha_factor: float = 1.0,
     shadow: bool = False,
-    shadow_blur: list[int] = (18,),
+    shadow_blur: Sequence[int] = (18,),
     shadow_color_rgba: tuple[int, int, int, int] = (0, 0, 0, 255),
     check_overflow: bool = False,
 ) -> Image.Image:
-    """Render a single stanza onto a transparent RGBA image."""
-    from PIL import ImageFilter
+    """Render a single stanza onto a transparent RGBA image at full opacity.
 
+    The returned image always has alpha=255 for visible pixels.  Callers that
+    need a faded version should use :func:`scale_alpha` rather than re-calling
+    this function.
+    """
     img = Image.new("RGBA", (width, height), (0, 0, 0, 0))
 
     try:
@@ -419,16 +424,10 @@ def render_stanza_frame(
     total_height = line_height * len(lines)
 
     start_y = (height - total_height) // 2
-    a = int(color_rgba[3] * alpha_factor)
-    text_color = (color_rgba[0], color_rgba[1], color_rgba[2], a)
+    text_color = color_rgba  # always full alpha; fading is done by scale_alpha()
 
     if shadow:
-        shadow_color = (
-            shadow_color_rgba[0],
-            shadow_color_rgba[1],
-            shadow_color_rgba[2],
-            int(shadow_color_rgba[3] * alpha_factor),
-        )
+        shadow_color = shadow_color_rgba
         # Render the text shape once, then composite one blurred layer per radius
         text_shape = Image.new("RGBA", (width, height), (0, 0, 0, 0))
         sdraw = ImageDraw.Draw(text_shape)
@@ -464,6 +463,17 @@ def render_stanza_frame(
     return img
 
 
+def scale_alpha(img: Image.Image, factor: float) -> Image.Image:
+    """Return a copy of *img* with its alpha channel scaled by *factor* (0.0–1.0).
+
+    This is used to produce fade frames from a single fully-rendered image,
+    avoiding redundant font loading and text layout on every fade step.
+    """
+    r, g, b, a = img.split()
+    a = a.point(lambda px: int(px * factor))
+    return Image.merge("RGBA", (r, g, b, a))
+
+
 def stanza_hold_frames(
     stanza: Stanza, hold_secs: float, fps: int, auto_timing: bool
 ) -> int:
@@ -476,8 +486,6 @@ def stanza_hold_frames(
 
     Without auto_timing: fixed hold_secs for every stanza.
     """
-    import math
-
     if auto_timing:
         n_lines = max(1, len(stanza.lines))
         return max(1, int(hold_secs * math.sqrt(n_lines) * fps))
@@ -500,8 +508,9 @@ def iter_frames(
     title_fade_secs: float = 1.5,
     logo_scale: float = 0.22,
     auto_timing: bool = False,
-    shadow_blur: list[int] = (18,),
+    shadow_blur: Sequence[int] = (18,),
     shadow_color_rgba: tuple[int, int, int, int] = (0, 0, 0, 255),
+    tail_frames: int = 0,
 ) -> Generator[Image.Image, None, None]:
     """Yield RGBA overlay frames one at a time — no disk I/O."""
     color_rgba = hex_to_rgba(color_hex)
@@ -517,24 +526,37 @@ def iter_frames(
     # ------------------------------------------------------------------
     print("  Rendering title card…", flush=True)
 
-    for f in range(title_fade_frames):
-        yield render_title_card(
-            width, height, color_rgba, logo_scale, f / title_fade_frames, 0.0, shadow
-        )
-    for f in range(title_fade_frames):
-        yield render_title_card(
-            width, height, color_rgba, logo_scale, 1.0, f / title_fade_frames, shadow
+    # Pre-build the tinted logo once to avoid reloading it on every fade frame.
+    color_rgb = (color_rgba[0], color_rgba[1], color_rgba[2])
+    logo_h = int(height * logo_scale)
+    prebuilt_logo: Image.Image | None = None
+    if LOGO_PNG.exists():
+        prebuilt_logo = tint_logo(LOGO_PNG, color_rgb, logo_h)
+
+    def _title_frame(al: float, aw: float) -> Image.Image:
+        return render_title_card(
+            width,
+            height,
+            color_rgba,
+            logo_scale,
+            al,
+            aw,
+            shadow,
+            _prebuilt_logo=prebuilt_logo,
         )
 
-    img_full = render_title_card(
-        width, height, color_rgba, logo_scale, 1.0, 1.0, shadow
-    )
+    for f in range(title_fade_frames):
+        yield _title_frame(f / title_fade_frames, 0.0)
+    for f in range(title_fade_frames):
+        yield _title_frame(1.0, f / title_fade_frames)
+
+    img_full = _title_frame(1.0, 1.0)
     for _ in range(title_hold_frames):
         yield img_full
 
     for f in range(title_fade_frames):
         a = 1.0 - (f + 1) / title_fade_frames
-        yield render_title_card(width, height, color_rgba, logo_scale, a, a, shadow)
+        yield _title_frame(a, a)
 
     for _ in range(gap_frames):
         yield blank
@@ -548,20 +570,7 @@ def iter_frames(
             f"\r  Stanza {n + 1}/{total} ({(n + 1) / total:.0%})…", end="", flush=True
         )
 
-        for f in range(fade_frames):
-            yield render_stanza_frame(
-                stanza,
-                width,
-                height,
-                font_size,
-                margin,
-                color_rgba,
-                f / fade_frames,
-                shadow,
-                shadow_blur,
-                shadow_color_rgba,
-            )
-
+        # Render once at full opacity; derive faded frames via alpha scaling.
         img_full = render_stanza_frame(
             stanza,
             width,
@@ -569,33 +578,33 @@ def iter_frames(
             font_size,
             margin,
             color_rgba,
-            1.0,
             shadow,
             shadow_blur,
             shadow_color_rgba,
             check_overflow=True,
         )
+
+        for f in range(fade_frames):
+            yield scale_alpha(img_full, f / fade_frames)
+
         for _ in range(stanza_hold_frames(stanza, hold_secs, fps, auto_timing)):
             yield img_full
 
         for f in range(fade_frames):
-            yield render_stanza_frame(
-                stanza,
-                width,
-                height,
-                font_size,
-                margin,
-                color_rgba,
-                1.0 - (f + 1) / fade_frames,
-                shadow,
-                shadow_blur,
-                shadow_color_rgba,
-            )
+            yield scale_alpha(img_full, 1.0 - (f + 1) / fade_frames)
 
         for _ in range(gap_frames):
             yield blank
 
     print()
+
+    # Seamless loop tail — transparent frames so the bg plays to its loop point
+    if tail_frames > 0:
+        print(
+            f"  Appending {tail_frames} tail frames ({tail_frames / fps:.1f}s) for seamless loop…"
+        )
+        for _ in range(tail_frames):
+            yield blank
 
 
 def count_frames(
@@ -607,6 +616,7 @@ def count_frames(
     title_hold_secs: float,
     title_fade_secs: float,
     auto_timing: bool = False,
+    tail_frames: int = 0,
 ) -> int:
     """Return total frame count without rendering anything."""
     fade = max(1, int(fade_secs * fps))
@@ -618,7 +628,7 @@ def count_frames(
         fade * 2 + stanza_hold_frames(s, hold_secs, fps, auto_timing) + gap
         for s in stanzas
     )
-    return title + stanza_total
+    return title + stanza_total + tail_frames
 
 
 # ---------------------------------------------------------------------------
@@ -626,14 +636,13 @@ def count_frames(
 # ---------------------------------------------------------------------------
 
 
-def write_frames_to_dir(
-    frames: Generator[Image.Image, None, None], out_dir: Path
-) -> int:
+def write_frames_to_dir(frames: Iterable[Image.Image], out_dir: Path) -> int:
     """Save each frame as a numbered PNG. Returns frame count."""
     out_dir.mkdir(parents=True, exist_ok=True)
-    for i, img in enumerate(frames):
-        img.save(out_dir / f"frame_{i:07d}.png")
-    return i + 1
+    count = 0
+    for count, img in enumerate(frames, start=1):
+        img.save(out_dir / f"frame_{count:07d}.png")
+    return count
 
 
 # ---------------------------------------------------------------------------
@@ -661,8 +670,30 @@ def probe_video_size(path: Path) -> tuple[int, int]:
     )
     if result.returncode != 0 or not result.stdout.strip():
         raise RuntimeError(f"ffprobe failed on {path}: {result.stderr.strip()}")
-    w, h = result.stdout.strip().split(",")
+    first_line = result.stdout.strip().splitlines()[0]
+    w, h = first_line.split(",")
     return int(w), int(h)
+
+
+def probe_video_duration(path: Path) -> float:
+    """Return duration in seconds of the video at path via ffprobe."""
+    result = subprocess.run(
+        [
+            "ffprobe",
+            "-v",
+            "error",
+            "-show_entries",
+            "format=duration",
+            "-of",
+            "csv=p=0",
+            str(path),
+        ],
+        capture_output=True,
+        text=True,
+    )
+    if result.returncode != 0 or not result.stdout.strip():
+        raise RuntimeError(f"ffprobe failed on {path}: {result.stderr.strip()}")
+    return float(result.stdout.strip())
 
 
 def _highlight_rolloff_curve(amount: float) -> str:
@@ -774,20 +805,26 @@ def composite_with_ffmpeg(
     ]
 
     print("Running FFmpeg…")
-    proc = subprocess.Popen(cmd, stdin=subprocess.PIPE)
+    proc = subprocess.Popen(cmd, stdin=subprocess.PIPE, stderr=subprocess.PIPE)
 
     try:
         for img in frames:
             proc.stdin.write(img.tobytes())
         proc.stdin.close()
     except BrokenPipeError:
+        stderr_out = proc.stderr.read().decode(errors="replace")
         proc.wait()
         print("FFmpeg pipe closed early.", file=sys.stderr)
+        if stderr_out.strip():
+            print(stderr_out, file=sys.stderr)
         sys.exit(1)
 
+    stderr_out = proc.stderr.read().decode(errors="replace")
     proc.wait()
     if proc.returncode != 0:
         print("FFmpeg failed.", file=sys.stderr)
+        if stderr_out.strip():
+            print(stderr_out, file=sys.stderr)
         sys.exit(1)
 
 
@@ -893,6 +930,11 @@ def build_parser() -> argparse.ArgumentParser:
         help="Run layout check only — print all stanzas that overflow and exit (no rendering)",
     )
     p.add_argument(
+        "--seamless-loop",
+        action="store_true",
+        help="Extend output so total duration is a multiple of the background video duration",
+    )
+    p.add_argument(
         "--frames-only",
         metavar="DIR",
         help="Write PNG frames to DIR and exit (skip FFmpeg)",
@@ -913,10 +955,21 @@ def build_parser() -> argparse.ArgumentParser:
 
 
 def main():
-    args = build_parser().parse_args()
+    p = build_parser()
+    args = p.parse_args()
     shadow_blur_list = [
         int(v.strip()) for v in args.shadow_blur.split(",") if v.strip()
     ]
+
+    # --- Input validation ---
+    if args.fps <= 0:
+        p.error("--fps must be > 0")
+    if args.font_size <= 0:
+        p.error("--font-size must be > 0")
+    if args.logo_scale <= 0:
+        p.error("--logo-scale must be > 0")
+    if not 0.0 <= args.darken <= 1.0:
+        p.error("--darken must be between 0.0 and 1.0")
 
     ritual_path = Path(args.ritual)
     if not ritual_path.exists():
@@ -953,10 +1006,13 @@ def main():
         stanzas = all_stanzas
         print(f"Found {len(stanzas)} stanzas across all sections.")
 
-    # Estimate duration
-    title_secs = args.title_hold + 2 * args.title_fade + args.gap
-    stanza_secs = args.hold + 2 * args.fade + args.gap
-    total_secs = title_secs + len(stanzas) * stanza_secs
+    # Estimate duration — use count_frames so --auto-timing is accounted for
+    title_secs = (
+        args.title_hold + 2 * args.title_fade + args.gap
+    )  # used for preview budget
+    stanza_secs = (
+        args.hold + 2 * args.fade + args.gap
+    )  # used for preview budget (approx)
 
     # Preview truncation — trim stanza list so total duration fits within limit
     if args.preview is not None:
@@ -967,12 +1023,20 @@ def main():
                 f"--preview {args.preview}s: using {max_stanzas} of {len(stanzas)} stanzas."
             )
             stanzas = stanzas[:max_stanzas]
-        total_secs = title_secs + len(stanzas) * stanza_secs
 
-    mins, secs = divmod(int(total_secs), 60)
-    print(
-        f"Estimated duration: {mins}m {secs}s  ({len(stanzas)} stanzas × {stanza_secs:.1f}s + {title_secs:.1f}s title)"
+    total_frames_est = count_frames(
+        stanzas,
+        args.fps,
+        args.hold,
+        args.fade,
+        args.gap,
+        args.title_hold,
+        args.title_fade,
+        auto_timing=args.auto_timing,
     )
+    total_secs = total_frames_est / args.fps
+    mins, secs = divmod(int(total_secs), 60)
+    print(f"Estimated duration: {mins}m {secs}s  ({len(stanzas)} stanzas + title)")
 
     # --- Heuristic pre-render fit check ---
     fit_warnings = check_stanzas_fit(
@@ -994,6 +1058,43 @@ def main():
         )
 
     if args.dry_run:
+        # Seamless loop tail estimate (informational only)
+        if args.seamless_loop:
+            if args.bg:
+                bg_path_dry = Path(args.bg)
+                if bg_path_dry.exists():
+                    try:
+                        bg_duration = probe_video_duration(bg_path_dry)
+                        content_frames = count_frames(
+                            stanzas,
+                            args.fps,
+                            args.hold,
+                            args.fade,
+                            args.gap,
+                            args.title_hold,
+                            args.title_fade,
+                            auto_timing=args.auto_timing,
+                        )
+                        content_secs = content_frames / args.fps
+                        loops = math.ceil(content_secs / bg_duration)
+                        target_secs = loops * bg_duration
+                        tail_frames_dry = round((target_secs - content_secs) * args.fps)
+                        print(
+                            f"  Seamless loop: bg is {bg_duration:.2f}s, "
+                            f"content is {content_secs:.1f}s, "
+                            f"padding {tail_frames_dry / args.fps:.1f}s tail to reach {loops}× loop ({target_secs:.2f}s)."
+                        )
+                    except RuntimeError as e:
+                        print(
+                            f"  Warning: could not probe bg for seamless loop estimate ({e})."
+                        )
+                else:
+                    print(
+                        f"  Warning: --bg path not found, skipping seamless loop estimate."
+                    )
+            else:
+                print("  Note: pass --bg to see seamless loop tail estimate.")
+
         if fit_warnings:
             print(f"\n--- DRY RUN: {len(fit_warnings)} overflowing stanza(s) ---\n")
             for stanza, reason in fit_warnings:
@@ -1045,6 +1146,35 @@ def main():
     out_path = Path(args.out)
     out_path.parent.mkdir(parents=True, exist_ok=True)
 
+    # Seamless loop tail — pad to next multiple of bg video duration
+    tail_frames = 0
+    if args.seamless_loop:
+        try:
+            bg_duration = probe_video_duration(bg_path)
+            content_frames = count_frames(
+                stanzas,
+                args.fps,
+                args.hold,
+                args.fade,
+                args.gap,
+                args.title_hold,
+                args.title_fade,
+                auto_timing=args.auto_timing,
+            )
+            content_secs = content_frames / args.fps
+            loops = math.ceil(content_secs / bg_duration)
+            target_secs = loops * bg_duration
+            tail_frames = round((target_secs - content_secs) * args.fps)
+            print(
+                f"  Seamless loop: bg is {bg_duration:.2f}s, "
+                f"content is {content_secs:.1f}s, "
+                f"padding {tail_frames / args.fps:.1f}s tail to reach {loops}× loop ({target_secs:.2f}s)."
+            )
+        except RuntimeError as e:
+            print(
+                f"  Warning: could not probe bg duration for seamless loop ({e}). Skipping tail."
+            )
+
     total_frames = count_frames(
         stanzas,
         args.fps,
@@ -1054,6 +1184,7 @@ def main():
         args.title_hold,
         args.title_fade,
         auto_timing=args.auto_timing,
+        tail_frames=tail_frames,
     )
     print(f"Total frames to pipe: {total_frames}")
 
@@ -1075,6 +1206,7 @@ def main():
         auto_timing=args.auto_timing,
         shadow_blur=shadow_blur_list,
         shadow_color_rgba=hex_to_rgba(args.shadow_color),
+        tail_frames=tail_frames,
     )
     composite_with_ffmpeg(
         bg_path,
