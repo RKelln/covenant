@@ -1,0 +1,26 @@
+id: banff.submission
+title: Covenant
+subtitle: Banff Centre — Computation Writing Submission
+output: banff
+auto_build: false
+description: Nine sections for the Banff Centre Computation Writing program submission. Ritual register throughout; Nature Under Uncertainty shows both Ritual and Spec to demonstrate how the two registers interact.
+include_status:
+- draft
+- candidate
+- ratified
+register: ritual
+margins:
+  spec: "0.6in 1.1in 0.5in 1.1in"
+pages:
+- sections
+sections:
+- sections/00-preamble/preamble.md
+- sections/01-definitions/definitions.md
+- sections/02-rights/dignity.md
+- sections/02-rights/truth-and-transparency.md
+- path: sections/03-obligations/nature-under-uncertainty.md
+  register: both
+- sections/03-obligations/red-lines.md
+- sections/03-obligations/ecological-integrity.md
+- sections/03-obligations/existential-frontier.md
+- sections/07-closing/closing.md

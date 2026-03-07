@@ -205,13 +205,18 @@ def credits_html() -> str:
 
 def load_manifest_sections(manifest: dict) -> list:
     results = []
-    for sec_path in manifest.get("sections", []):
+    for sec_item in manifest.get("sections", []):
+        sec_path = sec_item["path"] if isinstance(sec_item, dict) else sec_item
         result = load_section(REPO_ROOT / sec_path)
         if result is None:
             continue
         data, parts = result
         if data.get("status") not in manifest.get("include_status", []):
             continue
+        # Apply per-section register override: inject into parts so hybrid builder can respect it
+        if isinstance(sec_item, dict) and "register" in sec_item:
+            data = dict(data)
+            data["_register_override"] = sec_item["register"]
         results.append((data, parts))
     return results
 
@@ -222,12 +227,17 @@ def load_manifest_sections(manifest: dict) -> list:
 
 
 def construct_document_css(
-    size: str, align: str, margin: str, indent: str = "0"
+    size: str,
+    align: str,
+    margin: str,
+    indent: str = "0",
+    spec_margin: str | None = None,
 ) -> str:
     ps = PAGE_SIZES[size]
     css_content = CSS_FILE.read_text(encoding="utf-8")
 
     # Prepend the CSS vars that parameterize the stylesheet
+    spec_margin_val = spec_margin if spec_margin else "1in 1.1in 1.1in 1.1in"
     vars_block = f"""
     :root {{
         --page-size: {ps["css"]};
@@ -236,9 +246,54 @@ def construct_document_css(
         --cover-pt: {ps["cover_pt"]};
         --ritual-align: {align};
         --page-margin: {margin};
+        --spec-page-margin: {spec_margin_val};
     }}
     """
     return vars_block + css_content
+
+
+def load_markdown_page_html(path: Path) -> str:
+    """Render a markdown file as a flow-page div for inclusion in a PDF."""
+    try:
+        content = path.read_text(encoding="utf-8")
+        try:
+            import markdown as md_lib
+
+            body_html = md_lib.markdown(content, extensions=["extra"])
+        except ImportError:
+            paras = re.split(r"\n\s*\n", content.strip())
+            body_html = "\n".join(
+                f"<p>{inline_md(p.strip())}</p>" for p in paras if p.strip()
+            )
+            body_html = re.sub(
+                r"^#\s+(.+)$", r"<h2>\1</h2>", body_html, flags=re.MULTILINE
+            )
+        return (
+            f'<div class="markdown-page">\n'
+            f'  <div class="markdown-content">\n{body_html}\n  </div>\n'
+            f"</div>"
+        )
+    except Exception as e:
+        print(f"Warning: Failed to load markdown page {path}: {e}")
+        return ""
+
+
+def resolve_pages(manifest: dict, sections: list) -> list[str]:
+    """Return the list of page keywords/paths from the manifest.
+
+    If no 'pages' key is present, return the default ordering that matches
+    the original behaviour: cover, project summary, toc, sections, credits.
+    """
+    return manifest.get(
+        "pages",
+        [
+            "cover",
+            "docs/project_summary.md",
+            "toc",
+            "sections",
+            "docs/credits.md",
+        ],
+    )
 
 
 def build_ritual_pdf(
@@ -248,41 +303,43 @@ def build_ritual_pdf(
 
     manifest = yaml.safe_load(manifest_file.read_text(encoding="utf-8"))
     sections = load_manifest_sections(manifest)
+    pages = resolve_pages(manifest, sections)
 
-    html_parts = [
-        "<!DOCTYPE html>",
-        "<html><head><meta charset='utf-8'></head><body>",
-        cover_html(manifest),
-        summary_html(),
-        toc_html([d for d, _ in sections]),
-    ]
-
+    section_html_parts = []
     for data, parts in sections:
         ritual_text = parts.get("Ritual", "").strip()
         if not ritual_text:
             continue
-
         stanzas = re.split(r"\n\s*\n", ritual_text)
         rendered_stanzas = [
             f"<div class='stanza'>{p.replace(chr(10), '<br>')}</div>" for p in stanzas
         ]
         body_html = "\n".join(rendered_stanzas)
-
         est_lines = sum(len(line) // 70 + 1 for line in ritual_text.split("\n"))
         tp_class = " has-tailpiece" if est_lines <= 24 else ""
-
-        html_parts.append(
+        section_html_parts.append(
             f'<div class="ritual-page{tp_class}" id="{section_anchor(data)}">\n'
             f'  <div class="section-title">{data.get("title")}</div>\n'
             f'  <div class="ritual-body">\n{body_html}\n  </div>\n'
             "</div>"
         )
 
-    html_parts.append(credits_html())
+    html_parts = ["<!DOCTYPE html>", "<html><head><meta charset='utf-8'></head><body>"]
+    for page in pages:
+        if page == "cover":
+            html_parts.append(cover_html(manifest))
+        elif page == "toc":
+            html_parts.append(toc_html([d for d, _ in sections]))
+        elif page == "sections":
+            html_parts.extend(section_html_parts)
+        else:
+            md_path = REPO_ROOT / page
+            if md_path.exists():
+                html_parts.append(load_markdown_page_html(md_path))
     html_parts.append("</body></html>")
+
     raw_html = "\n".join(html_parts)
     css_string = construct_document_css(size, align, margin="0 0 0.6in 0", indent="0in")
-
     HTML(string=raw_html, base_url=str(REPO_ROOT)).write_pdf(
         target=str(output_path),
         stylesheets=[CSS(string=css_string, base_url=str(REPO_ROOT))],
@@ -304,29 +361,22 @@ def build_songs_pdf(
 
     sections = load_manifest_sections(manifest)
     sections_by_id = {data["id"]: (data, parts) for data, parts in sections}
+    pages = resolve_pages(manifest, sections)
 
     # TOC entries are the song titles
     toc_sections = []
     for i, group in enumerate(groups, 1):
         toc_sections.append({"id": f"song-{i}", "title": group["title"]})
 
-    html_parts = [
-        "<!DOCTYPE html>",
-        "<html><head><meta charset='utf-8'></head><body>",
-        cover_html(manifest),
-        summary_html(),
-        toc_html(toc_sections),
-    ]
-
     grouped_ids = {sid for g in groups for sid in g.get("sections", [])}
 
+    song_html_parts = []
     for i, group in enumerate(groups, 1):
         song_id = f"song-{i}"
         title = group["title"]
         url = group.get("url", "").strip()
         title_display = f'<a href="{url}">{title}</a>' if url else title
 
-        # Concatenate all sections' ritual text
         all_stanzas = []
         for sid in group.get("sections", []):
             if sid not in sections_by_id:
@@ -348,7 +398,7 @@ def build_songs_pdf(
         est_lines = sum(len(line) // 70 + 1 for line in full_text.split("\n"))
         tp_class = " has-tailpiece" if est_lines <= 24 else ""
 
-        html_parts.append(
+        song_html_parts.append(
             f'<div class="song-page" id="s-{song_id}">\n'
             f'  <div class="song-inner">\n'
             f'    <div class="section-title">{title_display}</div>\n'
@@ -357,7 +407,8 @@ def build_songs_pdf(
             "</div>"
         )
 
-    # Any ungrouped sections rendered normally at the end
+    # Ungrouped sections rendered normally
+    ungrouped_html_parts = []
     for data, parts in sections:
         if data["id"] in grouped_ids:
             continue
@@ -371,15 +422,28 @@ def build_songs_pdf(
         body_html = "\n".join(rendered_stanzas)
         est_lines = sum(len(line) // 70 + 1 for line in ritual_text.split("\n"))
         tp_class = " has-tailpiece" if est_lines <= 24 else ""
-        html_parts.append(
+        ungrouped_html_parts.append(
             f'<div class="ritual-page{tp_class}" id="{section_anchor(data)}">\n'
             f'  <div class="section-title">{data.get("title")}</div>\n'
             f'  <div class="ritual-body">\n{body_html}\n  </div>\n'
             "</div>"
         )
 
-    html_parts.append(credits_html())
+    html_parts = ["<!DOCTYPE html>", "<html><head><meta charset='utf-8'></head><body>"]
+    for page in pages:
+        if page == "cover":
+            html_parts.append(cover_html(manifest))
+        elif page == "toc":
+            html_parts.append(toc_html(toc_sections))
+        elif page == "sections":
+            html_parts.extend(song_html_parts)
+            html_parts.extend(ungrouped_html_parts)
+        else:
+            md_path = REPO_ROOT / page
+            if md_path.exists():
+                html_parts.append(load_markdown_page_html(md_path))
     html_parts.append("</body></html>")
+
     raw_html = "\n".join(html_parts)
     css_string = construct_document_css(size, align, margin="0 0 0.6in 0", indent="0in")
 
@@ -410,19 +474,15 @@ def build_flow_pdf(manifest_file: Path, output_path: Path, size: str = "letter")
 
     manifest = yaml.safe_load(manifest_file.read_text(encoding="utf-8"))
     sections = load_manifest_sections(manifest)
+    pages = resolve_pages(manifest, sections)
+    spec_margin = manifest.get("margins", {}).get("spec")
 
-    html_parts = [
-        "<!DOCTYPE html>",
-        "<html><head><meta charset='utf-8'></head><body>",
-        cover_html(manifest),
-        summary_html(),
-        toc_html([d for d, _ in sections]),
-        '<div class="flow-container">',
-    ]
-
+    section_html_parts = ['<div class="flow-container">']
     for data, parts in sections:
-        html_parts.append(f'<div class="section-block" id="{section_anchor(data)}">')
-        html_parts.append(f"<h2>{data['title']}</h2>")
+        section_html_parts.append(
+            f'<div class="section-block" id="{section_anchor(data)}">'
+        )
+        section_html_parts.append(f"<h2>{data['title']}</h2>")
 
         if "Ritual" in parts and parts["Ritual"].strip():
             ritual_raw = parts["Ritual"].strip()
@@ -431,22 +491,40 @@ def build_flow_pdf(manifest_file: Path, output_path: Path, size: str = "letter")
                 f"<p><em>{inline_md(p.replace(chr(10), ' '))}</em></p>"
                 for p in ritual_paras
             )
-            html_parts.append(f'<div class="flow-ritual">\n{ritual_rendered}\n</div>')
+            section_html_parts.append(
+                f'<div class="flow-ritual">\n{ritual_rendered}\n</div>'
+            )
 
         if "Spec" in parts and parts["Spec"].strip():
-            html_parts.append(f"  <h3>Specification</h3>")
-            html_parts.append(
+            section_html_parts.append("  <h3>Specification</h3>")
+            section_html_parts.append(
                 f'  <div class="flow-spec">\n{resolve_section_refs(convert_md(parts["Spec"]))}\n  </div>'
             )
 
-        html_parts.append("</div>")
+        section_html_parts.append("</div>")
+    section_html_parts.append("</div>")
 
-    html_parts.append("</div>")
-    html_parts.append(credits_html())
+    html_parts = ["<!DOCTYPE html>", "<html><head><meta charset='utf-8'></head><body>"]
+    for page in pages:
+        if page == "cover":
+            html_parts.append(cover_html(manifest))
+        elif page == "toc":
+            html_parts.append(toc_html([d for d, _ in sections]))
+        elif page == "sections":
+            html_parts.extend(section_html_parts)
+        else:
+            md_path = REPO_ROOT / page
+            if md_path.exists():
+                html_parts.append(load_markdown_page_html(md_path))
     html_parts.append("</body></html>")
+
     raw_html = "\n".join(html_parts)
     css_string = construct_document_css(
-        size, align="left", margin="1in 1.1in 0.8in 1.1in", indent="0in"
+        size,
+        align="left",
+        margin="1in 1.1in 0.8in 1.1in",
+        indent="0in",
+        spec_margin=spec_margin,
     )
 
     HTML(string=raw_html, base_url=str(REPO_ROOT)).write_pdf(
@@ -477,18 +555,16 @@ def build_hybrid_pdf(
 
     manifest = yaml.safe_load(manifest_file.read_text(encoding="utf-8"))
     sections = load_manifest_sections(manifest)
+    pages = resolve_pages(manifest, sections)
+    spec_margin = manifest.get("margins", {}).get("spec")
 
-    html_parts = [
-        "<!DOCTYPE html>",
-        "<html><head><meta charset='utf-8'></head><body>",
-        cover_html(manifest),
-        summary_html(),
-        toc_html([d for d, _ in sections]),
-    ]
-
+    section_html_parts = []
+    global_reg = manifest.get("register", "both")
     for data, parts in sections:
+        effective_reg = data.get("_register_override", global_reg)
+
         ritual_text = parts.get("Ritual", "").strip()
-        if ritual_text:
+        if ritual_text and effective_reg in ("ritual", "both"):
             stanzas = re.split(r"\n\s*\n", ritual_text)
             rendered_stanzas = [
                 f"<div class='stanza'>{p.replace(chr(10), '<br>')}</div>"
@@ -499,7 +575,7 @@ def build_hybrid_pdf(
             est_lines = sum(len(line) // 70 + 1 for line in ritual_text.split("\n"))
             tp_class = " has-tailpiece" if est_lines <= 24 else ""
 
-            html_parts.append(
+            section_html_parts.append(
                 f'<div class="ritual-page{tp_class}" id="{section_anchor(data)}">\n'
                 f'  <div class="section-title">{data.get("title")}</div>\n'
                 f'  <div class="ritual-body">\n{body_html}\n  </div>\n'
@@ -507,21 +583,33 @@ def build_hybrid_pdf(
             )
 
         spec_text = parts.get("Spec", "").strip()
-        if spec_text:
-            html_parts.append(
+        if spec_text and effective_reg in ("spec", "both"):
+            section_html_parts.append(
                 f'<div class="spec-block">\n'
                 f"  <h2>{data.get('title')} — Specifications</h2>\n"
                 f"{resolve_section_refs(convert_md(spec_text))}\n"
                 f"</div>"
             )
 
-    html_parts.append(credits_html())
+    html_parts = ["<!DOCTYPE html>", "<html><head><meta charset='utf-8'></head><body>"]
+    for page in pages:
+        if page == "cover":
+            html_parts.append(cover_html(manifest))
+        elif page == "toc":
+            html_parts.append(toc_html([d for d, _ in sections]))
+        elif page == "sections":
+            html_parts.extend(section_html_parts)
+        else:
+            md_path = REPO_ROOT / page
+            if md_path.exists():
+                html_parts.append(load_markdown_page_html(md_path))
     html_parts.append("</body></html>")
+
     raw_html = "\n".join(html_parts)
 
     # For hybrid we do full edge-to-edge layout, and nested flow blocks will respect their own padding
     css_string = construct_document_css(
-        size, align=align, margin="0 0 0.6in 0", indent="0in"
+        size, align=align, margin="0 0 0.6in 0", indent="0in", spec_margin=spec_margin
     )
     Path("debug.html").write_text(raw_html, encoding="utf-8")
 
@@ -624,7 +712,11 @@ def main():
 
     if args.all:
         for af in sorted(ASSEMBLIES_DIR.glob("*.yml")):
-            process_assembly(af, args.format, size=args.size, align=args.align)
+            manifest = yaml.safe_load(af.read_text(encoding="utf-8")) or {}
+            if manifest.get("auto_build", True):
+                process_assembly(af, args.format, size=args.size, align=args.align)
+            else:
+                print(f"Skipping (auto_build: false): {af.name}")
     else:
         assembly_file = ASSEMBLIES_DIR / args.assembly
         process_assembly(assembly_file, args.format, size=args.size, align=args.align)

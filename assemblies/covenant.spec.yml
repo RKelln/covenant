@@ -7,6 +7,12 @@ include_status:
 - candidate
 - ratified
 register: spec
+pages:
+- cover
+- docs/project_summary.md
+- toc
+- sections
+- docs/credits.md
 sections:
 - sections/00-preamble/preamble.md
 - sections/01-definitions/definitions.md

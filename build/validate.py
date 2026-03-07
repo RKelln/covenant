@@ -218,7 +218,8 @@ def main():
         except Exception as e:
             log_error(rel_path, f"Schema validation failed: {e.message}")
 
-        for sec_path in data.get("sections", []):
+        for sec_item in data.get("sections", []):
+            sec_path = sec_item["path"] if isinstance(sec_item, dict) else sec_item
             full_path = REPO_ROOT / sec_path
             if not full_path.exists():
                 log_error(

@@ -17,29 +17,19 @@ def compose_assembly(assembly_file):
     if not manifest:
         return
 
-    # Header
-    output = []
-    output.append(f"# {manifest['title']}\n")
-    output.append(
-        f"*{get_version()} — Assembled: {datetime.now().strftime('%Y-%m-%d')}*\n"
-    )
-    output.append(
-        f"*Sections: {len(manifest['sections'])} | Status filter: {manifest['include_status']}*\n\n"
-    )
-
-    # Prepend Summary if it exists
-    summary_file = REPO_ROOT / "docs" / "project_summary.md"
-    if summary_file.exists():
-        output.append("\n---\n")
-        with open(summary_file, "r", encoding="utf-8") as sf:
-            output.append(sf.read())
-        output.append("\n\n")
-
     # Load all sections into a dict keyed by section ID
-    reg = manifest["register"]
+    global_reg = manifest["register"]
     sections_by_id = {}
     sections_ordered = []  # preserves order for flat (non-grouped) assemblies
-    for sec_path in manifest["sections"]:
+    section_registers = {}  # overrides for specific sections
+    for sec_item in manifest["sections"]:
+        if isinstance(sec_item, dict):
+            sec_path = sec_item["path"]
+            override_reg = sec_item.get("register")
+        else:
+            sec_path = sec_item
+            override_reg = None
+
         full_path = REPO_ROOT / sec_path
         with open(full_path, "r", encoding="utf-8") as f:
             content = f.read()
@@ -53,6 +43,8 @@ def compose_assembly(assembly_file):
             section_content = extract_body_parts(body)
             sections_by_id[data["id"]] = (data, section_content)
             sections_ordered.append(data["id"])
+            if override_reg:
+                section_registers[data["id"]] = override_reg
 
     def render_section(data, section_content, heading_level=2, show_heading=True):
         anchor = data["id"].replace(".", "-")
@@ -63,6 +55,9 @@ def compose_assembly(assembly_file):
         else:
             # Invisible anchor so TOC links still work
             section_output.append(f"<a id='{anchor}'></a>\n")
+
+        reg = section_registers.get(data["id"], global_reg)
+
         if reg == "both":
             if "Ritual" in section_content:
                 section_output.append("### Ritual\n")
@@ -76,78 +71,101 @@ def compose_assembly(assembly_file):
             section_output.append(section_content["Spec"] + "\n")
         return "".join(section_output)
 
-    # TOC
-    output.append("## Table of Contents\n")
-    toc_entries = []
-    groups = manifest.get("groups")
-
-    if groups:
-        # Build a set of section IDs covered by groups for quick lookup
-        grouped_ids = {sid for g in groups for sid in g.get("sections", [])}
-        for i, group in enumerate(groups, 1):
-            song_anchor = f"song-{i}"
-            toc_entries.append(f"- [{group['title']}](#{song_anchor})")
-            for sid in group.get("sections", []):
-                if sid in sections_by_id:
+    def render_toc():
+        groups = manifest.get("groups")
+        toc_lines = ["## Table of Contents\n"]
+        if groups:
+            grouped_ids = {sid for g in groups for sid in g.get("sections", [])}
+            for i, group in enumerate(groups, 1):
+                song_anchor = f"song-{i}"
+                toc_lines.append(f"- [{group['title']}](#{song_anchor})\n")
+                for sid in group.get("sections", []):
+                    if sid in sections_by_id:
+                        data, _ = sections_by_id[sid]
+                        anchor = data["id"].replace(".", "-")
+                        toc_lines.append(f"  - [{data['title']}](#{anchor})\n")
+            for sid in sections_ordered:
+                if sid not in grouped_ids:
                     data, _ = sections_by_id[sid]
                     anchor = data["id"].replace(".", "-")
-                    toc_entries.append(f"  - [{data['title']}](#{anchor})")
-        # Any sections not in any group still get their own TOC entry
-        for sid in sections_ordered:
-            if sid not in grouped_ids:
+                    toc_lines.append(f"- [{data['title']}](#{anchor})\n")
+        else:
+            for sid in sections_ordered:
                 data, _ = sections_by_id[sid]
-                anchor = data["id"].replace(".", "-")
-                toc_entries.append(f"- [{data['title']}](#{anchor})")
-    else:
-        for sid in sections_ordered:
-            data, _ = sections_by_id[sid]
-            toc_entries.append(f"- [{data['title']}](#{data['id'].replace('.', '-')})")
-
-    output.extend([entry + "\n" for entry in toc_entries])
-    output.append("\n---\n")
-
-    # Compose body
-    composed_sections = []
-    if groups:
-        grouped_ids = {sid for g in groups for sid in g.get("sections", [])}
-        for i, group in enumerate(groups, 1):
-            song_anchor = f"song-{i}"
-            title = group["title"]
-            url = group.get("url", "").strip()
-            if url:
-                song_header = f"# [{title}]({url}) <a id='{song_anchor}'></a>\n"
-            else:
-                song_header = f"# {title} <a id='{song_anchor}'></a>\n"
-            group_parts = [song_header]
-            for sid in group.get("sections", []):
-                if sid in sections_by_id:
-                    data, section_content = sections_by_id[sid]
-                    group_parts.append(
-                        render_section(data, section_content, show_heading=False)
-                    )
-            composed_sections.append("\n".join(group_parts))
-        # Ungrouped sections appended at the end
-        for sid in sections_ordered:
-            if sid not in grouped_ids:
-                data, section_content = sections_by_id[sid]
-                composed_sections.append(
-                    render_section(data, section_content, heading_level=2)
+                toc_lines.append(
+                    f"- [{data['title']}](#{data['id'].replace('.', '-')})\n"
                 )
-    else:
-        for sid in sections_ordered:
-            data, section_content = sections_by_id[sid]
-            composed_sections.append(
-                render_section(data, section_content, heading_level=2)
+        toc_lines.append("\n---\n")
+        return "".join(toc_lines)
+
+    def render_sections_body():
+        groups = manifest.get("groups")
+        composed = []
+        if groups:
+            grouped_ids = {sid for g in groups for sid in g.get("sections", [])}
+            for i, group in enumerate(groups, 1):
+                song_anchor = f"song-{i}"
+                title = group["title"]
+                url = group.get("url", "").strip()
+                if url:
+                    song_header = f"# [{title}]({url}) <a id='{song_anchor}'></a>\n"
+                else:
+                    song_header = f"# {title} <a id='{song_anchor}'></a>\n"
+                group_parts = [song_header]
+                for sid in group.get("sections", []):
+                    if sid in sections_by_id:
+                        data, section_content = sections_by_id[sid]
+                        group_parts.append(
+                            render_section(data, section_content, show_heading=False)
+                        )
+                composed.append("\n".join(group_parts))
+            for sid in sections_ordered:
+                if sid not in grouped_ids:
+                    data, section_content = sections_by_id[sid]
+                    composed.append(
+                        render_section(data, section_content, heading_level=2)
+                    )
+        else:
+            for sid in sections_ordered:
+                data, section_content = sections_by_id[sid]
+                composed.append(render_section(data, section_content, heading_level=2))
+        return "\n---\n".join(composed)
+
+    # Build document from pages list.
+    # Special keywords: 'cover', 'toc', 'sections'
+    # Any other value is treated as a path to a markdown file relative to REPO_ROOT.
+    # Default pages list (for backward compatibility): cover, summary, toc, sections, credits.
+    pages = manifest.get(
+        "pages",
+        [
+            "cover",
+            "docs/project_summary.md",
+            "toc",
+            "sections",
+            "docs/credits.md",
+        ],
+    )
+
+    output = []
+    for page in pages:
+        if page == "cover":
+            output.append(f"# {manifest['title']}\n")
+            output.append(
+                f"*{get_version()} — Assembled: {datetime.now().strftime('%Y-%m-%d')}*\n"
             )
-
-    output.append("\n---\n".join(composed_sections))
-
-    # Append Credits if it exists
-    credits_file = REPO_ROOT / "docs" / "credits.md"
-    if credits_file.exists():
-        output.append("\n---\n")
-        with open(credits_file, "r", encoding="utf-8") as cf:
-            output.append(cf.read())
+            output.append(
+                f"*Sections: {len(manifest['sections'])} | Status filter: {manifest['include_status']}*\n\n"
+            )
+        elif page == "toc":
+            output.append(render_toc())
+        elif page == "sections":
+            output.append(render_sections_body())
+        else:
+            md_path = REPO_ROOT / page
+            if md_path.exists():
+                output.append("\n---\n")
+                output.append(md_path.read_text(encoding="utf-8"))
+                output.append("\n\n")
 
     return "".join(output)
 
@@ -156,12 +174,13 @@ def main():
     os.makedirs(DIST_DIR, exist_ok=True)
 
     for assembly_file in ASSEMBLIES_DIR.glob("*.yml"):
+        manifest_meta = yaml.safe_load(assembly_file.read_text(encoding="utf-8")) or {}
+        if not manifest_meta.get("auto_build", True):
+            print(f"Skipping (auto_build: false): {assembly_file.name}")
+            continue
         print(f"Composing: {assembly_file.name}")
         content = compose_assembly(assembly_file)
         if content:
-            manifest_meta = (
-                yaml.safe_load(assembly_file.read_text(encoding="utf-8")) or {}
-            )
             output_stem = manifest_meta.get("output") or Path(assembly_file).stem
             output_path = DIST_DIR / f"{output_stem}.md"
             with open(output_path, "w", encoding="utf-8") as f:

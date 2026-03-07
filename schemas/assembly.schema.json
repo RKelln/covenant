@@ -39,13 +39,53 @@
     "sections": {
       "type": "array",
       "items": {
+        "oneOf": [
+          { "type": "string" },
+          {
+            "type": "object",
+            "required": ["path"],
+            "additionalProperties": false,
+            "properties": {
+              "path": {
+                "type": "string",
+                "description": "Section file path relative to repo root"
+              },
+              "register": {
+                "type": "string",
+                "enum": ["ritual", "spec", "both"],
+                "description": "Register override for this section"
+              }
+            }
+          }
+        ]
+      },
+      "description": "Ordered list of section file paths (strings) or objects with path and optional register override"
+    },
+    "pages": {
+      "type": "array",
+      "items": {
         "type": "string"
       },
-      "description": "Ordered list of section file paths relative to repo root"
+      "description": "Ordered list of pages to include in the document. Each entry is either a special keyword ('cover', 'toc', 'sections') or a markdown file path relative to repo root."
     },
     "output": {
       "type": "string",
       "description": "Optional output filename stem (without extension) to override the default derived from the assembly filename"
+    },
+    "margins": {
+      "type": "object",
+      "description": "Optional margin overrides for specific page types in the PDF output",
+      "additionalProperties": false,
+      "properties": {
+        "spec": {
+          "type": "string",
+          "description": "CSS margin shorthand for spec pages (e.g. '0.6in 1.1in 0.5in 1.1in'). Default: '1in 1.1in 1.1in 1.1in'"
+        }
+      }
+    },
+    "auto_build": {
+      "type": "boolean",
+      "description": "If false, this assembly is skipped during 'make compose', 'make pdf --all', etc. Build it explicitly with 'make pdf ASSEMBLY=...' (default: true)"
     },
     "groups": {
       "type": "array",
