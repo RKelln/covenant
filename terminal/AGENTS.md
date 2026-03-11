@@ -151,61 +151,22 @@ Always add a note in the Log section at the bottom of `tasks.md` when a signific
 
 ---
 
-## Directory Structure (enforced)
+## Directory structure
 
-```
-terminal/src/
-├── lib/                    Pure TypeScript — no Svelte, no Tauri imports (except platform-tauri.ts)
-│   ├── platform.ts         Platform interface (THE abstraction boundary)
-│   ├── platform-tauri.ts   Tauri implementation (the only file that imports @tauri-apps/*)
-│   ├── platform-web.ts     Web implementation (fetch, localStorage, shell stubs)
-│   ├── agents/             AI provider adapters
-│   ├── council/            Multi-agent dispatch + synthesis
-│   ├── covenant/           Section parser, types, loader (pure TS, no platform dep)
-│   ├── amendment/          Amendment drafting, validation, commit, moderation
-│   ├── cost/               Material Cost Display ledger
-│   └── config/             TerminalConfig types and loader
-│
-├── components/             Svelte components — import from lib/ only
-│   └── __tests__/          Component tests (vitest-browser-svelte)
-│
-└── views/                  Top-level view containers (App.svelte switches between these)
-```
-
-If a new file's natural home is ambiguous, default to `lib/` for logic and `components/` for anything that renders Svelte markup.
+See `README.md` for the annotated directory tree. The structural rule that matters here: if a new file's natural home is ambiguous, default to `lib/` for logic and `components/` for anything that renders Svelte markup.
 
 ---
 
-## Environment and Tooling
+## Commands reference
 
-### Running the app
+See `README.md` for setup, prerequisites, and all run/test/build commands.
 
-```bash
-# from terminal/
-npx @tauri-apps/cli tauri dev          # dev server + Tauri window (full hot-reload)
-npx @tauri-apps/cli tauri dev --no-watch  # dev server, no file-watching (faster cold start)
-```
+The one command to remember: always run `npm test -- --run` from `terminal/` before presenting a milestone for review.
 
-Requires: Rust 1.82+, system WebKit libraries (`libwebkit2gtk-4.1-dev` on Linux). Icons must exist in `src-tauri/icons/` — generate with `npx @tauri-apps/cli icon <source-image>`.
-
-### Environment variables
-
-The `.env` file is at the **repo root** (not `terminal/`). `vite.config.ts` loads it from `resolve(__dirname, '..')`. Available in the app as `import.meta.env.VITE_OPENROUTER_API_KEY`.
-
-Do not commit `.env`. It is in the root `.gitignore`.
-
-### Build
-
-```bash
-npm run build          # Vite build (frontend only — for SvelteKit migration later)
-npx @tauri-apps/cli tauri build   # full Tauri production build
-```
-
-### Validate the repo
-
+For Covenant structural validation (sections, glossary, frontmatter):
 ```bash
 # from repo root (not terminal/)
-make validate    # structural checks on Covenant sections — must pass before any commit
+make validate
 ```
 
 ---
@@ -224,17 +185,9 @@ These are load-bearing. Read `plan.md` for full rationale.
 
 ---
 
-## Milestone Status
+## Milestone status
 
-| Milestone | Status |
-|---|---|
-| M0 — Project scaffold | Complete |
-| M1 — Readable document | Complete |
-| M2 — Single-agent Q&A | Complete |
-| M3 — Council panel | Complete |
-| M4 — Amendment workflow | Not started |
-| M5 — Kiosk mode | Not started |
-| M6 — Web deployment | Not started |
+See `README.md` for the current milestone status table.
 
 ---
 
