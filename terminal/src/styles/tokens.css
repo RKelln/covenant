@@ -1,0 +1,46 @@
+/* Design tokens from docs/design.md */
+:root {
+  /* Palette */
+  --color-ivory: #fdfcfa;
+  --color-charcoal: #2a2a2a;
+  --color-charcoal-mid: #4a4a4a;
+  --color-charcoal-muted: #6a6a6a;
+  --color-rule: rgba(42, 42, 42, 0.15);
+  --color-rule-strong: rgba(42, 42, 42, 0.35);
+
+  /* Dark/gallery mode colors (used under [data-theme="dark"]) */
+  --color-bg: var(--color-ivory);
+  --color-text: var(--color-charcoal);
+  --color-text-mid: var(--color-charcoal-mid);
+  --color-text-muted: var(--color-charcoal-muted);
+
+  /* Type scale (from design.md) */
+  --type-display: 2rem;       /* Section titles */
+  --type-body: 1.125rem;      /* Body text */
+  --type-ui: 0.875rem;        /* UI chrome */
+  --type-meta: 0.75rem;       /* Labels, metadata */
+
+  /* Line heights */
+  --leading-ritual: 1.8;      /* Ritual register — breathable */
+  --leading-spec: 1.5;        /* Spec register — tighter */
+  --leading-ui: 1.4;
+
+  /* Spacing scale */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 2rem;
+  --space-xl: 4rem;
+
+  /* Separator */
+  --separator-weight: 1px;
+}
+
+[data-theme="dark"] {
+  --color-bg: #1a1a18;
+  --color-text: #f0ece4;
+  --color-text-mid: #c8c4bc;
+  --color-text-muted: #8a8680;
+  --color-rule: rgba(240, 236, 228, 0.12);
+  --color-rule-strong: rgba(240, 236, 228, 0.28);
+}

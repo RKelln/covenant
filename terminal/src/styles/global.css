@@ -1,0 +1,45 @@
+@import './tokens.css';
+@import './typography.css';
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: var(--type-body);
+  line-height: var(--leading-ui);
+}
+
+#app {
+  height: 100%;
+}
+
+/* § separator motif */
+.separator-section {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  color: var(--color-text-muted);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: var(--type-ui);
+  margin: var(--space-lg) 0;
+}
+
+.separator-section::after {
+  content: '';
+  flex: 1;
+  height: var(--separator-weight);
+  background-color: var(--color-rule);
+}
+
+hr.hairline {
+  border: none;
+  border-top: var(--separator-weight) solid var(--color-rule);
+  margin: var(--space-lg) 0;
+}
