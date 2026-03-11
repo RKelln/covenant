@@ -13,6 +13,8 @@ repository and governance decisions.
   IDs, alias policy, and cross-reference conventions.
 - [0004-section-file-layout.md](0004-section-file-layout.md) — Section bundle
   filename/path convention and migration away from nested `section.md` files.
+- [0005-terminal-architecture.md](0005-terminal-architecture.md) — Covenant
+  Terminal stack, platform abstraction, and repo placement decisions.
 
 ## Conventions
 
