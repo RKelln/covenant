@@ -5,14 +5,14 @@ This directory contains the curated source materials that inform the Covenant.
 ## Structure
 
 - `references.yml` — structured metadata for all references
-- `notes/<slug>.md` — operationalization notes for Tier A references
+- `notes/<slug>.md` — operationalization notes for Tier A and Tier B references
 
 ## Reference Tiers
 
 - **Tier A (load-bearing):** Directly shapes specific sections. Must have
   full entry in `references.yml` + notes file in `notes/`.
-- **Tier B (supporting):** Provides context or background. Entry in
-  `references.yml` only.
+- **Tier B (supporting):** Provides important context or background. Must have
+  full entry in `references.yml` + notes file in `notes/`.
 - **Tier C (reading room):** Tangentially relevant. Entry in
   `references.yml` only; minimal metadata acceptable.
 
@@ -32,9 +32,9 @@ Examples:
 - `benjamin_1936_mechanical-reproduction`
 - `anthropic_2026_constitutional-ai`
 
-## Tier A Notes File Format
+## Notes File Format (Tier A and Tier B)
 
-Every Tier A reference has a notes file at `notes/<slug>.md`. The structure is:
+Every Tier A and Tier B reference has a notes file at `notes/<slug>.md`. The structure is:
 
 ```markdown
 # [Title]
@@ -43,7 +43,7 @@ Every Tier A reference has a notes file at `notes/<slug>.md`. The structure is:
 **Year:** ...
 **URL:** ...
 **License:** ...
-**Tier:** A
+**Tier:** [A|B]
 
 ## Thesis
 

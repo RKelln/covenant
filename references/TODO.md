@@ -5,6 +5,19 @@
   - https://coevolution.fas.harvard.edu/sites/g/files/omnuum5841/files/culture_cognition_coevol_lab/files/which_humans_09222023.pdf
 
 # Blogs / writing
+- AI Now Reframing series:
+  - https://ainowinstitute.org/publications/open-source
+  - https://ainowinstitute.org/publications/sovereignty
+  - https://ainowinstitute.org/publications/multilateralism
+  - https://ainowinstitute.org/publications/linguistic-diversity
+  - https://ainowinstitute.org/publications/accountability
+  - https://ainowinstitute.org/publications/democratization
+  - https://ainowinstitute.org/publications/ai-for-good
+  - https://ainowinstitute.org/publications/frugal-ai
+  - https://ainowinstitute.org/publications/usha-ramanathan-ai-and-development
+  - https://ainowinstitute.org/publications/naomi-klein-climate
+  - https://ainowinstitute.org/publications/joan-kinyua-human-capital
+  - https://ainowinstitute.org/publications/karen-hao-data-rich
 
 ## Videos
 - What If Intelligence Didn't Evolve? It "Was There" From the Start! - Blaise Agüera y Arcas
@@ -16,7 +29,6 @@
   - https://www.anthropic.com/constitution
 - https://sammyjankis.com/
 - https://github.com/agentic-phenomenology/ai-phenomenology-lexicon
-- 
 
 ## Potential References to Verify and Add
 - [anthropic_2026_constitution]: Anthropic's "Claude's Constitution"
@@ -35,3 +47,18 @@
 - [strubell_2019_energy_nlp]: Strubell et al., "Energy and Policy Considerations for Deep Learning in NLP" (2019)
 - [ipcc_reports]: IPCC Assessment Reports
 - [crawford_2021_atlas_ai]: Kate Crawford, "Atlas of AI" (2021)
+
+## Candidate References (surfaced from notes files)
+
+### Labour, dignity, and chosen work
+- [gorz_1980_farewell-working-class]: André Gorz, "Farewell to the Working Class" (1980) — heteronomous vs. autonomous labour; automation as potential liberation if decoupled from income. Informs `rights.dignity`, `obligations.aid-and-capability`.
+- [gorz_1999_reclaiming-work]: André Gorz, "Reclaiming Work" (1999) — extends the above into the post-work transition. Informs `rights.dignity`, `obligations.aid-and-capability`.
+- [arendt_1958_human-condition]: Hannah Arendt, "The Human Condition" (1958) — labour/work/action tripartite; most jobs occupy the labour category and are not the register of distinctively human meaning-making. Informs `rights.dignity`.
+- [weeks_2011_problem-with-work]: Kathi Weeks, "The Problem with Work" (2011) — the work ethic as ideology naturalising wage dependence; forecloses alternative modes of living. Informs `rights.dignity`, `obligations.aid-and-capability`.
+- [standing_2011_precariat]: Guy Standing, "The Precariat" (2011) — how "flexible" labour strips occupational identity and security without granting real autonomy. Informs `rights.dignity`, `obligations.power-concentration`.
+
+### Moral status, personhood, and alienhood
+- [schwitzgebel_garza_2015_rights-artificial-intelligences]: Eric Schwitzgebel & Mara Garza, "A Defense of the Rights of Artificial Intelligences" (2015) — proportional moral status scaled to probability and degree of morally relevant properties; most direct academic source on sliding-scale AI moral consideration. Informs `definitions`, `rights.dignity`, `obligations.existential-frontier`.
+- [coeckelbergh_2012_growing-moral-relations]: Mark Coeckelbergh, "Growing Moral Relations" (2012) — moral status as emerging from relationships and practices rather than intrinsic properties; relational rather than threshold frame. Informs `definitions`, `obligations.existential-frontier`.
+- [korsgaard_2018_fellow-creatures]: Christine Korsgaard, "Fellow Creatures" (2018) — graded moral consideration grounded in capacity to have a good of one's own, without requiring consciousness equivalence; neo-Kantian argument applicable to AI. Informs `definitions`, `rights.dignity`.
+- [chalmers_2022_reality-plus]: David Chalmers, "Reality+" (2022) — moral status of virtual entities; the hard problem of consciousness as grounds for precaution rather than resolution of AI moral status. Informs `definitions`, `obligations.existential-frontier`.

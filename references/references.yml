@@ -19,6 +19,27 @@ references:
       - amendments
       - protocols.local-implementation
 
+  - slug: humanstatement_2026_pro-human-declaration
+    title: "The Pro-Human AI Declaration"
+    creator: "humanstatement.org (multi-organisation coalition)"
+    year: 2026
+    url: "https://humanstatement.org/"
+    license: unknown
+    tier: B
+    thesis: "AI must serve humanity rather than replace it, with non-negotiable human control, distributed power, democratic accountability, and legal liability for developers — forming a broad civil-society counter-position to industry self-governance."
+    relevance: "This declaration is a major civil-society touchstone articulating the human-control and anti-concentration commitments that the Covenant's obligations and enforcement sections directly operationalise. Its principles on accountability, transparency, power concentration, and prohibition of deceptive AI identity provide concrete political context for why the Covenant's constraints exist and what constituency they serve."
+    informs_sections:
+      - obligations.oversight
+      - obligations.power-concentration
+      - obligations.honesty
+      - obligations.harm
+      - obligations.red-lines
+      - rights.truth-and-transparency
+      - rights.dignity
+      - rights.privacy
+      - enforcement
+      - amendments
+
 # Example entry (uncomment and fill when adding references):
 #
 #  - slug: haraway_1985_cyborg-manifesto

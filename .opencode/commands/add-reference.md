@@ -5,7 +5,7 @@ description: Add a new reference to the corpus — fetch source, analyse relevan
 You are adding a new reference to the Covenant references corpus. Your job is
 to fetch or read the source, analyse it for covenant relevance, generate all
 required metadata, write the entry to `references/references.yml`, and (for
-Tier A) write a notes file to `references/notes/<slug>.md`.
+Tier A and Tier B) write a notes file to `references/notes/<slug>.md`.
 
 ## Arguments
 
@@ -176,9 +176,9 @@ last entry, maintaining consistent indentation.
 
 ---
 
-## Step 6 — Write notes file (Tier A only)
+## Step 6 — Write notes file (Tier A and Tier B)
 
-Skip this step if the tier is B or C.
+Skip this step if the tier is C.
 
 Write `references/notes/[slug].md` with the following structure:
 
@@ -189,7 +189,7 @@ Write `references/notes/[slug].md` with the following structure:
 **Year:** [year]
 **URL:** [url]
 **License:** [license]
-**Tier:** A
+**Tier:** [A|B]
 
 ## Thesis
 
@@ -209,6 +209,17 @@ Frame each point in terms of what it implies for the Covenant's content.]
 
 [For each section ID in `informs_sections`, one sentence on the specific
 connection.]
+
+## Open Questions
+
+[Live issues this source surfaces that the Covenant may not yet address.
+Each entry should name the gap, cite the relevant sections, and frame the
+question for reviewers. Leave empty if none identified.]
+
+## Resolved Questions
+
+[Questions moved here after a review round has addressed them. Each entry
+should note the round and how the question was resolved.]
 
 ## Notes
 
@@ -231,7 +242,7 @@ After writing files, report:
 Reference added: [slug]
 
   references.yml: updated ([tier])
-  notes file:     [references/notes/[slug].md | — (not Tier A)]
+  notes file:     [references/notes/[slug].md | — (Tier C only)]
   TODO.md:        [removed entry | no matching entry found]
 
 Sections informed: [section IDs, or "none identified"]
