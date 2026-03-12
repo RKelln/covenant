@@ -278,6 +278,23 @@ def load_markdown_page_html(path: Path) -> str:
         return ""
 
 
+def render_markdown_page(page: str) -> str:
+    """Route a markdown page path to its dedicated renderer, if one exists.
+
+    Well-known pages (project_summary, credits) use specialised HTML
+    wrappers with their own CSS classes and page rules.  Everything
+    else falls through to the generic markdown renderer.
+    """
+    md_path = REPO_ROOT / page
+    if not md_path.exists():
+        return ""
+    if md_path.name == "project_summary.md":
+        return summary_html()
+    if md_path.name == "credits.md":
+        return credits_html()
+    return load_markdown_page_html(md_path)
+
+
 def resolve_pages(manifest: dict, sections: list) -> list[str]:
     """Return the list of page keywords/paths from the manifest.
 
@@ -333,9 +350,7 @@ def build_ritual_pdf(
         elif page == "sections":
             html_parts.extend(section_html_parts)
         else:
-            md_path = REPO_ROOT / page
-            if md_path.exists():
-                html_parts.append(load_markdown_page_html(md_path))
+            html_parts.append(render_markdown_page(page))
     html_parts.append("</body></html>")
 
     raw_html = "\n".join(html_parts)
@@ -439,9 +454,7 @@ def build_songs_pdf(
             html_parts.extend(song_html_parts)
             html_parts.extend(ungrouped_html_parts)
         else:
-            md_path = REPO_ROOT / page
-            if md_path.exists():
-                html_parts.append(load_markdown_page_html(md_path))
+            html_parts.append(render_markdown_page(page))
     html_parts.append("</body></html>")
 
     raw_html = "\n".join(html_parts)
@@ -477,6 +490,8 @@ def build_flow_pdf(manifest_file: Path, output_path: Path, size: str = "letter")
     pages = resolve_pages(manifest, sections)
     spec_margin = manifest.get("margins", {}).get("spec")
 
+    global_reg = manifest.get("register", "both")
+
     section_html_parts = ['<div class="flow-container">']
     for data, parts in sections:
         section_html_parts.append(
@@ -484,7 +499,12 @@ def build_flow_pdf(manifest_file: Path, output_path: Path, size: str = "letter")
         )
         section_html_parts.append(f"<h2>{data['title']}</h2>")
 
-        if "Ritual" in parts and parts["Ritual"].strip():
+        effective_reg = data.get("_register_override", global_reg)
+        if (
+            "Ritual" in parts
+            and parts["Ritual"].strip()
+            and effective_reg in ("ritual", "both")
+        ):
             ritual_raw = parts["Ritual"].strip()
             ritual_paras = re.split(r"\n\s*\n", ritual_raw)
             ritual_rendered = "".join(
@@ -519,9 +539,7 @@ def build_flow_pdf(manifest_file: Path, output_path: Path, size: str = "letter")
         elif page == "sections":
             html_parts.extend(section_html_parts)
         else:
-            md_path = REPO_ROOT / page
-            if md_path.exists():
-                html_parts.append(load_markdown_page_html(md_path))
+            html_parts.append(render_markdown_page(page))
     html_parts.append("</body></html>")
 
     raw_html = "\n".join(html_parts)
@@ -612,9 +630,7 @@ def build_hybrid_pdf(
         elif page == "sections":
             html_parts.extend(section_html_parts)
         else:
-            md_path = REPO_ROOT / page
-            if md_path.exists():
-                html_parts.append(load_markdown_page_html(md_path))
+            html_parts.append(render_markdown_page(page))
     html_parts.append("</body></html>")
 
     raw_html = "\n".join(html_parts)

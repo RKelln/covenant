@@ -608,7 +608,7 @@ def build_full_css() -> str:
       color: var(--title-grey);
       font-weight: 500;
       text-align: center;
-      margin-bottom: 1.5em;
+      margin-bottom: -2.5rem;
       grid-column: 1 / -1;
     }
 
@@ -617,17 +617,6 @@ def build_full_css() -> str:
       grid-template-columns: 1fr 1fr;
       gap: 4rem;
       position: relative;
-    }
-
-    .full-grid::before {
-      content: '';
-      position: absolute;
-      left: 50%;
-      top: 9em;
-      bottom: 2em;
-      width: 0.5px;
-      background: var(--hairline);
-      pointer-events: none;
     }
 
     /* Column headers — visible on first section only */
@@ -652,6 +641,18 @@ def build_full_css() -> str:
     /* Ritual column */
     .full-ritual {
       text-align: left;
+      position: relative;
+    }
+
+    .full-ritual::after {
+      content: '';
+      position: absolute;
+      right: -2rem;
+      top: 0;
+      bottom: 0;
+      width: 0.5px;
+      background: var(--hairline);
+      pointer-events: none;
     }
 
     .full-ritual .full-col-label { text-align: left; padding-left: 20%; }
@@ -696,11 +697,15 @@ def build_full_css() -> str:
     .full-spec-text code { font-family: monospace; font-size: 0.875em; }
 
     .full-summary {
+      grid-column: 1 / -1;
       font-style: italic;
       color: #444;
-      margin-bottom: 1.4em;
-      padding-bottom: 1em;
-      border-bottom: 0.5px solid var(--hairline);
+      font-size: 1.2rem;
+      line-height: 1.7;
+      padding: 0 2rem;
+      max-width: var(--content-width);
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .full-summary p { margin-bottom: 0.5em; }
@@ -724,7 +729,7 @@ def build_full_css() -> str:
         gap: 3rem;
       }
 
-      .full-grid::before {
+      .full-ritual::after {
         display: none;
       }
 
@@ -992,8 +997,8 @@ def build_full_page(sections: list) -> str:
         title = html_escape(data.get("title", ""))
 
         ritual_html = ritual_to_html(ritual_text) if ritual_text else "<p>&nbsp;</p>"
-        summary_html = (
-            f'<div class="full-summary">{spec_to_html(summary_text)}</div>\n'
+        summary_block = (
+            f'    <div class="full-summary">{spec_to_html(summary_text)}</div>\n'
             if summary_text
             else ""
         )
@@ -1005,13 +1010,14 @@ def build_full_page(sections: list) -> str:
             f'<section class="full-section" id="{anchor}">\n'
             f'  <div class="full-grid">\n'
             f'    <div class="full-section-title">{title}</div>\n'
+            f"{summary_block}"
             f'    <div class="full-ritual">\n'
             f'      <div class="full-col-label" aria-hidden="true">Ritual</div>\n'
             f'      <div class="full-ritual-text">\n{textwrap.indent(ritual_html, "        ")}\n      </div>\n'
             f"    </div>\n"
             f'    <div class="full-spec">\n'
             f'      <div class="full-col-label" aria-hidden="true">Specification</div>\n'
-            f'      <div class="full-spec-text">\n{textwrap.indent(summary_html + spec_html_content, "        ")}\n      </div>\n'
+            f'      <div class="full-spec-text">\n{textwrap.indent(spec_html_content, "        ")}\n      </div>\n'
             f"    </div>\n"
             f"  </div>\n"
             f"</section>"
