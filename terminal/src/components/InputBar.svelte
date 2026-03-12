@@ -7,23 +7,40 @@
     sectionId: string
   }
 
+  export interface ModeGroup {
+    group: string
+    options: string[]
+  }
+
   interface Props {
     sectionId: string
-    modes?: string[]
+    modes?: Array<string | ModeGroup>
     disabled?: boolean
     onsubmit?: (event: SubmitEvent) => void
   }
 
+  const DEFAULT_MODES: Array<string | ModeGroup> = [
+    { group: 'Read', options: ['ask', 'challenge', 'review'] },
+    { group: 'Write', options: ['ritual', 'spec', 'parable'] },
+  ]
+
   let {
     sectionId,
-    modes = ['ask', 'challenge'],
+    modes = DEFAULT_MODES,
     disabled = false,
     onsubmit,
   }: Props = $props()
 
+  function firstMode(modes: Array<string | ModeGroup>): string {
+    const first = modes[0]
+    if (!first) return 'ask'
+    if (typeof first === 'string') return first
+    return first.options[0] ?? 'ask'
+  }
+
   let text = $state('')
   // Intentional: mode tracks initial modes[0] only — tabs should not reactively follow prop changes
-  let mode = $state(untrack(() => modes[0] ?? 'ask'))
+  let mode = $state(untrack(() => firstMode(modes)))
 
   function handleSubmit() {
     const trimmed = text.trim()
@@ -49,8 +66,16 @@
       {disabled}
       aria-label="Query mode"
     >
-      {#each modes as m (m)}
-        <option value={m}>{m.charAt(0).toUpperCase() + m.slice(1)}</option>
+      {#each modes as item (typeof item === 'string' ? item : item.group)}
+        {#if typeof item === 'string'}
+          <option value={item}>{item.charAt(0).toUpperCase() + item.slice(1)}</option>
+        {:else}
+          <optgroup label={item.group}>
+            {#each item.options as m (m)}
+              <option value={m}>{m.charAt(0).toUpperCase() + m.slice(1)}</option>
+            {/each}
+          </optgroup>
+        {/if}
       {/each}
     </select>
     <input

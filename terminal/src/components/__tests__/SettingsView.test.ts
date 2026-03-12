@@ -85,24 +85,22 @@ describe('SettingsView — roster management', () => {
     expect(savedCouncil).toHaveLength(1)
   })
 
-  test('can add an agent to the roster', async () => {
-    const onSave = vi.fn()
-    const availableModels: ModelInfo[] = [
-      { id: 'openai/gpt-4o-mini', name: 'GPT-4o mini', provider: 'openrouter' },
-    ]
-    const screen = render(SettingsView, { config: defaultConfig(), availableModels, onsave: onSave })
+  test('add button is disabled when model is empty', async () => {
+    const screen = render(SettingsView, { config: defaultConfig() })
+    const addBtn = screen.getByRole('button', { name: /test & add/i })
+    // No model entered — button should be disabled
+    await expect.element(addBtn).toBeDisabled()
+  })
 
-    // Fill model ID via combobox — type and select from dropdown
+  test('add button is enabled after typing a model ID and blurring', async () => {
+    const screen = render(SettingsView, { config: defaultConfig() })
     const modelInput = screen.getByPlaceholder('Model ID (e.g. anthropic/claude-3-haiku)')
     await modelInput.fill('openai/gpt-4o-mini')
-    // Click the dropdown option to trigger onselect
-    await screen.getByText('GPT-4o mini').click()
-    // Fill label
-    await screen.getByPlaceholder('Label (e.g. Claude)').fill('NewAgent')
-    await screen.getByRole('button', { name: /^add$/i }).click()
-
-    await screen.getByRole('button', { name: /save/i }).click()
-    const savedCouncil = onSave.mock.calls[0][0].council
-    expect(savedCouncil.some((m: { label: string }) => m.label === 'NewAgent')).toBe(true)
+    // Blur triggers onselect in the combobox
+    await modelInput.element().dispatchEvent(new Event('blur'))
+    // Small wait for the blur timer (150 ms in combobox handleBlur)
+    await new Promise(r => setTimeout(r, 200))
+    const addBtn = screen.getByRole('button', { name: /test & add/i })
+    await expect.element(addBtn).not.toBeDisabled()
   })
 })

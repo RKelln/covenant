@@ -40,14 +40,29 @@ async function* parseSSE(
 }
 
 export class OpenRouterProvider implements AgentProvider {
-  readonly name = 'openrouter'
+  readonly name: string
 
-  constructor(private readonly apiKey: string) {}
+  /**
+   * @param apiKey  OpenRouter API key
+   * @param model   Optional default model — overrides params.model when set.
+   *                Used so each council member can have its own model baked in.
+   * @param label   Optional display label — sets `name`. Defaults to 'openrouter'.
+   */
+  constructor(
+    private readonly apiKey: string,
+    private readonly model?: string,
+    label?: string,
+  ) {
+    this.name = label ?? 'openrouter'
+  }
 
   async *chat(params: ChatParams): AsyncIterable<ChatChunk> {
     const messages = params.system
       ? [{ role: 'system' as const, content: params.system }, ...params.messages]
       : params.messages
+
+    // Per-instance model takes precedence over params.model
+    const model = this.model ?? params.model
 
     const response = await fetch(`${OPENROUTER_BASE}/chat/completions`, {
       method: 'POST',
@@ -58,7 +73,7 @@ export class OpenRouterProvider implements AgentProvider {
         'X-Title': 'Covenant Terminal',
       },
       body: JSON.stringify({
-        model: params.model,
+        model,
         messages,
         stream: true,
         temperature: params.temperature ?? 0.7,

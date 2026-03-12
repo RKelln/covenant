@@ -6,9 +6,11 @@
   import { loadConfig, saveConfig, defaultConfig } from '$lib/config/loader'
   import type { TerminalConfig } from '$lib/config/loader'
   import { OpenRouterProvider } from '$lib/agents/openrouter'
-  import { sendQuery } from '$lib/agents/chat'
   import { loadModels } from '$lib/agents/model-cache'
-  import type { ChatChunk, ModelInfo } from '$lib/agents/provider'
+  import type { ModelInfo } from '$lib/agents/provider'
+  import { dispatchToCouncil } from '$lib/council/dispatch'
+  import { buildCouncilPrompt } from '$lib/council/prompts'
+  import { appendConversationLog } from '$lib/council/conversation-log'
   import SectionNav from './components/SectionNav.svelte'
   import SectionView from './components/SectionView.svelte'
   import CouncilPanel from './components/CouncilPanel.svelte'
@@ -166,55 +168,87 @@
       return
     }
 
-    const model = config.council[0]?.model ?? 'openai/gpt-4o-mini'
-    const agentLabel = config.council[0]?.label ?? 'AI'
+    if (config.council.length === 0) {
+      alert('Please add at least one agent to your council roster in Settings.')
+      return
+    }
 
-    const provider = new OpenRouterProvider(openrouterProvider.apiKey)
+    // Build prompt using the council prompts module
+    const { system: systemPrompt, messages } = buildCouncilPrompt(
+      event.mode as 'ask' | 'challenge' | 'review' | 'ritual' | 'spec' | 'parable',
+      selectedSection,
+      event.text,
+    )
 
-    // Build section context for the query
-    const sectionContext = selectedSection
-      ? `\n\nSection context (${selectedSection.id} — "${selectedSection.title}"):\n${selectedSection.ritual}\n\n${selectedSection.spec}`
-      : ''
+    // Build one provider per council member (all use OpenRouter, different models)
+    const providers = config.council.map(member =>
+      new OpenRouterProvider(openrouterProvider.apiKey, member.model, member.label)
+    )
 
-    const messages = [
-      {
-        role: 'user' as const,
-        content: `[Mode: ${event.mode}] ${event.text}`,
-      },
-    ]
-
-    // Initialize agent column
-    const agentState: AgentState = {
-      name: agentLabel,
+    // Initialise one AgentState per council member
+    const initialAgents: AgentState[] = config.council.map(member => ({
+      name: member.label,
       chunks: [],
       streaming: true,
-    }
-    agents = [agentState]
+    }))
+    agents = initialAgents
     councilOpen = true
     queryStreaming = true
 
-    try {
-      for await (const chunk of sendQuery(provider, {
-        model,
-        messages,
-        system: `You are a thoughtful co-author and reader of the Covenant — a living compact between human communities and emerging machine intelligences.${sectionContext}`,
-      })) {
-        agentState.chunks = [...agentState.chunks, chunk]
-        // Force reactivity update
-        agents = [...agents]
-        if (chunk.done) break
-      }
-    } catch (err) {
-      agentState.chunks = [
-        ...agentState.chunks,
-        { content: `\n\n*Error: ${String(err)}*`, done: true, error: String(err) },
-      ]
-      agents = [...agents]
-    } finally {
-      agentState.streaming = false
-      agents = [...agents]
-      queryStreaming = false
-    }
+    // Dispatch to all providers in parallel
+    const streams = dispatchToCouncil(providers, {
+      model: '', // overridden per-provider via the constructor
+      messages,
+      system: systemPrompt,
+    })
+
+    // Drain all streams concurrently — each updates its own AgentState slot
+    await Promise.all(
+      streams.map(async ({ stream }, i) => {
+        try {
+          for await (const chunk of stream) {
+            agents[i] = {
+              ...agents[i],
+              chunks: [...agents[i].chunks, chunk],
+              streaming: !chunk.done && !chunk.error,
+            }
+            agents = [...agents]
+            if (chunk.done || chunk.error) break
+          }
+        } catch (err) {
+          agents[i] = {
+            ...agents[i],
+            chunks: [
+              ...agents[i].chunks,
+              { content: `\n\n*Error: ${String(err)}*`, done: true, error: String(err) },
+            ],
+            streaming: false,
+          }
+          agents = [...agents]
+        } finally {
+          agents[i] = { ...agents[i], streaming: false }
+          agents = [...agents]
+        }
+      })
+    )
+
+    // Log the completed conversation for debugging / provenance
+    const platform = await initPlatform()
+    appendConversationLog(platform, {
+      timestamp: new Date().toISOString(),
+      sectionId: selectedSection?.id ?? null,
+      sectionTitle: selectedSection?.title ?? null,
+      mode: event.mode as 'ask' | 'challenge' | 'review' | 'ritual' | 'spec' | 'parable',
+      query: event.text,
+      systemPrompt,
+      responses: agents.map((a, i) => ({
+        agent: a.name,
+        model: config.council[i]?.model ?? '',
+        text: a.chunks.map(c => c.content).join(''),
+      })),
+    }).catch(err => console.warn('[App] conversation log failed:', err))
+
+    queryStreaming = false
   }
 
   async function handleSaveConfig(newConfig: TerminalConfig) {
@@ -281,9 +315,9 @@
             </ul>
           </details>
         {/if}
-        <div class="reader-layout" class:council-open={councilOpen}>
+        <div class="reader-layout">
           <!-- Document view -->
-          <div class="document-pane">
+          <div class="document-pane" class:council-open={councilOpen}>
             <SectionView section={selectedSection} onxref={handleXref} />
             <InputBar
               sectionId={selectedSection.id}
@@ -292,11 +326,10 @@
             />
           </div>
 
-          <!-- Council panel -->
+          <!-- Council panel — bottom drawer, full width -->
           {#if councilOpen}
             <div class="council-pane">
               <div class="council-toolbar">
-                <span class="council-label">Council</span>
                 <button
                   class="close-btn"
                   onclick={() => { councilOpen = false; agents = [] }}
@@ -387,6 +420,7 @@
 
   .reader-layout {
     display: flex;
+    flex-direction: column;
     flex: 1;
     overflow: hidden;
   }
@@ -396,7 +430,12 @@
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    min-width: 0;
+    min-height: 0;
+  }
+
+  /* When council is open, give the document pane a min height so it stays usable */
+  .document-pane.council-open {
+    min-height: 160px;
   }
 
   .document-pane :global(.section-view) {
@@ -404,32 +443,23 @@
     overflow-y: auto;
   }
 
-  /* Council panel */
+  /* Council panel — bottom drawer, full width */
   .council-pane {
-    width: 380px;
     flex-shrink: 0;
+    height: 42vh;
+    min-height: 220px;
+    max-height: 60vh;
     display: flex;
     flex-direction: column;
-    border-left: 1px solid var(--color-border, #e0ddd8);
+    border-top: 1px solid var(--color-border, #e0ddd8);
     overflow: hidden;
   }
 
   .council-toolbar {
     display: flex;
     align-items: center;
-    padding: 8px 12px;
-    border-bottom: 1px solid var(--color-border, #e0ddd8);
-    gap: 8px;
-  }
-
-  .council-label {
-    font-family: var(--font-ui, system-ui, sans-serif);
-    font-size: 0.7rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--color-text-muted, #7a7570);
-    flex: 1;
+    justify-content: flex-end;
+    padding: 4px 8px;
   }
 
   .close-btn {

@@ -2,6 +2,8 @@
   import { untrack } from 'svelte'
   import type { TerminalConfig, ProviderConfig, CouncilMemberConfig } from '$lib/config/loader'
   import type { ModelInfo } from '$lib/agents/provider'
+  import { OpenRouterProvider } from '$lib/agents/openrouter'
+  import { testAgent } from '$lib/agents/test-agent'
   import ModelCombobox from './ModelCombobox.svelte'
 
   interface Props {
@@ -23,6 +25,21 @@
   let newAgentModel = $state('')
   let newAgentProvider = $state<string>('openrouter')
 
+  // Validation state
+  type TestState = 'idle' | 'testing' | 'ok' | 'error'
+  let testState = $state<TestState>('idle')
+  let testError = $state<string>('')
+
+  // Reset validation state whenever the model input changes
+  $effect(() => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+    newAgentModel
+    if (testState !== 'idle') {
+      testState = 'idle'
+      testError = ''
+    }
+  })
+
   function handleSave() {
     const providers: ProviderConfig[] = apiKey
       ? [{ type: 'openrouter', apiKey }]
@@ -41,15 +58,38 @@
     councilMembers = councilMembers.filter((_, i) => i !== index)
   }
 
-  function addAgent() {
+  async function addAgent() {
     if (!newAgentModel.trim()) return
+
+    const currentKey = apiKey.trim()
+    if (!currentKey) {
+      testState = 'error'
+      testError = 'Enter an OpenRouter API key first.'
+      return
+    }
+
+    testState = 'testing'
+    testError = ''
+
     const label = newAgentLabel.trim() || newAgentModel.trim()
+    const provider = new OpenRouterProvider(currentKey, newAgentModel.trim(), label)
+    const result = await testAgent(provider)
+
+    if (!result.ok) {
+      testState = 'error'
+      testError = result.error ?? 'Agent did not respond.'
+      return
+    }
+
+    testState = 'ok'
     councilMembers = [
       ...councilMembers,
       { provider: newAgentProvider, model: newAgentModel.trim(), label },
     ]
     newAgentLabel = ''
     newAgentModel = ''
+    // Reset back to idle after a brief success flash
+    setTimeout(() => { testState = 'idle' }, 1500)
   }
 </script>
 
@@ -139,11 +179,17 @@
           </select>
           <button
             class="add-btn"
+            class:add-btn--testing={testState === 'testing'}
+            class:add-btn--ok={testState === 'ok'}
+            class:add-btn--error={testState === 'error'}
             data-add-agent-btn
             onclick={addAgent}
-            disabled={!newAgentModel.trim()}
-          >Add</button>
+            disabled={!newAgentModel.trim() || testState === 'testing'}
+          >{testState === 'testing' ? 'Testing…' : testState === 'ok' ? '✓ Added' : 'Test & Add'}</button>
         </div>
+        {#if testState === 'error'}
+          <p class="test-error">{testError}</p>
+        {/if}
       </div>
     </section>
   </div>
@@ -353,6 +399,39 @@
   .add-btn:disabled {
     opacity: 0.4;
     cursor: not-allowed;
+  }
+
+  .add-btn--testing {
+    opacity: 0.7;
+    cursor: wait;
+  }
+
+  .add-btn--ok {
+    border-color: #4a8a60;
+    color: #4a8a60;
+  }
+
+  .add-btn--ok:hover {
+    background: #4a8a60;
+    color: var(--color-bg, #fdfcfa);
+  }
+
+  .add-btn--error {
+    border-color: #b05040;
+    color: #b05040;
+  }
+
+  .add-btn--error:hover {
+    background: #b05040;
+    color: var(--color-bg, #fdfcfa);
+  }
+
+  .test-error {
+    font-family: var(--font-ui, system-ui, sans-serif);
+    font-size: 0.8rem;
+    color: #b05040;
+    margin: 6px 0 0 0;
+    line-height: 1.4;
   }
 
   /* Footer */

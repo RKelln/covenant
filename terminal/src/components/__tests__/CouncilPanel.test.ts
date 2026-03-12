@@ -62,6 +62,26 @@ describe('CouncilPanel — multi-column', () => {
   })
 })
 
+describe('CouncilPanel — names bar', () => {
+  test('shows streaming indicator in names bar while agent is streaming', async () => {
+    const agents = [
+      { name: 'Claude', chunks: [{ content: 'Thinking...', done: false }], streaming: true },
+    ]
+    const screen = render(CouncilPanel, { agents })
+    const indicator = screen.container.querySelector('.names-bar [data-streaming]')
+    expect(indicator).not.toBeNull()
+  })
+
+  test('hides streaming indicator in names bar when agent is done', async () => {
+    const agents = [
+      { name: 'Claude', chunks: [{ content: 'Done.', done: true }], streaming: false },
+    ]
+    const screen = render(CouncilPanel, { agents })
+    const indicator = screen.container.querySelector('.names-bar [data-streaming]')
+    expect(indicator).toBeNull()
+  })
+})
+
 describe('CouncilPanel — synthesis', () => {
   test('shows synthesis section when synthesis prop is provided', async () => {
     const agents = [

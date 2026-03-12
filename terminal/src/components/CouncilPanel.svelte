@@ -44,6 +44,16 @@
       <span class="empty-prompt">Ask a question about this section</span>
     </div>
   {:else}
+    <div class="names-bar">
+      {#each agentsWithTints as agent (agent.name)}
+        <div class="name-chip" style="--tint: {agent.resolvedTint}">
+          <span class="agent-name">{agent.name}</span>
+          {#if agent.streaming}
+            <span class="streaming-indicator" data-streaming aria-label="Streaming">§</span>
+          {/if}
+        </div>
+      {/each}
+    </div>
     <div class="agent-columns">
       {#each agentsWithTints as agent (agent.name)}
         <AgentColumn
@@ -76,9 +86,45 @@
     display: flex;
     flex-direction: column;
     height: 100%;
-    overflow-y: auto;
-    padding: var(--space-md);
+    overflow: hidden;
+  }
+
+  .names-bar {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: var(--space-lg);
+    flex-shrink: 0;
+    border-bottom: 1px solid var(--color-border, #e0ddd8);
+    padding: 6px var(--space-md);
+  }
+
+  .name-chip {
+    border-left: 3px solid var(--tint, #b0a090);
+    padding-left: var(--space-md);
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+  }
+
+  .agent-name {
+    font-family: var(--font-ui, system-ui, sans-serif);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-muted, #7a7570);
+  }
+
+  .streaming-indicator {
+    font-family: var(--font-document, 'Cormorant Garamond', serif);
+    font-size: 1.1rem;
+    color: var(--tint, #b0a090);
+    animation: pulse 1.2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
   }
 
   .empty-state {
@@ -100,11 +146,15 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: var(--space-lg);
+    flex: 1;
+    overflow-y: auto;
+    padding: var(--space-md);
   }
 
   .synthesis-section {
     border-top: 1px solid var(--color-border, #e0ddd8);
-    padding-top: var(--space-md);
+    padding: var(--space-md);
+    flex-shrink: 0;
   }
 
   .synthesis-heading {
@@ -128,10 +178,5 @@
     font-family: var(--font-document, 'Cormorant Garamond', serif);
     color: var(--color-muted, #7a7570);
     animation: pulse 1.2s ease-in-out infinite;
-  }
-
-  @keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.3; }
   }
 </style>
