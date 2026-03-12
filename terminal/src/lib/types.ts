@@ -15,6 +15,7 @@ export interface ExecResult {
 export interface TerminalConfig {
   mode: 'contributor' | 'kiosk'
   repoPath?: string
+  defaultModel?: string
   providers: ProviderConfig[]
   council: CouncilMemberConfig[]
 }

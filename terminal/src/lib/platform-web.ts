@@ -1,5 +1,6 @@
 import type { Platform } from './platform'
 import type { SectionMeta, ExecResult, TerminalConfig, CostEntry } from './types'
+import type { ModelInfo } from './agents/provider'
 
 // Injected at build/dev time by vite.config.ts → define.__SECTION_MANIFEST__
 declare const __SECTION_MANIFEST__: { path: string; category: string }[]
@@ -40,6 +41,16 @@ export class WebPlatform implements Platform {
 
   async saveConfig(config: TerminalConfig): Promise<void> {
     localStorage.setItem('terminal-config', JSON.stringify(config))
+  }
+
+  async loadModelCache(): Promise<ModelInfo[] | null> {
+    const saved = localStorage.getItem('model-cache')
+    if (!saved) return null
+    try { return JSON.parse(saved) as ModelInfo[] } catch { return null }
+  }
+
+  async saveModelCache(models: ModelInfo[]): Promise<void> {
+    localStorage.setItem('model-cache', JSON.stringify(models))
   }
 
   async logApiCall(entry: CostEntry): Promise<void> {

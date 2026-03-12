@@ -1,5 +1,6 @@
 import { isTauri } from '@tauri-apps/api/core'
 import type { SectionMeta, ExecResult, TerminalConfig, CostEntry } from './types'
+import type { ModelInfo } from './agents/provider'
 
 export interface Platform {
   readFile(path: string): Promise<string>
@@ -8,6 +9,8 @@ export interface Platform {
   exec(command: string, args: string[]): Promise<ExecResult>
   loadConfig(): Promise<TerminalConfig | null>
   saveConfig(config: TerminalConfig): Promise<void>
+  loadModelCache(): Promise<ModelInfo[] | null>
+  saveModelCache(models: ModelInfo[]): Promise<void>
   logApiCall(entry: CostEntry): Promise<void>
 }
 

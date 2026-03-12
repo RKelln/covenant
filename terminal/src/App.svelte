@@ -7,7 +7,8 @@
   import type { TerminalConfig } from '$lib/config/loader'
   import { OpenRouterProvider } from '$lib/agents/openrouter'
   import { sendQuery } from '$lib/agents/chat'
-  import type { ChatChunk } from '$lib/agents/provider'
+  import { loadModels } from '$lib/agents/model-cache'
+  import type { ChatChunk, ModelInfo } from '$lib/agents/provider'
   import SectionNav from './components/SectionNav.svelte'
   import SectionView from './components/SectionView.svelte'
   import CouncilPanel from './components/CouncilPanel.svelte'
@@ -68,6 +69,9 @@
   let queryStreaming = $state(false)
   let councilOpen = $state(false)
 
+  // --- Available models ---
+  let availableModels = $state<ModelInfo[]>([])
+
   let selectedSection = $derived(sections.find(s => s.id === selectedId) ?? null)
 
   onMount(async () => {
@@ -127,6 +131,15 @@
         throw new Error(`No sections could be loaded.${detail}`)
       }
       if (loaded.length > 0) selectedId = loaded[0].id
+
+      // Load available models (non-blocking — seed/cache available immediately)
+      const openrouterKey = config.providers.find(p => p.type === 'openrouter')?.apiKey
+      const provider = openrouterKey ? new OpenRouterProvider(openrouterKey) : null
+      loadModels(provider, platform).then(models => {
+        availableModels = models
+      }).catch(err => {
+        console.warn('Failed to load models:', err)
+      })
     } catch (err) {
       error = String(err)
     } finally {
@@ -209,6 +222,13 @@
     try {
       const platform = await initPlatform()
       await saveConfig(platform, newConfig)
+
+      // Refresh model list if API key may have changed
+      const openrouterKey = newConfig.providers.find(p => p.type === 'openrouter')?.apiKey
+      const provider = openrouterKey ? new OpenRouterProvider(openrouterKey) : null
+      loadModels(provider, platform).then(models => {
+        availableModels = models
+      }).catch(() => {})
     } catch (err) {
       console.warn('Failed to save config:', err)
     }
@@ -221,6 +241,7 @@
     <div class="settings-container">
       <SettingsView
         {config}
+        {availableModels}
         onsave={handleSaveConfig}
         onback={() => (view = 'reader')}
       />

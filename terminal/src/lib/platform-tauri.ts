@@ -1,5 +1,6 @@
 import type { Platform } from './platform'
 import type { SectionMeta, ExecResult, TerminalConfig, CostEntry } from './types'
+import type { ModelInfo } from './agents/provider'
 
 // Repo root path — used to resolve relative section paths.
 // In development: the repo directory. In production: set via config.
@@ -99,6 +100,24 @@ export class TauriPlatform implements Platform {
     this._config = config
     this._configLoaded = true
     if (config.repoPath) this._repoPath = config.repoPath
+  }
+
+  async loadModelCache(): Promise<ModelInfo[] | null> {
+    try {
+      const { appConfigDir } = await import('@tauri-apps/api/path')
+      const dir = await appConfigDir()
+      const { readTextFile } = await import('@tauri-apps/plugin-fs')
+      const content = await readTextFile(`${dir}/model-cache.json`)
+      return JSON.parse(content) as ModelInfo[]
+    } catch {
+      return null
+    }
+  }
+
+  async saveModelCache(models: ModelInfo[]): Promise<void> {
+    const { appConfigDir } = await import('@tauri-apps/api/path')
+    const dir = await appConfigDir()
+    await this.writeFile(`${dir}/model-cache.json`, JSON.stringify(models))
   }
 
   async logApiCall(entry: CostEntry): Promise<void> {

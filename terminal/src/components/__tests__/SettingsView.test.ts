@@ -24,7 +24,7 @@ describe('SettingsView — provider config', () => {
     }))
   })
 
-  test('model selector shows available models', async () => {
+  test('model selector shows available models in combobox', async () => {
     const config = {
       ...defaultConfig(),
       providers: [{ type: 'openrouter' as const, apiKey: 'sk-test' }],
@@ -33,9 +33,11 @@ describe('SettingsView — provider config', () => {
       { id: 'openai/gpt-4o-mini', name: 'GPT-4o mini', provider: 'openrouter' },
     ]
     const screen = render(SettingsView, { config, availableModels })
-    const option = screen.container.querySelector('option[value="openai/gpt-4o-mini"]')
-    expect(option).not.toBeNull()
-    expect(option?.textContent).toBe('GPT-4o mini')
+    // Click the model search input to open the dropdown
+    const modelInput = screen.getByPlaceholder(/search models/i)
+    await modelInput.click()
+    // The model should appear in the dropdown
+    await expect.element(screen.getByText('GPT-4o mini')).toBeVisible()
   })
 })
 
@@ -85,10 +87,17 @@ describe('SettingsView — roster management', () => {
 
   test('can add an agent to the roster', async () => {
     const onSave = vi.fn()
-    const screen = render(SettingsView, { config: defaultConfig(), onsave: onSave })
+    const availableModels: ModelInfo[] = [
+      { id: 'openai/gpt-4o-mini', name: 'GPT-4o mini', provider: 'openrouter' },
+    ]
+    const screen = render(SettingsView, { config: defaultConfig(), availableModels, onsave: onSave })
 
-    // Use Playwright locators to fill the add-agent inputs
-    await screen.getByPlaceholder('Model ID (e.g. anthropic/claude-3-haiku)').fill('openai/gpt-4o-mini')
+    // Fill model ID via combobox — type and select from dropdown
+    const modelInput = screen.getByPlaceholder('Model ID (e.g. anthropic/claude-3-haiku)')
+    await modelInput.fill('openai/gpt-4o-mini')
+    // Click the dropdown option to trigger onselect
+    await screen.getByText('GPT-4o mini').click()
+    // Fill label
     await screen.getByPlaceholder('Label (e.g. Claude)').fill('NewAgent')
     await screen.getByRole('button', { name: /^add$/i }).click()
 

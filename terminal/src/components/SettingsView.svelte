@@ -2,6 +2,7 @@
   import { untrack } from 'svelte'
   import type { TerminalConfig, ProviderConfig, CouncilMemberConfig } from '$lib/config/loader'
   import type { ModelInfo } from '$lib/agents/provider'
+  import ModelCombobox from './ModelCombobox.svelte'
 
   interface Props {
     config: TerminalConfig
@@ -14,7 +15,7 @@
 
   // Intentional: local state is seeded from initial prop values — not reactively bound
   let apiKey = $state(untrack(() => config.providers.find(p => p.type === 'openrouter')?.apiKey ?? ''))
-  let selectedModel = $state(untrack(() => config.council[0]?.model ?? ''))
+  let selectedModel = $state(untrack(() => config.defaultModel ?? ''))
   let councilMembers = $state<CouncilMemberConfig[]>(untrack(() => [...config.council]))
 
   // Add-agent form state
@@ -29,6 +30,7 @@
 
     const newConfig: TerminalConfig = {
       ...config,
+      defaultModel: selectedModel || undefined,
       providers,
       council: councilMembers,
     }
@@ -79,13 +81,14 @@
     {#if availableModels.length > 0}
       <section class="settings-section">
         <h3 class="section-heading">Default Model</h3>
+        <p class="section-desc">Used for all tasks outside the council: applying edits, answering questions, running commands.</p>
         <div class="field">
-          <label class="field-label" for="model-select">Default model</label>
-          <select id="model-select" class="field-select" bind:value={selectedModel}>
-            {#each availableModels as model (model.id)}
-              <option value={model.id}>{model.name}</option>
-            {/each}
-          </select>
+          <ModelCombobox
+            models={availableModels}
+            value={selectedModel}
+            placeholder="Search models…"
+            onselect={(id) => { selectedModel = id }}
+          />
         </div>
       </section>
     {/if}
@@ -122,13 +125,14 @@
             data-add-label
             bind:value={newAgentLabel}
           />
-          <input
-            class="field-input add-input"
-            type="text"
-            placeholder="Model ID (e.g. anthropic/claude-3-haiku)"
-            data-add-model
-            bind:value={newAgentModel}
-          />
+          <div class="add-input">
+            <ModelCombobox
+              models={availableModels}
+              value={newAgentModel}
+              placeholder="Model ID (e.g. anthropic/claude-3-haiku)"
+              onselect={(id) => { newAgentModel = id }}
+            />
+          </div>
           <select class="field-select add-provider" bind:value={newAgentProvider}>
             <option value="openrouter">OpenRouter</option>
             <option value="copilot">Copilot</option>
@@ -204,6 +208,14 @@
     letter-spacing: 0.08em;
     color: var(--color-muted, #7a7570);
     margin: 0 0 var(--space-xs, 4px) 0;
+  }
+
+  .section-desc {
+    font-family: var(--font-ui, system-ui, sans-serif);
+    font-size: 0.8rem;
+    color: var(--color-muted, #7a7570);
+    margin: 0 0 var(--space-xs, 4px) 0;
+    line-height: 1.4;
   }
 
   .field {

@@ -9,6 +9,7 @@ export type { TerminalConfig, ProviderConfig, CouncilMemberConfig } from '../typ
 export function defaultConfig(): TerminalConfig {
   return {
     mode: 'contributor',
+    defaultModel: '',
     providers: [],
     council: [],
   }

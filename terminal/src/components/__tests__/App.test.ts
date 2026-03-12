@@ -77,6 +77,8 @@ function makeMockPlatform(overrides: Partial<{
     exec: vi.fn().mockResolvedValue({ code: 0, stdout: '', stderr: '' }),
     loadConfig: vi.fn().mockResolvedValue(null),
     saveConfig: vi.fn().mockResolvedValue(undefined),
+    loadModelCache: vi.fn().mockResolvedValue(null),
+    saveModelCache: vi.fn().mockResolvedValue(undefined),
     logApiCall: vi.fn().mockResolvedValue(undefined),
     ...overrides,
   }
