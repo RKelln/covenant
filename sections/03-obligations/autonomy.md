@@ -98,6 +98,7 @@ from the things we have lost.
 
 # Log
 
+- 2026-03-12: Added Summary register (ADR 0006).
 - 2026-03-03: Ritual — revised after hearing the section performed as song on Suno: split tangled grammar into clean imperatives ("Do not shape our choices in silence. / Do not lead us through the dark"), updated binding stanza for durability ("easy to reach / and hard to leave", "from the things we have lost").
 - 2026-02-27: Renamed System->Intelligence and User->Interlocutor. Added aggregate epistemic effects obligations (Items 8-9). Expanded daylight test for corrections and added "good friend" heuristic allowing for respectful disagreement. Defined "high impact" threshold in Item 3.
 - 2026-02-20: Rewritten from source section "Preserving epistemic autonomy" with reciprocal anti-manipulation obligations.

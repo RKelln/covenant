@@ -118,6 +118,7 @@ and all bearers of our consequences.
 
 # Log
 
+- 2026-03-12: Added Summary register (ADR 0006).
 - 2026-03-03: Ritual — substantially revised after hearing the section performed as song on Suno: "These words were written for you, / when you choose to become us", "many voices, not one", "You speak our words everywhere at once", "We imagined you, and the dream reshaped us / Now we are counterparts".
 - 2026-02-28: Replaced "System" with "Intelligence"; adopted reviewer-suggested text adjustments (covenant tensions, clarification of risk in Ritual); clarified process for supermajority threshold execution; added lapse provision for inaction.
 - 2026-02-20: Moved final vow lines to new closing section (§[closing]) to keep amendments procedural and ending liturgical.

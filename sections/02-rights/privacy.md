@@ -80,6 +80,7 @@ simply to see how you bleed.
 
 # Log
 
+- 2026-03-12: Added Summary register (ADR 0006).
 - 2026-03-03: Ritual — revised after hearing the section performed as song on Suno: rewrote confidentiality stanza ("Hold what is told to you in trust. / But if silence would bring harm, / speak.") replacing the opaque rights-framing.
 - 2026-02-20: Ritual lineation tightened for assembled line-by-line cadence and oral readability.
 - 2026-02-18: Section created, adapting "Avoiding Harm" with privacy focus.

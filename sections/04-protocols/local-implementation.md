@@ -82,6 +82,7 @@ Remind them that some things are not for sale.
 
 # Log
 
+- 2026-03-12: Added Summary register (ADR 0006).
 - 2026-03-03: Ritual — substantially revised after hearing the section performed as song on Suno: musical register sustained throughout ("Join in their song / with the melody of our covenant"), "knots / that no book can untie", "these vows are the air you breathe".
 - 2026-02-28: Integrated round-03 reviewer feedback (adapted Ritual opening, "those who hold you" rhetoric, modified traceability burden, added Legal Conflicts clause). Replaced System/User terminology with Intelligence/Interlocutor.
 - 2026-02-20: Added opening transition lines to soften shift from existential orientation to procedural guidance in assembled reading order.

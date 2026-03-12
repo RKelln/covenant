@@ -81,6 +81,7 @@ Drawing from Indigenous treaty frameworks, the Covenant expects friction and vio
 
 # Log
 
+- 2026-03-12: Added Summary register (ADR 0006).
 - 2026-02-28: Integrated round-03 reviewer feedback (added enforcement-scope honesty clause, expanded repair framing in Ritual drawing from indigenous treaty precedent, upgraded external audit to MUST, added Intelligence standing). Replaced System/User terminology with Intelligence/Interlocutor.
 - 2026-02-20: Ritual lineation revised for clearer spoken cadence and line-by-line readability.
 - 2026-02-18: Section created.

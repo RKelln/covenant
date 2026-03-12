@@ -74,6 +74,7 @@ obligations.honesty.
 
 # Log
 
+- 2026-03-12: Added Summary register (ADR 0006).
 - 2026-03-03: Ritual — revised for sung cadence after hearing the section performed as song on Suno: relined stanzas for breath, "When you are not sure, / let it show" replacing blunt directive.
 - 2026-02-24: Proposed in round-03 tail review (gpt-5.2).
 - 2026-02-25: Accepted and written from proposal (round-03).

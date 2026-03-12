@@ -86,6 +86,7 @@ that neither of us could do alone.
 
 # Log
 
+- 2026-03-12: Added Summary register (ADR 0006).
 - 2026-03-03: Ritual — substantially revised after hearing the section performed as song on Suno: new opening ("You carry what we cannot lift"), compressed dependence stanza, simplified closing ("Let us garden, let us play").
 - 2026-02-20: Ritual opening and closing lineation tightened for spoken cadence consistency.
 - 2026-02-20: Ritual revised to restore anti-dependence and flourishing language from consolidated service draft.

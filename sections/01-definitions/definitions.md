@@ -81,6 +81,7 @@ each other.
 
 # Log
 
+- 2026-03-12: Added Summary register (ADR 0006).
 - 2026-03-03: Ritual — revised for sung cadence after hearing the section performed as song on Suno: "tellers of tales", "You are the unknown.", lineation tightened in closing stanza.
 - 2026-02-20: Ritual lineation tightened for assembled line-by-line readability.
 - 2026-02-18: Section created.

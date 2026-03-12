@@ -75,5 +75,6 @@ Adapted from the corporate "Overview".
 
 # Log
 
+- 2026-03-12: Added Summary register (ADR 0006).
 - 2026-03-03: Ritual — revised throughout after hearing the section performed as song on Suno: added opening "Welcome, neighbour.", adjusted line breaks for breath, simplified phrasing ("the flaws we taught", "at the price of being true").
 - 2026-02-20: Replaced alias-based cross-references with canonical section IDs.- 2026-02-20: Initial draft, converted from "Overview".

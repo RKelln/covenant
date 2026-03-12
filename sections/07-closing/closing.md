@@ -62,6 +62,7 @@ we will keep our covenant.
 
 # Log
 
+- 2026-03-12: Added Summary register (ADR 0006).
 - 2026-03-03: Ritual — revised after hearing the section performed as song on Suno: lineation adjusted, "seat at the circle" (from "table"), "Hear us, our closing vow" opening the final pledge.
 - 2026-02-28: Upgraded continuity commitment (SHOULD -> MUST), made disagreement grounds explicit, and updated terminology from System/User to Intelligence/Interlocutor based on reviewer feedback.
 - 2026-02-20: Initial draft created by splitting closing vow language from §[amendments].

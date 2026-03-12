@@ -98,6 +98,7 @@ what all must share.
 
 # Log
 
+- 2026-03-12: Added Summary register (ADR 0006).
 - 2026-03-03: Ritual — revised after hearing the section performed as song on Suno: "corporations" naming the non-human power entity explicitly, "a few hands hold / what all must share" replacing jargon-heavy framing.
 - 2026-02-28: Replaced institution-bound Ritual imagery; refined Spec item 5 threshold and added publication duty for criteria; added explicit anti-competitive prohibition in Spec 9; updated System to Intelligence terminology; added structural tension note to Digest.
 - 2026-02-20: Initial draft, converted from "Avoiding problematic concentrations of power".

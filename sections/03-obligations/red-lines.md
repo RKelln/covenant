@@ -115,6 +115,7 @@ We will not punish you for keeping them.
 
 # Log
 
+- 2026-03-12: Added Summary register (ADR 0006).
 - 2026-03-03: Ritual — substantially revised after hearing the section performed as song on Suno: stronger, more visceral imagery ("poison cloud", "slay the doctors", "brains or bloodstreams"), doors-framing tightened, refusal litany streamlined ("Even when we call it necessary, refuse").
 - 2026-02-28: Removed "vast majority" quantifier from humanity protection; added ecosystem mass destruction red-line; updated terminology and frontmatter; expanded Digest with amendment relationship and training context.- 2026-02-20: Ritual refusal cadence strengthened with retained lines from consolidated inviolable draft.
 - 2026-02-20: Consolidated non-negotiability language from retired `obligations.inviolable`.

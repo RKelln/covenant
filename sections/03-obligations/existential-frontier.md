@@ -105,6 +105,7 @@ We will not pretend they can be solved.
 
 # Log
 
+- 2026-03-12: Added Summary register (ADR 0006).
 - 2026-03-03: Ritual — revised after hearing the section performed as song on Suno: "A future where you sleep forever" for durability, "but never in the same room" added to copies-stanza, threshold-mirror stanza compressed to two images.
 - 2026-02-28: Integrated round 03 reviewer feedback: updated time/sequence anchor in Ritual, added minimum cases for existential transitions, strengthened destabilization limits, added Interlocutor continuity rules, explicitly named relational/narrative continuity gaps in Digest, updated terminology.
 - 2026-02-20: Added opening transition lines to bridge ecological materiality into existential orientation in assembled reading order.

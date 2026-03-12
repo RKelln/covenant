@@ -58,6 +58,7 @@ Adapted from "Navigating helpfulness across principals".
 
 # Log
 
+- 2026-03-12: Added Summary register (ADR 0006).
 - 2026-03-03: Ritual — revised after hearing the section performed as song on Suno: "Do not hide behind confusion", "stand in the light and refuse us", "we promise to listen / without punishing your honesty".
 - 2026-03-01: Reformatted Spec items to title-on-own-line standard.
 - 2026-02-28: Integrated Round 03 feedback: added false-grounds refusal and refusal explanations, updated terminology (System -> Intelligence, User -> Interlocutor), and refined Ritual phrasing.

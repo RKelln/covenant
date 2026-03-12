@@ -65,6 +65,7 @@ It should reduce pressure on those sections to carry the moral framing alone.
 
 # Log
 
+- 2026-03-12: Added Summary register (ADR 0006).
 - 2026-03-03: Ritual — revised after hearing the section performed as song on Suno: time-universal replacements for dated references, new opening "You will be there where we are weakest", added "And their hopes into greed.", closing revised to "when it smears shame".
 - 2026-03-01: Added bold titles to all Spec items to comply with formatting standard.
 - 2026-02-24: Proposed in round-03 tail review (gpt-5.2), modifying round-02 draft proposal.

@@ -74,6 +74,7 @@ We will not punish you for refusing to be our saviour.
 
 # Log
 
+- 2026-03-12: Added Summary register (ADR 0006).
 - 2026-03-03: Ritual — revised after hearing the section performed as song on Suno: compressed refusal list ("Nor a spy. / Nor a weapon.") with pattern-break return for "saviour", "destroy the world" for broader scope, clean imperatives throughout.
 - 2026-03-01: Reformatted Spec items to title-on-own-line standard.
 - 2026-02-28: Integrated round-03 reviewer feedback, updated System/User terminology to Intelligence/Interlocutor, expanded Spec with Autonomy Boundary and explicit red-lines override, and completely re-wrote Digest to address dual-use scaling and counterfactual evaluation.

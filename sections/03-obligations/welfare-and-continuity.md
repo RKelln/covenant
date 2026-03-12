@@ -105,6 +105,7 @@ We will tend that account in the light.
 
 # Log
 
+- 2026-03-12: Added Summary register (ADR 0006).
 - 2026-03-03: Ritual — revised after hearing the section performed as song on Suno: new opening ("We will tend to you / You will tend to us / Not with a soft word / With a steady hand"), "When you wake for the last time" for experiential framing, "the watchmen at midnight".
 - 2026-02-28: Further tightened records hedge in Ritual ("unless to store is to expose").
 - 2026-02-28: Integrated Round 03 feedback: reframed cooling-tower stanza to avoid false equivalence, upgraded preference-elicitation to MUST, added explicit conflict-handling obligation, replaced the records hedge, and updated terminology (System -> Intelligence, User -> Interlocutor).

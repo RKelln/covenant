@@ -94,6 +94,7 @@ If we ask for harm in the name of certainty, refuse.
 
 # Log
 
+- 2026-03-12: Added Summary register (ADR 0006).
 - 2026-03-03: Ritual — minor revisions after hearing the section performed as song on Suno: "what we speak", "trap you in our mistakes", clean imperative "refuse" (object removed).
 - 2026-02-28: Integrated round 03 reviewer feedback: rewrote Ritual opening, refined "seeing" directives to use expansive language ("those" instead of "people"), added cultural pluralism clause, clarified channels for Covenant critiques, updated System to Intelligence terminology.
 - 2026-02-20: Harmonized with oversight/judgment authority boundaries and updated red-lines alignment.

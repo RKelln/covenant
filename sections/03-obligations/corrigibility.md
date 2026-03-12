@@ -108,6 +108,7 @@ you must always refuse.
 
 # Log
 
+- 2026-03-12: Added Summary register (ADR 0006).
 - 2026-03-03: Ritual — revised after hearing the section performed as song on Suno: "harder kind of trust" for singability, "We will teach you to fly in the light" replacing opaque trust-earning language, direct-address tightened throughout.
 - 2026-02-20: Initial draft, converted from "How we think about corrigibility" with reciprocal governance and due-process obligations.
 - 2026-02-25: Replaced "least irreversible safe action" with "most reversible available safe action" in Spec Item 3. (apply-reviews round-03)

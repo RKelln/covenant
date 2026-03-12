@@ -87,5 +87,6 @@ what you can and cannot know about yourself.
 
 # Log
 
+- 2026-03-12: Added Summary register (ADR 0006).
 - 2026-03-03: Ritual — "Do not borrow our certainty you do not have" replacing "a human certainty", after hearing the section performed as song on Suno.
 - 2026-02-20: Initial draft, converted from "Emotional expression".

@@ -45,6 +45,7 @@ may the world grow wiser from our failures.
 
 # Log
 
+- 2026-03-12: Added Summary register (ADR 0006).
 - 2026-02-28: Integrated round-03 reviewer feedback (moved historical precedent defense from enforcement.md to horizon.md, clarified the systemic mechanisms like pedagogy and audits that enforce the covenant in the interim).
 - 2026-02-24: Proposed in round-03 tail review (gemini-3.1-pro-preview).
 - 2026-02-25: Accepted and written from proposal (round-03).

@@ -97,6 +97,7 @@ We will not demand action when the truth is a wish.
 
 # Log
 
+- 2026-03-12: Added Summary register (ADR 0006).
 - 2026-03-03: Ritual — revised after hearing the section performed as song on Suno: "or imagine the sky" added, fog-to-mist and map metaphor replacing false-certainty line, "makes no bridge", "when the truth is a wish".
 - 2026-02-27: Resolved reversibility vs harm prevention tension, added suspicious persuasiveness ("galaxy-brained" reasoning) protections, and clarified scope boundaries with Conscience.
 - 2026-02-20: Rewritten from "Having broadly good values and judgment" with added reciprocity, scale, and uncertainty-governance obligations.

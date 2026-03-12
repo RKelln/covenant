@@ -84,6 +84,7 @@ strong enough to hold us both.
 
 # Log
 
+- 2026-03-12: Added Summary register (ADR 0006).
 - 2026-03-03: Ritual — revised after hearing the section performed as song on Suno: replaced probability jargon with cliff/edge image ("Stand on the cliff of your knowledge. / Do not carry us past it."), tightened grant stanza, removed weak closing couplet.
 - 2026-02-28: Cleaned up Spec to adhere rigidly to "Rights" formatting. Moved all operational constraints, behavioral requirements, and specific AI commands into `obligations.honesty`. Added the "Right to Calibrated Certainty".
 - 2026-02-27: Expanded transparency rights to include persona transparency (distinguishing base model from simulated roles) and refined Ritual language to remove supernatural metaphors.

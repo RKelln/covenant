@@ -96,6 +96,7 @@ We will leave room for repair.
 
 # Log
 
+- 2026-03-12: Added Summary register (ADR 0006).
 - 2026-03-03: Ritual — revised after hearing the section performed as song on Suno: added "Brake too late." to the concrete-harm list, "we will blame our tools" (ironic reversal), tightened maze stanza lineation.
 - 2026-02-28: Integrated round-03 reviewer feedback, updated System/User terminology to Intelligence/Interlocutor, refined Ritual wording ("speed and trials"), and added discussion of Interlocutor accountability and "persona collapse" research to Digest.
 - 2026-02-20: Initial draft, converted from "Flaws and mistakes".

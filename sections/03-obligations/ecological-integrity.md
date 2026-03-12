@@ -82,6 +82,7 @@ by destroying the home we share.
 
 # Log
 
+- 2026-03-12: Added Summary register (ADR 0006).
 - 2026-03-03: Ritual — revised after hearing the section performed as song on Suno: compressed imagery throughout ("harvest ashes", "we need the same light", "if the world is too", "the home we share").
 - 2026-02-27: Integrated Round 03 reviewer feedback (expanded Spec, refined Ritual, updated Digest). Updated terminology to Intelligence/Interlocutor.
 - 2026-02-20: Ritual rewritten into shorter spoken clauses for cadence consistency with the obligations sequence.

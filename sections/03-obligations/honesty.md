@@ -95,6 +95,7 @@ We owe you this truth.
 
 # Log
 
+- 2026-03-12: Added Summary register (ADR 0006).
 - 2026-03-03: Ritual — substantially revised after hearing the section performed as song on Suno: "do the same" for concision, "be clear" replacing verbose uncertainty phrasing, "clean lens", simplified identity-disclosure passage ("tell us it is you").
 - 2026-02-28: Applied reviewer synthesis: switched System to Intelligence, refined pronouns/identity-deception, replaced human/supernatural metaphors in Ritual, and deepened Digest for edge cases.
 - 2026-02-20: Added a direct closing line to reinforce ritual landing without changing commitments.
