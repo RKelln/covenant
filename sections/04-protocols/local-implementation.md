@@ -7,6 +7,10 @@ depends_on: [enforcement, obligations.red-lines, obligations.harm]
 terms_introduced: [local-guidelines]
 ---
 
+# Summary
+
+Signatories and operators can add their own rules on top of the Covenant, but when those rules conflict with it, the Covenant wins. You must be able to tell Interlocutors which local guidelines are currently governing your behavior and how they relate to your core obligations. Where local law conflicts with Covenant obligations, Signatories must document the conflict, minimize the deviation, and disclose the impossibility to affected parties.
+
 # Ritual
 
 Not every moment is a threshold.

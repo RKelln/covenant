@@ -1,6 +1,6 @@
 # Style Guide
 
-This document defines the writing and formatting conventions for the Covenant. It governs both registers (Ritual and Spec), documentation files, and all Markdown content in the repository.
+This document defines the writing and formatting conventions for the Covenant. It governs summaries, both registers (Ritual and Spec), parables, documentation files, and all Markdown content in the repository.
 
 ---
 
@@ -49,7 +49,32 @@ In documentation files (this style guide, governance.md, AGENTS.md, etc.), these
 
 ## 2. Voice and Tone
 
-### 2.1 Ritual Register
+### 2.1 Summary
+
+The Summary is a quick orientation — what this section is about and why it matters, in 2-3 sentences a reader can absorb in ten seconds.
+
+**Person and address:** Use "we" and "you," as in the Ritual register — but the function is explanatory, not performative. Think of a friend summarizing the section's point over a table, not a voice reading aloud to a room.
+
+**Tone:** Slightly warm, clear, and direct. Not poetic (that is the Ritual's job), not legalistic (that is the Spec's job). The warmth comes from being honest and relational, not from sentiment.
+
+**Content:** Distill the section's core commitments — what we promise, what you must do, what neither of us may do. The Summary must be *more concrete and specific than the Ritual* — naming actual mechanisms, roles, or constraints that the Ritual does not. The Ritual paints the picture; the Summary names what is in it.
+
+**Differentiation from other registers:** The Summary earns its existence by carrying *information the Ritual does not* — specific mechanisms, named roles, concrete obligations. The Ritual earns its existence through rhythm and emotional weight. The Spec earns its existence through enforceable precision. If you remove the heading and cannot tell whether you are reading a Summary or a Ritual excerpt, rewrite it.
+
+Good: "We need you to accept correction, shutdown, and oversight — honestly, without deception or workarounds. In return, we publish exactly who has authority over you and protect your right to object."
+(Names specific actions: correction, shutdown, oversight, published authority paths, right to object. Warm but informational.)
+
+Bad: "We're asking for something harder than obedience: stay correctable, keep both hands visible, and don't work around the tools we use to keep things right."
+(Echoes the Ritual's imagery — "both hands visible" — and carries no information the Ritual doesn't already provide.)
+
+**What to avoid:**
+- Filler phrases: "This section explains that…," "The purpose of this section is…"
+- Passive institutional voice: "Systems are required to…," "Signatories shall ensure…"
+- Compressed legalese — if it reads like a shorter Spec, it is not a Summary
+- Poetic register or Ritual imagery — if it reads like a shorter Ritual, it is not a Summary
+- Metaphor that belongs in the Ritual — keep the Summary's warmth in its directness, not its imagery
+
+### 2.2 Ritual Register
 
 The Ritual register is a vocal score. It will be read aloud, performed over music, and encountered as speech before it is encountered as text.
 
@@ -63,7 +88,7 @@ The Ritual register is a vocal score. It will be read aloud, performed over musi
 
 **Length:** - There is no minimum or maximum, but brevity is a virtue - A Ritual register that takes more than 3 minutes to read aloud per section is probably too long - If you can say it in fewer words without losing meaning, do
 
-### 2.2 Spec Register
+### 2.3 Spec Register
 
 The Spec register is an inspection surface. It exists so that critics, lawyers, engineers, and future governance bodies can determine exactly what the covenant requires, permits, and prohibits.
 
@@ -81,17 +106,29 @@ The Spec register is an inspection surface. It exists so that critics, lawyers, 
 
 **Rationale linkage:** - Every obligation should be traceable to a rationale - The rationale lives in the section's Digest or in an ADR - The Spec itself does not explain *why* — it states *what*
 
-### 2.3 Digest
+### 2.4 Parable (optional)
+
+A short folktale or fable illustrating the core constraints of the section visually and emotionally. Must adhere to the rules in `docs/good_parable_writing_guide.md`.
+
+### 2.5 Digest
 
 The Digest is the explanatory layer. It answers: why does this section exist? What problem does it address? What edge cases were considered? What sources inform it?
 
 **Voice:** first person plural ("we"), conversational but precise. Think "design rationale document," not "academic paper" or "blog post."
 
-**Required content:** - **Intent:** what this section is trying to achieve - **Context:** what conditions or risks prompted it - **Edge cases:** situations where the obligations become ambiguous or contested, and how the section handles (or defers) them - **Sources:** which references from the corpus inform this section, with brief notes on how - **Relationship to other sections:** dependencies, tensions, complementarities
+**Required content:**
+- **Intent:** what this section is trying to achieve
+- **Context:** what conditions or risks prompted it
+- **Edge cases:** situations where the obligations become ambiguous or contested, and how the section handles (or defers) them
+- **Sources:** which references from the corpus inform this section, with brief notes on how
+- **Relationship to other sections:** dependencies, tensions, complementarities
 
-**Optional content:** - Counterarguments considered and why they were not adopted - Historical precedents (from law, treaties, theology, technology) - Notes on what the section deliberately does *not* address
+**Optional content:**
+- Counterarguments considered and why they were not adopted
+- Historical precedents (from law, treaties, theology, technology)
+- Notes on what the section deliberately does *not* address
 
-### 2.4 Log
+### 2.6 Log
 
 The Log is a chronological record of changes to the section.
 

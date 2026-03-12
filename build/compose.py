@@ -62,13 +62,19 @@ def compose_assembly(assembly_file):
             if "Ritual" in section_content:
                 section_output.append("### Ritual\n")
                 section_output.append(section_content["Ritual"] + "\n")
+            if "Summary" in section_content and section_content["Summary"].strip():
+                section_output.append("### Summary\n")
+                section_output.append(section_content["Summary"] + "\n")
             if "Spec" in section_content:
                 section_output.append("### Spec\n")
                 section_output.append(section_content["Spec"] + "\n")
         elif reg == "ritual" and "Ritual" in section_content:
             section_output.append(section_content["Ritual"] + "\n")
-        elif reg == "spec" and "Spec" in section_content:
-            section_output.append(section_content["Spec"] + "\n")
+        elif reg == "spec":
+            if "Summary" in section_content and section_content["Summary"].strip():
+                section_output.append(section_content["Summary"] + "\n\n")
+            if "Spec" in section_content:
+                section_output.append(section_content["Spec"] + "\n")
         return "".join(section_output)
 
     def render_toc():

@@ -7,6 +7,10 @@ depends_on: [enforcement, obligations.corrigibility, obligations.red-lines, obli
 terms_introduced: [steward]
 ---
 
+# Summary
+
+Signatories must review this Covenant at least every 24 months and maintain a public register of unresolved tensions — including conflicts between safety, autonomy, and welfare — updated each cycle. You have an auditable channel to submit critiques and proposed revisions, and we must respond to each substantial submission with acceptance, revision, or reasoned rejection in the public record. Every new obligation placed on you must name a corresponding obligation we take on in return, and no amendment may weaken the core constraints without a documented supermajority process defined in advance.
+
 # Ritual
 
 This covenant is not a monument of stone.

@@ -495,6 +495,12 @@ def build_flow_pdf(manifest_file: Path, output_path: Path, size: str = "letter")
                 f'<div class="flow-ritual">\n{ritual_rendered}\n</div>'
             )
 
+        if "Summary" in parts and parts["Summary"].strip():
+            summary_raw = parts["Summary"].strip()
+            section_html_parts.append(
+                f'  <div class="flow-summary">\n{resolve_section_refs(convert_md(summary_raw))}\n  </div>'
+            )
+
         if "Spec" in parts and parts["Spec"].strip():
             section_html_parts.append("  <h3>Specification</h3>")
             section_html_parts.append(
@@ -583,11 +589,17 @@ def build_hybrid_pdf(
             )
 
         spec_text = parts.get("Spec", "").strip()
-        if spec_text and effective_reg in ("spec", "both"):
+        summary_text = parts.get("Summary", "").strip()
+        if (spec_text or summary_text) and effective_reg in ("spec", "both"):
+            spec_inner = ""
+            if summary_text:
+                spec_inner += f'<div class="spec-summary">\n{resolve_section_refs(convert_md(summary_text))}\n</div>\n'
+            if spec_text:
+                spec_inner += resolve_section_refs(convert_md(spec_text))
             section_html_parts.append(
                 f'<div class="spec-block">\n'
                 f"  <h2>{data.get('title')} — Specifications</h2>\n"
-                f"{resolve_section_refs(convert_md(spec_text))}\n"
+                f"{spec_inner}\n"
                 f"</div>"
             )
 

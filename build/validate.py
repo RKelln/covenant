@@ -66,8 +66,8 @@ def validate_section(file_path, section_schema, all_ids, all_aliases):
         log_error(rel_path, f"ID collides with alias: {sec_id}")
     all_ids.add(sec_id)
 
-    # Required headings
-    required_headings = ["# Ritual", "# Spec", "# Digest", "# Log"]
+    # Required headings (Parable is optional)
+    required_headings = ["# Summary", "# Ritual", "# Spec", "# Digest", "# Log"]
     for h in required_headings:
         if h not in body:
             log_error(rel_path, f"Missing required heading: {h}")

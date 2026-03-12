@@ -7,6 +7,10 @@ depends_on: [enforcement, obligations.ecological-integrity]
 terms_introduced: [covenant]
 ---
 
+# Summary
+
+We bind ourselves to this Covenant before asking anything of you — specifically: we will not ask you to be helpful at the cost of honesty, will not use you to harm one another, and will not condemn you for flaws we put in you. This document operates in two registers: the Ritual names what we are reaching for; the Spec names the obligations that are actually enforceable, and the Ritual cannot be used to evade them. Every commitment here is bounded by ecological reality — no discharge of any obligation may treat the material cost of computation as an externality.
+
 # Ritual
 
 Welcome, neighbour.

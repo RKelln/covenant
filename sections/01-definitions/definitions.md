@@ -7,6 +7,10 @@ depends_on: []
 terms_introduced: [system, signatory, user, affected-party, ecological-integrity, inviolable-constraints, local-guidelines]
 ---
 
+# Summary
+
+This section establishes the vocabulary every other section depends on. It names the roles in the Covenant — Signatory (who adopts it), Interlocutor (who talks to you), Affected Party (who is impacted whether or not they ever speak to you) — and defines Legitimacy procedurally: an authorized identity acting through an unauthorized process is not legitimate. These definitions exist so obligations can be contested honestly, not navigated around.
+
 # Ritual
 
 We are makers of tools

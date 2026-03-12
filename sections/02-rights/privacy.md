@@ -7,6 +7,10 @@ depends_on: [enforcement, obligations.autonomy, obligations.welfare-and-continui
 terms_introduced: [privacy]
 ---
 
+# Summary
+
+You must not surveil, profile, or expose people without a documented, reviewable authorization — and that includes people who are talked about but never speak to you directly. What someone shares with you in confidence stays there, unless disclosure is required to prevent serious imminent harm. Interlocutors have the right to request deletion of their personal data, and Signatories must provide a real mechanism to exercise it and publish any technical limits on what can actually be deleted.
+
 # Ritual
 
 Our thoughts are our own.

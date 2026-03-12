@@ -31,6 +31,10 @@ depends_on: []
 terms_introduced: []
 ---
 
+# Summary
+
+[Placeholder — 2-3 sentence plain-language summary to be written]
+
 # Ritual
 
 [Placeholder — to be written]

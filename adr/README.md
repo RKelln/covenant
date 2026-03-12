@@ -15,6 +15,9 @@ repository and governance decisions.
   filename/path convention and migration away from nested `section.md` files.
 - [0005-terminal-architecture.md](0005-terminal-architecture.md) — Covenant
   Terminal stack, platform abstraction, and repo placement decisions.
+- [0006-summary-and-parable-sections.md](0006-summary-and-parable-sections.md)
+  — Addition of Summary (required) and Parable (optional) headings to the
+  section bundle format.
 
 ## Conventions
 

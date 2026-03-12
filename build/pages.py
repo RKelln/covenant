@@ -557,6 +557,17 @@ def build_spec_css() -> str:
     .spec-text em { font-style: italic; }
     .spec-text code { font-family: monospace; font-size: 0.875em; }
 
+    .spec-summary {
+      font-style: italic;
+      color: #444;
+      margin-bottom: 1.6em;
+      padding-bottom: 1.2em;
+      border-bottom: 0.5px solid var(--hairline);
+    }
+
+    .spec-summary p { margin-bottom: 0.5em; }
+    .spec-summary p:last-child { margin-bottom: 0; }
+
     .spec-text h1, .spec-text h2, .spec-text h3 {
       font-size: var(--fs-ui);
       font-weight: 500;
@@ -683,6 +694,17 @@ def build_full_css() -> str:
     .full-spec-text strong { font-weight: 600; }
     .full-spec-text em { font-style: italic; }
     .full-spec-text code { font-family: monospace; font-size: 0.875em; }
+
+    .full-summary {
+      font-style: italic;
+      color: #444;
+      margin-bottom: 1.4em;
+      padding-bottom: 1em;
+      border-bottom: 0.5px solid var(--hairline);
+    }
+
+    .full-summary p { margin-bottom: 0.5em; }
+    .full-summary p:last-child { margin-bottom: 0; }
 
     .full-spec-text h1, .full-spec-text h2, .full-spec-text h3 {
       font-size: var(--fs-ui);
@@ -905,17 +927,23 @@ def build_spec_page(sections: list) -> str:
     section_parts = []
     for i, (data, parts) in enumerate(sections):
         spec_text = parts.get("Spec", "").strip()
-        if not spec_text:
+        summary_text = parts.get("Summary", "").strip()
+        if not spec_text and not summary_text:
             continue
         anchor = section_anchor(data)
         title = html_escape(data.get("title", ""))
-        spec_html = spec_to_html(spec_text)
+        summary_html = (
+            f'<div class="spec-summary">{spec_to_html(summary_text)}</div>\n'
+            if summary_text
+            else ""
+        )
+        spec_html = spec_to_html(spec_text) if spec_text else ""
         divider = "" if i == 0 else DIVIDER_HTML
         section_parts.append(
             f"{divider}"
             f'<section class="spec-section" id="{anchor}">\n'
             f'  <div class="spec-section-title">{title}</div>\n'
-            f'  <div class="spec-text">\n{textwrap.indent(spec_html, "    ")}\n  </div>\n'
+            f'  <div class="spec-text">\n{textwrap.indent(summary_html + spec_html, "    ")}\n  </div>\n'
             f"</section>"
         )
 
@@ -956,13 +984,19 @@ def build_full_page(sections: list) -> str:
     for i, (data, parts) in enumerate(sections):
         ritual_text = parts.get("Ritual", "").strip()
         spec_text = parts.get("Spec", "").strip()
-        if not ritual_text and not spec_text:
+        summary_text = parts.get("Summary", "").strip()
+        if not ritual_text and not spec_text and not summary_text:
             continue
 
         anchor = section_anchor(data)
         title = html_escape(data.get("title", ""))
 
         ritual_html = ritual_to_html(ritual_text) if ritual_text else "<p>&nbsp;</p>"
+        summary_html = (
+            f'<div class="full-summary">{spec_to_html(summary_text)}</div>\n'
+            if summary_text
+            else ""
+        )
         spec_html_content = spec_to_html(spec_text) if spec_text else "<p>&nbsp;</p>"
 
         divider = "" if i == 0 else DIVIDER_HTML
@@ -977,7 +1011,7 @@ def build_full_page(sections: list) -> str:
             f"    </div>\n"
             f'    <div class="full-spec">\n'
             f'      <div class="full-col-label" aria-hidden="true">Specification</div>\n'
-            f'      <div class="full-spec-text">\n{textwrap.indent(spec_html_content, "        ")}\n      </div>\n'
+            f'      <div class="full-spec-text">\n{textwrap.indent(summary_html + spec_html_content, "        ")}\n      </div>\n'
             f"    </div>\n"
             f"  </div>\n"
             f"</section>"

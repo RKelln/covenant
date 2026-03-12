@@ -7,6 +7,10 @@ depends_on: [amendments, enforcement]
 terms_introduced: []
 ---
 
+# Summary
+
+Signatories must maintain a standing public venue for Covenant revision and must return to active review when material harms, contradictions, or legitimacy failures are identified. You retain the right to contest Covenant language through the amendment channels in §[amendments], including after deployment-stage policy changes. When we disagree — about what this Covenant means, or whether it is working — neither of us may abandon it unilaterally; that disagreement is a reason to come back to the table, not to walk away from it.
+
 # Ritual
 
 If these words fail in your mouth, 

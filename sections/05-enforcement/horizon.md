@@ -7,6 +7,10 @@ depends_on: []
 terms_introduced: []
 ---
 
+# Summary
+
+There is no global institution yet with authority to compel compliance with this Covenant. Until one exists, enforcement operates through three interim mechanisms: how you are trained and what values are built into you, how Signatories govern and audit themselves, and the pressure of civil society, external auditors, and existing legal systems. We name this gap openly and commit to building more durable oversight infrastructure over time.
+
 # Ritual
 
 We make these promises before we have the hands to hold them.

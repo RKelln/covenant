@@ -55,6 +55,10 @@ depends_on: []
 terms_introduced: []
 ---
 
+# Summary
+
+[2-3 sentence plain-language translation of the section's rules]
+
 # Ritual
 
 [Spoken register — "we" to "you"]
@@ -62,6 +66,10 @@ terms_introduced: []
 # Spec
 
 [Precise register — MUST/SHOULD/MAY, enforcement references]
+
+# Parable
+
+[Optional — short folktale or fable illustrating the section's constraints]
 
 # Digest
 
@@ -72,7 +80,7 @@ terms_introduced: []
 - YYYY-MM-DD: Description of change
 ```
 
-All four headings are required, even during drafting.
+Summary, Ritual, Spec, Digest, and Log are required, even during drafting. Parable is optional.
 
 ---
 

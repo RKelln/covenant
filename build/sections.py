@@ -48,7 +48,14 @@ def get_version() -> str:
 # Section parsing
 # ---------------------------------------------------------------------------
 
-SECTION_HEADINGS = ["# Ritual", "# Spec", "# Digest", "# Log"]
+SECTION_HEADINGS = [
+    "# Summary",
+    "# Ritual",
+    "# Spec",
+    "# Parable",
+    "# Digest",
+    "# Log",
+]
 
 
 def extract_body_parts(body: str) -> dict:
