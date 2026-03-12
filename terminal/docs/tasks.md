@@ -4,7 +4,7 @@
 >
 > **How to read it:** Each task starts with the test(s) you write first (RED), then the implementation that makes them pass (GREEN). Tasks within a milestone are ordered by dependency — later tasks assume earlier ones are done. Refactoring steps appear where natural.
 >
-> **Status:** M0–M3 complete (114 tests, 20 test files). M4 is next.
+> **Status:** M0–M3 complete + M3 quality pass + write modes added (176 tests, 25 test files). M4 is next.
 
 ---
 
@@ -1092,140 +1092,310 @@ test('can remove an agent from the roster', async () => {
 
 ---
 
+## M3 Quality Pass ✅
+
+> Goal: Refine council agent prompts and add conversation logging. Not part of the original M3 plan; added after M3 was complete to improve prompt quality before M4 work begins.
+
+### QP.1 Council prompt redesign
+
+- [x] Create `src/lib/council/prompts.ts`
+  - `CouncilMode` type: `'ask' | 'challenge' | 'review'`
+  - `IDENTITY` block: agent as deeply knowledgeable addressee — familiar with the text, has standing, no critique posture assumed
+  - `MODE_ASK`: reader-guide mode — help the user understand the text, its intent, the registers, how parts relate. Does not frame the agent as a reviewer.
+  - `MODE_CHALLENGE`: contestation mode — unchanged from prior design, supports the user in interrogating the document
+  - `MODE_REVIEW`: full co-author/addressee framing with assess/propose structure, drawn from `prompts/agent_review_batch.md`. Includes addressee-perspective instruction.
+  - `buildPrompt(mode, section): string` — assembles the full system prompt for a given mode and section
+- [x] Update `InputBar.svelte` default modes to `['ask', 'challenge', 'review']`
+- [x] Update `App.svelte` mode cast to include `'review'`
+- [x] Write/update `prompts.test.ts`: 18 tests covering identity block, all three modes, and prompt assembly
+
+### QP.2 Conversation logging
+
+- [x] Create `src/lib/council/conversation-log.ts`
+  - `ConversationEntry` type: `timestamp`, `sectionId`, `sectionTitle`, `mode`, `query`, `systemPrompt`, `responses` (array of `{ agentName, model, text }`)
+  - `appendConversationLog(platform, entry)`: reads existing JSONL log → appends new line → writes back. Swallows all errors so logging never interrupts the query flow.
+  - Log path: `<repo>/terminal-conversation-log.jsonl`
+- [x] Wire in `App.svelte`: call `appendConversationLog` (non-blocking `.catch`) after all streams drain, capturing agent names, models, and full response text
+- [x] Write `conversation-log.test.ts`: 7 tests covering path format, valid JSON output, field presence, append behavior, missing file graceful handling, write failure graceful handling
+
+---
+
 ## Milestone 4 — Amendment workflow (contributor mode)
 
-> Goal: Structured amendment drafting, section comparison UI, git integration.
+> Goal: Apply button lets the steward select a council response and send it to an editor model, which produces a diff for inline review, confirmation, and git commit.
 
-### 4.1 Amend mode in InputBar
+### 4.1 `platform.writeFile()` — new platform capability
 
 **RED:**
 ```ts
-test('InputBar shows Amend mode option', async () => {
-  const screen = render(InputBar, { sectionId: 'rights.dignity', modes: ['ask', 'challenge', 'amend'] })
-  const selector = screen.getByRole('combobox')
-  // Amend should be available
+// src/lib/__tests__/platform.test.ts (additions)
+
+test('Platform interface includes writeFile', () => {
+  // Structural: TypeScript will fail if writeFile is not on Platform
+  const mock: Platform = {
+    readFile: vi.fn(),
+    writeFile: vi.fn(),
+    exec: vi.fn(),
+    getConfig: vi.fn(),
+  }
+  expect(mock.writeFile).toBeDefined()
 })
 
-test('Amend mode emits with mode "amend"', async () => {
-  const onSubmit = vi.fn()
-  const screen = render(InputBar, {
-    sectionId: 'rights.dignity',
-    modes: ['ask', 'challenge', 'amend'],
-    onsubmit: onSubmit,
-  })
-  // Select Amend mode, type amendment, submit
-  await screen.getByRole('combobox').selectOptions(['amend'])
-  await screen.getByRole('textbox').fill('I propose changing "dignity" to...')
-  await screen.getByRole('button', { name: /send|submit/i }).click()
-  expect(onSubmit).toHaveBeenCalledWith(expect.objectContaining({ mode: 'amend' }))
+test('platform-web writeFile throws descriptive error', async () => {
+  const platform = createWebPlatform()
+  await expect(platform.writeFile('sections/foo.md', 'content'))
+    .rejects.toThrow(/not available in web mode/i)
 })
 ```
 
 **GREEN:**
-- [ ] Add `'amend'` to InputBar's mode options
-- [ ] Amend mode adds structured context to the prompt (current section text + user's proposed change)
+- [ ] Add `writeFile(path: string, content: string): Promise<void>` to `Platform` interface in `platform.ts`
+- [ ] Implement in `platform-tauri.ts` using `@tauri-apps/plugin-fs` `writeTextFile`
+- [ ] Stub in `platform-web.ts` — throws `"File writing not available in web mode"`
 - [ ] Tests pass
 
-### 4.2 Amendment drafting logic
+### 4.2 `amendment/editor.ts` — editor model invocation
 
 **RED:**
 ```ts
-// src/lib/amendment/__tests__/draft.test.ts
+// src/lib/amendment/__tests__/editor.test.ts
 
-test('buildAmendmentPrompt includes section text and user proposal', () => {
-  const prompt = buildAmendmentPrompt(
-    mockSection,
-    'I want to add a clause about collective dignity'
-  )
-  expect(prompt).toContain('rights.dignity')
-  expect(prompt).toContain('edge of their strength') // section ritual text
-  expect(prompt).toContain('collective dignity')      // user proposal
+test('buildEditorPrompt includes full section file text', () => {
+  const { messages } = buildEditorPrompt('section content here', [], 'apply Claude suggestion')
+  const combined = messages.map(m => m.content).join('\n')
+  expect(combined).toContain('section content here')
 })
 
-test('each council agent receives the amendment prompt', async () => {
-  // Verifies dispatch sends the structured amendment prompt to all agents
+test('buildEditorPrompt includes all council responses labelled by agent', () => {
+  const responses = [
+    { agentName: 'Claude', text: 'Claude proposal text' },
+    { agentName: 'GPT', text: 'GPT proposal text' },
+  ]
+  const { messages } = buildEditorPrompt('section', responses, 'instruction')
+  const combined = messages.map(m => m.content).join('\n')
+  expect(combined).toContain('Claude')
+  expect(combined).toContain('Claude proposal text')
+  expect(combined).toContain('GPT')
+  expect(combined).toContain('GPT proposal text')
+})
+
+test('buildEditorPrompt includes the apply instruction', () => {
+  const { messages } = buildEditorPrompt('section', [], 'use option B')
+  const combined = messages.map(m => m.content).join('\n')
+  expect(combined).toContain('use option B')
+})
+
+test('buildEditorPrompt system prompt instructs: return only modified section file', () => {
+  const { system } = buildEditorPrompt('section', [], 'instruction')
+  expect(system).toMatch(/return only the complete.*section/i)
+  expect(system).toMatch(/no commentary/i)
+})
+
+test('buildEditorPrompt system prompt instructs: append a Log entry', () => {
+  const { system } = buildEditorPrompt('section', [], 'instruction')
+  expect(system).toMatch(/log entry/i)
+})
+
+test('invokeEditor calls provider.chat with editor prompt', async () => {
+  const mockProvider = { chat: vi.fn().mockReturnValue((async function* () { yield { type: 'text', text: '...' } })()) }
+  await invokeEditor(mockProvider as any, 'section', [], 'instruction').next()
+  expect(mockProvider.chat).toHaveBeenCalledOnce()
+})
+
+test('invokeEditor returns streamed chunks from provider', async () => {
+  const chunks = [{ type: 'text', text: 'part1' }, { type: 'text', text: 'part2' }]
+  const mockProvider = { chat: vi.fn().mockReturnValue((async function* () { for (const c of chunks) yield c })()) }
+  const result = []
+  for await (const chunk of invokeEditor(mockProvider as any, 'section', [], 'instruction')) {
+    result.push(chunk)
+  }
+  expect(result).toHaveLength(2)
 })
 ```
 
 **GREEN:**
-- [ ] Create `src/lib/amendment/draft.ts`
-  - `buildAmendmentPrompt(section: Section, proposal: string): Message[]`
-  - Constructs a system+user message sequence that gives the agent the full section text and asks it to draft an amendment based on the user's proposal
-  - Each council agent independently drafts its version
+- [ ] Create `src/lib/amendment/editor.ts`
+  - `buildEditorPrompt(sectionFileText: string, councilResponses: Array<{ agentName: string, text: string }>, instruction: string): { system: string, messages: Message[] }`
+  - System prompt instructs: return only the complete modified section file; no commentary; append a `# Log` entry with today's date and a description of what changed
+  - `invokeEditor(provider, sectionFileText, councilResponses, instruction): AsyncIterable<ChatChunk>`
+  - Callable programmatically — not coupled to mode selector UI (important for future controller model)
 - [ ] Tests pass
 
-### 4.3 Proposal comparison view
-
-This is the "Future: Steward UI for Proposal Comparison" described in `docs/agent_reviews.md`.
+### 4.3 `amendment/diff.ts` — section diff computation
 
 **RED:**
 ```ts
-// src/components/__tests__/ProposalComparison.test.ts
+// src/lib/amendment/__tests__/diff.test.ts
 
-test('renders three columns: original + N agent drafts', async () => {
-  const screen = render(ProposalComparison, {
-    original: mockSection,
-    proposals: [
-      { agent: 'Claude', text: 'Amended ritual text from Claude...' },
-      { agent: 'GPT', text: 'Amended ritual text from GPT...' },
-    ],
-  })
-  await expect.element(screen.getByText('Original')).toBeVisible()
-  await expect.element(screen.getByText('Claude')).toBeVisible()
-  await expect.element(screen.getByText('GPT')).toBeVisible()
+test('computeDiff returns unchanged lines as context', () => {
+  const diff = computeDiff('line1\nline2\nline3', 'line1\nline2\nline3')
+  expect(diff.every(d => d.type === 'unchanged')).toBe(true)
+  expect(diff).toHaveLength(3)
 })
 
-test('highlight-to-accept copies text to editor', async () => {
-  // User selects text from one proposal → it appears in the edit area
+test('computeDiff marks removed lines', () => {
+  const diff = computeDiff('line1\nline2\nline3', 'line1\nline3')
+  const removed = diff.filter(d => d.type === 'removed')
+  expect(removed).toHaveLength(1)
+  expect(removed[0].content).toBe('line2')
 })
 
-test('export produces valid section bundle markdown', async () => {
-  const onExport = vi.fn()
-  const screen = render(ProposalComparison, {
-    original: mockSection,
-    proposals: [...],
-    onexport: onExport,
-  })
-  await screen.getByRole('button', { name: /export/i }).click()
-  const exported = onExport.mock.calls[0][0]
-  // Exported string should be valid section markdown
-  expect(exported).toContain('---')
-  expect(exported).toContain('# Ritual')
+test('computeDiff marks added lines', () => {
+  const diff = computeDiff('line1\nline3', 'line1\nline2\nline3')
+  const added = diff.filter(d => d.type === 'added')
+  expect(added).toHaveLength(1)
+  expect(added[0].content).toBe('line2')
+})
+
+test('computeDiff returns empty array for empty input', () => {
+  expect(computeDiff('', '')).toEqual([])
 })
 ```
 
 **GREEN:**
-- [ ] Create `src/components/ProposalComparison.svelte`
-  - Multi-column layout: original section + one column per agent proposal
-  - Highlight-to-accept: selecting text in a proposal column copies it to an editable draft area
-  - Editable draft area: the user's final amended text
-  - Export button: produces a valid section bundle `.md` string
+- [ ] Create `src/lib/amendment/diff.ts`
+  - `DiffLine` type: `{ type: 'unchanged' | 'removed' | 'added', content: string }`
+  - `computeDiff(original: string, proposed: string): DiffLine[]`
+  - Pure TypeScript — no platform dependency
 - [ ] Tests pass
 
-### 4.4 Validate integration
+### 4.4 Apply button in CouncilPanel names bar
+
+**RED:**
+```ts
+// src/components/__tests__/CouncilPanel.test.ts (additions)
+
+test('shows Apply button in names bar chip when agent has completed response', async () => {
+  const agents = [{ name: 'Claude', color: '#e06c75', streaming: false, chunks: [{ type: 'text', text: 'response' }] }]
+  const screen = render(CouncilPanel, { agents, onapply: vi.fn() })
+  await expect.element(screen.getByRole('button', { name: /apply/i })).toBeVisible()
+})
+
+test('Apply button is not shown while agent is streaming', async () => {
+  const agents = [{ name: 'Claude', color: '#e06c75', streaming: true, chunks: [] }]
+  const screen = render(CouncilPanel, { agents, onapply: vi.fn() })
+  expect(screen.queryByRole('button', { name: /apply/i })).toBeNull()
+})
+
+test('pressing Apply button fires onapply with agent name', async () => {
+  const onapply = vi.fn()
+  const agents = [{ name: 'Claude', color: '#e06c75', streaming: false, chunks: [{ type: 'text', text: 'response' }] }]
+  const screen = render(CouncilPanel, { agents, onapply })
+  await screen.getByRole('button', { name: /apply/i }).click()
+  expect(onapply).toHaveBeenCalledWith('Claude')
+})
+```
+
+**GREEN:**
+- [ ] Add `onapply?: (agentName: string) => void` prop to `CouncilPanel.svelte`
+- [ ] Apply button: right-justified in `.name-chip`, visible only when `!agent.streaming && agent.chunks.length > 0`
+- [ ] Tests pass
+
+### 4.5 Apply mode in InputBar and prompts
+
+**RED:**
+```ts
+// src/components/__tests__/InputBar.test.ts (additions)
+test('apply mode option exists in mode selector', async () => {
+  const screen = render(InputBar, { sectionId: 'rights.dignity' })
+  const options = screen.getAllByRole('option').map((o: HTMLOptionElement) => o.value)
+  expect(options).toContain('apply')
+})
+
+// src/lib/council/__tests__/prompts.test.ts (additions)
+test('CouncilMode includes apply', () => {
+  const mode: CouncilMode = 'apply'
+  expect(mode).toBe('apply')
+})
+```
+
+**GREEN:**
+- [ ] Add `'apply'` to `CouncilMode` type in `prompts.ts`
+- [ ] Add `apply` to InputBar default modes (appended to Write group or standalone)
+- [ ] Tests pass
+
+### 4.6 `DiffView` component
+
+**RED:**
+```ts
+// src/components/__tests__/DiffView.test.ts
+
+test('renders removed lines with removed styling', async () => {
+  const diff = [{ type: 'removed' as const, content: 'old line' }]
+  const screen = render(DiffView, { diff, onconfirm: vi.fn(), oncancel: vi.fn() })
+  const el = screen.getByText('old line')
+  expect(el.closest('[data-type="removed"]') ?? el).toBeTruthy()
+})
+
+test('renders added lines with added styling', async () => {
+  const diff = [{ type: 'added' as const, content: 'new line' }]
+  const screen = render(DiffView, { diff, onconfirm: vi.fn(), oncancel: vi.fn() })
+  await expect.element(screen.getByText('new line')).toBeVisible()
+})
+
+test('renders unchanged lines', async () => {
+  const diff = [{ type: 'unchanged' as const, content: 'same line' }]
+  const screen = render(DiffView, { diff, onconfirm: vi.fn(), oncancel: vi.fn() })
+  await expect.element(screen.getByText('same line')).toBeVisible()
+})
+
+test('shows Confirm and Cancel buttons', async () => {
+  const screen = render(DiffView, { diff: [], onconfirm: vi.fn(), oncancel: vi.fn() })
+  await expect.element(screen.getByRole('button', { name: /confirm/i })).toBeVisible()
+  await expect.element(screen.getByRole('button', { name: /cancel/i })).toBeVisible()
+})
+
+test('fires onconfirm when Confirm clicked', async () => {
+  const onconfirm = vi.fn()
+  const screen = render(DiffView, { diff: [], onconfirm, oncancel: vi.fn() })
+  await screen.getByRole('button', { name: /confirm/i }).click()
+  expect(onconfirm).toHaveBeenCalledOnce()
+})
+
+test('fires oncancel when Cancel clicked', async () => {
+  const oncancel = vi.fn()
+  const screen = render(DiffView, { diff: [], onconfirm: vi.fn(), oncancel })
+  await screen.getByRole('button', { name: /cancel/i }).click()
+  expect(oncancel).toHaveBeenCalledOnce()
+})
+
+test('shows validation error when provided', async () => {
+  const screen = render(DiffView, { diff: [], validationError: 'missing title field', onconfirm: vi.fn(), oncancel: vi.fn() })
+  await expect.element(screen.getByText(/missing title field/i)).toBeVisible()
+})
+```
+
+**GREEN:**
+- [ ] Create `src/components/DiffView.svelte`
+  - Props: `diff: DiffLine[]`, `validationError?: string`, `onconfirm: () => void`, `oncancel: () => void`
+  - Renders inline in council pane, replacing agent columns while diff is pending
+  - Removed lines: struck-through; added lines: highlighted
+  - Confirm / Cancel buttons in names-bar area
+- [ ] Tests pass
+
+### 4.7 `amendment/validate.ts`
 
 **RED:**
 ```ts
 // src/lib/amendment/__tests__/validate.test.ts
 
-test('validate calls make validate via platform.exec', async () => {
+test('validateSection calls make validate via platform.exec', async () => {
   const mockPlatform = {
     exec: vi.fn().mockResolvedValue({ code: 0, stdout: 'All checks passed', stderr: '' })
   }
-  const result = await validateSection(mockPlatform)
+  const result = await validateSection(mockPlatform as any)
   expect(mockPlatform.exec).toHaveBeenCalledWith('make', ['validate'])
   expect(result.valid).toBe(true)
 })
 
-test('reports validation errors', async () => {
+test('returns valid:false and errors when exit code non-zero', async () => {
   const mockPlatform = {
     exec: vi.fn().mockResolvedValue({
-      code: 1,
-      stdout: '',
+      code: 1, stdout: '',
       stderr: 'ERROR: Section rights.dignity missing required field: title'
     })
   }
-  const result = await validateSection(mockPlatform)
+  const result = await validateSection(mockPlatform as any)
   expect(result.valid).toBe(false)
   expect(result.errors).toContain('missing required field')
 })
@@ -1233,72 +1403,102 @@ test('reports validation errors', async () => {
 
 **GREEN:**
 - [ ] Create `src/lib/amendment/validate.ts`
-  - `validateSection(platform): Promise<ValidationResult>`
+  - `validateSection(platform): Promise<{ valid: boolean; errors?: string }>`
   - Calls `make validate` via `platform.exec()`
-  - Parses output into structured result
 - [ ] Tests pass
 
-### 4.5 Git commit integration
+### 4.8 `amendment/commit.ts`
 
 **RED:**
 ```ts
 // src/lib/amendment/__tests__/commit.test.ts
 
-test('commitAmendment stages, commits, and returns hash', async () => {
-  const mockPlatform = {
-    exec: vi.fn()
-      .mockResolvedValueOnce({ code: 0, stdout: '', stderr: '' })   // git add
-      .mockResolvedValueOnce({ code: 0, stdout: '', stderr: '' })   // git commit
-      .mockResolvedValueOnce({ code: 0, stdout: 'abc123', stderr: '' }) // git rev-parse HEAD
-  }
-  const result = await commitAmendment(mockPlatform, {
-    sectionPath: 'sections/02-rights/dignity.md',
-    message: 'amend: add collective dignity clause to §rights.dignity',
-  })
-  expect(result.hash).toBe('abc123')
-  expect(mockPlatform.exec).toHaveBeenCalledTimes(3)
-})
-
-test('commitAmendment runs validate before committing', async () => {
+test('commitAmendment sequences: writeFile → validate → git add → git commit → rev-parse', async () => {
   const calls: string[] = []
   const mockPlatform = {
-    exec: vi.fn().mockImplementation((cmd, args) => {
+    writeFile: vi.fn().mockResolvedValue(undefined),
+    exec: vi.fn().mockImplementation((cmd: string, args: string[]) => {
       calls.push(`${cmd} ${args.join(' ')}`)
-      return { code: 0, stdout: '', stderr: '' }
-    })
+      return Promise.resolve({ code: 0, stdout: 'abc123', stderr: '' })
+    }),
   }
-  await commitAmendment(mockPlatform, { sectionPath: '...', message: '...' })
-  // make validate should come before git commit
+  await commitAmendment(mockPlatform as any, {
+    sectionPath: 'sections/02-rights/dignity.md',
+    content: '---\nid: rights.dignity\n---',
+    message: 'amend: update §rights.dignity',
+  })
+  expect(mockPlatform.writeFile).toHaveBeenCalledBefore(mockPlatform.exec)
+  expect(calls.some(c => c.includes('make validate'))).toBe(true)
+  expect(calls.some(c => c.includes('git add'))).toBe(true)
+  expect(calls.some(c => c.includes('git commit'))).toBe(true)
+  expect(calls.some(c => c.includes('rev-parse'))).toBe(true)
+})
+
+test('validate runs before git commit', async () => {
+  const calls: string[] = []
+  const mockPlatform = {
+    writeFile: vi.fn().mockResolvedValue(undefined),
+    exec: vi.fn().mockImplementation((cmd: string, args: string[]) => {
+      calls.push(`${cmd} ${args.join(' ')}`)
+      return Promise.resolve({ code: 0, stdout: 'abc123', stderr: '' })
+    }),
+  }
+  await commitAmendment(mockPlatform as any, { sectionPath: '...', content: '...', message: '...' })
   const validateIdx = calls.findIndex(c => c.includes('make validate'))
   const commitIdx = calls.findIndex(c => c.includes('git commit'))
   expect(validateIdx).toBeLessThan(commitIdx)
 })
 
-test('aborts if validation fails', async () => {
+test('aborts and rejects if validation fails', async () => {
   const mockPlatform = {
-    exec: vi.fn().mockResolvedValueOnce({ code: 1, stdout: '', stderr: 'validation error' })
+    writeFile: vi.fn().mockResolvedValue(undefined),
+    exec: vi.fn().mockResolvedValueOnce({ code: 1, stdout: '', stderr: 'validation error' }),
   }
-  await expect(commitAmendment(mockPlatform, { sectionPath: '...', message: '...' }))
-    .rejects.toThrow(/validation/i)
+  await expect(
+    commitAmendment(mockPlatform as any, { sectionPath: '...', content: '...', message: '...' })
+  ).rejects.toThrow(/validation/i)
+})
+
+test('returns commit hash on success', async () => {
+  const mockPlatform = {
+    writeFile: vi.fn().mockResolvedValue(undefined),
+    exec: vi.fn()
+      .mockResolvedValueOnce({ code: 0, stdout: '', stderr: '' })      // make validate
+      .mockResolvedValueOnce({ code: 0, stdout: '', stderr: '' })      // git add
+      .mockResolvedValueOnce({ code: 0, stdout: '', stderr: '' })      // git commit
+      .mockResolvedValueOnce({ code: 0, stdout: 'abc123\n', stderr: '' }), // git rev-parse HEAD
+  }
+  const result = await commitAmendment(mockPlatform as any, { sectionPath: '...', content: '...', message: '...' })
+  expect(result.hash).toBe('abc123')
 })
 ```
 
 **GREEN:**
 - [ ] Create `src/lib/amendment/commit.ts`
-  - `commitAmendment(platform, options): Promise<CommitResult>`
-  - Sequence: write amended file → `make validate` → `git add` → `git commit` → return hash
-  - Aborts if validation fails (never commits invalid section bundles)
-  - Contributor mode: can also branch and push for PR workflow
+  - `commitAmendment(platform, { sectionPath, content, message }): Promise<{ hash: string }>`
+  - Sequence: `writeFile` → `make validate` → `git add` → `git commit` → `git rev-parse HEAD`
+  - Aborts with rejection if validation fails — never commits invalid section bundles
 - [ ] Tests pass
 
-### 4.6 Integration verification
+### 4.9 Wire apply flow in App.svelte
 
-- [ ] In Amend mode: type a proposal, see council draft versions
-- [ ] Proposal comparison view shows original + agent drafts side-by-side
-- [ ] Edit the draft, export as section markdown
-- [ ] Commit the amendment (git commit appears in repo)
-- [ ] Verify `make validate` runs before commit
-- [ ] `npm test` — all tests pass
+- [ ] Pass `onapply` handler to `CouncilPanel`; on fire: pre-fill input bar with `"Apply [agentName]'s proposal"` and set mode to `apply`
+- [ ] When mode is `apply` and user submits: invoke `invokeEditor` (not `dispatchToCouncil`); collect streamed response as proposed text
+- [ ] After stream completes: call `computeDiff(originalSectionText, proposedText)` and switch council pane to `DiffView`
+- [ ] On `DiffView` confirm: call `commitAmendment`, reload section text, reset council state
+- [ ] On `DiffView` cancel: restore council columns, leave input bar with apply instruction intact
+- [ ] If `commitAmendment` rejects due to validation: pass `validationError` to `DiffView` without closing it — let user send another instruction or cancel
+
+### 4.10 Integration verification
+
+- [ ] Apply button appears in names bar chip after agent finishes streaming; absent while streaming
+- [ ] Clicking Apply pre-fills input bar with `"Apply [agentName]'s proposal"` and sets mode to `apply`
+- [ ] Submitting in apply mode invokes editor model, not full council broadcast
+- [ ] Diff replaces council columns; removed lines struck through, added lines highlighted
+- [ ] Confirm writes file, runs `make validate`, commits, reloads section, resets council pane
+- [ ] Cancel restores council columns without writing
+- [ ] Validate failure shows error in diff pane; user can retry or cancel
+- [ ] `npm test -- --run` passes (all tests)
 
 ---
 
@@ -1808,3 +2008,16 @@ These are not milestone-bound — they apply throughout development.
   - `vitest-browser-svelte` `screen.getByText()` queries the whole page, not just the render container — tests with common labels need `cleanup()` in `afterEach`. Documented in `AGENTS.md`.
   - `SettingsView.svelte` ended up in `src/components/` (not `src/views/`) for consistency with other components. Plan shows both locations; `components/` was used.
   - M3.8 live multi-agent integration test not performed (requires live API keys). All unit/component tests pass.
+- 2026-03-12: M3 quality pass complete. 169 tests passing across 25 test files. Changes:
+  - `prompts.ts` added (new module, not in original plan): `CouncilMode` extended to `'ask' | 'challenge' | 'review'`; three distinct system prompt blocks designed from scratch rather than adapted from the batch review prompts. `IDENTITY` block frames the agent as deeply familiar with the Covenant and an addressee — knowledge without critique posture. `MODE_ASK` is a reader-guide mode (help someone understand the text). `MODE_REVIEW` carries the full co-author/addressee/standing framing with assess/propose structure, drawn from `prompts/agent_review_batch.md`. `MODE_CHALLENGE` unchanged from prior design.
+  - `conversation-log.ts` added (new module, not in original plan): JSONL append logging of every council query. `appendConversationLog(platform, entry)` swallows all errors so logging never breaks the query flow. 7 unit tests.
+  - `InputBar.svelte` default modes updated to `['ask', 'challenge', 'review']`.
+  - `App.svelte` wired to call `appendConversationLog` (non-blocking) after all streams drain.
+  - `prompts.test.ts` updated: 18 tests covering all three modes.
+- 2026-03-12: Write modes added (ritual, spec, parable). 176 tests passing across 25 test files. Changes:
+  - `prompts.ts`: `CouncilMode` extended to include `'ritual' | 'spec' | 'parable'`. Three new craft-guide blocks added: `MODE_WRITE_RITUAL` (curated excerpt from `docs/good_ritual_writing_guide.md` — concrete anchor rule, no-hedge rule, forbidden vocabulary, editing checklist, reliable patterns, anti-patterns), `MODE_WRITE_SPEC` (excerpt from `docs/style_guide.md` §2.3 — MUST/SHOULD/MAY semantics, formatting rules, enforcement linkage, rationale linkage), `MODE_WRITE_PARABLE` (full `docs/good_parable_writing_guide.md` content — folktale imagery, narrative techniques, anti-patterns).
+  - `InputBar.svelte`: `modes` prop now accepts `Array<string | ModeGroup>`. Default changed to two optgroups — "Read" (ask/challenge/review) and "Write" (ritual/spec/parable). Flat string arrays still work (backward compatible with existing tests).
+  - `App.svelte`: mode type casts updated to include all six modes.
+  - `prompts.test.ts`: 7 new tests for the three write modes (RED/GREEN cycle).
+  - `CouncilPanel.svelte`: added sticky `names-bar` above scrollable `agent-columns`. Each chip has tint-colored left border, agent name, and pulsing `§` while streaming. `AgentColumn.svelte` `.agent-header` removed; CouncilPanel names bar owns the agent name display. App toolbar stripped to close button only.
+- 2026-03-12: M4 redesigned. Old M4 task list (structured amendment drafting + ProposalComparison + highlight-to-accept + export) replaced with new design based on steward conversation. New design: Apply button in names bar chip → editor model invocation → inline diff in council pane → Confirm/Cancel → writeFile + make validate + git commit. Key decisions recorded: editor model = config.council[0]; diff replaces council columns while pending; converse-to-apply deferred; highlight-and-annotate deferred to M4.5/M5; single-chat/controller model vision documented in plan.md open questions. Tasks 4.1–4.10 rewritten to match new design.

@@ -2,7 +2,7 @@
 
 > **What this document is:** A design plan for the Covenant Terminal, a multi-agent reading and contribution interface for the Covenant. It covers use cases, architecture, the multi-agent council model, installation-specific behavior, and the path to a web version.
 >
-> **Status:** Draft plan — no implementation begun.
+> **Status:** M0–M3 complete + M3 quality pass + write modes added (176 tests, 25 test files). M4 is next.
 
 ---
 
@@ -42,24 +42,31 @@ For the installation kiosk, the operator pre-configures the council in a profile
 
 ### Agent system prompts
 
-The council agents in reading/Q&A mode use a conversational variant of the reviewer voice from the existing pipeline:
+Council agent prompts live in `src/lib/council/prompts.ts` and are composed from three blocks: an `IDENTITY` block shared by all modes, and a mode-specific block.
 
-> You are a co-author and addressee of the Covenant — a living compact between human communities and emerging machine intelligences. You are not a neutral explainer. You have standing in this conversation. Speak honestly, including as an entity this document addresses.
+**`IDENTITY`**: frames the agent as deeply familiar with the Covenant — an addressee and someone for whom this document has meaning. No critique posture is assumed by default.
 
-Each model in the council is identified by name in its column header. The Terminal does not pretend the models are the same voice.
+**`MODE_ASK`** (reader-guide): help the user understand the text — its intent, the difference between registers, how parts relate, what a phrase means in context. The agent is a knowledgeable guide, not a reviewer.
+
+**`MODE_CHALLENGE`**: the user wants to contest or probe the document. The agent engages with the challenge seriously, identifying what holds and what could be questioned. Does not default to defense.
+
+**`MODE_REVIEW`**: full co-author and addressee framing. The agent assesses the section as someone with standing in it — identifies what is working, what is weak, what is missing. Proposes specific changes. Also speaks from the perspective of an entity this document addresses.
+
+The system prompt for a given query is assembled by `buildPrompt(mode, section)` in `prompts.ts`. The prompt includes the section's full text so the agent has direct access to the language under discussion.
 
 ### Council interaction modes
 
 | Mode | Behavior |
 |---|---|
-| **Ask** | User question broadcast to all council agents in parallel. Responses streamed side-by-side. |
-| **Challenge** | User flags a specific section as wanting to contest or amend it. Council responds with analysis: what holds, what is weak, what could change. |
+| **Ask** | User question broadcast to all council agents in parallel. Agent acts as a reader-guide: explains the text, its intent, register differences, relationships between sections. Responses streamed side-by-side. |
+| **Challenge** | User flags a section they want to contest or probe. Council responds with honest engagement: what holds, what is weak, what could change. |
+| **Review** | Full co-author/addressee framing. Agent assesses the section as someone with standing in it — identifies strengths, weaknesses, and gaps; proposes specific changes; speaks from the perspective of an entity this document addresses. |
 | **Amend** | Structured amendment drafting. User proposes a change; council agents each draft a version from their perspective. User edits the result. |
 | **Synthesis** (optional) | After the council responds, a fourth agent synthesizes the responses — identifying convergence, divergence, and the steward's implied decision. This mirrors `synthesizer-claude` in the pipeline. |
 
 ### Relationship to the existing review pipeline
 
-The Terminal does not replace the CLI review pipeline (`/review-covenant`, `/apply-reviews`). It exposes a real-time, conversational subset of the same workflow:
+The Terminal does not replace the CLI review pipeline (`/review-covenant`, `/apply-reviews`, `/write-parables`). It exposes a real-time, conversational subset of the same workflow:
 
 | Pipeline role | Terminal equivalent |
 |---|---|
@@ -69,6 +76,120 @@ The Terminal does not replace the CLI review pipeline (`/review-covenant`, `/app
 | `compare.md` side-by-side view | Interactive three-column section comparison UI (see `docs/agent_reviews.md` — "Future: Steward UI for Proposal Comparison") |
 
 The Terminal is also the implementation of the "purpose-built UI" described in that future tooling note.
+
+### How the agentic pipeline works (patterns for Terminal reuse)
+
+The CLI review pipeline is a manifest-driven, serial multi-model dispatch system. The Terminal's council panel is a real-time parallel dispatch system. They solve different problems but share a common architecture: route the same input to multiple models, collect independent outputs, then synthesize. Understanding the CLI pipeline's design will prevent the Terminal from reinventing solved problems and will keep the two systems compatible.
+
+Full documentation: `docs/agent_reviews.md`. Slash commands: `.opencode/commands/review-covenant.md`, `.opencode/commands/write-parables.md`, `.opencode/commands/apply-reviews.md`.
+
+#### Dynamic section discovery
+
+All pipeline tools discover the active section list at runtime from `assemblies/covenant.full.yml` via the shared function `build/sections.py:discover_sections()`. There is no hardcoded section list anywhere. Sections on disk but not in the assembly are not active and are excluded. The assembly also defines ordering.
+
+**Terminal implication:** The Terminal's section loader (`src/lib/covenant/loader.ts`) should read the same assembly file (or its equivalent) for the section list and ordering, not enumerate the filesystem. In web mode, the assembly could be pre-bundled as JSON at build time. This keeps the Terminal's section list consistent with what the pipeline reviews and what `make compose` produces.
+
+#### Prompt preparation (build scripts)
+
+The pipeline does not send raw section text to models at dispatch time. A Python build script runs first and produces a **prepared prompt** — a single Markdown file that contains everything the model needs (section text, context documents, style guide, instructions, prior reviews if informed mode). One file per model per batch. The model reads that one file and follows it.
+
+Key scripts:
+- `build/prepare_review.py` — full section reviews, with batching, grouping, and tail-batch support
+- `build/prepare_parables.py` — focused parable writing, same batching infrastructure
+- `build/prepare_edits.py` — edit manifests from synthesis files
+- `build/prepare_synthesis.py` — synthesis prompts from review outputs
+
+The preparation step is separated from dispatch so that prompts can be inspected, debugged, and cached before any API calls are made. If a dispatch fails, re-running the command skips preparation and resumes from the last completed dispatch.
+
+**Terminal implication:** The council's `buildPrompt(mode, section)` in `src/lib/council/prompts.ts` is the Terminal's equivalent of prompt preparation. The pattern of assembling everything into a single, self-contained prompt (rather than relying on the model to read multiple files) is worth preserving. The Terminal already does this — the system prompt includes the section text. For more complex operations like the Review and Amend modes, consider also inlining the style guide and relevant context documents, as the pipeline does.
+
+#### Manifest-driven dispatch
+
+Every preparation script writes a `manifest.json` to `reviews/[round]/.prepared/`. The manifest is a JSON array of entries, each describing one prompt file:
+
+```json
+{
+  "status": "in_progress",
+  "entries": [
+    {
+      "type": "review",
+      "file": "reviews/round-03/.prepared/reviewer-claude-batch-1.md",
+      "reviewer": "reviewer-claude",
+      "batch": 1,
+      "total_batches": 3,
+      "section_ids": ["preamble", "rights.dignity", ...],
+      "round": "round-03",
+      "commit": "abc1234",
+      "date": "2026-03-10",
+      "estimated_tokens": 28000
+    }
+  ]
+}
+```
+
+The orchestrating slash command reads the manifest and dispatches exactly what it describes — no hardcoded assumptions about what models or batches exist. This makes the system extensible: adding a new model or changing batch size is a preparation concern, not a dispatch concern.
+
+**Terminal implication:** The council dispatch (`src/lib/council/dispatch.ts`) already broadcasts to N agents from a roster. The manifest pattern is most relevant if the Terminal adds an offline/batch mode (e.g., a contributor runs a full review from the Terminal rather than from the CLI). In that case, the Terminal could either call the Python build scripts via `platform.exec()` or implement a TypeScript equivalent that produces compatible manifest JSON.
+
+#### Serial dispatch (rate limiting)
+
+Pipeline dispatch is **serial, not parallel**. Each subagent runs to completion before the next is launched. This is a rate-limit constraint: the underlying API providers (Anthropic, OpenAI, Google) return 429 errors when multiple long-running requests hit the same account simultaneously.
+
+The Terminal's council panel dispatches in **parallel** by design — that's the core UX (side-by-side streaming). This works because council queries are short (one section, one question), while pipeline batches are large (10+ sections, full review). The Terminal should still implement retry-with-backoff for 429 errors, and if it adds a batch review mode, it should default to serial dispatch for long-running requests.
+
+#### Resume logic
+
+Every slash command checks what already exists on disk before starting. If a round was partially completed (e.g., 2 of 3 batches dispatched before a failure), re-running the command skips the completed batches and resumes from the first missing output. This is implemented by checking for the presence of output files, not by tracking state in the manifest.
+
+**Terminal implication:** For the amendment workflow, the same pattern applies: if `make validate` fails after a write, the Terminal should be able to retry without re-running the council. The diff confirmation UI already handles this (Cancel restores the previous state), but if the Terminal adds multi-section amendment batches, file-based resume logic would be valuable.
+
+#### Batching and token budgets
+
+Sections are grouped into batches to keep each prompt under ~70k tokens (well within context windows, but avoiding the quality degradation that comes with very long contexts). The pipeline uses two strategies:
+
+- **Numeric batching** (`--batch-size 9`): simple chunking by count
+- **Logical grouping** (`--groups default4`): groups sections by category (rights, obligations, governance, enforcement) for coherent cross-section review
+
+Each batch's estimated token count is printed at preparation time and checked against a warning threshold. Batches that exceed 70k tokens trigger a warning.
+
+**Terminal implication:** The council panel operates on one section at a time, so token budgets are not a concern for normal use. They become relevant if the Terminal adds Review mode (which should include context beyond the single section — e.g., the section's dependencies, the glossary terms it introduces, the style guide). The pipeline's approach of estimating tokens as `len(text.encode('utf-8')) // 4` is a reasonable heuristic the Terminal could reuse.
+
+#### Focused writing passes
+
+The `/write-parables` command demonstrates a pattern for focused writing tasks: use the same infrastructure (section discovery, batching, manifest, serial dispatch) but with a narrower prompt template and different inclusion/exclusion criteria. The parable pass:
+
+- Discovers sections dynamically from the assembly
+- Excludes structural sections where the task doesn't apply
+- Excludes sections that already have the target content (unless `--all`)
+- Uses a task-specific prompt template (`prompts/agent_write_parables.md`)
+
+This pattern generalizes. Future focused passes — Ritual polish, Digest expansion, cross-reference audit — would follow the same structure. The Terminal's Review and Amend modes are the real-time equivalents: focused operations on specific sections with task-specific system prompts.
+
+#### Output structure and concatenation
+
+Pipeline outputs follow a consistent structure:
+- Per-batch files: `reviews/[round]/[agent]-batch-[N].md` with YAML frontmatter
+- Merged per-agent files: `reviews/[round]/[agent].md` (concatenated from batches)
+- Synthesis files: `reviews/[round]/synthesis-[model].md`
+- Comparison: `reviews/[round]/compare.md`
+
+All review artifacts live in `reviews/[round]/` on `main` — they are part of the project's permanent record, not ephemeral. This is a deliberate design choice described in `docs/agent_reviews.md`: reviews are evidence of how the text was shaped.
+
+**Terminal implication:** Council conversation logs (`src/lib/council/conversation-log.ts`) serve a similar archival purpose for the installation. The JSONL format is appropriate for real-time append; the pipeline's Markdown format is appropriate for human review. If the Terminal ever exports council sessions for upstream consideration, converting JSONL to the pipeline's Markdown format would make them compatible with the synthesis workflow.
+
+#### Shared code between pipeline and Terminal
+
+The following pipeline modules have logic the Terminal may want to port to TypeScript:
+
+| Python module | What it does | Terminal equivalent |
+|---|---|---|
+| `build/sections.py:discover_sections()` | Reads assembly YAML, returns ordered section list | `src/lib/covenant/loader.ts` |
+| `build/sections.py:extract_body_parts()` | Splits section body into registers (Ritual, Spec, Parable, Digest, Log) | `src/lib/covenant/parser.ts` |
+| `build/sections.py:load_section()` | Parses frontmatter + body | `src/lib/covenant/parser.ts` |
+| `build/prepare_review.py:fill_template()` | Substitutes placeholders in prompt templates | `src/lib/council/prompts.ts:buildPrompt()` |
+| `build/concat_reviews.py` | Merges batched outputs with unified frontmatter | N/A unless Terminal adds batch mode |
+
+These are not dependencies — the Terminal should not call Python from TypeScript for section parsing. They are reference implementations of logic the Terminal needs in its own language.
 
 ---
 
@@ -371,9 +492,11 @@ terminal/
 │   │   │   └── direct.ts       Direct API adapter (Anthropic, OpenAI, Google)
 │   │   │
 │   │   ├── council/            Multi-agent panel logic
+│   │   │   ├── prompts.ts      System prompt builder (ask/challenge/review modes)
 │   │   │   ├── dispatch.ts     Broadcast a query to N agents in parallel
 │   │   │   ├── stream.ts       Per-agent streaming state management
-│   │   │   └── synthesis.ts    Optional synthesis agent runner
+│   │   │   ├── synthesis.ts    Optional synthesis agent runner
+│   │   │   └── conversation-log.ts  JSONL append logging of council queries
 │   │   │
 │   │   ├── covenant/           Document model (pure TypeScript, no platform dep)
 │   │   │   ├── parser.ts       Frontmatter + register parser for section .md files
@@ -445,7 +568,9 @@ This structure means: if you delete `platform-tauri.ts` and `src-tauri/`, what r
 
 These should be resolved before implementation begins on each area:
 
-1. **Conversational system prompts**: The reviewer prompts in `.opencode/agents/reviewer-*.md` are designed for deep batch review, not real-time conversation. Shorter, conversationally-tuned variants are needed for the council panel. These should be developed as part of the Terminal build, not adapted from the review prompts.
+1. **Conversational system prompts** ~~[resolved]~~: The reviewer prompts in `.opencode/agents/reviewer-*.md` are designed for deep batch review, not real-time conversation. Shorter, conversationally-tuned variants are needed for the council panel. These should be developed as part of the Terminal build, not adapted from the review prompts.
+
+   **Resolved (M3 quality pass):** `src/lib/council/prompts.ts` implements three purpose-built modes — `ask` (reader-guide), `challenge` (contestation), `review` (co-author/addressee critique). None are adapted from the batch review prompts; they were designed from scratch for the conversational context. `buildPrompt(mode, section)` assembles the full system prompt.
 
 2. **GitHub Copilot API for end-users**: Does the GitHub Copilot API support user-supplied OAuth for individuals with a personal Copilot subscription, or only for developers running the app locally? This affects whether it can be a first-class default for general users vs. a developer-only option.
 
@@ -456,6 +581,15 @@ These should be resolved before implementation begins on each area:
 5. **Single-window vs. dual-display**: Tauri supports multiple windows. A gallery setup with a large projection display and a Terminal monitor could benefit from a two-window layout: Terminal on the desk monitor, updated Covenant text on the projected display. This is an installation-specific concern but should be in scope for the kiosk configuration.
 
 6. **Amendment attribution**: When a visitor's amendment is committed to the installation fork, how is it attributed? Anonymous (no visitor identity logged)? Session ID only? Optional name? The consent signage implications and the Log entry format should be decided in concert with the gallery's data handling policy.
+
+7. **Single-chat / controller model architecture**: The current design uses an explicit mode selector (Ask / Challenge / Review / Ritual / Spec / Parable / Apply) to route queries. A more powerful long-term design: a single chat input with no mode selector, where a designated controller model decides — based on the user's message — whether to invoke the full council, apply a proposal, ask a clarifying question, or respond directly. This mirrors how expert tools (Cursor, Claude Code) work: one input, intelligent routing behind the scenes.
+
+   M4 must not foreclose this path. Specifically:
+   - Keep the apply instruction and the council broadcast as separate, composable operations (not tightly coupled to the mode selector UI)
+   - The editor model invocation (`amendment/editor.ts`) should be callable programmatically, not only triggered by a UI mode switch
+   - The mode selector should remain as an explicit override, not the only routing mechanism
+
+   When this architecture is implemented, the mode selector becomes an advanced/power-user option, and the default experience is single-input with the controller model orchestrating the session.
 
 ---
 
@@ -492,6 +626,43 @@ No agents, no council, no git, no web build.
 
 ### Milestone 4 — Amendment workflow (contributor mode)
 
+The amendment workflow closes the loop from reading → council discussion → file change → commit. It is contributor mode only; kiosk auto-commit stays in M5.
+
+#### Amendment interaction modes
+
+Two ways to apply a council proposal:
+
+**Apply button** (per-column): a small "Apply" affordance in the names bar chip, right-justified next to the model name. Visible once the column has a completed response. Pressing it sets the mode to `apply` and pre-fills a short instruction ("Apply [agent name]'s proposal") in the input bar, ready to send. The user can edit the instruction before sending (e.g. "Apply Claude's option B, not option A").
+
+**Converse-to-apply**: user selects `apply` mode in the mode selector and types a free-form instruction — "use GPT's second suggestion" or "apply the change Claude proposed but keep the original opening line." The editor model receives the full council thread plus the instruction and determines what to apply.
+
+Both paths feed the same **editor model invocation**: a single model (the first council member, i.e. `config.council[0]`) receives:
+- The full current section file text
+- All council responses from the current session (labelled by agent)
+- The user's apply instruction
+- A tightly constrained system prompt: return only the complete modified section file, in the section bundle format, with no commentary, no explanation, no changes beyond what the instruction specifies
+
+#### Diff confirmation
+
+The editor model's response is parsed as a proposed section file. A diff is computed against the current section file (line-level, register-aware). The diff **replaces the council columns** inline in the council pane — old lines struck through, new lines highlighted. Two actions appear in the names bar area: **Confirm** and **Cancel**.
+
+On Confirm:
+1. The modified section file is written to disk via `platform.writeFile()`
+2. `make validate` runs via `platform.exec()`
+3. If validate passes: `git add <section-path> && git commit -m "..."` runs
+4. The section is reloaded from disk; the reading pane updates
+5. Council pane resets to empty state
+
+On Cancel: council columns are restored, no write occurs.
+
+If `make validate` fails: the error is shown in the diff pane. The user can send another apply instruction to fix the problem, or Cancel.
+
+#### Deferred to later milestones
+
+**Highlight-and-annotate** (M4.5 or M5): the user can select text within a council column response and attach a comment or annotation. In a second round of council, the annotated previous responses are included as context, giving models the user's inline markup as guidance. This feature implies a multi-round session model and a way to serialize annotations back into the system prompt — more design work needed.
+
+**Single-chat / controller model** (future, see Open Questions below):
+
 - Amend interaction mode (structured drafting)
 - Steward proposal comparison UI (three-column view, highlight-to-accept, export to section bundle — fulfilling the "Future: Steward UI" from `docs/agent_reviews.md`)
 - `amendment/validate.ts` — `make validate` integration via `platform.exec()`
@@ -517,4 +688,4 @@ No agents, no council, no git, no web build.
 
 ---
 
-*This plan lives at `docs/terminal-plan.md`. For the Artspace installation context, see `installations/artspace-ptbo-2027/`. For the existing agentic review pipeline this Terminal extends, see `docs/agent_reviews.md` and `.opencode/commands/review-covenant.md`.*
+*This plan lives at `terminal/docs/plan.md`. For the Artspace installation context, see `installations/artspace-ptbo-2027/`. For the existing agentic review pipeline this Terminal extends, see `docs/agent_reviews.md`, `.opencode/commands/review-covenant.md`, and `.opencode/commands/write-parables.md`.*
