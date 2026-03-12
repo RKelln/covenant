@@ -14,8 +14,8 @@
   // activeTab is intentionally seeded from the initial prop value only
   let activeTab = $state<'ritual' | 'spec' | 'complete'>(untrack(() => defaultRegister))
 
-  function rendered(text: string): string {
-    return renderMarkdown(text, id => `§${id}`)
+  function rendered(text: string, poetic = false): string {
+    return renderMarkdown(text, id => `§${id}`, poetic ? { poetic: true } : undefined)
   }
 
   function handleXrefClick(event: MouseEvent) {
@@ -67,7 +67,7 @@
     {#if activeTab === 'ritual'}
       <div class="register register-ritual">
         <!-- eslint-disable-next-line svelte/no-at-html-tags -->
-        {@html rendered(section.ritual)}
+        {@html rendered(section.ritual, true)}
       </div>
     {:else if activeTab === 'spec'}
       <div class="register register-spec">
@@ -77,7 +77,7 @@
     {:else}
       <div class="register register-ritual">
         <!-- eslint-disable-next-line svelte/no-at-html-tags -->
-        {@html rendered(section.ritual)}
+        {@html rendered(section.ritual, true)}
       </div>
       <hr class="hairline" />
       <div class="register register-spec">
@@ -108,7 +108,7 @@
   }
 
   .section-title {
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: var(--font-document);
     font-weight: 500;
     font-size: var(--type-display);
     line-height: 1.2;
@@ -122,7 +122,7 @@
     gap: var(--space-sm);
     font-size: var(--type-meta);
     color: var(--color-text-muted);
-    font-family: system-ui, -apple-system, sans-serif;
+    font-family: var(--font-ui);
   }
 
   .tab-bar {
@@ -137,7 +137,7 @@
     border: none;
     border-bottom: 2px solid transparent;
     padding: var(--space-sm) var(--space-md);
-    font-family: system-ui, -apple-system, sans-serif;
+    font-family: var(--font-ui);
     font-size: var(--type-ui);
     color: var(--color-text-muted);
     cursor: pointer;
@@ -156,7 +156,7 @@
   }
 
   :global(.xref) {
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: var(--font-document);
     color: var(--color-text-mid);
     cursor: pointer;
     border-bottom: 1px dotted var(--color-rule-strong);

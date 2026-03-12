@@ -49,25 +49,29 @@
 
 /* Register typography classes */
 .register-ritual {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-document);
   font-weight: 400;
-  font-style: italic;
   font-size: var(--type-body);
   line-height: var(--leading-ritual);
   color: var(--color-text);
 }
 
+/* Stanza paragraphs: no top margin, bottom gap is the stanza break */
+.register-ritual p {
+  margin: 0 0 var(--space-lg) 0;
+}
+
 .register-spec {
-  font-family: system-ui, -apple-system, sans-serif;
+  font-family: var(--font-document);
   font-weight: 400;
-  font-size: var(--type-ui);
+  font-size: var(--type-body);
   line-height: var(--leading-spec);
   color: var(--color-text);
 }
 
 .register-digest {
-  font-family: system-ui, -apple-system, sans-serif;
-  font-size: var(--type-ui);
+  font-family: var(--font-document);
+  font-size: var(--type-body);
   line-height: var(--leading-spec);
   color: var(--color-text-mid);
 }

@@ -54,6 +54,7 @@
   let selectedId = $state<string | null>(null)
   let loading = $state(true)
   let error = $state<string | null>(null)
+  let fileErrors = $state<{ path: string; message: string }[]>([])
 
   // --- View / navigation ---
   type View = 'reader' | 'settings'
@@ -73,8 +74,18 @@
     try {
       const platform = await initPlatform()
 
-      // Load config
-      config = await loadConfig(platform)
+      // Load config — wrap in a timeout so a hanging IPC call doesn't freeze the UI
+      let configResult: TerminalConfig
+      try {
+        configResult = await Promise.race([
+          loadConfig(platform),
+          new Promise<never>((_, reject) => setTimeout(() => reject(new Error('loadConfig timed out after 5s')), 5000)),
+        ])
+        config = configResult
+      } catch (configErr) {
+        console.warn('Config load failed, using defaults:', configErr)
+        config = defaultConfig()
+      }
 
       // Seed OpenRouter key from environment if not already configured
       const envKey = (import.meta.env as Record<string, string>).VITE_OPENROUTER_API_KEY
@@ -86,12 +97,17 @@
             { provider: 'openrouter', model: 'openai/gpt-4o-mini', label: 'AI' }
           ],
         }
-        // Persist so settings view reflects it
-        await saveConfig(platform, config)
+        // Persist so settings view reflects it — non-fatal if it fails
+        try {
+          await saveConfig(platform, config)
+        } catch (err) {
+          console.warn('Failed to persist config:', err)
+        }
       }
 
       // Load sections
       const loaded: Section[] = []
+      const failures: { path: string; message: string }[] = []
       for (const { path, category } of SECTION_PATHS) {
         try {
           const raw = await platform.readFile(path)
@@ -99,10 +115,17 @@
           section.category = category
           loaded.push(section)
         } catch (err) {
-          console.warn(`Failed to load ${path}:`, err)
+          failures.push({ path, message: String(err) })
         }
       }
+      fileErrors = failures
       sections = loaded
+      if (loaded.length === 0) {
+        const detail = failures.length > 0
+          ? `\n\nFailed files:\n${failures.map(f => `  ${f.path}: ${f.message}`).join('\n')}`
+          : ''
+        throw new Error(`No sections could be loaded.${detail}`)
+      }
       if (loaded.length > 0) selectedId = loaded[0].id
     } catch (err) {
       error = String(err)
@@ -227,6 +250,16 @@
       {:else if error}
         <div class="error">{error}</div>
       {:else if selectedSection}
+        {#if fileErrors.length > 0}
+          <details class="file-errors">
+            <summary>{fileErrors.length} section{fileErrors.length === 1 ? '' : 's'} failed to load</summary>
+            <ul>
+              {#each fileErrors as fe}
+                <li><code>{fe.path}</code>: {fe.message}</li>
+              {/each}
+            </ul>
+          </details>
+        {/if}
         <div class="reader-layout" class:council-open={councilOpen}>
           <!-- Document view -->
           <div class="document-pane">
@@ -293,15 +326,14 @@
   }
 
   .sidebar-mark {
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: var(--font-document);
     font-size: 1.2rem;
     color: var(--color-text-muted, #7a7570);
   }
 
   .sidebar-title {
-    font-family: var(--font-ui, system-ui, sans-serif);
+    font-family: var(--font-document);
     font-size: 0.75rem;
-    font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: var(--color-text-muted, #7a7570);
@@ -401,7 +433,7 @@
     align-items: center;
     justify-content: center;
     height: 100%;
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: var(--font-document);
     font-size: 3rem;
     color: var(--color-text-muted);
     animation: slow-rotate 4s linear infinite;
@@ -419,5 +451,35 @@
     height: 100%;
     color: var(--color-text-muted);
     font-size: var(--type-ui);
+  }
+
+  .file-errors {
+    font-family: var(--font-ui, system-ui, sans-serif);
+    font-size: 0.72rem;
+    background: #fff8f0;
+    border-bottom: 1px solid #f0d8b0;
+    color: #7a4a10;
+    padding: 6px 16px;
+    flex-shrink: 0;
+  }
+
+  .file-errors summary {
+    cursor: pointer;
+    font-weight: 600;
+  }
+
+  .file-errors ul {
+    margin: 4px 0 0 0;
+    padding-left: 1.2em;
+  }
+
+  .file-errors li {
+    margin: 2px 0;
+    word-break: break-all;
+  }
+
+  .file-errors code {
+    font-family: monospace;
+    font-size: 0.95em;
   }
 </style>

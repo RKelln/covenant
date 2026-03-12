@@ -42,3 +42,26 @@ test('clears input after submit', async () => {
   await screen.getByRole('button', { name: /send|submit/i }).click()
   await expect.element(input).toHaveValue('')
 })
+
+test('InputBar shows Amend mode option when provided', async () => {
+  const screen = render(InputBar, {
+    sectionId: 'rights.dignity',
+    modes: ['ask', 'challenge', 'amend'],
+  })
+  const selector = screen.getByRole('combobox')
+  // All three options should be present
+  await expect.element(selector.getByRole('option', { name: /amend/i })).toBeInTheDocument()
+})
+
+test('Amend mode emits with mode "amend"', async () => {
+  const onSubmit = vi.fn()
+  const screen = render(InputBar, {
+    sectionId: 'rights.dignity',
+    modes: ['ask', 'challenge', 'amend'],
+    onsubmit: onSubmit,
+  })
+  await screen.getByRole('combobox').selectOptions(['amend'])
+  await screen.getByRole('textbox').fill('I propose changing "dignity" to...')
+  await screen.getByRole('button', { name: /send|submit/i }).click()
+  expect(onSubmit).toHaveBeenCalledWith(expect.objectContaining({ mode: 'amend' }))
+})

@@ -11,9 +11,12 @@ html, body {
   height: 100%;
   background-color: var(--color-bg);
   color: var(--color-text);
-  font-family: system-ui, -apple-system, sans-serif;
+  font-family: var(--font-ui);
   font-size: var(--type-body);
   line-height: var(--leading-ui);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 #app {
@@ -26,7 +29,7 @@ html, body {
   align-items: center;
   gap: var(--space-sm);
   color: var(--color-text-muted);
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-document);
   font-size: var(--type-ui);
   margin: var(--space-lg) 0;
 }

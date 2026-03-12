@@ -1,18 +1,13 @@
 import type { Platform } from './platform'
 import type { SectionMeta, ExecResult, TerminalConfig, CostEntry } from './types'
 
-export interface WebPlatformOptions {
-  repoOwner?: string
-  repoName?: string
-  branch?: string
-}
+// Injected at build/dev time by vite.config.ts → define.__SECTION_MANIFEST__
+declare const __SECTION_MANIFEST__: { path: string; category: string }[]
 
 export class WebPlatform implements Platform {
-  constructor(private options: WebPlatformOptions) {}
-
   async readFile(path: string): Promise<string> {
-    const { repoOwner = 'ryankelln', repoName = 'covenant', branch = 'main' } = this.options
-    const url = `https://raw.githubusercontent.com/${repoOwner}/${repoName}/${branch}/${path}`
+    // In dev, Vite middleware serves /sections/** directly from the repo root.
+    const url = path.startsWith('/') ? path : `/${path}`
     const response = await fetch(url)
     if (!response.ok) throw new Error(`Failed to fetch ${path}: ${response.statusText}`)
     return response.text()
@@ -23,8 +18,14 @@ export class WebPlatform implements Platform {
   }
 
   async listSections(): Promise<SectionMeta[]> {
-    // In web mode, return a stub — full implementation in M6
-    return []
+    // Manifest is baked in at dev-server startup by vite.config.ts
+    return __SECTION_MANIFEST__.map(({ path, category }) => ({
+      id: '',
+      title: path.split('/').pop()?.replace('.md', '') ?? '',
+      path,
+      category,
+      status: 'draft' as const,
+    }))
   }
 
   async exec(_command: string, _args: string[]): Promise<ExecResult> {

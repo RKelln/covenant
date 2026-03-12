@@ -78,17 +78,6 @@ terminal/src/
 
 Test files live in `__tests__/` directories adjacent to the code they test. Named `<module>.test.ts`.
 
-### Known vitest-browser-svelte pitfalls
-
-- `screen.getByText()` queries the **whole page**, not just the render container. If multiple renders share a common label (e.g. "Claude"), add `cleanup()` in `afterEach` to prevent strict-mode violations, or scope queries to `container.querySelector()`.
-- Use `await expect.element(...).toBeVisible()` (Playwright assertions), not `expect(...).toBeInTheDocument()` (Testing Library). The API is different.
-- Component props use Svelte 5 syntax: event callbacks as props (`onselect`, `onsubmit`, etc.), not `on:select`.
-- If a component uses `$state()` seeded from a prop, wrap the initializer in `untrack()` to avoid `state_referenced_locally` warnings:
-  ```ts
-  import { untrack } from 'svelte'
-  let value = $state(untrack(() => props.initialValue))
-  ```
-
 ### Running tests
 
 ```bash
@@ -98,6 +87,8 @@ npm test -- --run     # run once and exit (for CI / pre-commit checks)
 ```
 
 Always run `npm test -- --run` before presenting a milestone for review.
+
+See `terminal/docs/footguns.md` for vitest-browser-svelte pitfalls and Svelte 5 testing gotchas.
 
 ---
 
@@ -168,6 +159,30 @@ For Covenant structural validation (sections, glossary, frontmatter):
 # from repo root (not terminal/)
 make validate
 ```
+
+### Running the app (non-blocking)
+
+`npm run tauri -- dev` blocks the terminal. Always run it in the background with a log file:
+
+```bash
+# from terminal/
+npm run tauri -- dev --no-watch > /tmp/tauri-dev.log 2>&1 &
+echo "PID: $!"
+
+# Tail the log to check for build errors or Rust panics
+tail -f /tmp/tauri-dev.log
+
+# Kill it when done
+pkill -f "covenant-terminal"; pkill -f "vite"
+```
+
+The `--no-watch` flag disables Vite's file watcher inside Tauri, which is fine for a manual test run. Omit it if you want hot-reload during development.
+
+---
+
+## Known pitfalls
+
+See `terminal/docs/footguns.md`.
 
 ---
 

@@ -34,6 +34,10 @@
 
   /* Separator */
   --separator-weight: 1px;
+
+  /* Font stacks — used across all components */
+  --font-document: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --font-ui: system-ui, -apple-system, sans-serif;
 }
 
 [data-theme="dark"] {

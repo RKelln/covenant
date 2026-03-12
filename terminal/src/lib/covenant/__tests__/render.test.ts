@@ -71,3 +71,52 @@ test('escapes HTML entities in content', () => {
   expect(html).toContain('&amp;')
   expect(html).not.toContain('<10')
 })
+
+// Poetic mode (ritual register)
+test('poetic mode: adjacent lines joined with <br> into one <p>', () => {
+  const html = renderMarkdown('Line one.\nLine two.\nLine three.', undefined, { poetic: true })
+  expect(html).toContain('<p>Line one.<br>\nLine two.<br>\nLine three.</p>')
+})
+
+test('poetic mode: blank line starts a new stanza <p>', () => {
+  const html = renderMarkdown('Stanza one.\nLine two.\n\nStanza two.\nLine four.', undefined, { poetic: true })
+  expect(html).toContain('<p>Stanza one.<br>\nLine two.</p>')
+  expect(html).toContain('<p>Stanza two.<br>\nLine four.</p>')
+})
+
+test('poetic mode: single line stanza is still a <p>', () => {
+  const html = renderMarkdown('Alone.\n\nAlso alone.', undefined, { poetic: true })
+  expect(html).toContain('<p>Alone.</p>')
+  expect(html).toContain('<p>Also alone.</p>')
+})
+
+test('non-poetic mode still wraps each line in its own <p>', () => {
+  const html = renderMarkdown('Line one.\nLine two.')
+  // Each line is its own paragraph in default mode
+  const matches = html.match(/<p>/g)
+  expect(matches).toHaveLength(2)
+})
+
+// Ordered list with indented continuation (Spec format)
+test('ordered list: indented continuation line folds into the preceding <li>', () => {
+  const md = '1. **Heading**\n   Body text here.'
+  const html = renderMarkdown(md)
+  expect(html).toContain('<ol>')
+  expect(html).toContain('<li>')
+  expect(html).toContain('<strong>Heading</strong>')
+  expect(html).toContain('Body text here.')
+  // Body text must be inside the <li>, not a separate <p>
+  expect(html).not.toMatch(/<\/li>\s*<p>Body/)
+  expect(html).not.toMatch(/<\/ol>\s*<p>Body/)
+})
+
+test('ordered list with continuation: multiple items each with body', () => {
+  const md = '1. **First**\n   First body.\n\n2. **Second**\n   Second body.'
+  const html = renderMarkdown(md)
+  // Both items should be in a single <ol>
+  const olMatches = html.match(/<ol>/g)
+  expect(olMatches).toHaveLength(1)
+  // Both li elements present
+  const liMatches = html.match(/<li>/g)
+  expect(liMatches).toHaveLength(2)
+})

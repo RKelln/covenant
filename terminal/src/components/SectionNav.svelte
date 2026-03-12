@@ -64,8 +64,14 @@
                 aria-current={selected === section.id ? 'page' : undefined}
               >
                 <span class="section-title">{section.title}</span>
-                {#if section.status === 'draft'}
-                  <span class="status-badge draft" aria-label="Draft">d</span>
+                {#if section.status}
+                  <span
+                    class="status-badge"
+                    class:draft={section.status === 'draft'}
+                    class:active={section.status === 'active'}
+                    title={section.status}
+                    aria-label={section.status}
+                  >{section.status.charAt(0)}</span>
                 {/if}
               </button>
             </li>
@@ -94,7 +100,7 @@
     width: 100%;
     padding: var(--space-xs) var(--space-sm);
     font-size: var(--type-ui);
-    font-family: system-ui, -apple-system, sans-serif;
+    font-family: var(--font-ui);
     background: transparent;
     border: var(--separator-weight) solid var(--color-rule-strong);
     color: var(--color-text);
@@ -118,13 +124,13 @@
     padding: var(--space-sm) var(--space-md);
     font-size: var(--type-meta);
     color: var(--color-text-muted);
-    font-family: system-ui, -apple-system, sans-serif;
+    font-family: var(--font-document);
     text-transform: uppercase;
     letter-spacing: 0.05em;
   }
 
   .section-mark {
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: var(--font-document);
     font-size: var(--type-ui);
     opacity: 0.6;
   }
@@ -145,7 +151,7 @@
     border: none;
     cursor: pointer;
     text-align: left;
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: var(--font-document);
     font-size: var(--type-body);
     color: var(--color-text-mid);
     transition: color 0.15s ease;
@@ -161,16 +167,23 @@
   }
 
   .status-badge {
-    font-family: system-ui, -apple-system, sans-serif;
+    font-family: var(--font-ui);
     font-size: var(--type-meta);
     padding: 1px 4px;
-    border-radius: 2px;
     text-transform: uppercase;
     letter-spacing: 0.05em;
+    color: var(--color-text-muted);
+    border: 1px dotted var(--color-rule-strong);
+    cursor: default;
+    flex-shrink: 0;
   }
 
   .status-badge.draft {
     color: var(--color-text-muted);
-    border: 1px solid var(--color-rule);
+  }
+
+  .status-badge.active {
+    color: var(--color-text-mid);
+    border-color: var(--color-text-mid);
   }
 </style>
