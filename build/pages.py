@@ -222,6 +222,7 @@ def build_base_css() -> str:
       --tailpiece:  #bbb;
       --font: 'Cormorant Garamond', Georgia, serif;
       --fs-display: 1.75rem;
+      --fs-section: 1.1rem;
       --fs-body:    1.125rem;
       --fs-ui:      0.917rem;
       --fs-meta:    0.833rem;
@@ -472,7 +473,7 @@ def build_ritual_css() -> str:
     }
 
     .ritual-section-title {
-      font-size: var(--fs-ui);
+      font-size: var(--fs-section);
       letter-spacing: 0.25em;
       text-transform: uppercase;
       color: var(--title-grey);
@@ -527,7 +528,7 @@ def build_spec_css() -> str:
     }
 
     .spec-section-title {
-      font-size: var(--fs-ui);
+      font-size: var(--fs-section);
       letter-spacing: 0.25em;
       text-transform: uppercase;
       color: var(--title-grey);
@@ -560,6 +561,7 @@ def build_spec_css() -> str:
     .spec-summary {
       font-style: italic;
       color: #444;
+      font-size: calc(var(--fs-body) + 0.06rem);
       margin-bottom: 1.6em;
       padding-bottom: 1.2em;
       border-bottom: 0.5px solid var(--hairline);
@@ -602,7 +604,7 @@ def build_full_css() -> str:
     }
 
     .full-section-title {
-      font-size: var(--fs-ui);
+      font-size: var(--fs-section);
       letter-spacing: 0.25em;
       text-transform: uppercase;
       color: var(--title-grey);
@@ -700,7 +702,7 @@ def build_full_css() -> str:
       grid-column: 1 / -1;
       font-style: italic;
       color: #444;
-      font-size: 1.2rem;
+      font-size: calc(var(--fs-body) + 0.06rem);
       line-height: 1.7;
       padding: 0 2rem;
       max-width: var(--content-width);
