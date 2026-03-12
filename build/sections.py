@@ -1,11 +1,13 @@
 """
 Shared helpers for reading and parsing Covenant section bundles.
 
-Used by compose.py, pdf.py, and website.py to avoid duplication of
-the section-parsing and title-map logic.
+Used by compose.py, pdf.py, website.py, prepare_review.py, prepare_edits.py,
+and prepare_parables.py to avoid duplication of section-parsing, discovery,
+and title-map logic.
 """
 
 import re
+import sys
 from pathlib import Path
 
 import yaml
@@ -17,6 +19,46 @@ import yaml
 REPO_ROOT = Path(__file__).parent.parent
 SECTIONS_DIR = REPO_ROOT / "sections"
 ASSEMBLIES_DIR = REPO_ROOT / "assemblies"
+
+# Canonical assembly — defines the authoritative section list and ordering.
+CANONICAL_ASSEMBLY = ASSEMBLIES_DIR / "covenant.full.yml"
+
+
+# ---------------------------------------------------------------------------
+# Section discovery
+# ---------------------------------------------------------------------------
+
+
+def discover_sections() -> list[str]:
+    """
+    Return the active section list from the canonical assembly
+    (assemblies/covenant.full.yml).
+
+    The assembly defines both which sections are active and their ordering.
+    Sections on disk but not in the assembly are not active and are excluded.
+
+    Falls back to filesystem discovery (sorted by directory prefix then
+    filename) only if the assembly cannot be read.
+    """
+    try:
+        data = yaml.safe_load(CANONICAL_ASSEMBLY.read_text(encoding="utf-8"))
+        raw = data.get("sections", [])
+        sections = [str(s) for s in raw if s]
+        if sections:
+            return sections
+    except Exception as e:
+        print(
+            f"  WARNING: could not read {CANONICAL_ASSEMBLY}: {e}",
+            file=sys.stderr,
+        )
+
+    # Fallback: filesystem discovery
+    print(
+        "  WARNING: falling back to filesystem section discovery",
+        file=sys.stderr,
+    )
+    paths = sorted(SECTIONS_DIR.rglob("*.md"))
+    return [str(p.relative_to(REPO_ROOT)) for p in paths]
 
 
 # ---------------------------------------------------------------------------

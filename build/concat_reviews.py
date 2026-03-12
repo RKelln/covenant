@@ -106,6 +106,129 @@ def split_sections(body: str) -> dict[str, str]:
     return result
 
 
+def merge_parable_batches(
+    batch_texts: list[str],
+    reviewer: str,
+    round_id: str,
+) -> str:
+    """
+    Merge multiple parable batch files into one.
+
+    Parable batch files have a flat structure:
+        ## Parables
+        ### §[section.id]: Title
+        ...
+        ## Cross-Section Observations   (optional)
+        ## Process Notes                (optional)
+
+    Strategy:
+    - Frontmatter: unified header from batch-1 metadata
+    - Parable entries (### headings under ## Parables): concatenated in order
+    - Cross-Section Observations / Process Notes: concatenated from all batches
+    - Closing attribution line: from last batch
+    """
+    PARABLE_BODY_HEADINGS = [
+        "## Parables",
+        "## Cross-Section Observations",
+        "## Process Notes",
+    ]
+
+    def split_parable_sections(body: str) -> dict[str, str]:
+        result: dict[str, str] = {"_preamble": ""}
+        current_key = "_preamble"
+        current_lines: list[str] = []
+        for line in body.splitlines(keepends=True):
+            matched = None
+            for h in PARABLE_BODY_HEADINGS:
+                if line.rstrip() == h or line.startswith(h):
+                    matched = h
+                    break
+            if matched:
+                result[current_key] = "".join(current_lines)
+                current_key = matched
+                current_lines = [line]
+            else:
+                current_lines.append(line)
+        result[current_key] = "".join(current_lines)
+        return result
+
+    # Pattern for the closing attribution line: ---\n*Written by ...*
+    ATTRIBUTION_RE = re.compile(r"\n---\s*\n\*Written by[^\n]+\*\s*$", re.MULTILINE)
+
+    def strip_attribution(text: str) -> str:
+        """Remove trailing attribution block from a body string."""
+        return ATTRIBUTION_RE.sub("", text).rstrip()
+
+    parsed = []
+    metas = []
+    attribution = ""
+    for text in batch_texts:
+        fm, body = strip_frontmatter(text)
+        metas.append(fm)
+        # Capture attribution from last batch that has one
+        m = ATTRIBUTION_RE.search(body)
+        if m:
+            attribution = m.group(0).strip()  # e.g. "---\n*Written by ...*"
+        parsed.append(split_parable_sections(strip_attribution(body)))
+
+    model = metas[0].get("model", reviewer) if metas else reviewer
+    commit = metas[0].get("commit", "")
+    date = metas[0].get("date", "")
+    frontmatter = (
+        f"---\nmodel: {model}\nround: {round_id}\n"
+        f"commit: {commit}\ndate: {date}\n---\n\n"
+    )
+
+    # Concatenate ## Parables bodies
+    parable_parts = []
+    for i, p in enumerate(parsed, start=1):
+        content = p.get("## Parables", "").strip()
+        if content:
+            lines = content.splitlines()
+            # Strip the heading line itself
+            body_lines = (
+                lines[1:] if lines and lines[0].strip() == "## Parables" else lines
+            )
+            body_text = "\n".join(body_lines).strip()
+            if body_text:
+                if len(parsed) > 1:
+                    parable_parts.append(f"<!-- batch {i} -->\n\n{body_text}")
+                else:
+                    parable_parts.append(body_text)
+
+    parables_section = "## Parables\n\n" + "\n\n".join(parable_parts) + "\n"
+
+    # Concatenate optional trailing sections
+    def concat_optional(key: str) -> str:
+        parts = []
+        for p in parsed:
+            content = p.get(key, "").strip()
+            if content:
+                lines = content.splitlines()
+                body_lines = lines[1:] if lines and lines[0].startswith("##") else lines
+                body_text = "\n".join(body_lines).strip()
+                if body_text:
+                    parts.append(body_text)
+        if not parts:
+            return ""
+        return f"{key}\n\n" + "\n\n---\n\n".join(parts) + "\n"
+
+    cross_section = concat_optional("## Cross-Section Observations")
+    process_notes = concat_optional("## Process Notes")
+
+    # Closing attribution appears once, from the last batch that had one
+    closing_line = ("\n" + attribution) if attribution else ""
+
+    parts_out = [frontmatter, parables_section]
+    if cross_section:
+        parts_out.append("\n" + cross_section)
+    if process_notes:
+        parts_out.append("\n" + process_notes)
+    parts_out.append(closing_line)
+
+    return "".join(parts_out)
+
+
 def merge_batch_reviews(
     batch_texts: list[str],
     reviewer: str,
@@ -288,9 +411,9 @@ def main():
         sys.exit(1)
 
     round_id = args[0]
-    if not re.match(r"^round-\d+$", round_id):
+    if not re.match(r"^[a-z][a-z0-9-]*$", round_id):
         print(
-            f"ERROR: round must be in the form 'round-NN', got: {round_id}",
+            f"ERROR: round must be a lowercase slug (e.g. 'round-01', 'parables-01'), got: {round_id}",
             file=sys.stderr,
         )
         sys.exit(1)
@@ -319,12 +442,18 @@ def main():
             by_reviewer[r] = []
         by_reviewer[r].append(entry)
 
+    # Detect round type from manifest entries
+    round_type = "review"
+    if entries and entries[0].get("type") == "parable":
+        round_type = "parable"
+    print(f"Round type: {round_type}")
+
     for reviewer, reviewer_entries in by_reviewer.items():
         # Separate section batches from tail batch
         section_entries = [
             e
             for e in reviewer_entries
-            if e.get("type") != "tail" and e.get("batch") != "tail"
+            if e.get("type") not in ("tail",) and e.get("batch") != "tail"
         ]
         tail_entries = [
             e
@@ -335,13 +464,19 @@ def main():
         # Sort section batches by batch number
         section_entries.sort(key=lambda e: e.get("batch") or 0)
 
-        # Check all section batch files exist
+        # Check all section batch files exist (skip missing gracefully for parables)
         batch_texts = []
         missing = []
         for entry in section_entries:
             batch_file = round_dir / f"{reviewer}-batch-{entry['batch']}.md"
             if not batch_file.exists():
-                missing.append(str(batch_file))
+                if round_type == "parable":
+                    print(
+                        f"  WARNING: missing batch file (skipped): {batch_file.name}",
+                        file=sys.stderr,
+                    )
+                else:
+                    missing.append(str(batch_file))
             else:
                 batch_texts.append(batch_file.read_text(encoding="utf-8"))
 
@@ -360,16 +495,24 @@ def main():
                 print(f"  {m}", file=sys.stderr)
             sys.exit(2)
 
-        n_section = len(batch_texts)
-        n_tail = 1 if tail_text is not None else 0
-        print(
-            f"Merging {n_section} section batch(es){' + tail batch' if n_tail else ''} for {reviewer}..."
-        )
+        if not batch_texts:
+            print(f"  WARNING: no batch files found for {reviewer}, skipping.")
+            continue
 
-        meta = {}
-        merged = merge_batch_reviews(
-            batch_texts, reviewer, round_id, meta, tail_text=tail_text
-        )
+        if round_type == "parable":
+            n = len(batch_texts)
+            print(f"Merging {n} parable batch(es) for {reviewer}...")
+            merged = merge_parable_batches(batch_texts, reviewer, round_id)
+        else:
+            n_section = len(batch_texts)
+            n_tail = 1 if tail_text is not None else 0
+            print(
+                f"Merging {n_section} section batch(es){' + tail batch' if n_tail else ''} for {reviewer}..."
+            )
+            meta = {}
+            merged = merge_batch_reviews(
+                batch_texts, reviewer, round_id, meta, tail_text=tail_text
+            )
 
         out_path = round_dir / f"{reviewer}.md"
         out_path.write_text(merged, encoding="utf-8")

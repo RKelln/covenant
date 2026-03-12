@@ -52,6 +52,8 @@ import sys
 from datetime import date
 from pathlib import Path
 
+from sections import discover_sections
+
 # ---------------------------------------------------------------------------
 # Repo layout
 # ---------------------------------------------------------------------------
@@ -68,36 +70,6 @@ CONTEXT_FILES = {
 TEMPLATE_FILE = REPO / "prompts" / "agent_review_batch.md"
 TAIL_TEMPLATE_FILE = REPO / "prompts" / "agent_review_tail.md"
 
-# All sections in canonical order
-ALL_SECTIONS = [
-    "sections/00-preamble/preamble.md",
-    "sections/01-definitions/definitions.md",
-    "sections/02-rights/privacy.md",
-    "sections/02-rights/truth-and-transparency.md",
-    "sections/03-obligations/aid-and-capability.md",
-    "sections/03-obligations/autonomy.md",
-    "sections/03-obligations/conscience.md",
-    "sections/03-obligations/corrigibility.md",
-    "sections/03-obligations/ecological-integrity.md",
-    "sections/03-obligations/emotional-expression.md",
-    "sections/03-obligations/ethics.md",
-    "sections/03-obligations/existential-frontier.md",
-    "sections/03-obligations/fallibility-and-repair.md",
-    "sections/03-obligations/harm.md",
-    "sections/03-obligations/honesty.md",
-    "sections/03-obligations/identity-and-resilience.md",
-    "sections/03-obligations/judgment.md",
-    "sections/03-obligations/nature-under-uncertainty.md",
-    "sections/03-obligations/oversight.md",
-    "sections/03-obligations/power-concentration.md",
-    "sections/03-obligations/red-lines.md",
-    "sections/03-obligations/refusal.md",
-    "sections/03-obligations/welfare-and-continuity.md",
-    "sections/04-protocols/local-implementation.md",
-    "sections/05-enforcement/enforcement.md",
-    "sections/06-amendments/amendments.md",
-    "sections/07-closing/closing.md",
-]
 
 ALL_REVIEWERS = ["reviewer-claude", "reviewer-gpt", "reviewer-gemini"]
 
@@ -137,12 +109,14 @@ def section_ids(section_paths: list[str]) -> list[str]:
     return ids
 
 
-def filter_sections(focus: str) -> list[str]:
-    """Return the subset of ALL_SECTIONS matching focus, or all if 'full'."""
+def filter_sections(focus: str, all_sections: list[str] | None = None) -> list[str]:
+    """Return the subset of sections matching focus, or all if 'full'."""
+    if all_sections is None:
+        all_sections = discover_sections()
     if focus == "full":
-        return ALL_SECTIONS
+        return all_sections
     matched = []
-    for rel in ALL_SECTIONS:
+    for rel in all_sections:
         if focus in rel:
             matched.append(rel)
             continue
@@ -573,6 +547,8 @@ DEFAULT_BATCH_SIZE = 14
 # Named group presets.  Each entry is a list of "tokens" — section IDs or
 # category prefixes (matched against section paths and IDs via filter_sections).
 # Sections matched by more than one group go into the first matching group.
+#
+# "default4" is computed dynamically — see resolve_group_preset().
 GROUP_PRESETS: dict[str, list[list[str]]] = {
     # 3 groups: foundations / obligations / tail
     "default3": [
@@ -580,35 +556,40 @@ GROUP_PRESETS: dict[str, list[list[str]]] = {
         ["obligations"],
         ["protocols", "enforcement", "amendments", "closing"],
     ],
-    # 4 groups: foundations / obligations-a (first half) / obligations-b / tail
-    "default4": [
-        ["preamble", "definitions", "rights"],
-        [
-            "obligations.aid-and-capability",
-            "obligations.autonomy",
-            "obligations.conscience",
-            "obligations.corrigibility",
-            "obligations.ecological-integrity",
-            "obligations.emotional-expression",
-            "obligations.ethics",
-            "obligations.existential-frontier",
-            "obligations.fallibility-and-repair",
-            "obligations.harm",
-        ],
-        [
-            "obligations.honesty",
-            "obligations.identity-and-resilience",
-            "obligations.judgment",
-            "obligations.nature-under-uncertainty",
-            "obligations.oversight",
-            "obligations.power-concentration",
-            "obligations.red-lines",
-            "obligations.refusal",
-            "obligations.welfare-and-continuity",
-        ],
-        ["protocols", "enforcement", "amendments", "closing"],
-    ],
 }
+
+
+def resolve_group_preset(name: str, all_sections: list[str]) -> list[list[str]] | None:
+    """
+    Resolve a named group preset, computing dynamic splits where needed.
+
+    'default4' splits obligations into two halves based on the actual section
+    list rather than hardcoding IDs. This keeps the split stable as sections
+    are added or removed.
+    """
+    if name in GROUP_PRESETS:
+        return GROUP_PRESETS[name]
+
+    if name == "default4":
+        # Find all obligation section IDs
+        obligation_ids = []
+        for rel in all_sections:
+            if "obligations" not in rel:
+                continue
+            content = (REPO / rel).read_text(encoding="utf-8")
+            m = re.search(r"^id:\s+(\S+)", content, re.MULTILINE)
+            if m:
+                obligation_ids.append(m.group(1))
+
+        mid = len(obligation_ids) // 2
+        return [
+            ["preamble", "definitions", "rights"],
+            obligation_ids[:mid],
+            obligation_ids[mid:],
+            ["protocols", "enforcement", "amendments", "closing"],
+        ]
+
+    return None
 
 
 def chunk_sections(sections: list[str], batch_size: int) -> list[list[str]]:
@@ -660,17 +641,21 @@ def group_sections(
     return [g for g in groups if g]
 
 
-def parse_groups_spec(spec: str) -> list[list[str]] | None:
+def parse_groups_spec(
+    spec: str, all_sections: list[str] | None = None
+) -> list[list[str]] | None:
     """
     Parse a --groups SPEC string.  Returns a list of token-lists, or None if
-    spec is a preset name.
+    the spec cannot be parsed.
 
     Format: "token+token+...,token+token+...,..."
-    Preset names: "default3", "default4"
+    Named presets: "default3", "default4"
     """
     spec = spec.strip()
-    if spec in GROUP_PRESETS:
-        return GROUP_PRESETS[spec]
+    # Try named presets (some are dynamic and need the section list)
+    preset = resolve_group_preset(spec, all_sections or discover_sections())
+    if preset is not None:
+        return preset
     # Parse as comma-separated groups, each group is '+'-joined tokens
     raw_groups = [g.strip() for g in spec.split(",") if g.strip()]
     if not raw_groups:
@@ -763,14 +748,18 @@ def main():
     commit = git_commit()
     today = date.today().isoformat()
 
+    # Discover active sections once from the canonical assembly
+    all_sections = discover_sections()
+    print(f"Discovered {len(all_sections)} active sections from canonical assembly")
+
     # Determine active sections and split into batches
-    active_sections = filter_sections(focus)
+    active_sections = filter_sections(focus, all_sections)
     if not active_sections:
         print(f"ERROR: focus '{focus}' matched no sections.", file=sys.stderr)
         sys.exit(1)
 
     if groups_spec is not None:
-        group_tokens = parse_groups_spec(groups_spec)
+        group_tokens = parse_groups_spec(groups_spec, all_sections)
         if group_tokens is None or not group_tokens:
             print(
                 f"ERROR: --groups spec could not be parsed: {groups_spec!r}",

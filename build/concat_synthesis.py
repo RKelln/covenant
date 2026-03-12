@@ -75,9 +75,9 @@ def main():
         sys.exit(1)
 
     round_id = args[0]
-    if not re.match(r"^round-\d+$", round_id):
+    if not re.match(r"^[a-z][a-z0-9-]*$", round_id):
         print(
-            f"ERROR: round must be in the form 'round-NN', got: {round_id}",
+            f"ERROR: round must be a lowercase slug (e.g. 'round-01', 'parables-01'), got: {round_id}",
             file=sys.stderr,
         )
         sys.exit(1)

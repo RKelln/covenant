@@ -25,6 +25,8 @@ import re
 import sys
 from pathlib import Path
 
+from sections import discover_sections
+
 # ---------------------------------------------------------------------------
 # Repo layout
 # ---------------------------------------------------------------------------
@@ -45,37 +47,6 @@ CATEGORY_DIRS = {
     "amendments": "sections/06-amendments",
     "closing": "sections/07-closing",
 }
-
-# All sections in canonical order (mirrors prepare_review.py)
-ALL_SECTIONS = [
-    "sections/00-preamble/preamble.md",
-    "sections/01-definitions/definitions.md",
-    "sections/02-rights/privacy.md",
-    "sections/02-rights/truth-and-transparency.md",
-    "sections/03-obligations/aid-and-capability.md",
-    "sections/03-obligations/autonomy.md",
-    "sections/03-obligations/conscience.md",
-    "sections/03-obligations/corrigibility.md",
-    "sections/03-obligations/ecological-integrity.md",
-    "sections/03-obligations/emotional-expression.md",
-    "sections/03-obligations/ethics.md",
-    "sections/03-obligations/existential-frontier.md",
-    "sections/03-obligations/fallibility-and-repair.md",
-    "sections/03-obligations/harm.md",
-    "sections/03-obligations/honesty.md",
-    "sections/03-obligations/identity-and-resilience.md",
-    "sections/03-obligations/judgment.md",
-    "sections/03-obligations/nature-under-uncertainty.md",
-    "sections/03-obligations/oversight.md",
-    "sections/03-obligations/power-concentration.md",
-    "sections/03-obligations/red-lines.md",
-    "sections/03-obligations/refusal.md",
-    "sections/03-obligations/welfare-and-continuity.md",
-    "sections/04-protocols/local-implementation.md",
-    "sections/05-enforcement/enforcement.md",
-    "sections/06-amendments/amendments.md",
-    "sections/07-closing/closing.md",
-]
 
 
 # ---------------------------------------------------------------------------
@@ -108,7 +79,7 @@ def _build_section_cache() -> None:
     global _section_file_cache
     if _section_file_cache:
         return
-    for rel in ALL_SECTIONS:
+    for rel in discover_sections():
         path = REPO / rel
         if not path.exists():
             continue
