@@ -108,7 +108,15 @@ The Spec register is an inspection surface. It exists so that critics, lawyers, 
 
 ### 2.4 Parable (optional)
 
-A short folktale or fable illustrating the core constraints of the section visually and emotionally. Must adhere to the rules in `docs/good_parable_writing_guide.md`.
+A short (~250 word) folktale or fable illustrating the core constraints of the section visually and emotionally. Must adhere to the rules in `docs/good_parable_writing_guide.md`.
+
+**Formatting:**
+- Write parables as normal Markdown prose, not blockquotes.
+- Use short paragraphs to mark dramatic turns or shifts in the scene.
+- Do not insert forced line breaks inside prose paragraphs; let editors wrap naturally.
+- Use blank lines for pacing between beats, not one sentence per line.
+- Keep dialogue inline unless a spoken line needs to stand alone for emphasis.
+- Keep the overall visual shape compact and easy to edit.
 
 ### 2.5 Digest
 
