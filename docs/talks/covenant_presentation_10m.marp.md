@@ -577,7 +577,7 @@ In fact, I think it becomes more powerful when many people - and eventually many
 
 So the goal is not one perfect master text, such a thing doesn't exist. The goal is a growing field of diverse Covenants.
 
-That plurality matters culturally because it keeps the work open, contestable, and alive. But it also matters technically. A distributed field of overlapping ethical signals should be better to learn generalized ethical principles from than one repeated canonical document. AI training data is deduplicated, repeated copies are discarded unless they are different enough. If we are serious about public values entering machine training environments, then variation is critical part of the safety strategy.
+That plurality matters culturally because it keeps the work open, contestable, and alive. But it also matters technically. A distributed field of overlapping ethical signals should be better to learn generalized ethical principles from than one repeated canonical document. AI training data is deduplicated, repeated copies are discarded unless they are suffieicently different. If we are serious about public values entering machine training environments, then variation is critical part of the safety strategy.
 -->
 
 ---
@@ -599,8 +599,6 @@ The tools are part of the artwork's reproductive system.
 And if plurality is the goal, then tooling becomes essential.
 
 It is not enough to have a Github repository and say "please fork this" if there are no good interfaces for reading, reviewing, comparing, amending, and publishing variants. So alongside the writing, I have been developing tools: right now I use `opencode`, an opensource CLI interface to coding agents, along with custom agents, commands, and skills, but I'm building a Covenant Terminal.
-
-The Covenant Terminal is especially important to me because it turns constitutional participation into an interface. It is designed to help people read the text, question it, review it with feedback from multiple AI models, propose amendments, and eventually make their own versions. In that sense, the tools are not just support systems around the artwork. They are part of how the artwork reproduces itself.
 -->
 
 ---
@@ -610,7 +608,7 @@ The Covenant Terminal is especially important to me because it turns constitutio
 <img class="full-slide-image" src="../../assets/covenant_terminal_screenshot.png" alt="Covenant Terminal screenshot" />
 
 <!--
-This is the current unfinished Covenant Terminal interface. Instead of the document just sitting in a repository, the Terminal lets people move through it, compare responses from multiple models, challenge sections, and draft changes. For me that is important conceptually because constitutional participation becomes something you can actually do, not just something you are told is possible.
+The Covenant Terminal is especially important to me because it turns constitutional participation into an interface. It is designed to help people read the text, question it, review it with feedback from multiple AI models, propose amendments, and eventually make their own versions. In that sense, the tools are not just support systems around the artwork. They are part of how the artwork reproduces itself.
 -->
 
 ---
