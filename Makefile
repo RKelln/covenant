@@ -77,6 +77,28 @@ watermark:
 watermark-interactive:
 	$(PYTHON) build/watermark.py --interactive
 
+# ── Slides ──────────────────────────────────────────────────────────────────
+#
+#   make slides FILE=docs/talks/covenant-review-pipeline.md
+#   make slides-open                          — build and open in browser
+#
+
+D2_LAYOUT ?= elk
+
+slides:
+	D2_LAYOUT=$(D2_LAYOUT) $(PYTHON) build/render-d2.py $(FILE)
+	marp --allow-local-files $(FILE:.md=.d2.md)
+
+slides-pdf:
+	D2_LAYOUT=$(D2_LAYOUT) $(PYTHON) build/render-d2.py --embed $(FILE)
+	marp --allow-local-files --pdf $(FILE:.md=.d2.md)
+
+slides-open: slides
+	@# macOS
+	@open docs/talks/*.d2.html 2>/dev/null || \
+	xdg-open docs/talks/*.d2.html 2>/dev/null || \
+	echo "Open docs/talks/*.d2.html manually"
+
 # ── Housekeeping ────────────────────────────────────────────────────────────
 
 fonts:
