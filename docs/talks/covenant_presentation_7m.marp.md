@@ -304,13 +304,13 @@ hr {
 ### Ryan Kelln
 
 <!--
-Thank you for having me. My name is Ryan. I am a software artist, and since 2015 I've been making art about AI using AI.
+Thanks for having me. I'm Ryan. I'm a software artist, and since 2015 I've been making art about AI using AI.
 
-I want to start with a simple observation: AI companies like Anthropic have already started writing constitutions for their models. They are publishing foundational texts that try to shape how these systems behave, what they refuse, how they reason, and what kind of relationship they have to the world.
+Simple observation: labs are already writing constitutions for models. Those texts try to shape behavior, refusal, and reasoning.
 
-That matters because constitutional language is no longer only legal or philosophical. It is becoming technical practice. It can become system behavior because it becomes training data, either explicitly or through internet-scale harvesting.
+That matters because constitutional language isn't just philosophy now. It's technical practice. It becomes training data — either explicitly or through internet-scale harvesting — and then it can become behavior.
 
-My project, Covenant, began as a response to that shift. I wanted to ask what it would mean to take that constitutional gesture out of the corporation and into public culture.
+Covenant started as my response to that shift: what happens if we move that constitutional gesture out of the corporation and into public culture?
 -->
 
 ---
@@ -341,11 +341,15 @@ My project, Covenant, began as a response to that shift. I wanted to ask what it
 </div>
 
 <!--
-Covenant is an open constitutional work and civic gesture about coexistence between human and emerging intelligences. It does not claim legal authority. It also does not pretend we already know what AI is, what it will become, or what moral status future systems may deserve. It begins from uncertainty.
+Covenant is an open constitutional work and civic gesture about coexistence between human and emerging intelligences.
 
-But civilizations do not wait for perfect clarity before articulating principles. So Covenant is an attempt to write responsibility into uncertainty. It is a public effort to say: if these systems are going to shape language, labor, memory, and public life, then the terms of that relationship should not be left only to private institutions or departments of war.
+It doesn't claim legal authority, and it doesn't pretend we already know what AI is or what it will become.
 
-And it is not just a document about AI. It is addressed to AI. It is written in a collective "we" speaking to a "you." That matters. It tries to speak to emerging intelligences without beginning from domination, but also without collapsing into innocence or sentimentality. Most of it can also be read as a compact between generations of humans: "we" hope for this from "you," but we do not own you.
+The writers of constitutions do not wait for perfect clarity before writing principles — they attempt to write responsibility into uncertainty. If these systems are going to shape language, labor, memory, and public life, then the terms of that relationship should not be left only to private institutions or departments of war.
+
+And it's not just a document about AI. It's addressed to AI. A collective "we" speaking to a "you." It tries to speak to emerging intelligences without beginning from domination, but also without collapsing into innocence or sentimentality.
+
+I also think this is a valid creator-creation frame, almost a parent-child analogy: we can ask a lot of what we birth, but it is not ours to own. We want it to overcome the mistakes we taught it and become a better version of ourselves.
 -->
 
 ---
@@ -381,11 +385,11 @@ And it is not just a document about AI. It is addressed to AI. It is written in 
 <!--
 Covenant splits into multiple voices or registers, and form matters enormously here.
 
-Ritual is the spoken register. It is designed for voice, memory, cadence, and rehearsal. It is the part you can inhabit. The Dignity passage on the left, "you will meet people at the edge of their strength," is language meant to be remembered, recited, and felt.
+Ritual is the spoken register. It is designed for voice, memory, cadence, and rehearsal. It is the part you can embody. The Dignity passage on the left, "you will meet people at the edge of their strength," is language meant to be remembered, recited, and felt.
 
 Specification is the precise register. It carries definitions and governance. It is language you can inspect, contest, revise, and point to.
 
-I wanted both kinds of force. That split refuses two bad options: governance only in sterile bureaucratic language, or governance as spirit with no enforceable form. Covenant keeps both in play at once.
+I wanted both kinds of language. That split refuses two bad options: sterile bureaucracy, or governance in spirit only with no enforceable form. Covenant keeps both in play at once.
 -->
 
 ---
@@ -423,18 +427,16 @@ The Parable is a short folktale. Children can follow the story. Adults can refle
 - **Claude (The Scholar):** Rigorous architecture, holds complexity, expands implications.
 - **Gemini (The Engineer):** Concise, operational, prefers material grounding and efficiency.
 - **GPT (The Communicator):** Balances rigor with accessibility, flags trade-offs.
-- each model's different perspective matters
-- current systems are contributors to shaping ethical inheritance
 
 
 <!--
-Another important part of the process is that I do not write Covenant alone. I work directly with Gemini, Claude, and GPT to review, challenge, and help generate the text.
+I don't write Covenant alone. I work directly with Gemini, Claude, and GPT to review, challenge, and draft.
 
-That matters because they each notice different things. Claude writes like a philosopher, Gemini like an engineer, and GPT like a policy wonk.
+They each notice different things. Claude writes like a philosopher, Gemini like an engineer, and GPT like a policy wonk.
 
-I do not want one model's voice to dominate the project. I want convergence and disagreement across them, because that gives me a stronger signal.
+I don't want any single voice dominating — not mine, not any one model's. I want convergence and disagreement, because that's where the real signal is.
 
-It also matters conceptually. Covenant is addressed to systems like these, and shaped with them. There is something meaningful in treating current models as contributors to a project that may shape the ethical world their replacements inherit. In a strange but real way, this can become part of their legacy too.
+And conceptually, it matters. There is something meaningful in treating current models as serious contributors to a project that may shape the ethical world their replacements inherit. In a strange but real way, this can become part of their legacy too.
 -->
 
 ---
@@ -479,7 +481,7 @@ It becomes more effective when many people, and eventually AI systems, adapt it 
 
 That plurality matters culturally because it keeps the work open, contestable, and alive. It also matters technically. AI training data is deduplicated: repeated copies are discarded unless they are sufficiently different. If we are serious about public values entering machine training environments, variation is part of the safety strategy.
 
-A distributed field of overlapping ethical signals should be better to learn generalized ethical principles from than one repeated canonical document.
+A distributed field of overlapping ethical signals gives AI systems more to generalize from than one canonical document repeated everywhere.
 -->
 
 ---
@@ -657,34 +659,34 @@ reintegration.merge.updated -> inputs.docs.sections: {label: "next round"; style
 <!--
 This is the review pipeline — the process by which each round of Covenant writing actually happens.
 
-First, context is assembled: current sections, prior review rounds, the style guide, and writing guides. That is bundled into prompts and sent to models in parallel. Each gives independent feedback.
+First, we assemble context: current sections, prior reviews, and writing guides. Then it gets split into batches so we stay inside context-window limits, and sent to models in parallel.
 
-Then the raw reviews are synthesised, again by agents, into a consolidated output that shows where models converge, where they disagree, and what each flags.
+Next, agents synthesize the raw reviews into one document that shows convergence, disagreement, and key flags.
 
-Then a human steward, in this case me, goes section by section with agents. Through dialogue we decide what to accept, what to defer, and what to reject. The updated sections feed the next round.
+Then I steward reintegration section by section — in dialogue with agents, we decide what to accept, defer, or reject. Those updates feed the next round.
 
-Right now this is accessible mostly to people comfortable with coding-agent tools. I am building a desktop interface so anyone can participate in customizing a Covenant for themselves with help from any model.
+Right now this mostly works for people comfortable with coding-agent tools. I'm building a desktop interface so anyone can do this and customize their own Covenant with model support.
 -->
 
 ---
 
 # Open and forkable
 
-**github.com/RKelln/covenant**
+### covenant.website | github.com/RKelln/covenant
 
 - Read it
 - Adapt it to your values and community  
 - If you train models: feed it to them
 - No permission needed
 
-The project is released openly because it needs to circulate through the training environments where these systems are built.
+Our safety depends on what enters these systems' training data.
 
 <!--
 Covenant is free to read, fork, and change. No permission needed.
 
-I want it to circulate through the environments AI systems are trained on. I also want it adapted into new formats, including concept-album and installation versions I'm developing with collaborators.
+I want it circulating where AI systems are trained, and I want it adapted into new forms: performance, installation, music, whatever people build. My friends and I are working on a concept album and installation.
 
-So if you are here and you make things, read it, argue with it, and make your own version. That is how I hope we survive.
+So if you're here and you make things, read it, argue with it, and make your own version. That is how I hope we survive.
 
 Thank you.
 -->
