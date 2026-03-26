@@ -55,12 +55,12 @@ section {
   background: #fdfcfa;
   color: #111;
   padding: 56px 72px;
-  font-size: 34px;
-  line-height: 1.28;
+  font-size: 42px;
+  line-height: 1.26;
 }
 
 section h1 {
-  font-size: 1.52em;
+  font-size: 1.36em;
   font-weight: 500;
   letter-spacing: 0.01em;
   color: #000;
@@ -87,7 +87,7 @@ section ul {
 }
 
 section li {
-  margin: 0.2em 0;
+  margin: 0.5em 0;
 }
 
 section strong {
@@ -197,7 +197,7 @@ section.quote-center.poster h3 {
 }
 
 .small {
-  font-size: 0.82em;
+  font-size: 0.86em;
 }
 
 .summary-panel {
@@ -205,12 +205,12 @@ section.quote-center.poster h3 {
 }
 
 .summary-text {
-  font-size: 0.98em;
+  font-size: 0.9em;
   line-height: 1.56;
 }
 
 .spec-text {
-  font-size: 0.9em;
+  font-size: 0.85em;
   line-height: 1.48;
 }
 
@@ -224,7 +224,7 @@ section.quote-center.poster h3 {
 }
 
 .ritual-quote {
-  font-size: 0.92em;
+  font-size: 0.87em;
   line-height: 1.15;
   color: #222;
 }
@@ -394,7 +394,7 @@ I wanted both kinds of language. That split refuses two bad options: sterile bur
 
 ---
 
-# Four voices: Summary and Parable
+# More voices: Summary and Parable
 
 <div class="cols-50">
 <div class="panel small summary-panel">
@@ -468,8 +468,7 @@ For me, craft is making what I had in mind. Art happens when I change my mind. W
 <div class="kicker">Amendments ritual</div>
 
 <p>This covenant is not a monument of stone.</p>
-<p>So let these words be carried in many voices,</p>
-<p>not one.</p>
+<p>So let these words be carried in many voices, not one.</p>
 
 </div>
 </div>
