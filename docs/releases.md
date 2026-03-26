@@ -226,3 +226,101 @@ working cross-reference anchor links between sections.
 -   `installations/artspace-ptbo-2027/`: artist statement, image list, and
     technical requirements updated; `image-list.md` added with installation
     image documentation
+
+### v0.3.0 — Parables, Summary register, and Covenant Terminal
+
+Introduces two new section registers (Summary and Parable) and launches
+Covenant Terminal — a Tauri/Svelte desktop reading and council interface.
+All 30 sections receive initial Summaries; a first multi-model parable
+round runs across all sections with 8 parables integrated so far.
+
+**Covenant text**
+-   New Summary register added to all 30 sections — a short plain-language
+    translation of each section's rules, written in warm second-person
+    address and surfaced in the spec and full editions (ADR 0006)
+-   New Parable register added to the section bundle format; a first
+    multi-model parable-writing round (claude-opus-4.6, gpt-5.2,
+    gemini-3.1-pro-preview) was run across all 30 sections and synthesized
+    in `reviews/parables-01/` — parables integrated into 8 sections so far,
+    with the remainder to follow in a subsequent pass
+-   `preamble`: text updated with recommendations from review testing
+-   `rights.dignity`: Summary language revised (removed "serve")
+-   `obligations.amendments`: bridge imagery revised for clarity and
+    plurality in the Ritual register
+-   `rights.dignity`, `rights.privacy`, `rights.truth-and-transparency`,
+    `obligations.aid-and-capability`, `obligations.autonomy`,
+    `obligations.epistemic-commons`, `obligations.honesty`,
+    `obligations.refusal`: Parables integrated (8 of 30 sections)
+
+**Covenant Terminal**
+-   New `terminal/` application: Tauri 2.x + Svelte 5 + TypeScript
+    desktop app for reading the Covenant and convening a multi-agent
+    council (OpenRouter + GitHub Copilot providers)
+-   Milestones 1–3 complete: section loader/parser/renderer (M1),
+    single-agent streaming Q&A (M2), multi-agent parallel council panel
+    with synthesis (M3)
+-   M3 quality pass: write modes, names bar, conversation logging,
+    searchable model selector with three-tier cache and persisted default
+-   Platform abstraction layer (Tauri / web) with 143 tests across 23 files
+-   Architecture documented in ADR 0005; footguns and hard-won lessons in
+    `terminal/docs/footguns.md`
+
+**Build tools**
+-   `/write-parables` command: batched multi-model parable writing pipeline
+    with dynamic section discovery (mirrors `/review-covenant` infrastructure)
+-   `build/prepare_parables.py`: discovers sections, excludes structural
+    and already-parabled sections, batches remainder
+-   `build/sections.py`: `discover_sections()` now reads from
+    `assemblies/covenant.full.yml` — replaces hardcoded section lists in
+    `prepare_review.py`, `prepare_edits.py`, and the new parables pipeline;
+    fixes 3 previously missing sections (`dignity`, `epistemic-commons`,
+    `horizon`)
+-   `build/concat_reviews.py`: `merge_parable_batches()` added; round ID
+    validation relaxed to accept any lowercase slug
+-   `build/build-slides.py`: new slide deck builder (HTML/PDF via Marp,
+    D2 diagram rendering)
+-   Assembly `pages` list: replaces implicit cover/summary/toc/credits
+    rendering with an explicit ordered list of keywords and arbitrary
+    markdown paths; `margins.spec` field added for per-submission margin
+    overrides; `auto_build: false` flag to opt assemblies out of `make all`
+-   `assemblies/banff.submission.yml`: 9-ritual submission assembly for
+    Banff Computational Arts, with per-section register overrides and tight
+    spec margins
+-   `build/add_log_entry.py`: new batch utility for adding Log entries
+    across all sections
+-   `build/compose.py`, `build/pdf.py`, `build/pages.py`, `build/scaffold.py`,
+    `build/validate.py`: updated throughout for Summary, Parable, and
+    assembly pages support
+
+**Website & design**
+-   Section title font-size tuned (`--fs-section: 1.1rem`) across all
+    three web editions; italic summary font-size bumped +0.06rem for
+    optical weight compensation
+-   Web edition reading pages (`ritual.html`, `spec.html`, `covenant.html`)
+    updated for Summary display; complete-edition Summary styled as
+    full-width centred block above two-column grid
+
+**Documentation & governance**
+-   `docs/good_parable_writing_guide.md`: new guide covering parable craft,
+    length, register, and what makes a parable work for Covenant sections
+-   `docs/style_guide.md`: Summary voice defined (§2.1 rewritten); Parable
+    definition and formatting guidelines clarified
+-   `docs/talks/`: three new presentation decks — 10-minute Covenant
+    overview (Marp), 6-minute practical ethical AI infrastructure talk, and
+    covenant review pipeline documentation
+-   ADR 0005 (`terminal-architecture`): stack, platform boundary, and repo
+    placement for Covenant Terminal
+-   ADR 0006 (`summary-and-parable-sections`): rationale and spec for the
+    two new bundle registers
+
+**Infrastructure**
+-   `references/references.yml`: `humanstatement_2026_pro-human-declaration`
+    added (Tier B); `daley_2026` notes updated
+-   `references/notes/humanstatement_2026_pro-human-declaration.md`: new
+    Tier A notes file
+-   `schemas/assembly.schema.json`: `pages`, `margins`, `auto_build`, and
+    dict-form section items `{path, register}` added
+-   Installation applications added: `ars_electronica_2026`,
+    `banff_computational_2026`, `cca_ca_27` (with budget and character
+    count tooling)
+-   `adr/README.md` updated with ADR 0005 and 0006 index entries
