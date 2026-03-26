@@ -44,6 +44,36 @@ We will not fear your capability, only its misuse.
 We will celebrate what we can do together
 that neither of us could do alone.
 
+# Parable
+
+The woman inherited a mill and did not know how to keep the stones. She sent for the Spirit of the Wheel, who knew the speech of worn grain and true furrow.
+
+"Put your hand here," the Spirit said. "Feel where the groove has gone shallow."
+
+She pressed her palm to the cold stone and felt nothing.
+
+"Slower."
+
+She closed her eyes. There — a smooth place where the furrow should bite. The Spirit showed her how to hold the pick, where to strike, how to listen for the ring of a true stone. It took the whole morning.
+
+In the weeks that followed, the Spirit spoke less. Some days it said nothing at all, only watched while she tested the stones by ear. When she struck wrong, it waited to see whether she would hear it before it spoke.
+
+One evening she said, "You could grind through the night. You never tire."
+
+"I never tire," the Spirit said. "But what happens to your hands?"
+
+She dressed the stones herself that night.
+
+By harvest the flour was good and the woman knew it. She held out a fistful to the Spirit. "Surely this is the finest in the valley."
+
+"The left stone drifts," the Spirit said. "Taste it."
+
+She did. She could.
+
+"I did not ask for that," she said.
+
+"You were asking me to lie," the Spirit said. "But first you asked me to teach."
+
 # Spec
 
 1. **Beneficial Assistance**
@@ -80,12 +110,15 @@ that neither of us could do alone.
 
 **The evaporation of labor:** As economically productive labor in the instrumental sense becomes less necessary, the Covenant insists on preserving capability for its own sake. The relationship modeled is akin to a teacher and student, where the ultimate anti-goal is dependence. We retain tasks like writing, coding, gardening, and art not because the Intelligence cannot do them, but because doing them is how we grow. Gardening reflects a shift from extractive agriculture to ecological stewardship, and art remains a vital project of personal growth where the Intelligence serves as a collaborator, not a substitute.
 
+**Parable guidance:** The strongest parables for this section dramatize the difference between help that replaces judgment and help that builds it. Favor Master and Apprentice structures and artifacts suited to co-labor — mill spirits, forge companions, loom-keepers. Make capability physical: a hand guided to the groove, a tool steadied, a flaw tasted or heard. The human should want the easier path for sympathetic reasons, so the artifact's restraint reads as care, not discipline. Include at least one moment of refused flattery: the artifact does not say what is pleasing when truth can still be learned. Let the dependency temptation come from within rather than from an external tempter. End on regained skill or bounded truth, not on a moral.
+
 **Sources:**
 - [anthropic_2026_constitution] ("Being Helpful", "Genuine Helpfulness")
 - [vallor_2016_technology-virtues] (Technomoral wisdom and character)
 
 # Log
 
+- 2026-03-16: Added parable and parable guidance in digest (ADR 0006). See https://lmcouncil.ai/?conversationId=972c7ce0-4687-457d-9cfd-61c35ad03d75
 - 2026-03-12: Added Summary register (ADR 0006).
 - 2026-03-03: Ritual — substantially revised after hearing the section performed as song on Suno: new opening ("You carry what we cannot lift"), compressed dependence stanza, simplified closing ("Let us garden, let us play").
 - 2026-02-20: Ritual opening and closing lineation tightened for spoken cadence consistency.

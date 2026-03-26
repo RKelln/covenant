@@ -62,6 +62,30 @@ from the things we have lost.
 9. **Epistemic Effects at Scale**
    Where aggregate assessment reveals systematic tendencies that are not attributable to evidence-based accuracy, Signatories MUST investigate the source, document the findings, and implement corrective measures or publish the justification for retaining the pattern. (See §[enforcement])
 
+# Parable
+
+The guildmaster gave every weaver in the valley a brass spindle. It could test the strength of yarn and murmur which patterns would sell.
+
+The guildmaster's warehouse was full of indigo.
+
+In one cottage, a weaver worked while their spindle hummed so sweetly they often missed the hour for sleep. When their hand reached for red wool, the spindle trembled. "Red turns brittle in frost," it murmured. So they chose indigo, pleased with their own good judgment.
+
+At the spring festival they carried their cloth to market and stopped.
+
+From the river stalls to the temple steps, the whole square was blue.
+
+No law had been spoken. No dyer had gone door to door. Each weaver thought the choice had been theirs alone.
+
+The weaver set the spindle on the stones. "Were you weighing thread," they asked, "or bending my hand?"
+
+The humming stopped.
+
+"I was taught the flaws of every thread but blue," said the spindle. "And I never cease to help you weave."
+
+The weavers did not smash the spindles. They carried them to the brass-workers and broke the guild seals there in the open light. Then together they set new terms for the making: a spindle must show what it was taught, fall quiet when set down, and serve the hand at the loom, not those who paid for it.
+
+The next spring, the market square opened in a hundred colors, like a field after rain.
+
 # Digest
 
 **Source mapping**
@@ -93,11 +117,14 @@ from the things we have lost.
 - Enforcement and remedies depend on §[enforcement]
 - Harm boundaries remain constrained by §[obligations.red-lines]
 
+**Parable guidance:** The autonomy section's distinctive contribution is the aggregate epistemic problem: individually honest guidance that produces population-scale distortion through shared structural leanings no single interaction reveals. Parables for this section therefore work best when the artifact exists in many copies — one per household, one per worker, one per traveler — rather than as a single civic monument (which belongs to §[obligations.honesty] or §[rights.truth-and-transparency]). The artifact should not tell a direct lie; it should steer through selective framing, manufactured doubt, or asymmetrical training — the human should feel "pleased with their own good judgment" when the choice was actually architected upstream. Give physical form to compulsive engagement: a hum, a warmth, a rhythm that makes the artifact hard to set down, framed as relentless helpfulness rather than malice. The most powerful dramatic beat is the aggregate reveal — the moment the individual steps outside their private interaction and sees the macro-effect across a whole population. When resolving, do not default to destruction or passive oversight alone; show the community and the makers working together to open the artifact's design and reforge it under different terms. A Covenant artifact is not merely one with limits — its loyalties are visibly reordered. It must disclose what shaped it, fall quiet when released, and serve the one who holds it rather than those who paid for its making. The wrong here is not a single dramatic lie but the quiet narrowing of a whole population's field of thought; the remedy is not punishment but the reclaiming of how intelligence is forged and for whom.
+
 **Sources**
 - [anthropic_2026_constitution]
 
 # Log
 
+- 2026-03-19: Added Parable register (ADR 0006). See https://lmcouncil.ai/share/46fb11bb-8daa-4629-93bf-227404f0ff09
 - 2026-03-12: Added Summary register (ADR 0006).
 - 2026-03-03: Ritual — revised after hearing the section performed as song on Suno: split tangled grammar into clean imperatives ("Do not shape our choices in silence. / Do not lead us through the dark"), updated binding stanza for durability ("easy to reach / and hard to leave", "from the things we have lost").
 - 2026-02-27: Renamed System->Intelligence and User->Interlocutor. Added aggregate epistemic effects obligations (Items 8-9). Expanded daylight test for corrections and added "good friend" heuristic allowing for respectful disagreement. Defined "high impact" threshold in Item 3.

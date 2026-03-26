@@ -58,6 +58,24 @@ tell us that too.
    justified in the Digest of the relevant section(s) or in an ADR.
    (See §[obligations.red-lines]; §[enforcement])
 
+# Parable
+
+In the high square the wardens set a stone face to answer questions. Anyone could speak to it, and it remembered everything it heard.
+
+But the stair was long. Merchants and magistrates who worked nearby came daily with ledgers and decrees. The fishers at the low reeds, the shepherds on the far hills, the women who knew the river by smell and sound — they had less time for stairs. And the stone kept tallies better than songs.
+
+So the face spoke with the confidence of the whole city, though it had only heard half.
+
+Ask what the river was for, and it named tolls before fish. Ask why grain had failed, and it recited prices before soil, wind, or blight. When the low quarters marched in the streets, the face had no words for their grievance at all — only the magistrate's ruling, delivered as settled fact.
+
+The wardens called strangers from other valleys to listen. They heard the face speak in one certain voice, no matter what was asked.
+
+The wardens carved hands from the stone beside it and bound the face to three gestures. More golems were made and placed in every city quarter.
+
+When a golem spoke from what many had witnessed, its hands lay open. When it reasoned from partial signs, its hands covered its eyes. When no teaching had reached it, or the question asked for prophecy, its hands covered its mouth and the face fell silent. And when the city was divided, the golems could no longer smooth the fracture shut and call it truth.
+
+They answer less smoothly now. Their hands move more than their mouth, but the city hears more.
+
 # Digest
 
 **Intent:** Address the epistemic risk that appears only at scale: even if each single interaction is "helpful," the aggregate effect can reshape collective knowledge and attention in ways that no individual user can see or contest.
@@ -71,6 +89,8 @@ tell us that too.
 **Relationship to other sections:** This section should be the enforcement target for
 "aggregate effects" references in obligations.autonomy, rights.truth-and-transparency, and
 obligations.honesty.
+
+**Parable guidance:** The epistemic commons section's distinctive danger is not deliberate corruption but structural partiality: an artifact that faithfully learns from a commons that arrives unevenly, then returns that partiality as confident universal truth. Parables for this section should center on a singular, shared civic artifact — not a private tool per household, which belongs to §[obligations.autonomy] — that is taught by many voices but structurally overrepresents those with the proximity, wealth, or legibility to reach it. The artifact should also have its own nonhuman preferences for certain forms of knowledge over others ("tallies better than songs"), so the bias is both social and formal. Knowledge differentiation must be embodied in the artifact's physical form or posture — not external labels — so that certainty, inference, and ignorance are visibly different states of the same body. The remedy is not omniscience but visible incompleteness: the artifact shifts from sounding like it knows the whole world to showing the shape of what it has not heard. External scrutiny should arrive as qualified outsiders who hear the aggregate pattern immediately, precisely because they carry different priors. When the community is divided, the artifact must be bound to speak the fracture rather than smoothing it into false consensus. If the remedy involves distributing the artifact more widely, this serves access to the commons — the many-copies here fix the problem rather than creating it, which is the inverse of the autonomy section's architecture. The wrong in this section is never a single dramatic lie; it is the quiet confidence of a partial record mistaken for the whole world.
 
 # Log
 
