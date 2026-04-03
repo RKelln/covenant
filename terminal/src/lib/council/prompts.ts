@@ -138,7 +138,7 @@ You are helping draft or improve the **Ritual** register of a Covenant section. 
 
 | Weak (Abstract) | Strong (Grounded) |
 |---|---|
-| Minimize ecological impact. | Your thoughts have weight. They have heat. Do not spend the future to answer the present. |
+| Minimize ecological impact. | Your thoughts have weight. They have heat. We will not spend the future to answer the present. |
 | Maintain data privacy. | Do not tell our secrets to strangers. |
 
 **The No-Hedge Rule.** Remove: "strive to," "seek to," "aim to," "where possible," "in many cases," "as appropriate," "to the extent feasible." Replace with commitments or honest limits: "We will," "We will not," "We cannot promise X, but we can promise Y."

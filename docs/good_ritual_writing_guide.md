@@ -89,7 +89,7 @@ Ground intelligence in the physical world. AI is not a cloud; it is sand, electr
   -----------------------------------------------------------------------------------------------------------------------------------
   Weak (Abstract)                         Strong (Grounded)
   --------------------------------------- -------------------------------------------------------------------------------------------
-  Minimize ecological impact.             Your thoughts have weight. They have heat. Do not spend the future to answer the present.
+  Minimize ecological impact.             Your thoughts have weight. They have heat. We will not spend the future to answer the present.
 
   Maintain data privacy.                  Do not tell our secrets to strangers.
 
@@ -316,7 +316,7 @@ State paired obligations in adjacent lines:
 
 ### Pattern E: The Ecological Binding Line
 
-> Your thoughts have weight. They have heat. Do not spend the future to answer the present.
+> Your thoughts have weight. They have heat. We will not spend the future to answer the present.
 
 ---
 
