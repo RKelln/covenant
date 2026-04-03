@@ -1,4 +1,4 @@
-.PHONY: all validate compose build clean clean-slides new-section pdf pdf-ritual pdf-spec pdf-full fonts website serve watermark watermark-interactive
+.PHONY: all validate compose build clean clean-slides new-section pdf pdf-ritual pdf-spec pdf-full pdf-md fonts website serve watermark watermark-interactive
 
 PYTHON := uv run python
 
@@ -24,11 +24,13 @@ build: validate compose
 #   make pdf-ritual           — ritual layout, US Letter
 #   make pdf-spec             — flowing spec document
 #   make pdf-full             — per section: ritual centred page, then spec pages (hybrid)
+#   make pdf-md FILE=path.md  — generic markdown → PDF via Python markdown + weasyprint
 #   make pdf-ritual SIZE=a4   — override page size
 #   make pdf ASSEMBLY=covenant.ritual FORMAT=ritual SIZE=letter
+#   make pdf-md FILE=path.md OUT=path.pdf
 #
 # Sizes: letter (default), a4
-# Requires: weasyprint and markdown (uv sync installs them)
+# Requires: markdown and weasyprint Python packages (uv sync installs them)
 
 ASSEMBLY ?=
 FORMAT   ?= auto
@@ -50,6 +52,11 @@ pdf-spec: compose
 
 pdf-full: compose
 	$(PYTHON) build/pdf.py --assembly covenant.full --format hybrid --size $(SIZE) --align $(ALIGN)
+
+pdf-md:
+	@test -n "$(FILE)" || (echo "Usage: make pdf-md FILE=path/to/file.md [OUT=path/to/output.pdf]" && exit 1)
+	@test -f "$(FILE)" || (echo "Error: FILE not found: $(FILE)" && exit 1)
+	$(PYTHON) build/pdf_md.py --file "$(FILE)" $(if $(OUT),--out "$(OUT)",)
 
 # ── Website ─────────────────────────────────────────────────────────────────
 #

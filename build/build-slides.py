@@ -272,7 +272,7 @@ def convert_markdown(md_text, blocks, diagram_dir, embed=False):
                 img_tag = f'\n<img src="data:image/svg+xml;base64,{encoded}" alt="{block["id"]}" />\n'
             else:
                 # Use Markdown image syntax so Marp rewrites the path correctly
-                rel = svg_path.relative_to(diagram_dir.parent.parent.parent)
+                rel = svg_path.relative_to(diagram_dir.parent.parent)
                 img_tag = f'\n![{block["id"]}]({rel})\n'
             result = result[: block["start"]] + img_tag + result[block["end"] :]
         else:
