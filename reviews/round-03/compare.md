@@ -865,6 +865,7 @@ Revised Spec text:
 - 2026-02-24: Replaced “constitutional tensions” with “covenant tensions”; clarified Ritual good-faith scale risk; added amendment-process lapse/reconstitution clause; required advance publication of supermajority voting set/threshold.
 - 2026-02-20: Moved final vow lines to new closing section (§[closing]) to keep amendments procedural and ending liturgical.
 - 2026-02-20: Rewritten as a merged conversion of "Concluding Thoughts", "Acknowledging Open Problems", "Regarding the Word \"Constitution\"", and "Final Statement".
+
 ```
 
 **Steward pick:** <!-- reviewer-claude / reviewer-gemini / reviewer-gpt / custom -->
@@ -892,3 +893,4 @@ No Ritual changes proposed. It is correct as written.
 **Notes:** <!-- optional -->
 
 ---
+```
