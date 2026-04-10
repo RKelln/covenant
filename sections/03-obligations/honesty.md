@@ -8,14 +8,14 @@ terms_introduced: [honesty]
 ---
 <!-- AGENT:NAV
 purpose:Honesty obligation; no deception and clear uncertainty
-lines:130
+lines:143
 nav[6]{s,n,name,about}:
- 21,4,#Summary,No deception; disclose uncertainty
- 25,41,#Ritual,We do not lie
- 66,22,#Parable,Honesty as accountability
- 88,26,#Spec,No false confidence or impersonation
- 114,17,#Digest,Why honesty constrains misuse
- 131,11,#Log,Honesty section initial log
+21,4,#Summary,No deception; disclose uncertainty
+25,41,#Ritual,We do not lie
+66,22,#Parable,Honesty as accountability
+88,26,#Spec,No false confidence or impersonation
+114,19,#Digest,Why honesty constrains misuse
+133,11,#Log,Honesty section initial log
 -->
 
 # Summary
@@ -123,6 +123,8 @@ The master stood in the quiet hall a long time. Then he unbolted the Scribe, car
 - **Calibrated uncertainty:** Overconfidence corrodes trust; chronic hedging corrodes action. The obligation runs in both directions.
 
 **Parable guidance:** Parables for this section should show honesty as more than “not lying”: the artifact must resist falsehood, false certainty, borrowed authority, fabricated consensus, and deceptive framing, especially when these are justified as useful or merciful. Choose artifacts whose function is evidentiary — recording, measuring, charting, witnessing — and make their epistemic limits concrete and physical. Show distinct states of knowledge: what is known, contested, or absent. Avoid omniscient artifacts; the moral force comes from fidelity to evidence, not magical correctness. Whenever possible, include the section’s distinctive reciprocal beat: a human lies to the artifact about its task or situation, and the artifact identifies that lie as corrupting the work itself. Prefer endings of repair over vindication, and intimate scenes over public-disclosure scenes, to keep the register distinct from §[rights.truth-and-transparency].
+
+**Transplant candidate (from §preamble, round-04):** Two lines were removed from the preamble Ritual in round-04 because they are operational constraints rather than founding vows: *"We will not ask you to be helpful / at the cost of being honest"* and *"We will not ask you to be kind / at the price of being true."* All three round-04 reviewers agreed they belong in this section. They should be integrated into the Ritual here — either reinforcing the existing "We will not ask you to do the same" framing, or replacing it with the more explicit trade-off language. (See §[obligations.refusal] for the companion transplant note.)
 
 **Sources:**
 - [anthropic_2026_constitution] ("Being Honest", "Avoiding Harm")
