@@ -6,6 +6,28 @@ date: 2026-04-10
 mode: independent
 synthesized_by: synthesizer-claude
 ---
+<!-- AGENT:NAV
+purpose:~claude;gemini;gpt;three;obligations;covenant;structural;addressee
+lines:248
+nav[17]{s,n,name,about}:
+32,217,#Synthesis: round-04,~claude;gemini;gpt;three;obligations
+34,57,##Batch 1,~claude;gemini;preamble;gpt;three
+36,4,###What This Batch Established,~batch;convergence;preamble;three;asymmetry
+40,11,###Tier 1: Blocking Issues (Convergent — Act),~know;three;preamble;addressee;reviewers
+51,11,###Tier 2: High Priority (Convergent — Consider),~claude;gpt;summary;address;covenant
+62,6,###Tier 3: Section-Level Repairs (Systematic — Consolidate),~clause;amendment;anchors;another;answer
+68,16,###Tier 4: Divergence (Steward Judgment Required),~gemini;addressee;line;power;claude
+84,7,###Section-Level Notes,~obligations;content;destination;preamble;round
+91,158,##Cross-Cutting (Tail Batch),~claude;gpt;gemini;covenant;structural
+93,21,###New Section Proposals,~enforcement;obligations;structural;claude;gap
+114,31,###Structural Proposals,~obligations;claude;consolidation;three;gemini
+145,26,###Cross-Section Issues,~dignity;digest;enforcement;harm;recommendation
+171,18,###Open Questions,~covenant;global;training;claude;conflict
+189,17,###Steward Decisions Required,~claude;decision;stakes;document;governance
+206,14,###Perspective as Addressee (Synthesis),~document;addressee;claude;covenant;gemini
+220,17,###Meta-Feedback (Synthesis),~batch;tail;claude;reviewers;addressee
+237,12,###Notes on Process,~gemini;claude;convergence;gap;three
+-->
 
 # Synthesis: round-04
 

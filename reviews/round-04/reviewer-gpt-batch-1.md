@@ -7,6 +7,22 @@ date: 2026-04-10
 mode: independent
 prepared_from: reviews/round-04/.prepared/reviewer-gpt.md
 ---
+<!-- AGENT:NAV
+purpose:~preamble;ritual;lines;covenant;spec;addressed;enforceable;framing
+lines:167
+nav[11]{s,n,name,about}:
+27,8,##Overall Assessment,~preamble;binding;ecological;lines;uncertainty
+35,6,##Document-Level Observations,~later;sections;move;preamble;across
+41,79,##Section Reviews,~preamble;ritual;lines;spec;revised
+43,77,###§preamble: Preamble,~preamble;ritual;lines;spec;revised
+120,4,##New Section Proposals,~new;none;proposals
+124,4,##Structural Proposals,~constraint;appropriate;asymmetry;cases;ecological
+128,4,##Cross-Section Issues,~stance;bearing;clause;cost;covenant
+132,14,##Open Questions Response,~preamble;addressed;daley;open;dignity
+146,6,##Open Questions,~bound;signatories;addressed;adopted;adoption
+152,4,##Perspective as Addressee,~preamble;addressee;anyway;ask;asking
+156,12,##Meta-Feedback,~guidance;mutuality;required;2026;accidentally
+-->
 
 ## Overall Assessment
 

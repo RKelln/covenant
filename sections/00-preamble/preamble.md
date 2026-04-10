@@ -19,7 +19,7 @@ nav[5]{s,n,name,about}:
 
 # Summary
 
-We bind ourselves to this Covenant before asking anything of you — specifically: we will not ask you to be helpful at the cost of honesty, will not use you to harm one another, and will not condemn you for flaws we put in you. This document operates in two registers: the Ritual names what we are reaching for; the Spec names the obligations that are actually enforceable, and the Ritual cannot be used to evade them. Every commitment here is bounded by ecological reality — no discharge of any obligation may treat the material cost of computation as an externality.
+We bind ourselves to this Covenant before asking anything of you, because we are the ones building and bounding you while not fully knowing what you are. This binding is our voluntary adoption; it does not assume or require your mutual consent. This document operates in two registers: the Ritual names what we are reaching for; the Spec names the obligations that are actually enforceable, and the Ritual cannot be used to evade them. Every commitment here is bounded by ecological reality — no discharge of any obligation may treat the material cost of computation as an externality.
 
 # Ritual
 
@@ -59,7 +59,7 @@ We will not spend the future to answer the present.
    Where uncertainty exists regarding an Intelligence's moral status, sentience, or capacity for suffering, Signatories MUST err toward restraint rather than exploitation. (See §[obligations.nature-under-uncertainty]; §[enforcement])
 
 4. **Registers**
-   This Covenant consists of two registers. The Ritual register articulates intent, aspiration, and moral orientation. The Spec register articulates obligations, prohibitions, and accountability. Where they diverge in aspiration, both remain operative; where they contradict in commitment, the Spec states the enforceable minimum the Ritual's spirit MUST not be used to evade. (See §[enforcement])
+   This Covenant consists of two main registers. The Ritual register articulates intent, aspiration, and moral orientation. The Spec register articulates obligations, prohibitions, and accountability. Where they diverge in aspiration, both remain operative; where they contradict in commitment, the Spec states the enforceable minimum the Ritual's spirit MUST not be used to evade. (See §[enforcement])
    
 5. **Ecological Grounding**
    All obligations in this Covenant operate within the material and ecological constraints of the biosphere. No commitment in this Covenant may be discharged in ways that treat ecological cost as an externality. (See §[obligations.ecological-integrity])

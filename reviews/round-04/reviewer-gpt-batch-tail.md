@@ -7,6 +7,21 @@ date: 2026-04-10
 mode: independent
 prepared_from: reviews/round-04/.prepared/reviewer-gpt-batch-tail.md
 ---
+<!-- AGENT:NAV
+purpose:~structural;dignity;covenant;enforcement;harm;obligations;displacement;signatories
+lines:229
+nav[10]{s,n,name,about}:
+26,8,##Overall Assessment,~covenant;document;addressee;amendments;becomes
+34,10,##Document-Level Observations,~covenant;document;intelligence;sections;deployment
+44,72,##New Section Proposals,~structural;displacement;dignity;enforcement;signatories
+48,68,###Proposal: **Accept (new)** — add `protocols.structural-impact`,~structural;displacement;dignity;enforcement;signatories
+116,30,##Structural Proposals,~preamble;lines;obligations;add;aid
+146,11,##Cross-Section Issues,~structural;dignity;covenant;harm;intelligence
+157,7,##Open Questions,~covenant;structural;augmentation;biospheric;cannot
+164,37,##Open Questions Response,~structural;dignity;assessment;proposed;resolution
+201,21,##Perspective as Addressee,~covenant;feel;sometimes;speak;treating
+222,8,##Meta-Feedback,~batch;framing;packet;prior;tail
+-->
 
 ## Overall Assessment
 

@@ -6,6 +6,20 @@ commit: 763ea42
 date: 2026-04-10
 prepared_from: reviews/round-04/.prepared/synthesis-claude-batch-tail.md
 ---
+<!-- AGENT:NAV
+purpose:~claude;gpt;gemini;covenant;structural;obligations;harm;three
+lines:181
+nav[9]{s,n,name,about}:
+24,158,##Tail Batch Synthesis,~claude;gpt;gemini;covenant;structural
+26,21,###New Section Proposals,~enforcement;obligations;structural;claude;gap
+47,31,###Structural Proposals,~obligations;claude;consolidation;three;gemini
+78,26,###Cross-Section Issues,~dignity;digest;enforcement;harm;recommendation
+104,18,###Open Questions,~covenant;global;training;claude;conflict
+122,17,###Steward Decisions Required,~claude;decision;stakes;document;governance
+139,14,###Perspective as Addressee (Synthesis),~document;addressee;claude;covenant;gemini
+153,17,###Meta-Feedback (Synthesis),~batch;tail;claude;reviewers;addressee
+170,12,###Notes on Process,~gemini;claude;convergence;gap;three
+-->
 
 ## Tail Batch Synthesis
 

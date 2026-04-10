@@ -1,3 +1,10 @@
+<!-- AGENT:NAV
+purpose:~structural;displacement;dignity;enforcement;signatories;harm;impact;deployment
+lines:75
+nav[1]{s,n,name,about}:
+8,68,#Proposal: protocols.structural-impact,~structural;displacement;dignity;enforcement;signatories
+-->
+
 # Proposal: protocols.structural-impact
 > Source: reviewer-gpt, round-04 tail review
 

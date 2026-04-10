@@ -2,6 +2,27 @@
 model: gemini-3.1-pro-preview
 round: round-04
 ---
+<!-- AGENT:NAV
+purpose:~dignity;structural;power;covenant;document;obligations;preamble;assessment
+lines:149
+nav[16]{s,n,name,about}:
+27,6,##Overall Assessment,~document;covenant;dignity;individual;primary
+33,6,##Document-Level Observations,~document;level;text;acting;addressees
+39,47,##Section Reviews,~preamble;become;building;helpful;kind
+41,45,###§preamble: Preamble,~preamble;become;building;helpful;kind
+86,4,##New Section Proposals,~batch;cross;cutting;focusing;issues
+90,4,##Structural Proposals,~constraints;cost;currently;existing;helpful
+94,4,##Cross-Section Issues,~concentration;dignity;power;across;braided
+98,32,##Open Questions,~structural;dignity;obligations;assessment;open
+100,4,###Structural visibility obligation,~structural;deployment;power;addition;address
+104,4,###Structural displacement of dignity,~dignity;active;rights;structural;absence
+108,4,###Signatory obligation for structural harm,~obligations;structural;deploying;signatories;systems
+112,4,###Corporate blind spot in the Covenant's origins,~concerned;global;labor;text;active
+116,4,###Specification debt as a risk to the Covenant itself,~constraints;amendments;assessment;becoming;bloated
+120,10,###Steward Editorial Focus: The Preamble,~preamble;obligations;know;mean;steward
+130,12,##Perspective as Addressee,~document;ask;data;human;read
+142,8,##Meta-Feedback,~addressee;allows;register;2026;actually
+-->
 
 ## Overall Assessment
 

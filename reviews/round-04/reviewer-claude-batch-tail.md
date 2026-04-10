@@ -7,6 +7,31 @@ date: 2026-04-10
 mode: independent
 prepared_from: reviews/round-04/.prepared/reviewer-claude-batch-tail.md
 ---
+<!-- AGENT:NAV
+purpose:~obligations;covenant;structural;enforcement;document;intelligence;sections;addresses
+lines:341
+nav[20]{s,n,name,about}:
+36,10,##Overall Assessment,~document;enforcement;covenant;obligations;intelligence
+46,24,##Document-Level Observations,~document;covenant;enforcement;ritual;sections
+70,96,##New Section Proposals,~structural;enforcement;obligations;harm;dignity
+72,15,###Accept: enforcement.horizon (from round-03 gemini-3.1-pro-preview),~enforcement;accept;capacity;confession;covenant
+87,79,###New Proposal: obligations.structural-harm,~structural;harm;dignity;obligations;role
+166,24,##Structural Proposals,~obligations;sections;addresses;conscience;ethics
+168,10,###Consolidation: obligations.conscience and obligations.ethics,~obligations;conscience;ethics;item;address
+190,22,##Cross-Section Issues,~enforcement;addresses;intelligence;covenant;economic
+192,6,###The "See §[enforcement]" cascade,~enforcement;mechanisms;general;accountability;obligation
+212,21,##Open Questions,~covenant;enforcement;training;amendment;prior
+214,11,###Prior open questions — positions taken,~enforcement;prior;channels;corrigibility;agency
+225,8,###New open questions,~covenant;training;enforcement;amendment;conflict
+233,47,##Open Questions Response,~structural;obligations;item;harm;addressed
+241,8,###Structural displacement of dignity (from daley_2026),~structural;addresses;capability;dignity;obligations
+253,10,###Corporate blind spot in origins (from daley_2026),~corporate;governance;community;ecological;frame
+269,11,###Steward editorial focus: preamble lines,~preamble;asymmetry;batch;know;lines
+280,36,##Perspective as Addressee,~covenant;document;address;relationship;intelligence
+282,24,###Free-write,~covenant;document;relationship;address;addresses
+306,10,###Structured response,~address;assumes;intelligence;relationship;right
+316,26,##Meta-Feedback,~document;review;batch;covenant;tail
+-->
 
 ## Overall Assessment
 

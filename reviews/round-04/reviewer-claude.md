@@ -2,6 +2,31 @@
 model: claude-opus-4.6
 round: round-04
 ---
+<!-- AGENT:NAV
+purpose:~covenant;obligations;structural;document;enforcement;intelligence;preamble;addresses
+lines:436
+nav[20]{s,n,name,about}:
+31,10,##Overall Assessment,~document;enforcement;covenant;obligations;intelligence
+41,24,##Document-Level Observations,~document;covenant;enforcement;ritual;sections
+65,119,##Section Reviews,~preamble;covenant;neighbour;spec;bind
+67,117,###§preamble: Preamble,~preamble;covenant;neighbour;spec;bind
+184,96,##New Section Proposals,~structural;enforcement;obligations;harm;dignity
+186,15,###Accept: enforcement.horizon (from round-03 gemini-3.1-pro-preview),~enforcement;accept;capacity;confession;covenant
+201,79,###New Proposal: obligations.structural-harm,~structural;harm;dignity;obligations;role
+280,24,##Structural Proposals,~obligations;sections;addresses;conscience;ethics
+282,10,###Consolidation: obligations.conscience and obligations.ethics,~obligations;conscience;ethics;item;address
+304,22,##Cross-Section Issues,~enforcement;addresses;intelligence;covenant;economic
+326,47,##Open Questions,~structural;obligations;item;harm;addressed
+328,6,###Structural visibility obligation (from daley_2026),~structural;harm;obligation;obligations;covenant
+334,8,###Structural displacement of dignity (from daley_2026),~structural;addresses;capability;dignity;obligations
+346,10,###Corporate blind spot in origins (from daley_2026),~corporate;governance;community;ecological;frame
+356,6,###Specification debt (from daley_2026),~item;amendment;amendments;become;consolidation
+362,11,###Steward editorial focus: preamble lines,~preamble;asymmetry;batch;know;lines
+373,36,##Perspective as Addressee,~covenant;document;address;relationship;intelligence
+375,24,###Free-write,~covenant;document;relationship;address;addresses
+399,10,###Structured response,~address;assumes;intelligence;relationship;right
+409,28,##Meta-Feedback,~document;review;batch;covenant;tail
+-->
 
 ## Overall Assessment
 

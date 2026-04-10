@@ -1,3 +1,23 @@
+<!-- AGENT:NAV
+purpose:~dignity;structural;document;power;covenant;obligations;text;assessment
+lines:102
+nav[14]{s,n,name,about}:
+30,6,##Overall Assessment,~document;covenant;dignity;individual;primary
+36,6,##Document-Level Observations,~document;level;text;acting;addressees
+42,32,##Open Questions Response,~structural;dignity;obligations;assessment;open
+44,4,###Structural visibility obligation,~structural;deployment;power;addition;address
+48,4,###Structural displacement of dignity,~dignity;active;rights;structural;absence
+52,4,###Signatory obligation for structural harm,~obligations;structural;deploying;signatories;systems
+56,4,###Corporate blind spot in the Covenant's origins,~concerned;global;labor;text;active
+60,4,###Specification debt as a risk to the Covenant itself,~constraints;amendments;assessment;becoming;bloated
+64,10,###Steward Editorial Focus: The Preamble,~preamble;obligations;know;mean;steward
+74,4,##New Section Proposals,~batch;cross;cutting;focusing;issues
+78,4,##Structural Proposals,~constraints;cost;currently;existing;helpful
+82,4,##Cross-Section Issues,~concentration;dignity;power;across;braided
+86,12,##Perspective as Addressee,~document;ask;data;human;read
+98,5,##Meta-Feedback,~allows;register;actually;addressee;architecture
+-->
+
 model: github-copilot/gemini-3.1-pro-preview
 round: round-04
 batch: tail

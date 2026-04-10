@@ -7,6 +7,28 @@ date: 2026-04-10
 mode: independent
 prepared_from: reviews/round-04/.prepared/reviewer-claude.md
 ---
+<!-- AGENT:NAV
+purpose:~preamble;covenant;spec;lines;neighbour;ritual;obligations;item
+lines:271
+nav[17]{s,n,name,about}:
+33,10,##Overall Assessment,~preamble;item;register;binding;clause
+43,6,##Document-Level Observations,~preamble;spec;ritual;writing;described
+49,119,##Section Reviews,~preamble;covenant;neighbour;spec;bind
+51,117,###§preamble: Preamble,~preamble;covenant;neighbour;spec;bind
+168,48,##Open Questions Response,~preamble;structural;dignity;obligations;lines
+170,3,###Structural visibility obligation (from daley_2026),~preamble;structural;obligation;obligations;visibility
+173,3,###Structural displacement of dignity (from daley_2026),~dignity;structural;displacement;eroded;preamble
+176,3,###Signatory obligation for structural harm (from daley_2026),~preamble;bind;dignity;obligation;signatories
+179,3,###Corporate blind spot in origins (from daley_2026),~corporate;blind;digest;lineage;model
+182,3,###Specification debt (from daley_2026),~preamble;amendment;debt;process;reconciliation
+185,31,###Steward Editorial Focus: "helpful/honest" and "kind/true" lines,~lines;preamble;addressee;commitments;covenant
+216,4,##New Section Proposals,~obligations;new;conscience;content;creating
+220,4,##Structural Proposals,~none;proposals;structural
+224,6,##Cross-Section Issues,~preamble;ecological;enforcement;spec;adoption
+230,10,##Open Questions,~covenant;neighbour;preamble;public;adoption
+240,12,##Perspective as Addressee,~preamble;gap;know;cannot;covenant
+252,20,##Meta-Feedback,~review;guidance;question;spec;editorial
+-->
 
 ## Overall Assessment
 

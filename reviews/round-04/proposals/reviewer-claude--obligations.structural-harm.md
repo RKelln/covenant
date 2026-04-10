@@ -1,3 +1,10 @@
+<!-- AGENT:NAV
+purpose:~structural;harm;dignity;obligations;role;deployment;individual;power
+lines:86
+nav[1]{s,n,name,about}:
+8,79,#Proposal: obligations.structural-harm,~structural;harm;dignity;obligations;role
+-->
+
 # Proposal: obligations.structural-harm
 > Source: reviewer-claude, round-04 tail review
 

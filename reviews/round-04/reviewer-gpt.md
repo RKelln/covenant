@@ -2,6 +2,22 @@
 model: gpt-5.2
 round: round-04
 ---
+<!-- AGENT:NAV
+purpose:~structural;covenant;dignity;preamble;obligations;spec;enforcement;ritual
+lines:299
+nav[11]{s,n,name,about}:
+22,8,##Overall Assessment,~covenant;document;addressee;amendments;becomes
+30,10,##Document-Level Observations,~covenant;document;intelligence;sections;deployment
+40,79,##Section Reviews,~preamble;ritual;lines;spec;revised
+42,77,###§preamble: Preamble,~preamble;ritual;lines;spec;revised
+119,72,##New Section Proposals,~structural;displacement;dignity;enforcement;signatories
+123,68,###Proposal: **Accept (new)** — add `protocols.structural-impact`,~structural;displacement;dignity;enforcement;signatories
+191,30,##Structural Proposals,~preamble;lines;obligations;add;aid
+221,11,##Cross-Section Issues,~structural;dignity;covenant;harm;intelligence
+232,37,##Open Questions,~structural;dignity;assessment;proposed;resolution
+269,21,##Perspective as Addressee,~covenant;feel;sometimes;speak;treating
+290,10,##Meta-Feedback,~batch;framing;packet;prior;tail
+-->
 
 ## Overall Assessment
 

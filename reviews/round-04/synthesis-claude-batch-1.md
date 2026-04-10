@@ -6,6 +6,18 @@ commit: 763ea42
 date: 2026-04-10
 prepared_from: reviews/round-04/.prepared/synthesis-claude-batch-1.md
 ---
+<!-- AGENT:NAV
+purpose:~claude;gemini;preamble;gpt;three;addressee;know;power
+lines:77
+nav[7]{s,n,name,about}:
+22,56,##Batch 1 Synthesis,~claude;gemini;preamble;gpt;three
+24,4,###What This Batch Established,~batch;convergence;preamble;three;asymmetry
+28,11,###Tier 1: Blocking Issues (Convergent — Act),~know;three;preamble;addressee;reviewers
+39,11,###Tier 2: High Priority (Convergent — Consider),~claude;gpt;summary;address;covenant
+50,6,###Tier 3: Section-Level Repairs (Systematic — Consolidate),~clause;amendment;anchors;another;answer
+56,16,###Tier 4: Divergence (Steward Judgment Required),~gemini;addressee;line;power;claude
+72,6,###Section-Level Notes,~obligations;content;destination;preamble;round
+-->
 
 ## Batch 1 Synthesis
 

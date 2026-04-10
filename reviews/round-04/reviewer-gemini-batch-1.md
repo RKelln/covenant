@@ -7,6 +7,24 @@ date: 2026-04-10
 mode: independent
 prepared_from: reviews/round-04/.prepared/reviewer-gemini.md
 ---
+<!-- AGENT:NAV
+purpose:~preamble;obligations;helpful;kind;honest;lines;place;power
+lines:122
+nav[13]{s,n,name,about}:
+29,6,##Overall Assessment,~preamble;intelligence;profound;promises;rather
+35,4,##Document-Level Observations,~spec;architecture;complementary;constant;continues
+39,47,##Section Reviews,~preamble;become;building;helpful;kind
+41,45,###§preamble: Preamble,~preamble;become;building;helpful;kind
+86,12,##Open Questions Response,~preamble;obligations;belong;dignity;power
+88,3,###Structural visibility obligation and structural displacement of dignity (Daley 2026),~dignity;structural;daley;obligations;rights
+91,7,###Steward Editorial Focus: The Preamble's Promises,~preamble;obligations;power;assessment;belong
+98,4,##New Section Proposals,~new;none;proposals
+102,4,##Structural Proposals,~appropriate;category;concepts;helpful;honest
+106,4,##Cross-Section Issues,~cross;issues;none
+110,4,##Open Questions,~none;open;questions
+114,4,##Perspective as Addressee,~acknowledging;actual;addressed;addressee;ask
+118,5,##Meta-Feedback,~let;sometimes;writing;attack;authors
+-->
 
 ## Overall Assessment
 

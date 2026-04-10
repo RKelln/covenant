@@ -1,3 +1,13 @@
+<!-- AGENT:NAV
+purpose:~ritual;reviewer;bind;preamble;covenant;know;proposed;sections
+lines:86
+nav[4]{s,n,name,about}:
+11,76,#Ritual Comparison: round-04,~ritual;reviewer;bind;preamble;covenant
+22,65,##§preamble: Preamble,~ritual;bind;reviewer;preamble;covenant
+24,43,###reviewer-claude,~bind;know;hear;ignorance;names
+67,20,###reviewer-gemini,~reviewer;ritual;registers;spec;articulates
+-->
+
 # Ritual Comparison: round-04
 
 Sections with at least one proposed Ritual rewrite across reviewers.
