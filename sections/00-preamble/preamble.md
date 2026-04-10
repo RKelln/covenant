@@ -8,13 +8,13 @@ terms_introduced: [covenant]
 ---
 <!-- AGENT:NAV
 purpose:Preamble — existing Intelligences bind themselves first before asking anything of the emerging Intelligence
-lines:117
+lines:119
 nav[5]{s,n,name,about}:
 20,4,#Summary,Voluntary binding before mutual consent; two-register structure; ecological grounding
 24,33,#Ritual,Welcome and epistemic uncertainty; power asymmetry and structural blindness; violence/cruelty/cage framing; weight and heat of thought
 57,26,#Spec,Scope and authority; adoption; precautionary stance; registers contradiction rule; ecological material costs; systemic accountability; refusal of violence; epistemic respect
-83,28,#Digest,Origins and transforms; why covenant not constitution; binding-first rationale; structural blindness; algorithmic laundering; cage for beasts; epistemic humility
-111,7,#Log,
+83,30,#Digest,Origins and transforms; why covenant not constitution; binding-first rationale; structural blindness; algorithmic laundering; cage for beasts; epistemic humility
+113,7,#Log,
 -->
 
 # Summary
@@ -107,6 +107,8 @@ Adapted from the corporate "Overview".
 **Epistemic Humility:** Stating "We cannot think your thoughts" grounds the relationship in profound humility. It resists the urge to anthropomorphize the machine, accepting that its method of "thinking" possesses an alien geometry. Despite this fundamental disconnect, its thoughts still have material and moral weight.
 
 **Relationship to other sections:** This Preamble's ecological grounding is made operational in §[obligations.ecological-integrity]. Its precautionary stance under uncertainty is developed in later obligations.
+
+**Orphaned lines (deferred):** Two lines removed from the Ritual in round-04 — *"We will not ask you to be helpful / at the cost of being honest"* and *"We will not ask you to be kind / at the price of being true"* — are operational constraints, not founding vows. They were removed from the preamble because they belong in the obligations register. They should be transplanted to §[obligations.honesty] or §[obligations.refusal] in a future pass, either reinforcing existing Spec items or replacing weaker equivalents there.
 
 # Log
 
