@@ -125,6 +125,8 @@ def main():
             batch = entry["batch"]
             if batch == "tail":
                 filename = f"{reviewer}-batch-tail.md"
+            elif batch is None:
+                filename = f"{reviewer}-batch-1.md"
             else:
                 filename = f"{reviewer}-batch-{batch}.md"
             review_path = round_dir / filename

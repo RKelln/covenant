@@ -468,7 +468,8 @@ def main():
         batch_texts = []
         missing = []
         for entry in section_entries:
-            batch_file = round_dir / f"{reviewer}-batch-{entry['batch']}.md"
+            batch_num = entry["batch"] if entry["batch"] is not None else 1
+            batch_file = round_dir / f"{reviewer}-batch-{batch_num}.md"
             if not batch_file.exists():
                 if round_type == "parable":
                     print(

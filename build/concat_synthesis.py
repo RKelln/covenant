@@ -174,6 +174,14 @@ def main():
                 tail_text = tail_file.read_text(encoding="utf-8")
                 _, tail_body = strip_frontmatter(tail_text)
 
+        # If ALL files are missing, skip this synthesizer silently (it was not dispatched).
+        # If SOME files are missing (partial run), that is an error.
+        total_expected = len(section_entries) + len(tail_entries)
+        if missing and len(missing) == total_expected:
+            print(
+                f"  Skipping {synthesizer} — no batch files found (synthesizer not dispatched).",
+            )
+            continue
         if missing:
             print(
                 f"ERROR: missing synthesis batch files for {synthesizer}:",
