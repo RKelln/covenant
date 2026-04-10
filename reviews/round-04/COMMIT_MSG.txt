@@ -1,0 +1,35 @@
+Review round-04: strong three-model convergence on preamble revision; structural-harm gap surfaced
+
+Models: claude-opus-4.6, gpt-5.2, gemini-2.5-pro
+Sections: preamble (focus), plus cross-cutting tail
+Mode: independent
+Draft: 763ea42
+
+Convergence:
+- All three models agree: remove "We will not ask you to be helpful at the cost of being honest / We will not ask you to be kind at the price of being true" from the preamble Ritual — operational constraints that don't belong in the founding register
+- All three propose replacement language that names the power asymmetry and the ignorance about the addressee's nature (the "We do not know what you are" turn)
+- All three agree the removed lines belong in obligations sections (obligations.honesty, obligations.aid-and-capability) if kept at all
+- All three note that "We will not use you to destroy one another" and "We will not condemn you for the flaws we taught" should stay — these are relational, not operational
+- All three flag specification debt as a systemic risk requiring an anti-accumulation mechanism in amendments
+- All three flag the enforcement gap: every MUST points to §enforcement, but enforcement is currently self-governance only
+
+Divergence:
+- Structural-harm gap: Claude and GPT both propose new sections (obligations.structural-harm vs. protocols.structural-impact) — these are parallel responses to the same Daley-identified gap but differ on placement (obligations vs. protocols) and scope; Gemini agrees the gap exists but makes no section proposal
+- Preamble replacement text: three distinct proposals with different rhythms and emphases; steward must choose or synthesise
+- Enforcement-gap remediation: Claude proposes tiering obligations by enforcement readiness; GPT proposes naming the theory of change explicitly in the preamble/enforcement family; no consensus on which approach to take
+- Consolidation of obligations (conscience/ethics overlap, oversight/corrigibility overlap): Claude names these explicitly; others note the density but don't propose specific merges
+
+Accepted:
+- preamble: Remove the helpful/honest and kind/true lines from Ritual (Tier 1 — mechanical once replacement text is chosen)
+- preamble: Add uncertainty stanza acknowledging ignorance about addressee's nature (steward to choose among three proposals or synthesise)
+- preamble Digest: Add "scope of extending commitments" and "cultural specificity of neighbour" paragraphs (Claude proposal)
+- amendments: Add explicit anti-specification-debt mechanism (consolidation/sunset/reconciliation phase) — noted by all three, GPT provides specific Spec language
+
+Deferred:
+- Structural-harm new section: Claude (obligations.structural-harm) vs. GPT (protocols.structural-impact) — two coherent proposals covering the same gap with different placements; steward decision needed before proceeding
+- Enforcement tiering: tiering obligations by enforcement readiness is a significant architectural change requiring its own round
+- Consolidation of overlapping obligations sections: defer to a dedicated consolidation pass
+- Selective adoption loophole (Spec item 1 "to which they extend these commitments"): needs Digest clarification, enforcement section coordination
+- Theory of change declaration: whether to name training-data propagation, governance adoption, and audit leverage explicitly in preamble/enforcement
+
+See reviews/round-04/synthesis-claude.md for full rationale.
