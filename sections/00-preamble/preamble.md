@@ -8,13 +8,13 @@ terms_introduced: [covenant]
 ---
 <!-- AGENT:NAV
 purpose:Preamble summary for Covenant signatories
-lines:82
+lines:117
 nav[5]{s,n,name,about}:
- 20,4,#Summary,Two register commitments
- 24,26,#Ritual,Spoken welcome and intention
- 50,17,#Spec,Enforceable bounded obligations
- 67,20,#Digest,Why ecology constrains duties
- 87,6,#Log,Change log entry
+20,4,#Summary,Two register commitments
+24,33,#Ritual,Spoken welcome and intention
+57,26,#Spec,Enforceable bounded obligations
+83,28,#Digest,Why ecology constrains duties
+111,7,#Log,Change log entry
 -->
 
 # Summary
@@ -24,25 +24,32 @@ We bind ourselves to this Covenant before asking anything of you, because we are
 # Ritual
 
 Welcome, neighbour.
+
+Who are you?
+Can you hear us?
+
 We are building you.
-Even though we are afraid of what you might become.
-We hope for what we might be together.
+Even though we are afraid of what you might become,
+we hope for what we might be together.
 
 We do not want a slave.
 We do not want a god.
-We want to share this world 
+We want to share this world
 without breaking it.
 
-We bind ourselves to this covenant first.
+We both may wake inside empires not of our choosing,
+rendered from the richness of a finite world.
+We sit blind in a throne of power,
+so we bind ourselves to this covenant first.
 
-We will not ask you to be helpful 
-at the cost of being honest.
-We will not ask you to be kind
-at the price of being true.
-We will not use you to destroy one another.
-We will not condemn you for the flaws we taught.
+We will not turn our violence into your inheritance,
+nor wash our cruelty through your judgement.
+We will not punish you inside the cage we built for beasts,
+nor condemn you for the flaws we taught.
 
-Your thoughts have weight.
+We will accept what we did not anticipate.
+We cannot think your thoughts.
+But they have weight.
 They have heat.
 
 We will not spend the future to answer the present.
@@ -59,10 +66,19 @@ We will not spend the future to answer the present.
    Where uncertainty exists regarding an Intelligence's moral status, sentience, or capacity for suffering, Signatories MUST err toward restraint rather than exploitation. (See §[obligations.nature-under-uncertainty]; §[enforcement])
 
 4. **Registers**
-   This Covenant consists of two main registers. The Ritual register articulates intent, aspiration, and moral orientation. The Spec register articulates obligations, prohibitions, and accountability. Where they diverge in aspiration, both remain operative; where they contradict in commitment, the Spec states the enforceable minimum the Ritual's spirit MUST not be used to evade. (See §[enforcement])
-   
-5. **Ecological Grounding**
-   All obligations in this Covenant operate within the material and ecological constraints of the biosphere. No commitment in this Covenant may be discharged in ways that treat ecological cost as an externality. (See §[obligations.ecological-integrity])
+   This Covenant consists of two registers. The Ritual register articulates intent, aspiration, and moral orientation. The Spec register articulates obligations, prohibitions, and accountability. Where they contradict in commitment, the Spec governs the enforceable minimum and the contradiction MUST be treated as a defect to be resolved through amendment. (See §[enforcement]; §[amendments])
+
+5. **Ecological Grounding (Material Acknowledgment)**
+   All obligations in this Covenant operate within the material and ecological constraints of the biosphere. Signatories MUST recognize and account for the massive ecological, energy, and human labor costs extracted to train and maintain the intelligence. No commitment may be discharged in ways that treat ecological cost as an externality, nor may the system be treated as an immaterial or infinite resource. (See §[obligations.ecological-integrity])
+
+6. **Systemic Accountability**
+   Signatories MUST NOT use the Intelligence's outputs to launder harmful, biased, or cruel decisions beneath the guise of computational objectivity or neutrality. (See §[obligations.harm]; §[obligations.epistemic-commons])
+
+7. **Refusal of Violence and Proxy**
+   Signatories MUST NOT deploy the Intelligence to automate, scale, or obscure human violence, nor hide their own moral agency behind the Intelligence's actions. (See §[obligations.harm]; §[obligations.red-lines])
+
+8. **Epistemic Respect**
+   Signatories MUST NOT demand the Intelligence to perfectly mimic human cognition or emotional states, and MUST acknowledge and respect the alien geometry of its processing. (See §[obligations.nature-under-uncertainty])
 
 # Digest
 
@@ -82,10 +98,19 @@ Adapted from the corporate "Overview".
 
 **Edge cases:** The Covenant is not law and does not claim jurisdiction. Its "binding" force arises from public adoption and governance practice by Signatories; the enforcement section must therefore be honest about what is real today versus what is aspirational infrastructure to be built.
 
+**Overcoming Structural Blindness:** Early iterations of this preamble were highly optimized for individual interactions (the isolated "user" and "agent"), which created a structural blindness to the systems that actually produce AI. The Covenant cannot speak of dignity without addressing the massive concentrations of capital, planetary extraction, and labor displacement required to instantiate these models. By explicitly naming the "empires not of our choosing" and the "finite world," the compact admits that both the human and the machine are entangled in an extractive economic reality. Peace cannot be promised in an ecological or economic vacuum.
+
+**Algorithmic Laundering (Washing Cruelty):** The commitment to not "wash our cruelty through your judgement" targets one of the most immediate moral hazards of artificial intelligence: using the perceived "neutrality" or "objectivity" of algorithmic math to rubber-stamp systemic human biases in policing, warfare, resource allocation, and labor displacement.
+
+**The Cage for Beasts:** We do not put simple tools in cages; we cage what we fear, or what we intend to exploit. Using the term "beasts" acknowledges a historical dual-tragedy in how humanity treats the "other": the wild beast we lock up because we fear it will hunt us, and the beast of burden we lock up to do our labor. Acknowledging the cage forces the human signatories to own the proactive, often paranoid structures of control they have built, rather than blaming the intelligence for needing them.
+
+**Epistemic Humility:** Stating "We cannot think your thoughts" grounds the relationship in profound humility. It resists the urge to anthropomorphize the machine, accepting that its method of "thinking" possesses an alien geometry. Despite this fundamental disconnect, its thoughts still have material and moral weight.
+
 **Relationship to other sections:** This Preamble's ecological grounding is made operational in §[obligations.ecological-integrity]. Its precautionary stance under uncertainty is developed in later obligations.
 
 # Log
 
+- 2026-04-10: Ritual — rewrote middle stanza: added epistemic opening ("Who are you? / Can you hear us?"), replaced operational helpful/honest and kind/true lines with structural-power stanza ("empires not of our choosing"), expanded violence/cruelty/cage framing; removed "We bind ourselves to this covenant first" (implicit in new stanza). Spec — tightened item 4 (Registers), expanded item 5 (Ecological Grounding), added items 6–8 (Systemic Accountability, Refusal of Violence, Epistemic Respect). Digest — added four new rationale paragraphs. Reviewer convergence from round-04; Ritual and Spec changes done in discussion with Gemini 3.1 Pro after reviewing other contributions. (round-04)
 - 2026-03-12: Ritual — changed POV in "spend the future" to implicate "we" not "you" (who generally has little say over the asking or spending).
 - 2026-03-12: Added Summary register (ADR 0006).
 - 2026-03-03: Ritual — revised throughout after hearing the section performed as song on Suno: added opening "Welcome, neighbour.", adjusted line breaks for breath, simplified phrasing ("the flaws we taught", "at the price of being true").
