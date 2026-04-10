@@ -1,19 +1,19 @@
 <!-- AGENT:NAV
- purpose:project overview; registers; website; build; contribution paths
- lines:134
- nav[11]{s,n,name,about}:
- 22,129,#Covenant,living compact overview; two registers; shared governance
- 71,16,##Why Covenant,why this project exists; complements corporate safety work
- 87,33,##Quick Start,how to read; build PDFs; install fonts
- 89,4,###Read Covenant,web edition and local PDF builds
- 93,17,###Build Locally,dependencies; uv sync; make targets for builds
- 110,6,###Contribute,propose changes via PR and update logs
- 116,4,###Fork,how to create a new edition fork
- 120,17,##Structure,repo layout: sections; assemblies; docs; build tools
- 137,5,##License,CC BY licensing terms for text and repo content
- 142,4,##Contact,reach the stewards via email
- 146,5,##Stewards,steward list and public links
- -->
+purpose:project overview; registers; website; build; contribution paths
+lines:156
+nav[11]{s,n,name,about}:
+22,135,#Covenant,living compact overview; two registers; shared governance
+71,16,##Why Covenant,why this project exists; complements corporate safety work
+87,39,##Quick Start,how to read; build PDFs; install fonts
+89,4,###Read Covenant,web edition and local PDF builds
+93,23,###Build Locally,dependencies; uv sync; make targets for builds
+116,6,###Contribute,propose changes via PR and update logs
+122,4,###Fork,how to create a new edition fork
+126,17,##Structure,repo layout: sections; assemblies; docs; build tools
+143,5,##License,CC BY licensing terms for text and repo content
+148,4,##Contact,reach the stewards via email
+152,5,##Stewards,steward list and public links
+-->
 
 <p align="center">
   <img src="assets/covenant_mark.svg" alt="Covenant Textmark" width="200"/>
@@ -105,6 +105,12 @@ To install fonts for PDF generation:
 
 ```bash
 make fonts              # install Cormorant Garamond to system fonts
+```
+
+View/test the website locally:
+
+```bash
+make serve
 ```
 
 ### Contribute

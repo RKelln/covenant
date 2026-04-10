@@ -740,13 +740,13 @@ def build_html() -> str:
     # Ritual excerpt: from the Preamble (the opening stanzas)
     preamble_ritual, preamble_spec = get_preamble_parts()
 
-    # Pick a good ritual excerpt — first three stanzas of preamble
+    # Full preamble ritual
     ritual_stanzas = re.split(r"\n\s*\n", preamble_ritual.strip())
-    ritual_excerpt = "\n\n".join(ritual_stanzas[:3])
+    ritual_excerpt = "\n\n".join(ritual_stanzas)
     ritual_html = ritual_to_html(ritual_excerpt)
 
-    # Spec excerpt — first 3 items of preamble spec
-    spec_html = spec_excerpt_to_html(preamble_spec, max_items=3)
+    # Spec excerpt — balanced with full ritual
+    spec_html = spec_excerpt_to_html(preamble_spec, max_items=5)
 
     css = build_css()
 

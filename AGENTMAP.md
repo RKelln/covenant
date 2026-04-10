@@ -4,7 +4,7 @@ lines:217
 files[180]{path,lines,about}:
 CONTRIBUTING.md,81,contribution workflow; setup; review and licensing
 FORKING.md,37,forking guidance; preserve IDs; maintain two-register structure
-README.md,150,project overview; registers; website; build; contribution paths
+README.md,156,project overview; registers; website; build; contribution paths
 adr/
 0001-repo-structure.md,45,repo layout rules; section bundles; validation and CI
 0002-registers.md,39,two-register structure; ritual voice and spec precision
