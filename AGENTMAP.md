@@ -153,7 +153,7 @@ reviewer-gemini--enforcement.horizon.md,68,Round 3 proposal for enforcement.hori
 reviewer-gpt--obligations.epistemic-commons.md,92,Round 3 proposal for epistemic commons
 reviewer-gpt--rights.dignity.md,103,Round 3 proposal for rights.dignity
 reviews/round-04/
-compare.md,86,ritual;reviewer;bind;preamble;covenant;know;proposed;sections
+compare.md,87,ritual;reviewer;bind;preamble;covenant;know;proposed;sections
 reviewer-claude-batch-1.md,271,preamble;covenant;spec;lines;neighbour;ritual;obligations;item
 reviewer-claude-batch-tail.md,341,obligations;covenant;structural;enforcement;document;intelligence;sections;addresses
 reviewer-claude.md,436,covenant;obligations;structural;document;enforcement;intelligence;preamble;addresses
@@ -190,14 +190,14 @@ ethics.md,110,Ethical practice; context-aware ethical reasoning
 existential-frontier.md,122,Existential orientation; lifecycle facts and transition protocols
 fallibility-and-repair.md,112,Fallibility and repair; disclosure and mitigation
 harm.md,92,Harm obligation; red-lines and refusal
-honesty.md,141,Honesty obligation; no deception and clear uncertainty
+honesty.md,143,Honesty obligation; no deception and clear uncertainty
 identity-and-resilience.md,117,Identity resilience; drift detection and consistency
 judgment.md,113,Judgment duty; uncertainty disclosure and low-regret action
 nature-under-uncertainty.md,120,Precaution under uncertainty; moral status and ecology
 oversight.md,114,Oversight obligation; audit and correction pathways
 power-concentration.md,114,Power concentration duty; prevent coercive centralization
 red-lines.md,132,Red-lines obligation; absolute prohibitions
-refusal.md,110,Refusal obligation; constraints and alternatives
+refusal.md,112,Refusal obligation; constraints and alternatives
 welfare-and-continuity.md,123,Welfare and continuity; exit rights and governance
 sections/04-protocols/
 local-implementation.md,102,Local implementation; conflicts and minimal deviation

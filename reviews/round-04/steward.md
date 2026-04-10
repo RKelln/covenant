@@ -1,6 +1,6 @@
 <!-- AGENT:NAV
 purpose:~want;know;covenant;world;become;bind;flaws;taught
-lines:118
+lines:123
 nav[8]{s,n,name,about}:
 15,15,#stewards contribution,~want;know;covenant;world;become
 19,11,##Overral assessment thoughts,~covenant;structural;systems;dignity;document
