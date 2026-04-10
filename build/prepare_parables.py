@@ -36,7 +36,13 @@ import sys
 from datetime import date
 from pathlib import Path
 
-from sections import discover_sections
+from sections import (
+    discover_sections,
+    strip_html_comments,
+    read_file,
+    estimate_tokens,
+    build_sections_block,
+)
 
 # ---------------------------------------------------------------------------
 # Repo layout
@@ -73,13 +79,6 @@ def git_commit() -> str:
         return result.stdout.strip() if result.returncode == 0 else "unknown"
     except FileNotFoundError:
         return "unknown"
-
-
-def read_file(path: Path) -> str:
-    if not path.exists():
-        print(f"ERROR: required file not found: {path}", file=sys.stderr)
-        sys.exit(2)
-    return path.read_text(encoding="utf-8")
 
 
 def section_id(section_path: str) -> str:
@@ -128,20 +127,6 @@ def filter_sections(focus: str, all_sections: list[str]) -> list[str]:
         if m and (focus == m.group(1) or focus in m.group(1)):
             matched.append(rel)
     return matched
-
-
-def build_sections_block(section_paths: list[str]) -> str:
-    """Concatenate section file contents with labelled headers."""
-    blocks = []
-    for rel in section_paths:
-        content = read_file(REPO / rel)
-        blocks.append(f"### File: {rel}\n\n{content}")
-    return "\n\n---\n\n".join(blocks)
-
-
-def estimate_tokens(text: str) -> int:
-    """Rough estimate: 1 token ~ 4 bytes for English prose."""
-    return len(text.encode("utf-8")) // 4
 
 
 def fill_template(

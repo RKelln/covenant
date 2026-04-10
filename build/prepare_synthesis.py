@@ -36,23 +36,14 @@ import re
 import sys
 from pathlib import Path
 
+from sections import estimate_tokens, read_file
+
 REPO = Path(__file__).parent.parent
 
 ALL_SYNTHESIZERS = ["synthesizer-claude", "synthesizer-gpt", "synthesizer-gemini"]
 
 SECTION_TEMPLATE_FILE = REPO / "prompts" / "synthesis_batch.md"
 TAIL_TEMPLATE_FILE = REPO / "prompts" / "synthesis_tail.md"
-
-
-def estimate_tokens(text: str) -> int:
-    return len(text.encode("utf-8")) // 4
-
-
-def read_file(path: Path) -> str:
-    if not path.exists():
-        print(f"ERROR: required file not found: {path}", file=sys.stderr)
-        sys.exit(2)
-    return path.read_text(encoding="utf-8")
 
 
 def main():

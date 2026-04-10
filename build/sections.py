@@ -105,6 +105,28 @@ def strip_html_comments(text: str) -> str:
     return re.sub(r"<!--.*?-->", "", text, flags=re.DOTALL)
 
 
+def read_file(path: Path) -> str:
+    """Read a file, exiting with an error message if it does not exist."""
+    if not path.exists():
+        print(f"ERROR: required file not found: {path}", file=sys.stderr)
+        sys.exit(2)
+    return path.read_text(encoding="utf-8")
+
+
+def estimate_tokens(text: str) -> int:
+    """Rough estimate: 1 token ≈ 4 bytes for English prose."""
+    return len(text.encode("utf-8")) // 4
+
+
+def build_sections_block(section_paths: list[str]) -> str:
+    """Concatenate section file contents with labelled headers, stripping HTML comments."""
+    blocks = []
+    for rel in section_paths:
+        content = strip_html_comments(read_file(REPO_ROOT / rel))
+        blocks.append(f"### File: {rel}\n\n{content}")
+    return "\n\n---\n\n".join(blocks)
+
+
 def extract_body_parts(body: str) -> dict:
     """Split a section body into its register parts (Ritual, Spec, Digest, Log)."""
     body = strip_html_comments(body)
