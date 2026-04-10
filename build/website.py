@@ -35,6 +35,7 @@ from sections import (
     get_title_map,
     resolve_title,
     get_version,
+    strip_html_comments,
 )
 
 # ---------------------------------------------------------------------------
@@ -89,6 +90,7 @@ def get_opening_paragraphs() -> list:
     if not path.exists():
         return []
     content = path.read_text(encoding="utf-8")
+    content = strip_html_comments(content)
     # Skip the heading, collect paragraphs
     lines = content.strip().split("\n")
     paras = []
