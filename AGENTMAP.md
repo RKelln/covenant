@@ -24,7 +24,7 @@ good_ritual_writing_guide.md,405,craft guide; how to write well in the Ritual re
 governance.md,62,stewardship; amendment process; versioning; forks
 i18n.md,24,translation strategy; language-agnostic principles
 project_summary.md,24,covenant overview; project scope; civic infrastructure
-releases.md,340,version history; build artifacts; release process
+releases.md,408,version history; build artifacts; release process
 style_guide.md,434,normative language; voice; formatting; cross-reference conventions
 writing_context.md,255,agent briefing; what Covenant is; two registers; writing role
 docs/talks/

@@ -1,15 +1,16 @@
 <!-- AGENT:NAV
 purpose:version history; build artifacts; release process
-lines:327
-nav[8]{s,n,name,about}:
-15,326,#Releases,covenant; build
-17,14,##Process,release; git
-31,310,##Version History,covenant; build
-33,10,###v0.1.0 — Initial public release,covenant; three
-43,69,###v0.2.0 — First full pass on Ritual as music,docs; watermark
-112,55,###v0.2.1 — Website reading pages and references pipeline,covenant; html
-167,77,###v0.2.2 — Ritual video renderer section rhythm fixes and cross-reference links,ritual; video
-244,97,###v0.3.0 — Parables Summary register and Covenant Terminal,build; sections
+lines:408
+nav[9]{s,n,name,about}:
+16,393,#Releases,covenant; build
+18,14,##Process,release; git
+32,377,##Version History,covenant; build
+34,10,###v0.1.0 — Initial public release,covenant; three
+44,69,###v0.2.0 — First full pass on Ritual as music,docs; watermark
+113,55,###v0.2.1 — Website reading pages and references pipeline,covenant; html
+168,77,###v0.2.2 — Ritual video renderer section rhythm fixes and cross-reference links,ritual; video
+245,98,###v0.3.0 — Parables Summary register and Covenant Terminal,build; sections
+343,66,###v0.3.1 — Preamble round-04 edits and agentmap navigation,preamble; agentmap
 -->
 
 # Releases
@@ -338,3 +339,70 @@ round runs across all sections with 8 parables integrated so far.
     `banff_computational_2026`, `cca_ca_27` (with budget and character
     count tooling)
 -   `adr/README.md` updated with ADR 0005 and 0006 index entries
+
+### v0.3.1 — Preamble round-04 edits and agentmap navigation
+
+Round-04 reviewer feedback integrated into the preamble, with substantial
+rewrites to the Ritual and Spec registers. Agentmap navigation blocks added
+across all documentation files, and several build-tool fixes landed for
+review and synthesis pipelines.
+
+**Covenant text**
+-   `preamble`: major Ritual revision integrating round-04 three-model convergence
+    (claude-opus-4.6, gpt-5.2, gemini-2.5-pro) — epistemic opening added ("Who
+    are you? / Can you hear us?"), operational helpful/honest and kind/true lines
+    replaced with a structural-power stanza ("empires not of our choosing"),
+    violence/cruelty/cage framing expanded, epistemic humility close added ("We
+    cannot think your thoughts")
+-   `preamble` Spec: tightened item 4 (Registers), expanded item 5 (Ecological
+    Grounding — names labour and energy costs explicitly), added items 6–8
+    (Systemic Accountability, Refusal of Violence and Proxy, Epistemic Respect)
+    with cross-references to `obligations.honesty`, `obligations.refusal`, and
+    `obligations.power-concentration`
+-   `preamble` Digest: four new rationale paragraphs added (Overcoming Structural
+    Blindness, Algorithmic Laundering, The Cage for Beasts, Epistemic Humility);
+    `depends_on` updated to reflect new Spec cross-references
+-   `obligations.honesty`, `obligations.refusal`: transplant-candidate notes added
+    in Digest for the orphaned helpful/honest and kind/true lines deferred from
+    the preamble Ritual
+-   AGENT:NAV blocks added to all section files (agentmap update pass)
+
+**Build tools**
+-   `build/sections.py`: `read_file`, `estimate_tokens`, and `build_sections_block`
+    helpers centralised here — eliminates duplication across all `prepare_*`
+    scripts; `build_sections_block` now strips HTML comments (AGENT:NAV blocks)
+    before passing content to LLM prompts
+-   `build/validate.py`, `build/video.py`: reuse `strip_html_comments` from
+    `sections.py` — fixes AGENT:NAV blocks being picked up as stanza text in
+    video render and as false heading matches in validation
+-   `build/website.py`: `get_opening_paragraphs` now strips HTML comments before
+    processing — prevents AGENT:NAV blocks in `docs/project_summary.md` from
+    rendering into the website's "What it is" section
+-   `build/concat_reviews.py`: `batch: null` treated as batch 1 (single-section
+    focus runs no longer abort)
+-   `build/prepare_synthesis.py`: same null→1 mapping for synthesis input filenames
+-   `build/concat_synthesis.py`: synthesizers with no batch files are skipped
+    rather than aborting; only errors on partial runs
+-   `build/pdf_md.py`: new script for rendering arbitrary Markdown files to PDF
+    (mirrors `build/pdf.py` but targets Markdown inputs rather than assembled
+    Covenant editions); `pdf-md` Makefile target added
+
+**Documentation & governance**
+-   `AGENTMAP.md`: new repo-wide agent navigation index; all markdown files
+    across `docs/`, `adr/`, `sections/`, `reviews/`, `references/`, `assemblies/`,
+    `prompts/`, `research/`, `installations/`, and `terminal/` receive AGENT:NAV
+    blocks
+-   `docs/talks/covenant_presentation_7m.marp.md`: new 7-minute presentation
+    deck with full Marp slide layout, image assets, and PDF generation support;
+    10-minute deck updated for reduced length and improved speakability
+-   `docs/talks/images/frontier_models_2.jpg`: new image asset for presentation
+    use
+-   Round-04 review materials committed: reviewer outputs from claude-opus-4.6,
+    gpt-5.2, gemini-2.5-pro; synthesis files; steward decisions (`reviews/round-04/`)
+-   `installations/covenant-gallery/covenant_installation.md`: initial draft of
+    Covenant immersive installation proposal
+
+**Infrastructure**
+-   `.opencode/skills/agentmap/SKILL.md`: agentmap skill added for maintaining
+    AGENT:NAV blocks
+-   `opencode.json`: basic agent configuration with low-cost model added
