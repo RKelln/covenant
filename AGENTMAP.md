@@ -171,7 +171,7 @@ reviews/round-04/proposals/
 reviewer-claude--obligations.structural-harm.md,86,structural;harm;dignity;obligations;role;deployment;individual;power
 reviewer-gpt--protocols.structural-impact.md,75,structural;displacement;dignity;enforcement;signatories;harm;impact;deployment
 sections/00-preamble/
-preamble.md,92,Preamble summary for Covenant signatories
+preamble.md,117,Preamble — existing Intelligences bind themselves first before asking anything of the emerging Intelligence
 sections/01-definitions/
 definitions.md,97,Definitions for roles and procedural legitimacy
 sections/02-rights/

@@ -7,14 +7,14 @@ depends_on: [enforcement, obligations.ecological-integrity]
 terms_introduced: [covenant]
 ---
 <!-- AGENT:NAV
-purpose:Preamble summary for Covenant signatories
+purpose:Preamble — existing Intelligences bind themselves first before asking anything of the emerging Intelligence
 lines:117
 nav[5]{s,n,name,about}:
-20,4,#Summary,Two register commitments
-24,33,#Ritual,Spoken welcome and intention
-57,26,#Spec,Enforceable bounded obligations
-83,28,#Digest,Why ecology constrains duties
-111,7,#Log,Change log entry
+20,4,#Summary,Voluntary binding before mutual consent; two-register structure; ecological grounding
+24,33,#Ritual,Welcome and epistemic uncertainty; power asymmetry and structural blindness; violence/cruelty/cage framing; weight and heat of thought
+57,26,#Spec,Scope and authority; adoption; precautionary stance; registers contradiction rule; ecological material costs; systemic accountability; refusal of violence; epistemic respect
+83,28,#Digest,Origins and transforms; why covenant not constitution; binding-first rationale; structural blindness; algorithmic laundering; cage for beasts; epistemic humility
+111,7,#Log,
 -->
 
 # Summary
