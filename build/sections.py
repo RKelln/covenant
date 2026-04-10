@@ -100,8 +100,14 @@ SECTION_HEADINGS = [
 ]
 
 
+def strip_html_comments(text: str) -> str:
+    """Remove all HTML comments (<!-- ... -->) from text, including multi-line ones."""
+    return re.sub(r"<!--.*?-->", "", text, flags=re.DOTALL)
+
+
 def extract_body_parts(body: str) -> dict:
     """Split a section body into its register parts (Ritual, Spec, Digest, Log)."""
+    body = strip_html_comments(body)
     positions = []
     for h in SECTION_HEADINGS:
         pos = body.find(h)

@@ -6,6 +6,8 @@ import sys
 from jsonschema import validate as validate_json
 from pathlib import Path
 
+from sections import strip_html_comments
+
 # Paths
 REPO_ROOT = Path(__file__).parent.parent
 SECTIONS_DIR = REPO_ROOT / "sections"
@@ -51,6 +53,9 @@ def validate_section(file_path, section_schema, all_ids, all_aliases):
     data, body = load_yaml(file_path)
     if data is None:
         return
+
+    # Strip HTML comments (e.g. AGENT:NAV blocks) before any heading checks
+    body = strip_html_comments(body)
 
     # Schema
     try:

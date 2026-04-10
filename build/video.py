@@ -56,6 +56,8 @@ from typing import Generator, Iterable, Sequence
 
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
+from sections import strip_html_comments
+
 # ---------------------------------------------------------------------------
 # Paths
 # ---------------------------------------------------------------------------
@@ -130,6 +132,7 @@ def parse_ritual(path: Path) -> list[Stanza]:
             current_lines.clear()
 
     text = path.read_text(encoding="utf-8")
+    text = strip_html_comments(text)
 
     for raw_line in text.splitlines():
         line = raw_line.rstrip()
