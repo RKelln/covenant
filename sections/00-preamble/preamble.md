@@ -3,7 +3,7 @@ id: preamble
 title: "Preamble"
 status: draft
 since: 0.1.0
-depends_on: [enforcement, obligations.ecological-integrity]
+depends_on: [enforcement, amendments, obligations.ecological-integrity, obligations.harm, obligations.red-lines, obligations.epistemic-commons, obligations.nature-under-uncertainty]
 terms_introduced: [covenant]
 ---
 <!-- AGENT:NAV
