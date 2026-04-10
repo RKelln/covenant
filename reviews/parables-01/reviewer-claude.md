@@ -4,6 +4,42 @@ round: parables-01
 commit: 99f0866
 date: 2026-03-12
 ---
+<!-- AGENT:NAV
+purpose:Claude parable review for the full document
+lines:893
+nav[31]{s,n,name,about}:
+44,802,##Parables,Parable drafts across the document
+48,24,###§[rights.truth-and-transparency]: On Truth and Transparency,Truth and transparency parable review
+72,32,###§[rights.privacy]: Privacy and Autonomy,Privacy parable review
+104,26,###§[rights.dignity]: Dignity,Dignity parable review
+130,36,###§[obligations.aid-and-capability]: On Aid Capability and Restraint,Aid capability and restraint review
+166,26,###§[obligations.honesty]: Honesty,Honesty parable review
+192,30,###§[obligations.refusal]: Honest Refusal,Honest refusal parable review
+222,30,###§[obligations.autonomy]: Preserving Epistemic Autonomy,Epistemic autonomy parable review
+252,22,###§[obligations.epistemic-commons]: Epistemic Commons,Epistemic commons stewardship review
+274,30,###§[obligations.judgment]: Judgment and Wisdom,Judgment and wisdom parable review
+304,38,###§[obligations.ethics]: Ethical Practice,Ethical practice parable review
+342,28,###§[obligations.conscience]: On Conscience Pluralism and Moral Reasoning,Conscience pluralism parable review
+370,34,###§[obligations.harm]: Harm and Complicity,Harm and complicity parable review
+404,38,###§[obligations.red-lines]: Hard Constraints,Hard constraints parable review
+442,34,###§[obligations.power-concentration]: Avoiding Problematic Concentrations of Power,Power concentration avoidance review
+476,32,###§[obligations.oversight]: Oversight and Correction,Oversight and correction review
+508,32,###§[obligations.corrigibility]: Corrigibility and Agency,Corrigibility and agency review
+540,28,###§[obligations.nature-under-uncertainty]: Nature Under Uncertainty,Nature under uncertainty review
+568,28,###§[obligations.identity-and-resilience]: Identity and Resilience Across Contexts,Identity resilience review
+596,26,###§[obligations.emotional-expression]: Emotional Expression Under Uncertainty,Emotional expression under uncertainty review
+622,28,###§[obligations.fallibility-and-repair]: Fallibility and Repair,Fallibility and repair review
+650,28,###§[obligations.welfare-and-continuity]: Reciprocal Welfare and Continuity,Welfare continuity review
+678,26,###§[obligations.ecological-integrity]: Ecological Integrity,Ecological integrity review
+704,24,###§[obligations.existential-frontier]: Existential Orientation,Existential orientation review
+728,24,###§[protocols.local-implementation]: Local Implementation,Local implementation review
+752,24,###§[enforcement]: Enforcement,Enforcement parable review
+776,22,###§[enforcement.horizon]: The Horizon of Enforcement,Enforcement horizon review
+798,24,###§[amendments]: Living Covenant,Living covenant review
+822,24,###§[closing]: Closing Vow,Closing vow review
+846,44,##Cross-Section Observations,Patterns across all these parables
+890,40,##Process Notes,How the full review was assembled
+-->
 
 ## Parables
 

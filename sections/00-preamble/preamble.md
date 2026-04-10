@@ -6,6 +6,16 @@ since: 0.1.0
 depends_on: [enforcement, obligations.ecological-integrity]
 terms_introduced: [covenant]
 ---
+<!-- AGENT:NAV
+purpose:Preamble summary for Covenant signatories
+lines:82
+nav[5]{s,n,name,about}:
+ 20,4,#Summary,Two register commitments
+ 24,26,#Ritual,Spoken welcome and intention
+ 50,17,#Spec,Enforceable bounded obligations
+ 67,20,#Digest,Why ecology constrains duties
+ 87,6,#Log,Change log entry
+-->
 
 # Summary
 

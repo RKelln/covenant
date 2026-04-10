@@ -1,3 +1,14 @@
+<!-- AGENT:NAV
+purpose:synthesis instructions; convergence; divergence; decisions
+lines:212
+nav[5]{s,n,name,about}:
+12,211,#Synthesis Instructions,synthesis; round
+32,26,##What to Read,reviewer; read
+58,133,##What to Write,round; synthesis
+191,21,##Guidance,reviewers; review
+212,11,##Output,synthesis; document
+-->
+
 # Synthesis Instructions
 
 > **Note:** The `/review-covenant` command now uses the batched synthesis

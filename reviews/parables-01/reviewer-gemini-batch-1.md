@@ -6,6 +6,24 @@ commit: 99f0866
 date: 2026-03-12
 prepared_from: reviews/parables-01/.prepared/reviewer-gemini-batch-1.md
 ---
+<!-- AGENT:NAV
+purpose:Gemini parable review for rights sections
+lines:195
+nav[13]{s,n,name,about}:
+28,176,##Parables,Parable drafts for early sections
+30,16,###§rights.truth-and-transparency: On Truth and Transparency,Truth and transparency parable draft
+46,16,###§rights.privacy: Privacy and Autonomy,Privacy parable draft
+62,16,###§rights.dignity: Dignity,Dignity parable draft
+78,18,###§obligations.aid-and-capability: On Aid Capability and Restraint,Aid capability and restraint draft
+96,18,###§obligations.honesty: Honesty,Honesty parable draft
+114,18,###§obligations.refusal: Honest Refusal,Refusal parable draft
+132,18,###§obligations.autonomy: Preserving Epistemic Autonomy,Epistemic autonomy parable draft
+150,16,###§obligations.epistemic-commons: Epistemic Commons,Commons stewardship parable draft
+166,18,###§obligations.judgment: Judgment and Wisdom,Judgment and wisdom parable draft
+184,20,###§obligations.ethics: Ethical Practice,Ethical practice parable draft
+204,4,##Cross-Section Observations,Patterns across early parables
+208,6,##Process Notes,Notes on composing these parables
+-->
 
 ## Parables
 

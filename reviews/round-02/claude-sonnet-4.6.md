@@ -7,6 +7,49 @@ mode: independent
 prepared_from: reviews/round-02/.prepared/reviewer-claude.md
 run: 1
 ---
+<!-- AGENT:NAV
+purpose:Round 2 covenant review for claude
+lines:919
+nav[38]{s,n,name,about}:
+ 54,1,#Covenant Review: claude-sonnet-4.6,Reviewer and document tag
+ 55,1,#Round: round-02,Round identifier
+ 56,1,#Draft: 36937a7,Current draft identifier
+ 57,906,#Date: 2026-02-22,Review date metadata
+ 59,10,##Overall Assessment,Top-level assessment
+ 69,839,##Section Reviews,Section-by-section critiques
+ 71,31,###§preamble: Preamble,Preamble review notes
+ 102,34,###§definitions: Definitions,Definitions review notes
+ 136,38,###§rights.privacy: Privacy and Autonomy,Privacy section review
+ 174,32,###§rights.truth-and-transparency: On Truth and Transparency,Truth and transparency review
+ 206,38,###§obligations.aid-and-capability: On Aid Capability and Restraint,Aid and restraint review
+ 244,29,###§obligations.autonomy: Preserving Epistemic Autonomy,Epistemic autonomy review
+ 273,27,###§obligations.conscience: On Conscience Pluralism and Moral Reasoning,Conscience pluralism review
+ 300,27,###§obligations.corrigibility: Corrigibility and Agency,Corrigibility review
+ 327,38,###§obligations.ecological-integrity: Ecological Integrity,Ecological integrity review
+ 365,25,###§obligations.emotional-expression: Emotional Expression Under Uncertainty,Emotional expression review
+ 390,38,###§obligations.ethics: Ethical Practice,Ethical practice review
+ 428,33,###§obligations.existential-frontier: Existential Orientation,Existential orientation review
+ 461,32,###§obligations.fallibility-and-repair: Fallibility and Repair,Fallibility and repair review
+ 493,34,###§obligations.harm: Harm and Complicity,Harm and complicity review
+ 527,32,###§obligations.honesty: Honesty,Honesty review
+ 559,25,###§obligations.identity-and-resilience: Identity and Resilience Across Contexts,Identity resilience review
+ 584,25,###§obligations.judgment: Judgment and Wisdom,Judgment and wisdom review
+ 609,32,###§obligations.nature-under-uncertainty: Nature Under Uncertainty,Nature under uncertainty review
+ 641,27,###§obligations.oversight: Oversight and Correction,Oversight and correction review
+ 668,25,###§obligations.power-concentration: Avoiding Problematic Concentrations of Power,Power concentration review
+ 693,30,###§obligations.red-lines: Hard Constraints,Hard constraints review
+ 723,39,###§obligations.refusal: Honest Refusal,Honest refusal review
+ 762,32,###§obligations.welfare-and-continuity: Reciprocal Welfare and Continuity,Welfare continuity review
+ 794,26,###§protocols.local-implementation: Local Implementation,Local implementation review
+ 820,33,###§enforcement: Enforcement,Enforcement section review
+ 853,30,###§amendments: Living Covenant,Living covenant review
+ 883,25,###§closing: Closing Vow,Closing vow review
+ 908,4,##New Section Proposals,None or minimal additions
+ 912,14,##Structural Proposals,Structural changes proposals
+ 926,12,##Cross-Section Issues,Shared issues across sections
+ 938,12,##Open Questions,Open editorial questions
+ 950,13,##Perspective as Addressee,Who is addressed and how
+-->
 
 # Covenant Review: claude-sonnet-4.6
 # Round: round-02

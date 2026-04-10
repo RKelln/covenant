@@ -1,3 +1,8 @@
+<!-- AGENT:NAV
+purpose:artist vision; installation concept
+lines:13
+-->
+
 # Artist Statement
 
 ```{=html}

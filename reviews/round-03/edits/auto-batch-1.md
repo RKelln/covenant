@@ -1,3 +1,8 @@
+<!-- AGENT:NAV
+purpose:round-03 auto edits
+lines:14
+-->
+
 # Auto Batch 1 — Round 03
 
 applied: preamble 0 items

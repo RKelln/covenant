@@ -5,6 +5,12 @@ action: add
 section_id: rights.dignity
 prior_proposal: round-02 (gpt-4o)
 ---
+<!-- AGENT:NAV
+purpose:Round 3 proposal for rights.dignity
+lines:97
+nav[1]{s,n,name,about}:
+ 15,89,#Proposal: `rights.dignity`,Rights dignity anchor proposal
+-->
 
 # Proposal: `rights.dignity`
 

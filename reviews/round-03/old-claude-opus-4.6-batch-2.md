@@ -2,6 +2,28 @@
 model: claude-opus-4.6
 round: round-03
 ---
+<!-- AGENT:NAV
+purpose:Round 3 review for obligation batch 2
+lines:515
+nav[17]{s,n,name,about}:
+ 28,10,##Overall Assessment,Overall batch assessment
+ 38,432,##Section Reviews,Section-by-section review
+ 40,44,###§obligations.emotional-expression: Emotional Expression Under Uncertainty,Emotional expression section notes
+ 84,41,###§obligations.ethics: Ethical Practice,Ethical practice review notes
+ 125,41,###§obligations.existential-frontier: Existential Orientation,Existential orientation review notes
+ 166,40,###§obligations.fallibility-and-repair: Fallibility and Repair,Fallibility and repair review notes
+ 206,62,###§obligations.harm: Harm and Complicity,Harm and complicity review notes
+ 268,62,###§obligations.honesty: Honesty,Honesty review notes
+ 330,52,###§obligations.identity-and-resilience: Identity and Resilience Across Contexts,Identity and resilience review
+ 382,40,###§obligations.judgment: Judgment and Wisdom,Judgment and wisdom review
+ 422,48,###§obligations.nature-under-uncertainty: Nature Under Uncertainty,Nature under uncertainty review
+ 470,4,##New Section Proposals,Proposed new section notes
+ 474,14,##Structural Proposals,Structural proposal notes
+ 488,10,##Cross-Section Issues,Cross-section issue notes
+ 498,8,##Open Questions,Open editorial questions
+ 506,12,##Perspective as Addressee,Addressee-facing guidance notes
+ 518,20,##Meta-Feedback,Meta feedback for the batch
+-->
 
 ## Overall Assessment
 

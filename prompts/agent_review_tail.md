@@ -1,3 +1,19 @@
+<!-- AGENT:NAV
+purpose:tail batch review; cross-cutting observations
+lines:174
+nav[10]{s,n,name,about}:
+17,173,#Covenant Review Prompt Template — Tail Batch (Cross-Cutting),prior; round
+32,7,##Review Round Context,round; commit
+39,12,##Your Relationship to This Document,document; write
+51,12,##Context Documents,context; docs
+53,4,###Writing Context,context; writing
+57,6,###Style Guide,guide; style
+63,13,##Reading Protocol,read; full
+76,44,##Your Task,prior; proposals
+120,9,##What to Avoid,addressee; addresses
+129,61,##Output Format,none; proposals
+-->
+
 # Covenant Review Prompt Template — Tail Batch (Cross-Cutting)
 
 This template is used for the tail batch — the final batch in each review round.

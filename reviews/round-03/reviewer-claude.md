@@ -2,6 +2,46 @@
 model: claude-opus-4.6
 round: round-03
 ---
+<!-- AGENT:NAV
+purpose:Round 3 covenant review by Claude
+lines:1583
+nav[35]{s,n,name,about}:
+46,10,##Overall Assessment,Round 3 overall critique
+56,1483,##Section Reviews,Section reviews by Claude
+60,74,###§preamble: Preamble,Preamble review notes
+134,67,###§definitions: Definitions,Definitions review notes
+201,56,###§rights.privacy: Privacy and Autonomy,Privacy rights review
+257,64,###§rights.truth-and-transparency: On Truth and Transparency,Truth and transparency review
+321,74,###§obligations.aid-and-capability: On Aid Capability and Restraint,Aid capability review
+395,53,###§obligations.autonomy: Preserving Epistemic Autonomy,Epistemic autonomy review
+448,55,###§obligations.conscience: On Conscience Pluralism and Moral Reasoning,Conscience pluralism review
+503,57,###§obligations.corrigibility: Corrigibility and Agency,Corrigibility and agency review
+560,80,###§obligations.ecological-integrity: Ecological Integrity,Ecological integrity review
+640,44,###§obligations.emotional-expression: Emotional Expression Under Uncertainty,Emotional expression review
+684,52,###§obligations.ethics: Ethical Practice,Ethical practice review
+736,52,###§obligations.existential-frontier: Existential Orientation,Existential orientation review
+788,37,###§obligations.fallibility-and-repair: Fallibility and Repair,Fallibility and repair review
+825,64,###§obligations.harm: Harm and Complicity,Harm and complicity review
+889,66,###§obligations.honesty: Honesty,Honesty review
+955,47,###§obligations.identity-and-resilience: Identity and Resilience Across Contexts,Identity resilience review
+1002,44,###§obligations.judgment: Judgment and Wisdom,Judgment and wisdom review
+1046,51,###§obligations.nature-under-uncertainty: Nature Under Uncertainty,Nature under uncertainty review
+1097,40,###§obligations.oversight: Oversight and Correction,Oversight review
+1137,47,###§obligations.power-concentration: Avoiding Problematic Concentrations of Power,Power concentration review
+1184,54,###§obligations.red-lines: Hard Constraints,Hard constraints review
+1238,62,###§obligations.refusal: Honest Refusal,Refusal review
+1300,42,###§obligations.welfare-and-continuity: Reciprocal Welfare and Continuity,Welfare continuity review
+1342,61,###§protocols.local-implementation: Local Implementation,Local implementation review
+1403,63,###§enforcement: Enforcement,Enforcement review
+1466,44,###§amendments: Living Covenant,Amendments review
+1510,29,###§closing: Closing Vow,Closing vow review
+1539,4,##New Section Proposals,Proposed new sections
+1543,14,##Structural Proposals,Structural proposal notes
+1557,12,##Cross-Section Issues,Cross-section issues notes
+1569,12,##Open Questions,Open editorial questions
+1581,14,##Perspective as Addressee,Addressee perspective notes
+1595,29,##Meta-Feedback,Meta feedback and steward notes
+-->
 
 ## Overall Assessment
 

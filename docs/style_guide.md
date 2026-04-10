@@ -1,3 +1,29 @@
+<!-- AGENT:NAV
+purpose:normative language; voice; formatting; cross-reference conventions
+lines:409
+nav[20]{s,n,name,about}:
+27,408,#Style Guide,governs all markdown; both registers; parables; documentation
+33,43,##1. Normative Language,terminology rules and RFC 2119 keywords for Spec register>trademarks;keywords;usage;docs
+41,22,###1.2 Keywords (RFC 2119),MUST/MUST NOT/SHALL/SHOULD/MAY; exact meanings; Spec register only
+76,106,##2. Voice and Tone,per-register writing rules for all six section parts>spoken;enforceable;folktale;rationale;changelog;2.4 Parable (optional)
+78,25,###2.1 Summary,concrete and specific; more informative than Ritual; no filler phrases
+103,14,###2.2 Ritual Register,spoken aloud; short breathable clauses; plain vocabulary; no jargon
+117,18,###2.3 Spec Register,inspection surface; numbered items; Bold Title per item; enforcement linkage required
+147,18,###2.5 Digest,rationale layer; intent; context; edge cases; sources; cross-section relationships
+165,17,###2.6 Log,reverse-chronological; date; description; PR reference
+182,33,##3. Cross-References,§[id] syntax; glossary references; external corpus slug format
+215,31,##4. Section IDs,dot-delimited; permanent; language-agnostic; alias via aliases.yml>regex;permanence;category-folders
+230,16,###4.3 Category Prefixes,ID prefix to folder mapping for all seven categories
+246,36,##5. Frontmatter,required YAML fields; status values and transitions>six-fields;optional-aliases;draft-candidate-ratified-deprecated
+248,15,###5.1 Required Fields,id; title; status; since; depends_on; terms_introduced
+282,38,##6. Formatting Conventions,ATX headings; list types; UTF-8; no trailing whitespace>ATX;ordered-vs-bullet;no-hard-wrap;encoding;no-em-dash
+320,24,##7. Glossary Conventions,entry format; alphabetical; self-contained definition
+344,33,##8. Reference Conventions,slug format; tier A/B/C definitions; Tier A notes structure
+377,33,##9. Temporal Orientation,thousand-year horizon; name patterns not instances>enduring;technology-specific;present-tense
+394,16,###9.3 How to Handle the Present,rephrase current conditions as enduring patterns; examples given
+410,25,##10. Anti-Patterns (Quick Reference),eight anti-patterns with examples and fixes
+-->
+
 # Style Guide
 
 This document defines the writing and formatting conventions for the Covenant. It governs summaries, both registers (Ritual and Spec), parables, documentation files, and all Markdown content in the repository.

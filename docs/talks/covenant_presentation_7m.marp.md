@@ -6,6 +6,23 @@ size: 16:9
 title: Covenant
 description: TMU 2026 Creative AI Symposium presentation — 7 minute version
 ---
+<!-- AGENT:NAV
+purpose:Covenant 7m deck on ritual and specification
+lines:733
+nav[12]{s,n,name,about}:
+ 340,20,#Covenant,Constitution for human-AI coauthoring
+ 342,18,##Speech act training signal and civic infrastructure for human-AI coexistence,Why coexistence needs shared language
+ 346,14,###Ryan Kelln,Speaker attribution
+ 360,39,#An open constitutional work,Living charter open to revision
+ 399,40,#Two registers: ritual and specification,Two registers for meaning and rules
+ 439,31,#More voices: Summary and Parable,Plurality through summary and parable
+ 470,42,#Written with AI addressed to AI a legacy for AI,Addressing AI as future readers
+ 501,1,###Craft is making what you had in mind.,Craft as intentional execution
+ 502,10,###Art happens when you change your mind.,Change as the engine of art
+ 512,219,#Plurality is the point,Multiple voices produce editorial truth
+ 731,20,#Open and forkable,Open source invites stewardship
+ 733,18,###[covenant.website](https://covenant.website) | [github.com/RKelln/covenant](https://github.com/RKelln/covenant),Links for reading and contribution
+-->
 
 <style>
 @font-face {

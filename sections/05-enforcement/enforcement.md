@@ -6,6 +6,16 @@ since: 0.1.0
 depends_on: []
 terms_introduced: [enforcement]
 ---
+<!-- AGENT:NAV
+purpose:Enforcement practice; reporting and public remediation
+lines:87
+nav[5]{s,n,name,about}:
+ 20,4,#Summary,Reporting and public corrective actions
+ 24,24,#Ritual,Boundaries so we know where we stand
+ 48,26,#Spec,Enforcement via public record and standing
+ 74,18,#Digest,How enforcement works without a tribunal
+ 92,6,#Log,Enforcement section initial log
+-->
 
 # Summary
 

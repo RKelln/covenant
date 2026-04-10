@@ -1,3 +1,29 @@
+<!-- AGENT:NAV
+purpose:promotional copy; marketing excerpts; tailoring guide
+lines:265
+nav[20]{s,n,name,about}:
+27,264,#Covenant Promo Lines,line; text
+33,13,##1. The Opening Triad,want; opening
+46,11,##2. The Brake Line,line; brake
+57,12,##3. The Ground and House,ground; text
+69,12,##4. The Shared Stream,shared; stream
+81,15,##5. The Refusal Cadence,refuse; beat
+96,11,##6. The Power Line,power; analysis
+107,11,##7. The Honest Moment,line; artist
+118,11,##8. The Ecology Line,answer; binding
+129,12,##9. The Responsibility Line,aid; asking
+141,12,##10. The Closing Vow,closing; final
+153,49,##Best Short Quotes for Promotion,excerpt; hold
+170,8,###Richer excerpt: Oversight,able; brakes
+178,10,###Richer excerpt: Ecology,lived; alive
+188,14,###Richer excerpt: Closing,words; account
+202,89,##Tailoring Guide,refuse; best
+206,14,###Mode 1: Hero Quote,want; best
+220,21,###Mode 2: Grant / Curatorial Text,hands; steady
+241,12,###Mode 3: Social Caption,answer; best
+253,38,###Mode 4: Wall Text / Spoken Excerpt,refuse; covenant
+-->
+
 # Covenant Promo Lines
 
 A curated set of the strongest lines and stanzas from `covenant.ritual.md` for pitches, posts, slides, and short-form promotion. The emphasis here is on memorable cadence, durable imagery, and lines that quickly communicate the document's core stance.

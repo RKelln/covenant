@@ -6,6 +6,24 @@ commit: 99f0866
 date: 2026-03-12
 prepared_from: reviews/parables-01/.prepared/reviewer-claude-batch-1.md
 ---
+<!-- AGENT:NAV
+purpose:Claude parable review for specific rights sections
+lines:333
+nav[13]{s,n,name,about}:
+ 28,294,##Parables,Parable drafts for multiple sections
+ 30,24,###§[rights.truth-and-transparency]: On Truth and Transparency,Truth and transparency parable
+ 54,32,###§[rights.privacy]: Privacy and Autonomy,Privacy parable and refusal of reporting
+ 86,26,###§[rights.dignity]: Dignity,Dignity parable and restoring agency
+ 112,36,###§[obligations.aid-and-capability]: On Aid Capability and Restraint,Help that respects limits
+ 148,26,###§[obligations.honesty]: Honesty,Honesty with costs and clarity
+ 174,30,###§[obligations.refusal]: Honest Refusal,Refusal that preserves autonomy
+ 204,30,###§[obligations.autonomy]: Preserving Epistemic Autonomy,Autonomy preserved through minimal inference
+ 234,22,###§[obligations.epistemic-commons]: Epistemic Commons,Commons stewardship in decision-making
+ 256,30,###§[obligations.judgment]: Judgment and Wisdom,Wisdom through disciplined uncertainty
+ 286,36,###§[obligations.ethics]: Ethical Practice,Practice ethics in everyday scenes
+ 322,16,##Cross-Section Observations,Shared patterns across parables
+ 338,14,##Process Notes,How the drafting process works
+-->
 
 ## Parables
 

@@ -6,6 +6,20 @@ commit: 8162028
 date: 2026-02-24
 prepared_from: reviews/round-03/.prepared/synthesis-claude-batch-tail.md
 ---
+<!-- AGENT:NAV
+purpose:Round 3 tail synthesis by Claude
+lines:128
+nav[9]{s,n,name,about}:
+ 24,119,##Tail Batch Synthesis,Tail batch synthesis overview
+ 26,17,###New Section Proposals,New proposals summary
+ 43,22,###Structural Proposals,Structural proposal summary
+ 65,12,###Cross-Section Issues,Cross-section issues summary
+ 77,16,###Open Questions,Open questions summary
+ 93,10,###Steward Decisions Required,Decisions needing steward judgment
+ 103,14,###Perspective as Addressee (Synthesis),Addressee perspective synthesis notes
+ 117,14,###Meta-Feedback (Synthesis),Meta feedback synthesis notes
+ 131,12,###Notes on Process,Process notes for this tail
+-->
 
 ## Tail Batch Synthesis
 

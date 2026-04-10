@@ -14,6 +14,31 @@ style: |
     margin: auto;
   }
 ---
+<!-- AGENT:NAV
+purpose:Multi-model review pipeline flow
+lines:611
+nav[20]{s,n,name,about}:
+43,9,#Covenant Multi-Model Review Pipeline,Review pipeline by multiple agents
+52,11,#Why Multi-Model Review?,Why parallel models improve editing
+63,27,#The Core Pattern,Synthesis pattern overview
+90,56,#Round 1: Independent Review,First pass from independent agents
+146,12,#Context Documents for Reviewers,Reviewer input sources
+158,21,#What Reviewers Produce,Per-section proposals and flags
+160,19,###Per section: Assessment + Proposed Changes + Flags,Section-level assessment output
+179,21,#Synthesis: Human Steward,Steward convergence and judgment
+200,26,#Synthesis Document Structure,How synthesis captures decisions
+226,51,#Round 2: Informed Review,Second pass with prior context
+277,15,#Round 2: Deliberation,Model-to-model discussion phase
+292,61,#Applying Changes: Three Phases,Apply edits through staged tiers
+353,19,#The Editor Agent Constraint,Trust rule for verbatim edits
+355,17,###Verbatim-or-nothing,Editors only apply agreed text
+372,12,#Key Design Principles,Principles preventing ordering drift
+384,211,#The `/review-section` Skill,Skill flow for interactive review
+386,209,###Interactive human-AI deliberation,Human-led dialogue with agents
+595,16,#Diminishing Returns,Criteria for stopping review rounds
+611,17,#Summary,What this process improves
+628,9,#Questions?,How to find related documentation
+-->
 
 # Covenant Multi-Model Review Pipeline
 

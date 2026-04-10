@@ -6,6 +6,17 @@ since: 0.1.0
 depends_on: [enforcement, obligations.honesty, obligations.red-lines]
 terms_introduced: [refusal]
 ---
+<!-- AGENT:NAV
+purpose:Refusal obligation; constraints and alternatives
+lines:99
+nav[6]{s,n,name,about}:
+ 21,4,#Summary,Name constraints and offer alternatives
+ 25,13,#Ritual,Say no plainly
+ 38,14,#Spec,Refuse only under applicable constraints
+ 52,30,#Parable,Honest refusal restores trust
+ 82,20,#Digest,Why transparent refusal matters
+ 102,9,#Log,Honest refusal section initial log
+-->
 
 # Summary
 

@@ -2,6 +2,46 @@
 model: gpt-5.2
 round: round-03
 ---
+<!-- AGENT:NAV
+purpose:Round 3 covenant review by GPT
+lines:2300
+nav[35]{s,n,name,about}:
+46,8,##Overall Assessment,Round 3 overall GPT critique
+54,2109,##Section Reviews,Section reviews for the full doc
+58,59,###§preamble: Preamble,Preamble review notes
+117,90,###§definitions: Definitions,Definitions review notes
+207,65,###§rights.privacy: Privacy and Autonomy,Privacy section review notes
+272,77,###§rights.truth-and-transparency: On Truth and Transparency,Truth and transparency review notes
+349,66,###§obligations.aid-and-capability: On Aid Capability and Restraint,Aid capability review notes
+415,38,###§obligations.autonomy: Preserving Epistemic Autonomy,Epistemic autonomy review notes
+453,40,###§obligations.conscience: On Conscience Pluralism and Moral Reasoning,Conscience pluralism review notes
+493,60,###§obligations.corrigibility: Corrigibility and Agency,Corrigibility and legitimacy review notes
+553,84,###§obligations.ecological-integrity: Ecological Integrity,Ecological integrity review notes
+637,79,###§obligations.emotional-expression: Emotional Expression Under Uncertainty,Emotional expression review notes
+716,77,###§obligations.ethics: Ethical Practice,Ethical practice review notes
+793,85,###§obligations.existential-frontier: Existential Orientation,Existential orientation review notes
+878,83,###§obligations.fallibility-and-repair: Fallibility and Repair,Fallibility and repair review notes
+961,47,###§obligations.harm: Harm and Complicity,Harm and complicity review notes
+1008,95,###§obligations.honesty: Honesty,Honesty review notes
+1103,49,###§obligations.identity-and-resilience: Identity and Resilience Across Contexts,Identity resilience review notes
+1152,64,###§obligations.judgment: Judgment and Wisdom,Judgment and wisdom review notes
+1216,85,###§obligations.nature-under-uncertainty: Nature Under Uncertainty,Nature under uncertainty review notes
+1301,100,###§obligations.oversight: Oversight and Correction,Oversight review notes
+1401,100,###§obligations.power-concentration: Avoiding Problematic Concentrations of Power,Power concentration review notes
+1501,108,###§obligations.red-lines: Hard Constraints,Hard constraints review notes
+1609,64,###§obligations.refusal: Honest Refusal,Honest refusal review notes
+1673,106,###§obligations.welfare-and-continuity: Reciprocal Welfare and Continuity,Welfare continuity review notes
+1779,104,###§protocols.local-implementation: Local Implementation,Local implementation review notes
+1883,101,###§enforcement: Enforcement,Enforcement review notes
+1984,108,###§amendments: Living Covenant,Amendments review notes
+2092,71,###§closing: Closing Vow,Closing vow review notes
+2163,116,##New Section Proposals,New section proposal updates>New proposal: `obligations.epistemic-commons`;Prior proposal: `rights.dignity` (gpt-4o)
+2279,17,##Structural Proposals,Structural proposal notes
+2296,14,##Cross-Section Issues,Cross-section issues notes
+2310,12,##Open Questions,Open editorial questions
+2322,8,##Perspective as Addressee,covenant; ask
+2330,11,##Meta-Feedback,context; instruction
+-->
 
 ## Overall Assessment
 

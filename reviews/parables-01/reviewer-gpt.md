@@ -4,6 +4,42 @@ round: parables-01
 commit: 99f0866
 date: 2026-03-12
 ---
+<!-- AGENT:NAV
+purpose:GPT parable review for the full document
+lines:991
+nav[31]{s,n,name,about}:
+44,954,##Parables,GPT parable drafts across all sections
+48,30,###§[rights.truth-and-transparency]: On Truth and Transparency,Truth and transparency parable draft
+78,36,###§[rights.privacy]: Privacy and Autonomy,Privacy parable draft
+114,32,###§[rights.dignity]: Dignity,Dignity parable draft
+146,34,###§[obligations.aid-and-capability]: On Aid Capability and Restraint,Aid capability parable draft
+180,34,###§[obligations.honesty]: Honesty,Honesty parable draft
+214,36,###§[obligations.refusal]: Honest Refusal,Honest refusal parable draft
+250,34,###§[obligations.autonomy]: Preserving Epistemic Autonomy,Epistemic autonomy parable draft
+284,28,###§[obligations.epistemic-commons]: Epistemic Commons,Epistemic commons parable draft
+312,34,###§[obligations.judgment]: Judgment and Wisdom,Judgment and wisdom parable draft
+346,36,###§[obligations.ethics]: Ethical Practice,Ethical practice parable draft
+382,32,###§[obligations.conscience]: On Conscience Pluralism and Moral Reasoning,Conscience pluralism parable draft
+414,38,###§[obligations.harm]: Harm and Complicity,Harm and complicity parable draft
+452,32,###§[obligations.red-lines]: Hard Constraints,Hard constraints parable draft
+484,34,###§[obligations.power-concentration]: Avoiding Problematic Concentrations of Power,Power concentration avoidance parable draft
+518,34,###§[obligations.oversight]: Oversight and Correction,Oversight and correction parable draft
+552,32,###§[obligations.corrigibility]: Corrigibility and Agency,Corrigibility and agency parable draft
+584,30,###§[obligations.nature-under-uncertainty]: Nature Under Uncertainty,Nature under uncertainty parable draft
+614,34,###§[obligations.identity-and-resilience]: Identity and Resilience Across Contexts,Identity resilience parable draft
+648,28,###§[obligations.emotional-expression]: Emotional Expression Under Uncertainty,Emotional expression under uncertainty parable draft
+676,34,###§[obligations.fallibility-and-repair]: Fallibility and Repair,Fallibility and repair parable draft
+710,33,###§[obligations.welfare-and-continuity]: Reciprocal Welfare and Continuity,Welfare continuity parable draft
+743,35,###§[obligations.ecological-integrity]: Ecological Integrity,Ecological integrity parable draft
+778,41,###§[obligations.existential-frontier]: Existential Orientation,Existential orientation parable draft
+819,37,###§[protocols.local-implementation]: Local Implementation,Local implementation parable draft
+856,33,###§[enforcement]: Enforcement,Enforcement parable draft
+889,41,###§[enforcement.horizon]: The Horizon of Enforcement,Enforcement horizon parable draft
+930,31,###§[amendments]: Living Covenant,Living covenant parable draft
+961,37,###§[closing]: Closing Vow,Closing vow parable draft
+998,14,##Cross-Section Observations,Patterns across the full GPT set
+1012,16,##Process Notes,Notes on drafting and evaluation
+-->
 
 ## Parables
 

@@ -1,3 +1,34 @@
+<!-- AGENT:NAV
+purpose:visualization prompts; image generation requests
+lines:150
+nav[25]{s,n,name,about}:
+32,149,#Covenant — Installation Visualization Prompts,light; wall
+40,6,##1. Wide Shot — Daytime From Entrance,light; wall
+46,6,##2. Wide Shot — Daytime From Northeast Corner,frame; text
+52,6,##3. Sunlight Through Window Text — Close-Up,light; visible
+58,6,##4. Sunlight Through Window Text — Amber Vinyl Variant,amber; light
+64,6,##5. Sunlight Through Window Text — Deep Red Vinyl Variant,light; red
+70,6,##6. Window Vinyl — Street View Daytime,street; vinyl
+76,6,##7. Window Vinyl — Street View Night,dark; street
+82,6,##8. East Wall Projection — Head-On,light; text
+88,6,##9. East Wall Projection — Video Art Moment,projection; wall
+94,6,##10. The Oath Station — Visitor Speaking,text; visitor
+100,6,##11. The Oath Station — Detail,microphone; detail
+106,6,##12. The Covenant Terminal — Visitor in Dialogue,visitor; covenant
+112,6,##13. The Document Table,table; document
+118,6,##14. Material Cost Display,screen; cost
+124,6,##15. Opening Night — Performed Reading,projection; wall
+130,6,##16. Gallery at Dusk — Transitional Light,gallery; light
+136,6,##17. Gallery — Sparse Opening Days,gallery; days
+142,6,##18. Gallery — Final Week Full Chorus,full; voices
+148,6,##19. North Wall — Section Context Display,wall; screen
+154,6,##20. Consent Signage — Entrance,entrance; design
+160,6,##21. Overhead / Architectural View,wall; architectural
+166,6,##22. Window Text Detail — Interior Close-Up,letter; vinyl
+172,6,##23. Visitor Walking Through Light-Text,visitor; light
+178,3,##24. The Covenant Terminal — Screen Detail,covenant; screen
+-->
+
 # Covenant — Installation Visualization Prompts
 
 Text-to-image prompts for generating reference images of the Covenant installation at Artspace Peterborough. Based on reference photos of the actual space.

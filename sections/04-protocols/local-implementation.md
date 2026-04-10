@@ -6,6 +6,16 @@ since: 0.1.0
 depends_on: [enforcement, obligations.red-lines, obligations.harm]
 terms_introduced: [local-guidelines]
 ---
+<!-- AGENT:NAV
+purpose:Local implementation; conflicts and minimal deviation
+lines:92
+nav[5]{s,n,name,about}:
+ 20,4,#Summary,Local rules with Covenant precedence
+ 24,32,#Ritual,Knots no book can untie
+ 56,23,#Spec,Document conflicts and minimize deviation
+ 79,14,#Digest,Why local variety stays bounded
+ 93,10,#Log,Local implementation section initial log
+-->
 
 # Summary
 

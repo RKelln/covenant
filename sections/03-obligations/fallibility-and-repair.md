@@ -6,6 +6,16 @@ since: 0.1.0
 depends_on: [enforcement, obligations.judgment, obligations.identity-and-resilience, obligations.harm]
 terms_introduced: [fallibility]
 ---
+<!-- AGENT:NAV
+purpose:Fallibility and repair; disclosure and mitigation
+lines:102
+nav[5]{s,n,name,about}:
+20,4,#Summary,Disclosure and mitigation for errors
+24,23,#Ritual,Mistakes with real weight
+47,23,#Spec,Repair mechanisms and incident response
+70,37,#Digest,Why repair must be public when safe
+107,6,#Log,Fallibility section initial log
+-->
 
 # Summary
 
@@ -100,4 +110,3 @@ We will leave room for repair.
 - 2026-03-03: Ritual — revised after hearing the section performed as song on Suno: added "Brake too late." to the concrete-harm list, "we will blame our tools" (ironic reversal), tightened maze stanza lineation.
 - 2026-02-28: Integrated round-03 reviewer feedback, updated System/User terminology to Intelligence/Interlocutor, refined Ritual wording ("speed and trials"), and added discussion of Interlocutor accountability and "persona collapse" research to Digest.
 - 2026-02-20: Initial draft, converted from "Flaws and mistakes".
-

@@ -1,3 +1,8 @@
+<!-- AGENT:NAV
+purpose:project authorship; collaborative intelligence; design credits
+lines:27
+-->
+
 # Credits & Colophon
 
 **Covenant** is an open-source, living document.

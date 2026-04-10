@@ -1,3 +1,8 @@
+<!-- AGENT:NAV
+purpose:round-03 auto edits
+lines:14
+-->
+
 # Auto Batch 3 — apply-reviews round-03
 
 applied: obligations.oversight 1 items

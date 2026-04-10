@@ -1,3 +1,29 @@
+<!-- AGENT:NAV
+purpose:installation proposal; layout; tech requirements; budget
+lines:298
+nav[20]{s,n,name,about}:
+27,297,#Covenant — Installation Proposal for Artspace Peterborough (2027),covenant; wall
+33,6,##One-Line Summary,agreement; belonging
+39,10,##Project Description,emerging; register
+49,24,##Alignment with the 2027 Call,treaty; covenant
+73,26,##Light and Projection Strategy,gallery; light
+99,87,##Gallery Layout,covenant; wall>East Wall — Primary Projection (26');Windows (south wall) — The Public Face;North Wall — Section Context Display (\~14');West Wall — Stations (16');East Wall — Primary Projection (26');Windows (south wall) — The Public Face;North Wall — Section Context Display (\~14');West Wall — Stations (16');East Wall — Primary Projection (26');Windows (south wall) — The Public Face;North Wall — Section Context Display (\~14');West Wall — Stations (16')
+123,18,###The Oath Station,gallery; oath
+141,18,###Covenant Terminal,covenant; document
+159,13,###The Document Table,covenant; artspace
+172,14,###Material Cost Display,cost; covenant
+186,16,##Visitor Consent and Transparency,gallery; recordings
+202,18,##Ancillary Programming / Live Events,live; closing
+220,6,##Concept Album,album; concept
+226,14,##Technical Options,wall; windows
+240,26,##Technical Requirements,audio; station
+266,8,##About the Artist,artist; bio
+274,12,##About the Collaborators,collaborators; additional
+286,11,##Budget Estimate,budget; fees
+297,22,##Selected Ritual Excerpts,refuse; together
+319,5,##Links,artspace; https
+-->
+
 # Covenant — Installation Proposal for Artspace Peterborough (2027)
 
 **Working title:** *Covenant* **Artist:** Ryan Kelln (with collaborators) **Medium:** Immersive installation — video projection, rear-projection window display, participatory audio recording, conversational AI, live performance **Space:** Main Gallery, Artspace Peterborough (approx. 39'10" x 25'10", 12' ceilings)

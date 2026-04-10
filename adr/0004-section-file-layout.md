@@ -1,3 +1,15 @@
+<!-- AGENT:NAV
+ purpose:section bundle layout; category paths; naming migration
+ lines:50
+ nav[6]{s,n,name,about}:
+ 13,49,#ADR 0004: Section File Layout and Naming,one Markdown bundle per section; stable structure
+ 15,4,##Status,accepted repository layout decision
+ 19,4,##Date,2026 section layout migration timestamp
+ 23,15,##Context,problems with nested section.md ambiguity
+ 38,17,##Decision,adopt category/name bundles under sections/
+ 55,7,##Consequences,clearer references; tooling and manifests align
+ -->
+
 # ADR 0004: Section File Layout and Naming
 
 ## Status

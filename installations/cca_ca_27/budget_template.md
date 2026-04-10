@@ -1,3 +1,27 @@
+<!-- AGENT:NAV
+purpose:budget template; expense categories; planning notes
+lines:186
+nav[19]{s,n,name,about}:
+26,185,#Budget,notes; add
+30,39,##Revenue,add; details
+32,10,###Public Sector,public; sector
+42,10,###Earned Revenue,earned; add
+52,9,###Private Sector Revenue,private; revenues
+61,8,###In-kind (Private and public sector) and other revenues,add; details
+69,51,##Expenses,expenses; notes
+71,10,###Artistic and Project Expenses,artistic; expenses
+81,16,###ProductionTechnical and Programming Expenses,production; programming
+97,8,###Travel Expenses,travel; expenses
+105,7,###Administrative Marketing and Communications Expenses,administrative; communications
+112,4,###Other Expenses,costs; care
+116,4,###Accessibility Expenses,accessibility; costs
+120,91,##Working Notes For Covenant,development; travel
+124,13,###Likely Revenue Lines,contribution; foundation
+137,25,###Likely Expense Lines,fees; development
+162,32,###Ars Electronica Travel,travel; development
+194,13,###Budget Note Ideas (max 255 chars each in the form),development; research
+207,4,###Caution,travel; activities
+-->
 
 # Budget
 

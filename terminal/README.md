@@ -1,3 +1,17 @@
+<!-- AGENT:NAV
+purpose:covenant terminal app; setup; running; directory structure
+lines:139
+nav[8]{s,n,name,about}:
+15,138,#Covenant Terminal,tauri; dev
+23,13,##What it is,fork; full
+36,11,##Prerequisites,dev; windows
+47,17,##Setup,env; api
+64,28,##Running,tauri; apps
+92,38,##Directory structure,platform; tauri
+130,14,##Milestone status,complete; started
+144,9,##Documentation,docs; agent
+-->
+
 # Covenant Terminal
 
 A multi-agent reading and contribution interface for the Covenant — a Tauri 2.x desktop application built with Svelte 5, Vite, and TypeScript.

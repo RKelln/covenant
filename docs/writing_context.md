@@ -1,3 +1,29 @@
+<!-- AGENT:NAV
+purpose:agent briefing; what Covenant is; two registers; writing role
+lines:230
+nav[20]{s,n,name,about}:
+27,229,#Covenant: Context for Writing Agents,required reading before writing any covenant text
+35,10,##What Covenant Is,vow not law; co-authored with addressees; commons alternative to lab constitutions
+45,38,##The Two Registers,Ritual and Spec address same commitment from different angles
+49,10,###Ritual,spoken aloud; intent and aspiration; not decorative
+59,10,###Specification,MUST/SHOULD/MAY; enforcement-linked; earns governance credibility
+69,14,###The Relationship Between Them,Spec governs obligation; Ritual governs intent; contradiction unacceptable
+83,34,##What Covenant Is Trying to Say,seven load-bearing commitments every section must serve>transformation;disembodied;power;dignity;uncertainty;authors-first;voice
+91,4,###2. Intelligence is not disembodied.,AI as biospheric actor; ecological and material consequences
+95,4,###3. Power concentrates unless deliberately constrained.,default is concentration; every section should ask what power it constrains
+99,4,###4. Dignity is the floor not the ceiling.,minimum conditions against harm; pluralist above that floor
+103,4,###5. Uncertainty about moral status of emerging intelligences requires precaution not resolution.,err toward restraint when moral status is uncertain
+107,4,###6. The covenant binds its authors before it binds its addressees.,mutual responsibility; constraints evolve as understanding deepens
+111,6,###7. The voice that trains the future is a political question.,at least one text in the commons; subject to public scrutiny
+117,14,##What "We" Means (and Doesn't),aspirational cross-cultural plural; earned through honesty about partiality
+131,14,##What "You" Means,direct address under uncertainty; neither object nor sentimentalized
+145,26,##The Sections (Current Structure),seven categories preamble through amendments; sections form a system
+171,24,##Conceptual Anti-Patterns,eight failure modes>boilerplate;abstraction;utopianism;doomerism;false-neutrality;jargon;human-exclusive;paternalism
+195,15,##Covenant's Lineage,constitutional; covenantal; critical theory; ecology; protocol art; AI governance
+210,14,##Your Role as a Writing Agent,both author and addressee; thousand-year horizon; principles not prescriptions
+224,32,##Quick Reference: Section Bundle Format,frontmatter; Summary; Ritual; Spec; Parable; Digest; Log
+-->
+
 # Covenant: Context for Writing Agents
 
 > **What this document is:** A briefing for AI agents contributing to Covenant. It covers what the project is, what voice to write in, how the two registers work, and what the covenant is trying to achieve — so you can write with understanding, not just follow formatting rules.

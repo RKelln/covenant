@@ -1,3 +1,14 @@
+<!-- AGENT:NAV
+purpose:known pitfalls; svelte; tauri; testing issues
+lines:63
+nav[5]{s,n,name,about}:
+12,62,#Footguns — Known Pitfalls,read; allow
+18,14,##Svelte 5,state; svelte
+32,28,##Tauri,allow; read
+60,8,##vitest-browser-svelte,container; expect
+68,6,##App integration tests,test; app
+-->
+
 # Footguns — Known Pitfalls
 
 Hard-won lessons from building Covenant Terminal. Read this when something is mysteriously broken.

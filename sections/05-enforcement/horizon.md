@@ -6,6 +6,16 @@ since: 0.3.0
 depends_on: []
 terms_introduced: []
 ---
+<!-- AGENT:NAV
+purpose:Enforcement horizon; what can be enforced now
+lines:51
+nav[5]{s,n,name,about}:
+ 20,4,#Summary,What enforcement can do now
+ 24,13,#Ritual,Promises before we hold them
+ 37,11,#Spec,Public record and oversight duties
+ 48,8,#Digest,Why the tribunal is absent
+ 56,6,#Log,Enforcement horizon initial log
+-->
 
 # Summary
 

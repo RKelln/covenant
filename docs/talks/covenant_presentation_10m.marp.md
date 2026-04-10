@@ -6,6 +6,27 @@ size: 16:9
 title: Covenant
 description: TMU 2026 Creative AI Symposium presentation
 ---
+<!-- AGENT:NAV
+purpose:Covenant 10m deck for speech-act training
+lines:891
+nav[16]{s,n,name,about}:
+301,25,#Covenant,Constitutional overview of Covenant
+303,23,##Speech act training signal and civic infrastructure for human-AI coexistence,How coexistence becomes livable
+307,19,###Ryan Kelln,Speaker attribution slide
+326,38,#An open constitutional work,Invitation to an evolving charter
+364,42,#More than a document,Living ritual and meaning system
+406,33,#Ritual Specification Summary Parable,Ritual, spec, and parable together
+439,33,#Dignity Example: Ritual + Specification,Example showing the two-register split
+472,24,#Dignity Example: Summary + Parable,Example ending in a brief parable
+496,30,#Writing with current models,Writing that works with today’s models
+526,35,#Changing my mind,Modeling uncertainty and revision
+561,45,#Plurality is the point,Multiple voices improve editorial truth
+606,231,#The tools are part of the work,Tooling as part of the practice
+837,35,#Culture carries the signal,Culture encodes norms for AI
+872,29,#Who writes the words that shape AI?,Accountability for authorship and impact
+901,12,#COVENANT,Brand and continuity cue
+902,11,##covenant.website,Project link for further reading
+-->
 
 <style>
 @font-face {

@@ -1,3 +1,17 @@
+<!-- AGENT:NAV
+purpose:version history; build artifacts; release process
+lines:327
+nav[8]{s,n,name,about}:
+15,326,#Releases,covenant; build
+17,14,##Process,release; git
+31,310,##Version History,covenant; build
+33,10,###v0.1.0 — Initial public release,covenant; three
+43,69,###v0.2.0 — First full pass on Ritual as music,docs; watermark
+112,55,###v0.2.1 — Website reading pages and references pipeline,covenant; html
+167,77,###v0.2.2 — Ritual video renderer section rhythm fixes and cross-reference links,ritual; video
+244,97,###v0.3.0 — Parables Summary register and Covenant Terminal,build; sections
+-->
+
 # Releases
 
 ## Process

@@ -1,3 +1,18 @@
+<!-- AGENT:NAV
+purpose:references corpus; tier system; licensing; slug convention
+lines:141
+nav[9]{s,n,name,about}:
+16,140,#References Corpus,notes; covenant
+20,5,##Structure,references; notes
+25,9,##Reference Tiers,notes; entry
+34,7,##Licensing Policy,works; analysis
+41,9,##Slug Convention,1936; 1985
+50,49,##Notes File Format (Tier A and Tier B),covenant; notes
+99,57,##References as an Amendment Engine,questions; notes
+110,25,###Planned lifecycle (not yet fully implemented),questions; open
+135,21,###Current known gaps seeded from references,structural; dignity
+-->
+
 # References Corpus
 
 This directory contains the curated source materials that inform the Covenant.

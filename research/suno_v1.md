@@ -1,3 +1,13 @@
+<!-- AGENT:NAV
+purpose:music generation prompt; voice; instrumentation; setting
+lines:96
+nav[4]{s,n,name,about}:
+11,78,##Lyrics,voice; guitar
+89,6,##Style,guitar; marimba
+95,4,##Negative,choir; cinematic
+99,7,##Setting,style; weird
+-->
+
 ## Lyrics
 
 [instrumental: marimba ostinato begin]

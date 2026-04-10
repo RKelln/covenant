@@ -1,3 +1,8 @@
+<!-- AGENT:NAV
+ purpose:forking guidance; preserve IDs; maintain two-register structure
+ lines:33
+ -->
+
 # Forking the Covenant
 
 The Covenant is designed to be forked. A fork is a legitimate "edition" —

@@ -1,3 +1,16 @@
+<!-- AGENT:NAV
+purpose:how to write parables; folktale form; scene craft; anti-patterns
+lines:119
+nav[7]{s,n,name,about}:
+14,118,#Good Parable Writing Guide,~250 word narrative translation of a section; bridges Spec rules to felt understanding
+26,13,##1. The Core Philosophy: Parable Form Folktale Dress,choices not magic; timeless imagery; no AI vocabulary; dual-track accessibility; show-then-trust
+39,17,##2. Scene-Level Craft,line-by-line principles; physical action over summary; keep cast small; give rights-holders agency
+56,20,##3. Narrative Techniques that Work,eight archetypal structures with best-fit section types
+76,21,##4. What to Avoid (Anti-Patterns) & What to Embrace (Best Practices),silence over speech; concrete stakes; no inline citations; no preachy endings; no martyr trope
+97,26,##5. An Example of the Tone,dignity parable; two keepers at a grain house; contrast in action
+123,9,##6. Workflow Integration,eight-step process from reading section to final oral edit
+-->
+
 # Good Parable Writing Guide
 
 The Covenant is built on two primary registers: the **Ritual** (poetic, mythic, establishing the relational stance) and the **Spec** (precise, legalistic, establishing the boundaries). 

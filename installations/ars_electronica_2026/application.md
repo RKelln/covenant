@@ -1,3 +1,19 @@
+<!-- AGENT:NAV
+purpose:project description; objectives; ai use; lessons learned
+lines:140
+nav[10]{s,n,name,about}:
+17,139,#Covenant — Project Description,covenant; public
+35,13,##Objectives,covenant; governance
+48,12,##Project History,covenant; project
+60,12,##Use of AI,public; systems
+72,10,##Lessons Learned,different; human
+82,18,##People,across; collaborators
+100,5,##KEYWORDS,governance; open
+105,13,##SOFTWARE,covenant; text
+118,25,##Hardware,optional; audio
+143,13,##Prize Money,euros; support
+-->
+
 # Covenant — Project Description
 
 ```{=html}

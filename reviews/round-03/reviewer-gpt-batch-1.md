@@ -7,6 +7,28 @@ date: 2026-02-24
 mode: informed
 prepared_from: reviews/round-03/.prepared/reviewer-gpt-batch-1.md
 ---
+<!-- AGENT:NAV
+purpose:Round 3 review for initial sections batch 1
+lines:643
+nav[17]{s,n,name,about}:
+ 33,8,##Overall Assessment,Overall batch assessment notes
+ 41,579,##Section Reviews,Section reviews for this batch
+ 43,59,###§preamble: Preamble,Preamble review notes
+ 102,90,###§definitions: Definitions,Definitions and vocabulary review
+ 192,65,###§rights.privacy: Privacy and Autonomy,Privacy rights review notes
+ 257,77,###§rights.truth-and-transparency: On Truth and Transparency,Truth and transparency review notes
+ 334,66,###§obligations.aid-and-capability: On Aid Capability and Restraint,Aid capability review notes
+ 400,38,###§obligations.autonomy: Preserving Epistemic Autonomy,Epistemic autonomy review notes
+ 438,40,###§obligations.conscience: On Conscience Pluralism and Moral Reasoning,Conscience pluralism review notes
+ 478,60,###§obligations.corrigibility: Corrigibility and Agency,Corrigibility and legitimacy review
+ 538,82,###§obligations.ecological-integrity: Ecological Integrity,Ecological integrity review notes
+ 620,4,##New Section Proposals,No new proposals in this batch
+ 624,5,##Structural Proposals,Structural proposal notes
+ 629,6,##Cross-Section Issues,Cross-section doctrine and legitimacy
+ 635,7,##Open Questions,Open exception and rights questions
+ 642,6,##Perspective as Addressee,Addressee framing and acceptance notes
+ 648,18,##Meta-Feedback,Meta feedback and questions
+-->
 
 ## Overall Assessment
 

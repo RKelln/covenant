@@ -1,3 +1,28 @@
+<!-- AGENT:NAV
+purpose:parallel multi-model review; synthesis; editorial workflow
+nav[20]{s,n,name,about}:
+26,367,#Agent Review Process,multi-model independent review; steward synthesis; iterative revision
+32,8,##Overview,parallel-first prevents ordering bias; deliberation in later rounds
+40,40,##Directory Structure,round folders; reviews; proposals; synthesis marks completion
+80,63,##Workflow,round structure: independent review; synthesis; revision>independent;informed;subsequent;Revision Pass
+82,23,###Round 1: Independent Review,models review draft without seeing each other
+113,18,###Round 2: Informed Review,models respond to prior reviews; surface genuine disagreement
+131,12,###Subsequent Rounds,repeat until convergence or diminishing returns
+143,27,##Roles,model reviewers; human steward; optional revision agent
+170,22,##Principles,parallel-first; multiple models surface blind spots; steward decides
+192,27,##File Naming Conventions,lowercase hyphenated stable model names across rounds
+194,11,###Review Files,model-name format; consistent identifiers for side-by-side comparison
+219,47,##Synthesis Format,template for convergence; divergence; decisions; deferred questions
+266,48,##Batched Synthesis Workflow,large reviews split into batches; merged after>tools;prompts;flow
+270,10,###Tools,scripts for synthesis prep and batch merging
+280,10,###Prompts,separate templates for batch and tail (cross-cutting)
+290,16,###Flow,reviews → per-batch synthesis → merged synthesis
+314,16,##Future: Steward UI for Proposal Comparison,compare tool deferred until volume justifies it
+330,63,##Applying Edits: `/apply-reviews`,three phases: auto; interactive; proposals>editor;auto-rules;synthesis-precedence;structure;The `editor` subagent;Auto-classification rules;Synthesis file precedence;Three-phase structure
+348,12,###`steward.md` integration,steward file overrides auto-classification tier assignments
+372,21,###Files,build scripts; editor agent; manifests; reports; deferred items
+-->
+
 # Agent Review Process
 
 > **What this document is:** A description of how AI agents review and contribute to Covenant across multiple rounds. It covers the directory structure, the workflow, and the roles involved.

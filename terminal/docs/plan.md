@@ -1,3 +1,29 @@
+<!-- AGENT:NAV
+purpose:terminal design plan; multi-agent council; architecture
+lines:692
+nav[20]{s,n,name,about}:
+27,691,#Covenant Terminal — Design Plan,council; terminal
+35,13,##What it is,covenant; mode
+48,9,##Use cases,api; fork
+57,165,##The multi-agent council model,terminal; council
+63,6,###Council configuration,council; default
+69,14,###Agent system prompts,agent; mode
+83,10,###Council interaction modes,council; user
+93,13,###Relationship to the existing review pipeline,pipeline; review
+106,116,###How the agentic pipeline works (patterns for Terminal reuse),terminal; pipeline>Dynamic section discovery;Serial dispatch (rate limiting);Resume logic;Batching and token budgets;Focused writing passes;Output structure and concatenation;Prompt preparation (build scripts);Shared code between pipeline and Terminal;Manifest-driven dispatch;Dynamic section discovery;Serial dispatch (rate limiting);Resume logic;Batching and token budgets;Focused writing passes;Output structure and concatenation;Prompt preparation (build scripts);Shared code between pipeline and Terminal;Manifest-driven dispatch;Dynamic section discovery;Serial dispatch (rate limiting);Resume logic;Batching and token budgets;Focused writing passes;Output structure and concatenation;Prompt preparation (build scripts);Shared code between pipeline and Terminal;Manifest-driven dispatch
+222,30,##Installation kiosk: the fork-as-living-document model,installation; amendment
+252,124,##Technology stack,tauri; platform>Git integration;Desktop application: Tauri 2.x;Document loading;Frontend: Svelte 5 + Vite + TypeScript;AI provider abstraction;Platform abstraction layer;Git integration;Desktop application: Tauri 2.x;Document loading;Frontend: Svelte 5 + Vite + TypeScript;AI provider abstraction;Platform abstraction layer;Git integration;Desktop application: Tauri 2.x;Document loading;Frontend: Svelte 5 + Vite + TypeScript;AI provider abstraction;Platform abstraction layer
+376,33,##Information architecture,agent; challenge
+409,28,##Installation kiosk profile,model; claude
+437,30,##Website integration path,web; add
+467,14,##Design language,design; text
+481,12,##Voice-to-voice: deferred architected for,text; audio
+493,100,##Repo structure,svelte; platform>Key structural rules;Key structural rules;Key structural rules
+593,29,##Open questions,mode; prompts
+622,96,##Suggested milestones,council; apply>Milestone 3 — Council panel;Milestone 5 — Kiosk mode (installation-ready);Milestone 2 — Single-agent Q&A;Milestone 1 — Readable document (MVP);Milestone 6 — Web deployment;Milestone 3 — Council panel;Milestone 5 — Kiosk mode (installation-ready);Milestone 2 — Single-agent Q&A;Milestone 1 — Readable document (MVP);Milestone 6 — Web deployment;Milestone 3 — Council panel;Milestone 5 — Kiosk mode (installation-ready);Milestone 2 — Single-agent Q&A;Milestone 1 — Readable document (MVP);Milestone 6 — Web deployment
+653,44,###Milestone 4 — Amendment workflow (contributor mode),apply; council
+-->
+
 # Covenant Terminal — Design Plan
 
 > **What this document is:** A design plan for the Covenant Terminal, a multi-agent reading and contribution interface for the Covenant. It covers use cases, architecture, the multi-agent council model, installation-specific behavior, and the path to a web version.

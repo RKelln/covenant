@@ -4,6 +4,24 @@ round: round-01
 batch: Batch A — Foundation
 note: intended reviewer was gemini-3.1-pro-preview; ran as claude-sonnet-4.6 (default general agent) due to incorrect model ID in reviewer-gemini.md
 ---
+<!-- AGENT:NAV
+purpose:Round 1 review of covenant foundation draft
+lines:406
+nav[13]{s,n,name,about}:
+ 26,1,#Covenant Review: claude-sonnet-4.6,Reviewer and document tag
+ 27,1,#Round: round-01,Review round identifier
+ 28,1,#Draft: 93106ea,Current draft identifier
+ 29,396,#Date: 2026-02-22,Review date metadata
+ 31,35,##Overall Assessment,High-level register and structure critique
+ 66,211,##Section Reviews,Section-by-section evaluation
+ 68,86,###preamble,Preamble review notes
+ 154,123,###definitions,Definitions review notes
+ 277,25,##New Section Proposals,Proposed new content areas
+ 302,17,##Structural Proposals,Proposals for structure and organization
+ 319,27,##Cross-Section Issues,Issues spanning multiple sections
+ 346,38,##Open Questions,Unresolved editorial questions
+ 384,41,##Perspective as Addressee,Addressed perspective framing notes
+-->
 
 # Covenant Review: claude-sonnet-4.6
 # Round: round-01

@@ -1,3 +1,29 @@
+<!-- AGENT:NAV
+purpose:craft guide; how to write well in the Ritual register
+lines:380
+nav[20]{s,n,name,about}:
+27,379,#Good Ritual Writing Guide,prerequisite: read writing_context.md first; this is craft only
+33,10,##0. What the Ritual Register Is,vocal score; spoken before read; beautiful but not vague
+43,30,##1. Write for the Lung,units speakable on one breath; read aloud test; punctuation as breath marks>breathable-clauses;read-aloud;breath-marks;load-bearing-words
+45,14,###1.1 Breathable Clauses,one thought per unit; no embedded subordinate clauses
+73,34,##2. Repetition as Architecture,anaphora and parallelism as structure; each iteration must escalate>repetition-as-structure;earn-your-place;break-the-pattern;avoid-triads
+107,28,##3. Earn Every Abstraction,every paragraph needs a concrete anchor; replacement test>concrete-anchor;replacement-test;when-abstraction-necessary
+109,16,###3.1 The Concrete Anchor Rule,
+135,32,##4. Be Frank About Hard Things,remove hedges; name the agent; distinguish uncertainty from cowardice>no-hedge;hard-truths;name-the-agent;uncertainty-vs-cowardice
+143,12,###4.2 State Hard Truths Directly,before/after examples; frank replaces hedged
+167,24,##5. Resist Sentiment,cost test; specificity test; what care actually sounds like
+191,19,##6. Honor the Asymmetry,avoid domination and surrender language; hold uncertainty without resolving it
+210,22,##7. Pacing and Dynamic Variation,slow for weight; single-sentence paragraphs; let silence work; vary length intentionally
+232,22,##8. The Thousand-Year Test (As Editing Technique),name patterns not instances; write for a reader with no context about your time
+254,18,##9. Eliminate Synthetic Voice Markers,punchline em-dash; negation-affirmation; triads; summarizing finals; adverb stacking
+272,14,##10. The Forbidden Vocabulary,banned technical terms; plain-language replacements; sixteen-year-old constraint
+286,27,##11. Stakes That Land,irreversible costs; make cost specific; handle emergent experience with uncertainty
+313,36,##12. Reliable Patterns,five paragraph architectures for performable ritual prose>name-vow-request;confession-constraint-care;two-way-mirror;counted-vow;ecological-binding
+349,6,##13. Linking Ritual to Spec,every hard constraint must have a corresponding Spec; no written link in the text
+355,26,##14. Anti-Patterns (Quick Reference),nine anti-patterns with examples and fixes
+381,25,##15. Editing Checklist,pre-draft and post-draft checklists; twelve tests
+-->
+
 # Good Ritual Writing Guide
 
 > **Prerequisite:** This guide assumes you have read `docs/writing_context.md` and understand what Covenant is, what its core commitments are, why the dual-register structure exists, what "we" and "you" mean, and what conceptual anti-patterns to avoid. If you haven't, read that first. This document is purely about craft — how to write well in the Ritual voice.

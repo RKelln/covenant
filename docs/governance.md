@@ -1,3 +1,17 @@
+<!-- AGENT:NAV
+purpose:stewardship; amendment process; versioning; forks
+lines:49
+nav[8]{s,n,name,about}:
+15,48,#Governance,steward authority; PR process; status transitions; versioning
+17,4,##Stewardship,Ryan Kelln holds final merge authority until broader governance warranted
+21,30,##Amendment Process,PR requirements; draft→candidate→ratified→deprecated transitions; register hierarchy>proposing;transitions;register-hierarchy
+23,8,###Proposing Changes,
+31,11,###Status Transitions,
+42,9,###Register Hierarchy,
+51,9,##Versioning,MINOR for new sections or normative changes; PATCH for wording fixes
+60,3,##Forks,forks welcomed; see FORKING.md
+-->
+
 # Governance
 
 ## Stewardship

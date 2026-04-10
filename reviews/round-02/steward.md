@@ -3,6 +3,31 @@ round: round-02
 steward: [your name or handle]
 date: 2026-02-23
 ---
+<!-- AGENT:NAV
+purpose:Round 2 steward response and edit plan
+lines:107
+nav[20]{s,n,name,about}:
+32,101,#Steward Response: Round 02,Steward response summary
+44,71,##Act — editing this round,Edit plan and agreed actions>6. Harm Spec is thin for the document's most foundational obligation
+46,9,###1. Enforcement is a hollow load-bearing wall,Develop enforcement and governance gap
+55,3,###2. `terms_introduced: []` is broken everywhere,Fix glossary term introductions
+58,8,###3. "Legitimacy" is undefined where it does the most work,Define legitimacy criterion
+66,3,###4. `rights.dignity` section is absent,Add dignity right section
+69,3,###5. Aggregate epistemic effects have no home,Add aggregate epistemic obligations
+75,4,###7. Galaxy-brained reasoning is unaddressed in conscience and judgment,Address reasoning distortions
+79,3,###8. Preamble Spec is underdeveloped; register language is wrong,Rewrite preamble spec register
+82,3,###11. Several specific Ritual passages need repair,Repair ritual passage language
+85,3,###D2. Welfare section's cooling tower passage,Refine welfare ritual imagery
+88,3,###D3. Nature-under-uncertainty closing quatrain,Polish precautionary closing line
+91,4,###D4. `obligations.refusal` — "stupid" vs "misunderstand",Clarify refusal tone
+95,4,###§obligations.ethics: Ethical Practice,Agree on ethical practice changes
+99,16,###Other,Additional steward wishes
+115,17,##Defer — valid not now,Deferred topics list
+117,5,###9. SHOULD/MUST calibration is wrong in several places,Recalibrate prescriptive framing
+122,3,###D5. Sunset provisions for amendments,Discuss amendment sunset rules
+125,7,###Other,Other deferred considerations
+132,1,##Question — need to think,Open question for future iteration
+-->
 
 # Steward Response: Round 02
 
@@ -105,4 +130,3 @@ The enforcement gap is real, due as much to the original source constitution the
 ---
 
 ## Question — need to think
-

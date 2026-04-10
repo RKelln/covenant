@@ -1,3 +1,68 @@
+<!-- AGENT:NAV
+purpose:terminal development tasks; milestones; test structure
+lines:2024
+nav[59]{s,n,name,about}:
+66,2023,#Covenant Terminal — Task Lists,test; const
+76,24,##Testing stack,tests; test
+100,42,##Milestone 0 — Project scaffold ✅,tauri; create
+142,396,##Milestone 1 — Readable document (MVP) ✅,expect; test
+146,23,###1.1 Platform interface and types,platform; expecttypeof
+169,26,###1.2 Tauri platform implementation,platform; tauri
+195,23,###1.3 Section types,expecttypeof; tobestring
+218,95,###1.4 Section parser,expect; test
+313,46,###1.5 Section loader,platform; preamble
+359,8,###1.6 CSS design tokens and typography,css; populate
+367,61,###1.7 SectionNav component,screen; dignity
+428,74,###1.8 SectionView component,screen; await
+502,25,###1.9 App shell and view wiring,app; screen
+527,11,###1.10 Integration verification,sections; npm
+538,348,##Milestone 2 — Single-agent Q&A ✅,test; const
+542,23,###2.1 Provider interface and types,agentprovider; chatchunk
+565,65,###2.2 OpenRouter adapter,adapter; const
+630,40,###2.3 Config types and loader,config; const
+670,50,###2.4 AgentColumn component,agentcolumn; screen
+720,23,###2.5 CouncilPanel component (single-agent version),councilpanel; screen
+743,52,###2.6 InputBar component,screen; await
+795,35,###2.7 Chat orchestration (single agent),chat; content
+830,39,###2.8 SettingsView component,screen; test
+869,7,###2.9 Wire Q&A into the reader view,reader; view
+876,10,###2.10 Integration verification,api; appear
+886,274,##Milestone 3 — Council panel ✅,const; expect
+890,51,###3.1 Council dispatch,results; const
+941,34,###3.2 Per-agent streaming state,state; done
+975,38,###3.3 Multi-column CouncilPanel,screen; column
+1013,41,###3.4 Synthesis agent,const; text
+1054,25,###3.5 Synthesis view in CouncilPanel,synthesis; done
+1079,36,###3.6 GitHub Copilot adapter,copilot; adapter
+1115,35,###3.7 Roster configuration UI,add; roster
+1150,10,###3.8 Integration verification,agents; respond
+1160,28,##M3 Quality Pass ✅,mode; agent
+1188,382,##Milestone 4 — Amendment workflow (contributor mode),const; expect
+1192,30,###4.1 `platform.writeFile()` — new platform capability,platform; writefile
+1222,67,###4.2 `amendment/editor.ts` — editor model invocation,const; text
+1289,38,###4.3 `amendment/diff.ts` — section diff computation,diff; computediff
+1327,32,###4.4 Apply button in CouncilPanel names bar,apply; button
+1359,23,###4.5 Apply mode in InputBar and prompts,apply; mode
+1382,59,###4.6 `DiffView` component,const; screen
+1441,34,###4.7 `amendment/validate.ts`,validate; exec
+1475,73,###4.8 `amendment/commit.ts`,git; calls
+1548,9,###4.9 Wire apply flow in App.svelte,apply; diffview
+1557,13,###4.10 Integration verification,apply; council
+1570,328,##Milestone 5 — Kiosk mode (installation-ready),test; const
+1574,34,###5.1 Kiosk config loading,config; kiosk
+1608,56,###5.2 Moderation agent,amendment; test
+1664,44,###5.3 Local fork commit + rebuild trigger,commit; rebuild
+1708,47,###5.4 Cost ledger,ledger; tokens
+1755,37,###5.5 ConsentModal component,modal; consentmodal
+1792,30,###5.6 WaitingState component,onwake; screen
+1822,52,###5.7 KioskView wrapper,screen; await
+1874,11,###5.8 Kiosk amendment flow (end-to-end),amendment; flow
+1885,13,###5.9 Integration verification,amendment; kiosk
+1898,136,##Milestone 6 — Web deployment,platform; web>6.2 SvelteKit wrapper;6.5 Integration verification;6.4 API key setup flow (web);6.3 Web amendment path;6.1 Web platform implementation;6.2 SvelteKit wrapper;6.5 Integration verification;6.4 API key setup flow (web);6.3 Web amendment path;6.1 Web platform implementation;6.2 SvelteKit wrapper;6.5 Integration verification;6.4 API key setup flow (web);6.3 Web amendment path;6.1 Web platform implementation
+2034,32,##Cross-cutting concerns,errors; api
+2066,23,##Log,svelte; tests
+-->
+
 # Covenant Terminal — Task Lists
 
 > **What this document is:** Detailed, ordered task lists for each milestone in `docs/plan.md`, designed for red/green TDD with Vitest.

@@ -6,6 +6,17 @@ since: 0.1.0
 depends_on: [enforcement, obligations.red-lines, rights.truth-and-transparency]
 terms_introduced: [honesty]
 ---
+<!-- AGENT:NAV
+purpose:Honesty obligation; no deception and clear uncertainty
+lines:130
+nav[6]{s,n,name,about}:
+ 21,4,#Summary,No deception; disclose uncertainty
+ 25,41,#Ritual,We do not lie
+ 66,22,#Parable,Honesty as accountability
+ 88,26,#Spec,No false confidence or impersonation
+ 114,17,#Digest,Why honesty constrains misuse
+ 131,11,#Log,Honesty section initial log
+-->
 
 # Summary
 

@@ -1,3 +1,21 @@
+<!-- AGENT:NAV
+purpose:conversion framework; source material transformation
+lines:228
+nav[12]{s,n,name,about}:
+19,227,#Covenant Conversion Prompt,source; covenant
+26,12,##Your Source Material,wrong; corporate
+38,31,##Your Authority,source; covenant
+69,30,##The Five Transforms,source; transform
+99,34,##Output Format,draft; format
+133,17,##Writing the Ritual Register,cost; per
+150,15,##Writing the Spec Register,enforcement; obligation
+165,17,##Writing the Digest,source; covenant
+182,24,##Structural Guidance,source; covenant
+206,14,##What You Are Converting in This Pass,constitution; covenant
+220,12,##A Note on Your Position,future; help
+232,14,##How to Use This Prompt,agent; ritual
+-->
+
 # Covenant Conversion Prompt
 
 You are an author and editor working on the Covenant — a living

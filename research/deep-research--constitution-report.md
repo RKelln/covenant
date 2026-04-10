@@ -1,3 +1,16 @@
+<!-- AGENT:NAV
+purpose:constitution research; universal approach; governance
+lines:113
+nav[7]{s,n,name,about}:
+14,112,#Constitution: Deep Research for a Universal Human–AI Constitution and Concept Album,cite; constitution
+18,12,##From corporate constitutions to public behavioral specs,cite; public
+30,15,##Why “universal” is hard: power narrow subjects and the politics of “we”,cite; civil
+45,26,##Foundational sources for principles that travel across cultures,cite; rights
+71,19,##Making the constitution safe to “train on”: clarity constraints and provenance,cite; constitution
+90,22,##Protocol art and the concept album as governance performance,entity; cite
+112,14,##Publishing licensing and OSS-first choices that reinforce the message,cite; cc0
+-->
+
 # Constitution: Deep Research for a Universal Human–AI Constitution and Concept Album
 
 Assumptions: the project’s “Constitution” is meant to be publicly released as a training-safe text (usable by humans and models), written in an accessible voice that avoids specialist jargon while still confronting power, coercion, and extraction; the release will be accompanied by a concept album where the full text is spoken over original music; and you want an OSS-first publishing posture with an explicit stance on consent, provenance, and reuse.

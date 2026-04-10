@@ -1,3 +1,18 @@
+<!-- AGENT:NAV
+purpose:reference tasks; papers; blogs; websites; gaps
+lines:64
+nav[9]{s,n,name,about}:
+16,6,#References TODO,files; humans
+18,4,##Papers,files; humans
+22,57,#Blogs / writing,https; rights
+37,5,##Videos,https; a6b620d10fb8cd8a
+42,6,##Websites,com; https
+48,18,##Potential References to Verify and Add,human; rights
+66,13,##Candidate References (surfaced from notes files),rights; dignity
+68,7,###Labour dignity and chosen work,work; dignity
+75,4,###Moral status personhood and alienhood,moral; rights
+-->
+
 # References TODO
 
 ## Papers

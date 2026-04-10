@@ -1,3 +1,15 @@
+<!-- AGENT:NAV
+purpose:tail batch synthesis; cross-cutting synthesis
+lines:170
+nav[6]{s,n,name,about}:
+13,169,#Covenant Synthesis Prompt — Tail Batch (Cross-Cutting),reviewers; batch
+28,9,##Round Context,round; commit
+37,15,##Your Task,found; proposals
+52,26,##Guidance before you write,reviewers; steward
+78,6,##Reviewer Tail Outputs,outputs; reviewer
+84,98,##Output Format,reviewers; round
+-->
+
 # Covenant Synthesis Prompt — Tail Batch (Cross-Cutting)
 
 This prompt is dispatched to a synthesizer subagent for the tail batch.

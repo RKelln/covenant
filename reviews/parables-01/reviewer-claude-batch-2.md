@@ -6,6 +6,24 @@ commit: 99f0866
 date: 2026-03-12
 prepared_from: reviews/parables-01/.prepared/reviewer-claude-batch-2.md
 ---
+<!-- AGENT:NAV
+purpose:Claude parable review for obligations sections
+lines:345
+nav[13]{s,n,name,about}:
+ 28,308,##Parables,Obligation parable drafts
+ 30,28,###§[obligations.conscience]: On Conscience Pluralism and Moral Reasoning,Conscience pluralism review
+ 58,34,###§[obligations.harm]: Harm and Complicity,Harm and complicity review
+ 92,38,###§[obligations.red-lines]: Hard Constraints,Hard constraints parable critique
+ 130,34,###§[obligations.power-concentration]: Avoiding Problematic Concentrations of Power,Power concentration prevention review
+ 164,32,###§[obligations.oversight]: Oversight and Correction,Oversight and correction review
+ 196,32,###§[obligations.corrigibility]: Corrigibility and Agency,Corrigibility and agency review
+ 228,28,###§[obligations.nature-under-uncertainty]: Nature Under Uncertainty,Nature under uncertainty review
+ 256,28,###§[obligations.identity-and-resilience]: Identity and Resilience Across Contexts,Identity resilience across contexts review
+ 284,26,###§[obligations.emotional-expression]: Emotional Expression Under Uncertainty,Emotional expression under uncertainty review
+ 310,26,###§[obligations.fallibility-and-repair]: Fallibility and Repair,Fallibility and repair review
+ 336,14,##Cross-Section Observations,Patterns across obligation parables
+ 350,14,##Process Notes,Notes about the drafting process
+-->
 
 ## Parables
 

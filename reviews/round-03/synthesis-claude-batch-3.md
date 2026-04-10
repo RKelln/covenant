@@ -6,6 +6,18 @@ commit: 8162028
 date: 2026-02-24
 prepared_from: reviews/round-03/.prepared/synthesis-claude-batch-3.md
 ---
+<!-- AGENT:NAV
+purpose:Round 3 batch 3 synthesis by Claude
+lines:109
+nav[7]{s,n,name,about}:
+ 22,100,##Batch 3 Synthesis,Batch 3 synthesis overview
+ 24,4,###What This Batch Established,Batch 3 key findings
+ 28,20,###Tier 1: Blocking Issues (Convergent — Act),Blocking items to implement
+ 48,14,###Tier 2: High Priority (Convergent — Consider),High priority considerations
+ 62,16,###Tier 3: Section-Level Repairs (Systematic — Consolidate),Systematic section repair agenda
+ 78,30,###Tier 4: Divergence (Steward Judgment Required),Steward choice areas
+ 108,14,###Section-Level Notes,Section notes and digest updates
+-->
 
 ## Batch 3 Synthesis
 

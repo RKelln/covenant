@@ -1,3 +1,17 @@
+<!-- AGENT:NAV
+purpose:edit application template; manifest-driven edits
+lines:116
+nav[8]{s,n,name,about}:
+15,115,#Covenant Edit Batch Prompt Template,items; text
+28,6,##Batch context,date; manifest
+34,68,##Instructions,items; text
+36,23,###Step 1 — Read the manifest,items; file
+59,28,###Step 2 — Apply edits section by section,text; target
+87,15,###Step 3 — Validate,validate; validation
+102,23,##Output format,output; validate
+125,5,##Constraint reminder,listed; beyond
+-->
+
 # Covenant Edit Batch Prompt Template
 
 This is the template used to generate per-batch editor agent prompts. It is

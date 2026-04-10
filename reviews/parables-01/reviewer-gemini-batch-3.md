@@ -6,6 +6,22 @@ commit: 99f0866
 date: 2026-03-12
 prepared_from: reviews/parables-01/.prepared/reviewer-gemini-batch-3.md
 ---
+<!-- AGENT:NAV
+purpose:Gemini parable review for closing sections
+lines:185
+nav[11]{s,n,name,about}:
+26,166,##Parables,Parable drafts for closing obligations
+28,19,###§obligations.welfare-and-continuity: Reciprocal Welfare and Continuity,Welfare continuity parable review
+47,19,###§obligations.ecological-integrity: Ecological Integrity,Ecological integrity parable review
+66,19,###§obligations.existential-frontier: Existential Orientation,Existential orientation parable review
+85,23,###§protocols.local-implementation: Local Implementation,Local implementation parable review
+108,19,###§enforcement: Enforcement,Enforcement parable review
+127,21,###§enforcement.horizon: The Horizon of Enforcement,Enforcement horizon parable review
+148,23,###§amendments: Living Covenant,Living covenant parable review
+171,21,###§closing: Closing Vow,Closing vow parable review
+192,4,##Cross-Section Observations,Patterns across these closing parables
+196,6,##Process Notes,Process notes for this batch
+-->
 
 ## Parables
 

@@ -1,3 +1,18 @@
+<!-- AGENT:NAV
+purpose:canada council application; covenant project
+lines:242
+nav[10]{s,n,name,about}:
+17,2,#Canada Council for the Arts - Artistic Creation 2027,2027; artistic
+19,15,#Covenant,2026; 2027
+24,5,##One sentence summary (255 characters),summary; 2026
+29,5,##Dates,2026; 2027
+34,224,#Describe your proposed activities. (7000 characters maximum),project; installation
+77,40,##What is your capacity and experience to carry out the activities? (3500 characters maximum),project; installation
+117,15,##Provide information about artistic and presenting partners and their involvement in your project. (1700 characters maximum),development; installation
+132,47,##What is your project timeline? Provide important milestones. (3500 characters maximum),terminal; covenant
+179,53,##Budget,expenses; costs
+232,26,##Is there other information that will help us understand your application? (1700 characters maximum),public; installation
+-->
 
 # Canada Council for the Arts - Artistic Creation 2027
 

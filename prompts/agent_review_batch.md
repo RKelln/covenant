@@ -1,3 +1,26 @@
+<!-- AGENT:NAV
+purpose:batch review template; section assessment
+lines:264
+nav[17]{s,n,name,about}:
+24,263,#Covenant Review Prompt Template,review; text
+38,7,##Review Round Context,round; commit
+45,16,##Your Relationship to This Document,covenant; document
+61,16,##Context Documents,guide; writing
+63,4,###Writing Context,context; writing
+67,4,###Style Guide,guide; style
+71,6,###Ritual Writing Guide,guide; ritual
+77,13,##Reading Protocol,file; read
+90,8,##Sections to Review,file; content
+94,4,###File: sections/[path/to/section.md],file; content
+98,98,##Your Task,text; review
+104,26,###1. Assess,useful; doesn
+130,30,###2. Propose,text; revised
+160,13,###3. Flag,human; questions
+173,23,###4. Meta-feedback,review; process
+196,10,##What to Avoid,vague; agreement
+206,81,##Output Format,none; addressee
+-->
+
 # Covenant Review Prompt Template
 
 This is the prompt template used by reviewer subagents when dispatched by the

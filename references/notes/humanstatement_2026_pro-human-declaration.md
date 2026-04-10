@@ -1,3 +1,17 @@
+<!-- AGENT:NAV
+purpose:reference notes; human rights; dignity; labour
+lines:81
+nav[8]{s,n,name,about}:
+15,80,#The Pro-Human AI Declaration,covenant; human
+23,4,##Thesis,accountability; broad
+27,6,##Covenant Relevance,covenant; declaration
+33,8,##Key Points,covenant; obligations
+41,13,##Sections Informed,covenant; obligations
+54,32,##Open Questions,human; covenant
+86,2,##Resolved Questions,questions; resolved
+88,7,##Notes,moral; labour
+-->
+
 # The Pro-Human AI Declaration
 
 **Creator:** humanstatement.org (multi-organisation coalition)

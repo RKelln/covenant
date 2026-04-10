@@ -1,3 +1,10 @@
+<!-- AGENT:NAV
+purpose:image documentation; artwork references
+lines:75
+nav[1]{s,n,name,about}:
+8,74,#Image Documentation List — Artspace Peterborough 2027 Proposal,covenant; mock
+-->
+
 # Image Documentation List — Artspace Peterborough 2027 Proposal
 
 *Note: All mock-up images are AI-generated digital visualizations produced for proposal development purposes. They are not finished artworks and do not represent final installation design.*

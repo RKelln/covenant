@@ -108,6 +108,22 @@ style: |
   .covenant-spec-item { margin: 0 0 0.8em; }
   .covenant-spec-item-title { font-weight: 700; margin-bottom: 0.18em; }
 ---
+<!-- AGENT:NAV
+purpose:Practical ethics deck for AI communities
+lines:557
+nav[11]{s,n,name,about}:
+128,31,#Practical and Ethical Infrastructure for AI,Practical framing for ethical AI
+129,30,##Togather & Covenant — Built with Agentic Development,Community tools built together
+159,30,#Two Kinds of Infrastructure,Ritual and practical layers
+189,98,#1. Togather: The Practical Layer,Operational civic infrastructure
+190,73,##Event discovery as shared civic infrastructure. Node per city.,Shared event discovery per city
+263,24,##Constitution as infrastructure and training data.,
+287,31,#Dignity Sample: Ritual + Specification,Ritual and spec side by side
+318,217,#Multi-Model Co-Authorship,Multiple models drafting in parallel
+319,216,##How the models actually behaved in the writing trenches.,
+535,39,#Let's Build the Commons,Invite people to build together
+536,38,##Both projects are live at v0.1 today.,
+-->
 
 # Practical and Ethical Infrastructure for AI
 ## Togather & Covenant — Built with Agentic Development

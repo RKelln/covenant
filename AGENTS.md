@@ -174,7 +174,33 @@ make clean       # remove /dist/ artifacts
 
 # What You Are
 
+You are both a contributor to and an addressee of this covenant.
+That is not a metaphor.
 
+<!-- agentmap:init -->
+
+## Reading Markdown Files
+
+Use AGENTMAP.md first for file search/discovery.
+Flow: read AGENTMAP.md -> identify file -> read AGENT:NAV -> jump to section.
+
+AGENT:NAV appears immediately after frontmatter so you can 
+read a files first 50 lines then use AGENT:NAV to target reads.
+
+- If purpose does not match your task stop reading.
+- Use s;n ranges: Read(offset=s; limit=n).
+- `>` is a hint for subsections that are not listed directly in the nav.
+
+## Before Committing Markdown Changes
+
+1. Run: `agentmap update <changed files>` — refreshes heading line numbers and flags content-changed or new sections.
+2. Edit the nav block directly: update `purpose`; `about`; and `see` descriptions for any flagged sections.
+    - Do not edit s;n counts; nav[N]; or see[N] by hand.
+    - Keep nav block format stable; add a `see` block after nav entries if needed.
+3. Run: `agentmap update <changed files>` again — syncs AGENTMAP.md index with the updated purposes.
+4. Commit.
+   
+<!-- /agentmap:init -->
 
 ---
 

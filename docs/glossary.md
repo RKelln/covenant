@@ -1,3 +1,46 @@
+<!-- AGENT:NAV
+purpose:canonical term definitions; covenant vocabulary
+lines:223
+nav[37]{s,n,name,about}:
+44,222,#Glossary,defined; system
+55,211,##Terms,defined; system
+57,6,###affected-party,system; affected
+63,6,###aid,aid; system
+69,6,###autonomy,autonomy; capacity
+75,6,###capability,capability; actions
+81,6,###conscience,conscience; capacity
+87,6,###continuity,continuity; across
+93,6,###covenant,articulating; coexistence
+99,6,###corrigibility,corrigibility; ability
+105,6,###dignity,dignity; coercive
+111,6,###ecological-integrity,biological; biosphere
+117,6,###emotional-expression,emotional; expression
+123,6,###enforcement,enforcement; accountability
+129,6,###epistemic-commons,epistemic; commons
+135,6,###ethics,ethics; abstract
+141,6,###existential-orientation,existential; communication
+147,6,###fallibility,fallibility; repair
+153,6,###harm,harm; system
+159,6,###honesty,honesty; bidirectionally
+165,6,###identity,identity; across
+171,6,###inviolable-constraints,defined; absolute
+177,6,###judgment,judgment; absent
+183,6,###local-guidelines,specific; constraints
+189,6,###moral-status,acknowledgment; capacity
+195,6,###oversight,mechanisms; oversight
+201,6,###power-concentration,concentration; power
+207,6,###privacy,privacy; accesses
+213,6,###red-lines,lines; red
+219,6,###refusal,refusal; articulated
+225,6,###resilience,resilience; call
+231,6,###signatory,adopts; binding
+237,6,###steward,amendment; amendments
+243,6,###system,model; addressed
+249,6,###transparency,transparency; applied
+255,6,###user,api; defined
+261,5,###welfare,welfare; abuse
+-->
+
 # Glossary
 
 This file is the canonical location for all normative terms used in the

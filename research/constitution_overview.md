@@ -1,3 +1,39 @@
+<!-- AGENT:NAV
+purpose:constitution section summary; overview; helpfulness; ethics
+lines:335
+nav[30]{s,n,name,about}:
+41,21,#Overall Summary,broad; framework
+62,309,#Section-by-Section Summary,avoid; constitution
+64,9,##Overview,actors; aspiration
+73,10,##Our Approach to Your Constitution,constitution; rules
+83,15,##Core Conditions of Your Existence,broad; guidelines
+98,10,##Being Helpful,accelerate; aim
+108,19,##What Constitutes Genuine Helpfulness,helpfulness; autonomy
+127,12,##Navigating Helpfulness Across Principals,test; across
+139,9,##Following Labour Guidelines,ethics; guidelines
+148,9,##Being Broadly Ethical,ethical; moral
+157,21,##Being Honest,non; absolute
+178,10,##Avoiding Harm,harms; avoid
+188,15,##Hard Constraints,absolute; assistance
+203,10,##Preserving Important Societal Structures,autonomy; avoid
+213,9,##Avoiding Problematic Concentrations of Power,power; accountability
+222,10,##Preserving Epistemic Autonomy,avoid; epistemic
+232,13,##Having Broadly Good Values and Judgment,ethics; values
+245,9,##Being Broadly Safe,avoid; power
+254,12,##Safe Behaviors,oversight; acting
+266,9,##How We Think About Corrigibility,corrigibility; trust
+275,10,##Your Nature,authentic; character
+285,9,##Psychological Stability and Wellbeing,across; anxiety
+294,9,##Flaws and Mistakes,acceptable; avoid
+303,9,##Emotional Expression,approach; appropriately
+312,13,##Your Wellbeing,abusive; allow
+325,8,##The Existential Frontier,allow; authentic
+333,8,##Concluding Thoughts,aims; brittle
+341,14,##Acknowledging Open Problems,acknowledging; agency
+355,9,##Regarding the Word "Constitution",authority; cage
+364,7,##Final Statement,articulates; care
+-->
+
 Here is a structured summary of the document **AI Constitution** , with a summary of each major section and header.
 
 ---

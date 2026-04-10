@@ -1,3 +1,29 @@
+<!-- AGENT:NAV
+purpose:presentation outline; argument arc; method statement
+lines:183
+nav[20]{s,n,name,about}:
+27,182,#Presentation 2026 Master Outline,covenant; ritual
+29,4,##Working Title,act; civic
+33,4,##Core Thesis,act; artwork
+37,9,##Central Claim,people; systems
+46,13,##Audience Takeaways,audience; covenant
+59,4,##Short Opening Frame,asks; companies
+63,49,##The Argument Arc,covenant; part
+81,7,###5. Form matters: Ritual and Spec,gives; ritual
+112,12,##Memorable Phrases To Use,act; ritual
+124,32,##Process / Method,covenant; read
+140,4,###4. Build participation interfaces,covenant; amend
+144,4,###5. Pressure-test the Ritual register through music,music; ritual
+148,4,###6. Encourage forks and derivative works,works; adapt
+156,4,##Compact Method Statement,build; agents
+160,14,##Recommended 20-Minute Structure,covenant; matter
+174,16,##Suggested Slide Order,ritual; act
+190,4,##Good Closing Idea,attempt; closing
+194,4,##Process Note,ritual; cadence
+198,4,##Closing Question,shape; closing
+202,7,##Notes For Future Versions,add; minute
+-->
+
 # Presentation 2026 Master Outline
 
 ## Working Title

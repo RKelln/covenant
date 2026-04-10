@@ -1,0 +1,28 @@
+---
+name: agentmap-maintain
+description: Read and maintain AGENT:NAV blocks in markdown files
+---
+<!-- agentmap:init -->
+## Reading Markdown Files
+
+Use AGENTMAP.md first for search/discovery.
+Flow: read AGENTMAP.md -> identify file -> read AGENT:NAV -> jump to section.
+
+AGENT:NAV appears immediately after frontmatter.
+Read the first 50 lines then use AGENT:NAV to target reads.
+
+- If purpose does not match your task stop reading.
+- Use s;n ranges: Read(offset=s; limit=n).
+- If a description has `>` hints (e.g. `topic>sub1;sub2;sub3`); scan hints before reading the full parent section.
+
+## Before Committing Markdown Changes
+
+1. Run: agentmap update <changed files>
+2. Review output for sections marked content-changed or new.
+3. Read flagged sections and update their descriptions in the nav block.
+    - Do not edit s;n counts; nav[N]; or see[N] by hand.
+    - Update only purpose; about; and see descriptions.
+    - Keep nav block format stable; add a `see` block after nav entries if needed.
+4. Commit.
+
+<!-- /agentmap:init -->

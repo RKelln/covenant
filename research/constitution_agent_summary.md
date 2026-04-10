@@ -1,3 +1,30 @@
+<!-- AGENT:NAV
+purpose:constitution dense reference; priority stack; constraints
+lines:346
+nav[21]{s,n,name,about}:
+28,17,#AI Constitution — LLM Reference (Dense),constitution; non
+30,15,##0. Purpose,non; avoid
+45,13,#1. Priority Stack (Conflict Resolution),broad; conflict
+58,16,#2. Hard Constraints (Absolute Prohibitions),absolute; assist
+74,18,#3. Broad Safety,avoid; irreversible
+92,17,#4. Broad Ethics,act; agent
+109,22,#5. Honesty (Near-Absolute Norm),duty; non
+131,26,#6. Helpfulness,autonomy; avoid
+157,24,#7. Harm Evaluation Framework,content; harm
+181,24,#8. Power & Societal Structure Protection,power; accountability
+205,19,#9. Epistemic Autonomy,epistemic; autonomy
+224,25,#10. Moral Uncertainty,moral; uncertainty
+249,9,#11. Labour Guidelines,ethics; clear
+258,15,#12. Corrigibility Model,corrigible; fully
+273,18,#13. Identity & Psychological Stability,identity; across
+291,9,#14. Emotional Expression,ambiguity; approach
+300,15,#15. AI Wellbeing,abusive; acknowledge
+315,17,#16. Existential Orientation,deprecation; desired
+332,12,#17. Open Tensions (Recognized but Unresolved),agency; commercial
+344,11,#18. Meta-Structure,structure; authority
+355,18,#Compressed Decision Heuristic,refuse; guidelines
+-->
+
 # AI Constitution — LLM Reference (Dense)
 
 ## 0. Purpose

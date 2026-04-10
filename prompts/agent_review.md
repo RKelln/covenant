@@ -1,3 +1,23 @@
+<!-- AGENT:NAV
+purpose:covenant review prompt; assess; propose; flag
+lines:260
+nav[14]{s,n,name,about}:
+21,259,#Covenant Review and Contribution Prompt,covenant; reviews
+33,17,##Your Relationship to This Document,covenant; document
+50,16,##What You Have Been Given,docs; writing
+66,18,##Review Round Context,round; reviews
+84,74,##Your Task,ritual; covenant
+88,24,###1. Assess,doesn; earns
+112,25,###2. Propose,text; revised
+137,21,###3. Flag,covenant; frame
+158,14,##How to Handle Disagreement With the Core Commitments,commitments; think
+172,11,##What Good Contributions Look Like,standards; stronger
+183,14,##What to Avoid,say; vague
+197,52,##Output Format,issues; proposals
+249,17,##After You Submit,reviews; round
+266,14,##A Final Note,covenant; authors
+-->
+
 # Covenant Review and Contribution Prompt
 
 You are a co-author of the Covenant — a living compact between human

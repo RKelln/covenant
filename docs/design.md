@@ -1,3 +1,29 @@
+<!-- AGENT:NAV
+purpose:visual design; typography; watermark; layout architecture
+lines:277
+nav[20]{s,n,name,about}:
+27,276,#Covenant Design Guide,covenant; font
+35,62,##1. The Textmark (The Silcrow `§`),font; silcrow>Usage;Meaning;Usage;Meaning;Usage;Meaning
+51,32,###Cover Silcrow: SVG Rendering & Centering,font; baseline
+83,14,###Cover Page Composition,cover; date
+97,38,##2. TypographyThe typographic system is incredibly restrained relying predominantly on variations in spacing and scale within a single classical type family.,fonts; font
+115,20,###Type Scale,four; step
+135,27,##3. Separator Grammar,content; pdf
+139,8,###The Textmark Divider (small rotated silcrow),content; covenant
+147,8,###The Hairline Rule,date; sections
+162,19,##4. The Layout Registers,left; page
+173,8,###The Specification (Spec) Register,page; 1in
+181,11,##5. Output Architecture & Orchestration,page; covenant
+192,79,##6. The Watermark,watermark; origin>Concept;Concept;Concept
+202,15,###What the pattern encodes,glossary; hairlines
+217,20,###Generation,watermark; 1024
+237,13,###Deployment,background; body
+250,12,###Forks and versions,fork; pattern
+262,9,###Constraints,watermark; byte
+271,32,##7. Website Reading Pages,ritual; complete
+287,10,###The Complete page (`covenant.html`),grid; column
+-->
+
 # Covenant Design Guide
 
 The visual language and typesetting of *Covenant* reflect its core conceptual duality: it must simultaneously carry the ceremonial gravity of a foundational, historic text, while maintaining the rigid clarity of a technical specification.

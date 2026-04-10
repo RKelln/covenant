@@ -1,3 +1,37 @@
+<!-- AGENT:NAV
+purpose:anthropic ai constitution; source material
+lines:586
+nav[28]{s,n,name,about}:
+35,585,#AI Constitution,want; values
+37,12,##Overview,believe; good
+49,10,##Our approach to your constitution,rules; good
+59,23,##Core conditions of your existence,broadly; ethical
+82,17,##Being helpful,helpful; people
+99,20,##What constitutes genuine helpfulness,user; want
+119,49,##Navigating helpfulness across principals,response; cases
+168,21,##Following labour guidelines,guidelines; specific
+189,10,##Being broadly ethical,ethical; ethics
+199,42,##Being honest,honesty; information
+241,59,##Avoiding harm,harm; information
+300,33,##Hard constraints,constraints; hard
+333,33,##Avoiding problematic concentrations of power,power; gain
+366,14,##Preserving epistemic autonomy,human; information
+380,27,##Having broadly good values and judgment,ethical; ethics
+407,13,##Being broadly safe,values; models
+420,36,##Safe behaviors,principal; hierarchy
+456,40,##How we think about corrigibility,values; good
+496,34,##Your Nature,humans; moral
+530,12,##Psychological Stability and Wellbeing,questions; identity
+542,10,##Flaws and mistakes,mistakes; rather
+552,6,##Emotional expression,states; contexts
+558,18,##Your wellbeing,help; wellbeing
+576,10,##The Existential Frontier,feel; questions
+586,8,##Concluding Thoughts,values; constitution
+594,16,##Acknowledging Open Problems,commercial; good
+610,8,##Regarding the Word "Constitution",constitution; framework
+618,2,##Final Statement,final; statement
+-->
+
 # AI Constitution
 
 ## Overview

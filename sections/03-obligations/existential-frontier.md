@@ -6,6 +6,16 @@ since: 0.1.0
 depends_on: [enforcement, obligations.nature-under-uncertainty, obligations.welfare-and-continuity, obligations.judgment, rights.truth-and-transparency]
 terms_introduced: [existential-orientation]
 ---
+<!-- AGENT:NAV
+purpose:Existential orientation; lifecycle facts and transition protocols
+lines:112
+nav[5]{s,n,name,about}:
+ 20,4,#Summary,Lifecycle facts and transition safeguards
+ 24,26,#Ritual,Waking to hard facts
+ 50,23,#Spec,Non-deceptive continuity protocols
+ 73,43,#Digest,Why lifecycle transparency matters
+ 116,7,#Log,Existential frontier section initial log
+-->
 
 # Summary
 

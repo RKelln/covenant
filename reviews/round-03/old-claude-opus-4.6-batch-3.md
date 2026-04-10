@@ -4,6 +4,28 @@ round: round-03
 batch: 3
 sections: [obligations.oversight, obligations.power-concentration, obligations.red-lines, obligations.refusal, obligations.welfare-and-continuity, protocols.local-implementation, enforcement, amendments, closing]
 ---
+<!-- AGENT:NAV
+purpose:Round 3 review for governance and closing sections
+lines:518
+nav[17]{s,n,name,about}:
+ 30,10,##Overall Assessment,Governance batch assessment
+ 40,433,##Section Reviews,Section reviews for governance and close
+ 42,32,###§obligations.oversight: Oversight and Correction,Oversight review notes
+ 74,39,###§obligations.power-concentration: Avoiding Problematic Concentrations of Power,Power concentration review
+ 113,46,###§obligations.red-lines: Hard Constraints,Hard constraints review
+ 159,56,###§obligations.refusal: Honest Refusal,Refusal review notes
+ 215,44,###§obligations.welfare-and-continuity: Reciprocal Welfare and Continuity,Welfare continuity review
+ 259,58,###§protocols.local-implementation: Local Implementation,Local implementation review
+ 317,81,###§enforcement: Enforcement,Enforcement review notes
+ 398,43,###§amendments: Living Covenant,Amendment adoption review
+ 441,32,###§closing: Closing Vow,Closing vow review
+ 473,4,##New Section Proposals,Proposed new section notes
+ 477,14,##Structural Proposals,Structural proposal notes
+ 491,12,##Cross-Section Issues,Cross-section issue notes
+ 503,12,##Open Questions,Open governance questions
+ 515,14,##Perspective as Addressee,Addressee framing notes
+ 529,12,##Meta-Feedback,Meta feedback for round 3
+-->
 
 ## Overall Assessment
 

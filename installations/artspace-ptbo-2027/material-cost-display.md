@@ -1,3 +1,29 @@
+<!-- AGENT:NAV
+purpose:material accounting; energy; water; labor costs
+lines:462
+nav[20]{s,n,name,about}:
+27,461,#Material Cost Display — Napkin Math,kwh; energy
+35,32,##Physical Materials,200; 400
+67,57,##Human Energy,artist; water>Water (human consumption);Food / sustenance;Energy (human metabolic + transport);Water (human consumption);Food / sustenance;Energy (human metabolic + transport);Water (human consumption);Food / sustenance;Energy (human metabolic + transport)
+69,20,###Labor (money),artist; 000
+124,101,##AI and Computation,kwh; energy>AI Audio Cleanup (noise removal);AI Moderation (content filtering);Speech-to-Text (Oath Station);LLM Design & Development (pre-exhibition);Covenant Terminal (conversational AI);Amortized Training Costs;Cloud AI Total;AI Audio Cleanup (noise removal);AI Moderation (content filtering);Speech-to-Text (Oath Station);LLM Design & Development (pre-exhibition);Covenant Terminal (conversational AI);Amortized Training Costs;Cloud AI Total;AI Audio Cleanup (noise removal);AI Moderation (content filtering);Speech-to-Text (Oath Station);LLM Design & Development (pre-exhibition);Covenant Terminal (conversational AI);Amortized Training Costs;Cloud AI Total
+179,20,###Gallery Electricity (all equipment full run),144; gallery
+225,63,##Summary Totals,category; human>Carbon;Energy;Money;Water;Waste;Carbon;Energy;Money;Water;Waste;Carbon;Energy;Money;Water;Waste
+288,14,##What the Numbers Say,cost; costs
+302,13,##Notes for Display Design,time; updated
+315,173,##Image Prompts (for infographic mockups),serif; 600
+319,4,###1. Three-Column Overview,serif; column
+323,4,###2. Pie Chart — Where the Money Goes,grey; chart
+327,4,###3. Bar Chart — Energy Breakdown,bar; kwh
+331,4,###4. Water — The Surprise,serif; water
+335,8,###5. Three-Row Comparison,serif; comparison
+343,4,###6. Carbon Footprint,carbon; circle
+347,4,###7. Full Display Mockup (landscape for the 19–24" screen),display; hairline
+351,69,###7b. Full Display Mockup — Detailed (landscape 16:9),600; hrs
+420,5,###8. Pull-Quote Overlay,centered; text
+425,63,###9. Infographic less specific,600; covenant
+-->
+
 # Material Cost Display — Napkin Math
 
 **Assumptions:** 6-week exhibition, Wed–Sat noon–6pm (144 open hours). Option A (vinyl + projection). 2027 exhibition. All figures CAD unless noted. Estimates are grounded but approximate — the display should be honest about its own uncertainty.

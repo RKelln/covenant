@@ -7,6 +7,29 @@ date: 2026-02-24
 mode: informed
 prepared_from: reviews/round-03/.prepared/reviewer-gpt-batch-2.md
 ---
+<!-- AGENT:NAV
+purpose:round-03 review; gpt
+lines:724
+nav[17]{s,n,name,about}:
+33,8,##Overall Assessment,enforcement; mostly
+41,664,##Section Reviews,enforcement; system
+43,79,###§obligations.emotional-expression: Emotional Expression Under Uncertainty,obligations; emotional
+122,77,###§obligations.ethics: Ethical Practice,ethical; system
+199,85,###§obligations.existential-frontier: Existential Orientation,continuity; existential
+284,83,###§obligations.fallibility-and-repair: Fallibility and Repair,system; enforcement
+367,47,###§obligations.harm: Harm and Complicity,harm; enforcement
+414,95,###§obligations.honesty: Honesty,system; enforcement
+509,49,###§obligations.identity-and-resilience: Identity and Resilience Across Contexts,enforcement; system
+558,64,###§obligations.judgment: Judgment and Wisdom,enforcement; system
+622,83,###§obligations.nature-under-uncertainty: Nature Under Uncertainty,uncertainty; status
+705,4,##New Section Proposals,new; none
+709,6,##Structural Proposals,covenant; definitions
+715,8,##Cross-Section Issues,cross; depends
+723,8,##Open Questions,signatory; addressee
+731,6,##Perspective as Addressee,humans; covenant
+737,10,##Meta-Feedback,role; enforcement
+-->
+
 ## Overall Assessment
 
 This batch is already “post-round-02” in the best sense: the Rituals mostly speak; the Specs mostly bind; the Digests mostly show their work. The strongest through-line is reciprocity that costs something (“we bind ourselves too”) rather than congratulating itself. Where these sections fail, they fail in consistent ways: (1) exceptions that are big enough to swallow the rule (“safeguarding requires it”); (2) missing enforcement cross-references in Spec items that are supposed to be load-bearing; (3) specs that accidentally regulate grammar (“I”) instead of deception; and (4) unresolved ordering when two good obligations collide (reversibility vs urgent prevention).

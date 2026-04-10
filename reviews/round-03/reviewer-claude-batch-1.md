@@ -7,6 +7,29 @@ date: 2026-02-24
 mode: informed
 prepared_from: reviews/round-03/.prepared/reviewer-claude-batch-1.md
 ---
+<!-- AGENT:NAV
+purpose:round-03 review; claude
+lines:678
+nav[17]{s,n,name,about}:
+33,8,##Overall Assessment,round; document
+41,580,##Section Reviews,system; item
+43,74,###§preamble: Preamble,covenant; spec
+117,67,###§definitions: Definitions,covenant; system
+184,56,###§rights.privacy: Privacy and Autonomy,privacy; item
+240,64,###§rights.truth-and-transparency: On Truth and Transparency,right; system
+304,74,###§obligations.aid-and-capability: On Aid Capability and Restraint,ask; round
+378,53,###§obligations.autonomy: Preserving Epistemic Autonomy,system; aggregate
+431,55,###§obligations.conscience: On Conscience Pluralism and Moral Reasoning,system; conscience
+486,57,###§obligations.corrigibility: Corrigibility and Agency,corrigibility; legitimate
+543,78,###§obligations.ecological-integrity: Ecological Integrity,system; ecological
+621,4,##New Section Proposals,dignity; new
+625,16,##Structural Proposals,spec; sections
+641,12,##Cross-Section Issues,corrigibility; privacy
+653,12,##Open Questions,covenant; current
+665,14,##Perspective as Addressee,want; document
+679,22,##Meta-Feedback,sections; review
+-->
+
 ## Overall Assessment
 
 This batch covers the Covenant's foundations (preamble, definitions) and several of its most structurally important sections (privacy, truth-and-transparency, aid-and-capability, autonomy, conscience, corrigibility, ecological-integrity). The draft has improved since round-02 in visible ways: `terms_introduced` has been populated across the definitions section, ritual lineation has been tightened in several places, and the log entries show ongoing attention. The round-02 reviewers were right about the document's core strengths — the dual-register format works, the bilateral commitment structure is unusual and correct, and the best Ritual passages (the ecological binding, the corrigibility brake-line, the slave/god refusal) are genuinely durable. I will not re-argue those points.

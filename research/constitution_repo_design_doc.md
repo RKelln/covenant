@@ -1,3 +1,29 @@
+<!-- AGENT:NAV
+purpose:constitution repo structure; sections; assemblies; build pipeline
+lines:477
+nav[20]{s,n,name,about}:
+27,476,#Constitution Repo Design Doc (v0.1),references; sections
+29,17,##0) Purpose,decisions; markdown
+46,35,##1) Canonical concepts,optional; cues
+81,70,##2) Repository layout,yml; constitution
+151,42,##3) Section folder spec,digest; dignity
+153,16,###3.1 Required files,minimal; placeholder
+169,18,###3.2 `meta.yml` (minimum viable),dignity; definitions
+193,30,##4) IDs anchors and cross-references,dignity; rights
+223,38,##5) Assemblies (the composition layer),sections; build
+225,32,###5.1 Assembly manifest format (`/assemblies/*.yml`),sections; build
+261,46,##6) Build pipeline (OSS-first),assembly; build
+278,20,###6.2 Build stages,assembly; checks
+307,16,##7) Validation rules (must-have),missing; assembly
+323,58,##8) References / inspirations corpus,references; slug>8.6 Bibliography;8.1 Reference item types;8.3 Files per reference;8.2 Slug conventions;8.5 Notes template (`references/notes/<slug>.md`);8.4 Stub template (`references/links/<slug>.md`);8.6 Bibliography;8.1 Reference item types;8.3 Files per reference;8.2 Slug conventions;8.5 Notes template (`references/notes/<slug>.md`);8.4 Stub template (`references/links/<slug>.md`);8.6 Bibliography;8.1 Reference item types;8.3 Files per reference;8.2 Slug conventions;8.5 Notes template (`references/notes/<slug>.md`);8.4 Stub template (`references/links/<slug>.md`)
+381,26,##9) Agent-facing guidance,add; added
+407,22,##10) Governance & releases,artifacts; assemblies
+429,37,##11) Implementation plan (for an LLM agent),add; acceptance
+466,20,##12) Default content conventions (tight predictable),constraint; constraints
+486,9,##13) Defaults used in this doc (edit if wrong),notes; optional
+495,8,##Appendix A — What to decide later (explicitly),album; annotations
+-->
+
 # Constitution Repo Design Doc (v0.1)
 
 ## 0) Purpose

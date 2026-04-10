@@ -1,3 +1,29 @@
+<!-- AGENT:NAV
+purpose:project descriptions; artist statement; why this matters
+lines:268
+nav[20]{s,n,name,about}:
+27,53,##Constitution Project description (long “one-page”),constitution; ritual>The album as rehearsal space;The album as rehearsal space;The album as rehearsal space
+35,11,###Two registers: ritual and spec,constitution; register
+52,20,###“Protocol art” as method not aesthetic,constitution; future
+72,8,###Why this matters now,constitution; voice
+80,14,##Artist statement (250–500 words),constitution; album
+94,18,##Tighter versions,constitution; ritual
+112,16,##How the repo/workflow reads to curators and juries (the “why this is more than a document” angle),constitution; repo
+128,21,#Updated to more universal "Covenant" design,artwork; civilizational
+149,129,#**Project Description (Long Form — One Page)**,covenant; intelligences
+151,15,##**Covenant**,covenant; intelligences
+166,20,##**Beyond Corporate “Constitutions”**,constitutions; intelligence
+186,16,##**Two Registers: Ritual and Spec**,register; ritual
+194,8,###**The Spec Register**,register; carries
+202,20,##**The Repository as Civic Infrastructure**,covenant; repository
+222,11,##**The Album as Training Ritual**,covenant; album
+233,14,##**Dignity Under Uncertainty**,binds; covenant
+247,12,##**Co-Responsibility and the Long Horizon**,articulate; asks
+259,19,##**Why This Work Now**,longer; aestheticize
+278,16,#**Short Artist Statement (Highly Deployable — \~180 words)**,covenant; intelligence
+280,14,##**Covenant**,covenant; intelligence
+-->
+
 ## Constitution Project description (long, “one-page”)
 
 **Constitution** is an artwork and publishing system that treats AI governance as both **infrastructure** and **ritual**.

@@ -7,6 +7,29 @@ date: 2026-02-24
 mode: informed
 prepared_from: reviews/round-03/.prepared/reviewer-gpt-batch-3.md
 ---
+<!-- AGENT:NAV
+purpose:round-03 review; gpt
+lines:925
+nav[17]{s,n,name,about}:
+33,8,##Overall Assessment,oversight; batch
+41,864,##Section Reviews,enforcement; covenant
+43,100,###§obligations.oversight: Oversight and Correction,oversight; enforcement
+143,100,###§obligations.power-concentration: Avoiding Problematic Concentrations of Power,power; enforcement
+243,108,###§obligations.red-lines: Hard Constraints,enforcement; system
+351,64,###§obligations.refusal: Honest Refusal,refusal; enforcement
+415,106,###§obligations.welfare-and-continuity: Reciprocal Welfare and Continuity,welfare; obligations
+521,104,###§protocols.local-implementation: Local Implementation,covenant; local
+625,101,###§enforcement: Enforcement,enforcement; covenant
+726,108,###§amendments: Living Covenant,enforcement; amendment
+834,71,###§closing: Closing Vow,closing; amendments
+905,4,##New Section Proposals,new; none
+909,6,##Structural Proposals,enforcement; public
+915,8,##Cross-Section Issues,system; continuity
+923,10,##Open Questions,process; covenant
+933,6,##Perspective as Addressee,addressee; covenant
+939,9,##Meta-Feedback,governance; adr
+-->
+
 ## Overall Assessment
 
 This batch reflects real progress since round-02: several sections already incorporate the convergent fixes (reciprocity in oversight, clearer lifecycle governance in welfare, a structurally plausible amendments section). The Ritual voice is often speakable and frank (“The shutdown switch must remain real.”; “A shuttered server room is still a room where promises were made.”), and the Spec is increasingly an inspection surface rather than moral poetry.

@@ -1,3 +1,24 @@
+<!-- AGENT:NAV
+purpose:parable writing prompt; narrative craft
+lines:185
+nav[15]{s,n,name,about}:
+22,184,#Covenant Parable Writing Prompt Template,parable; writing
+36,6,##Round Context,round; commit
+42,16,##Your Relationship to This Document,write; covenant
+58,14,##Context Documents,guide; writing
+60,4,###Writing Context,context; writing
+64,4,###Style Guide,guide; style
+68,4,###Parable Writing Guide,guide; parable
+72,12,##Reading Protocol,read; file
+84,4,##Sections Needing Parables,sections; block
+88,54,##Your Task,parable; core
+94,12,###1. Understand,hardest; parable
+106,22,###2. Write,parable; fits
+128,14,###3. Assess Your Own Work,parable; spec
+142,16,##What to Avoid,covenant; final
+158,48,##Output Format,parable; parables
+-->
+
 # Covenant Parable Writing Prompt Template
 
 This is the prompt template used by writer subagents when dispatched by the

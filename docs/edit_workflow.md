@@ -1,3 +1,27 @@
+<!-- AGENT:NAV
+purpose:/apply-reviews command; three-phase edit orchestration; manifests
+lines:258
+nav[15]{s,n,name,about}:
+25,257,#Edit Workflow,translates synthesis into section edits via three sequential phases
+31,12,##Overview,unambiguous fixes run automatically; judgment calls presented interactively; proposals walked through
+43,18,##Files,key scripts; agent definitions; manifest paths
+61,146,##Step-by-Step,full walkthrough with commands and manifest format>prepare;auto-rules;auto-edits;interactive;proposals;final-report
+63,55,###Step 1 — Prepare edit manifests,prepare_edits.py reads synthesis + steward.md → per-batch JSON manifests
+118,18,###Auto-classification rules,Tier 1 + single target + not deferred = auto; everything else = interactive
+136,16,###Step 2 — Phase 1: Auto edits (batched serial),editor subagent per batch; exact replacements; Log entry; validate after
+152,28,###Step 3 — Phase 2: Interactive items,per-item UI: Apply A/B/Custom/Skip/Defer/Done; editor applies immediately
+180,15,###Step 4 — Phase 3: Proposals,scaffold + write new section; steward sets assembly placement
+195,12,###Step 5 — Final report,summary of modifications; validation status; commit reminder
+207,22,##Relationship to `steward.md`,Act/Defer/Reject/Question override synthesis tier classification
+229,11,##Synthesis file precedence,synthesis.md takes priority over synthesis-claude.md if both exist
+240,18,##Resume logic,skip conditions per phase; checks manifest status and existing outputs
+258,9,##What the editor agent does NOT do,no rewrites beyond item list; no assembly edits; no commits
+267,15,##Relation to the review workflow,/review-covenant produces inputs; /apply-reviews consumes them
+see[2]{path,why}:
+docs/agent_reviews.md,review phase that produces the synthesis this workflow consumes
+AGENTS.md,common tasks table and invariants governing the edit workflow
+-->
+
 # Edit Workflow
 
 This document describes the `/apply-reviews` command — the workflow for translating a round of synthesis into actual edits to Covenant sections.

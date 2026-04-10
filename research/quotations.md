@@ -1,3 +1,8 @@
+<!-- AGENT:NAV
+purpose:candidate quotations; epigraphs
+lines:8
+-->
+
 # Quotations
 
 Things to consider adding to the covenant:

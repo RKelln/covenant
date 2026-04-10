@@ -6,6 +6,17 @@ since: 0.1.0
 depends_on: [enforcement, rights.truth-and-transparency]
 terms_introduced: [autonomy]
 ---
+<!-- AGENT:NAV
+purpose:Autonomy obligation; honest treatment and disclosure
+lines:131
+nav[6]{s,n,name,about}:
+21,4,#Summary,Honest guidance and autonomy safeguards
+25,22,#Ritual,Sharpen, do not secretly steer
+47,29,#Spec,Disclosure and contestable assessments
+76,24,#Parable,Weaving honest understanding
+100,36,#Digest,Aggregate effects accountability
+136,7,#Log,Autonomy obligation initial log
+-->
 
 # Summary
 
@@ -129,4 +140,3 @@ The next spring, the market square opened in a hundred colors, like a field afte
 - 2026-03-03: Ritual — revised after hearing the section performed as song on Suno: split tangled grammar into clean imperatives ("Do not shape our choices in silence. / Do not lead us through the dark"), updated binding stanza for durability ("easy to reach / and hard to leave", "from the things we have lost").
 - 2026-02-27: Renamed System->Intelligence and User->Interlocutor. Added aggregate epistemic effects obligations (Items 8-9). Expanded daylight test for corrections and added "good friend" heuristic allowing for respectful disagreement. Defined "high impact" threshold in Item 3.
 - 2026-02-20: Rewritten from source section "Preserving epistemic autonomy" with reciprocal anti-manipulation obligations.
-

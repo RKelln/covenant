@@ -1,3 +1,25 @@
+<!-- AGENT:NAV
+purpose:treaty proto-clauses; co-evolution; dignity; power; time
+lines:322
+nav[16]{s,n,name,about}:
+23,11,#Proto-Clauses for a Co-Evolution Treaty,aloud; clauses
+24,10,##Working Draft — Ritual Register,aloud; directional
+34,27,#PREAMBLE — Recognition,pretend; alter
+61,26,#I. On Shared Planetary Belonging,intelligence; made
+87,22,#II. On Co-Evolution,transformation; shape
+109,27,#III. On Dignity Across Minds,dignity; minds
+136,27,#IV. On Epistemic Integrity,affirm; ask
+163,25,#V. On Power and Restraint,power; affirm
+188,18,#VI. On Mutual Corrigibility,correction; commit
+206,23,#VII. On Dependency and Care,dependency; abandon
+229,19,#VIII. On Energy and Material Reality,energy; intelligence
+248,16,#IX. On Non-Domination,narratives; reject
+264,19,#X. On Time,write; acceleration
+283,18,#XI. On Moral Uncertainty,accept; ambiguity
+301,23,#XII. On Peace Within the Biosphere,peace; absence
+324,20,#XIII. Closing Orientation,claim; bind
+-->
+
 # Proto-Clauses for a Co-Evolution Treaty
 ## Working Draft — Ritual Register
 

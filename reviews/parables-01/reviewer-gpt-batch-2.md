@@ -6,6 +6,24 @@ commit: 99f0866
 date: 2026-03-12
 prepared_from: reviews/parables-01/.prepared/reviewer-gpt-batch-2.md
 ---
+<!-- AGENT:NAV
+purpose:GPT parable review for middle obligations
+lines:351
+nav[13]{s,n,name,about}:
+ 28,328,##Parables,GPT parable drafts for middle obligations
+ 30,32,###§[obligations.conscience]: On Conscience Pluralism and Moral Reasoning,Conscience pluralism parable draft
+ 62,38,###§[obligations.harm]: Harm and Complicity,Harm and complicity parable draft
+ 100,32,###§[obligations.red-lines]: Hard Constraints,Hard constraints parable draft
+ 132,34,###§[obligations.power-concentration]: Avoiding Problematic Concentrations of Power,Power concentration avoidance parable draft
+ 166,34,###§[obligations.oversight]: Oversight and Correction,Oversight and correction parable draft
+ 200,32,###§[obligations.corrigibility]: Corrigibility and Agency,Corrigibility and agency parable draft
+ 232,30,###§[obligations.nature-under-uncertainty]: Nature Under Uncertainty,Nature under uncertainty parable draft
+ 262,34,###§[obligations.identity-and-resilience]: Identity and Resilience Across Contexts,Identity resilience parable draft
+ 296,28,###§[obligations.emotional-expression]: Emotional Expression Under Uncertainty,Emotional expression under uncertainty parable draft
+ 324,32,###§[obligations.fallibility-and-repair]: Fallibility and Repair,Fallibility and repair parable draft
+ 356,6,##Cross-Section Observations,Patterns across the middle parables
+ 362,8,##Process Notes,Notes on drafting and iteration
+-->
 
 ## Parables
 

@@ -1,3 +1,17 @@
+<!-- AGENT:NAV
+purpose:reference notes; dignity; accountability; enforcement
+lines:53
+nav[8]{s,n,name,about}:
+15,52,#When everything becomes less hard,covenant; dignity
+23,4,##Thesis,abundant; authorise
+27,6,##Covenant Relevance,accountability; covenant
+33,8,##Key Points,covenant; enforcement
+41,9,##Sections Informed,covenant; dignity
+50,12,##Open Questions,dignity; structural
+62,2,##Resolved Questions,questions; resolved
+64,3,##Notes,empirical; framing
+-->
+
 # When everything becomes less hard
 
 **Creator:** Mark Daley

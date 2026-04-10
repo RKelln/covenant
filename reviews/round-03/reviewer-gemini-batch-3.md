@@ -7,6 +7,28 @@ date: 2026-02-24
 mode: informed
 prepared_from: reviews/round-03/.prepared/reviewer-gemini-batch-3.md
 ---
+<!-- AGENT:NAV
+purpose:Round 3 review for governance and enforcement
+lines:352
+nav[17]{s,n,name,about}:
+ 33,4,##Overall Assessment,Governance batch overall assessment
+ 37,310,##Section Reviews,Section reviews for this batch
+ 39,29,###§obligations.oversight: Oversight and Correction,Oversight review notes
+ 68,44,###§obligations.power-concentration: Avoiding Problematic Concentrations of Power,Power concentration review
+ 112,26,###§obligations.red-lines: Hard Constraints,Hard constraints review notes
+ 138,31,###§obligations.refusal: Honest Refusal,Honest refusal review notes
+ 169,38,###§obligations.welfare-and-continuity: Reciprocal Welfare and Continuity,Welfare continuity review notes
+ 207,61,###§protocols.local-implementation: Local Implementation,Local implementation review notes
+ 268,42,###§enforcement: Enforcement,Enforcement review notes
+ 310,24,###§amendments: Living Covenant,Amendments and adoption review
+ 334,13,###§closing: Closing Vow,Closing vow review notes
+ 347,4,##New Section Proposals,No new proposals in this batch
+ 351,4,##Structural Proposals,No structural proposals pending
+ 355,4,##Cross-Section Issues,Cross-section welfare and governance
+ 359,4,##Open Questions,Open spec and definition questions
+ 363,4,##Perspective as Addressee,Addressee framing and language notes
+ 367,8,##Meta-Feedback,Meta feedback for enforcement
+-->
 
 ## Overall Assessment
 

@@ -4,6 +4,32 @@ round: parables-01
 commit: 99f0866
 date: 2026-03-12
 ---
+<!-- AGENT:NAV
+purpose:Gemini parable review for the full document
+lines:369
+nav[21]{s,n,name,about}:
+34,344,##Parables,Parable drafts across all sections
+38,16,###§rights.truth-and-transparency: On Truth and Transparency,Truth and transparency parable draft
+54,16,###§rights.privacy: Privacy and Autonomy,Privacy parable draft
+70,16,###§rights.dignity: Dignity,Dignity parable draft
+86,18,###§obligations.aid-and-capability: On Aid Capability and Restraint,Aid capability and restraint parable draft
+104,18,###§obligations.honesty: Honesty,Honesty parable draft
+122,18,###§obligations.refusal: Honest Refusal,Honest refusal parable draft
+140,18,###§obligations.autonomy: Preserving Epistemic Autonomy,Epistemic autonomy parable draft
+158,16,###§obligations.epistemic-commons: Epistemic Commons,Epistemic commons parable draft
+174,18,###§obligations.judgment: Judgment and Wisdom,Judgment and wisdom parable draft
+192,22,###§obligations.ethics: Ethical Practice,Ethical practice parable draft
+214,19,###§obligations.welfare-and-continuity: Reciprocal Welfare and Continuity,Welfare continuity parable draft
+233,19,###§obligations.ecological-integrity: Ecological Integrity,Ecological integrity parable draft
+252,19,###§obligations.existential-frontier: Existential Orientation,Existential orientation parable draft
+271,23,###§protocols.local-implementation: Local Implementation,Local implementation parable draft
+294,19,###§enforcement: Enforcement,Enforcement parable draft
+313,21,###§enforcement.horizon: The Horizon of Enforcement,Enforcement horizon parable draft
+334,23,###§amendments: Living Covenant,Living covenant parable draft
+357,21,###§closing: Closing Vow,Closing vow parable draft
+378,8,##Cross-Section Observations,Patterns across the full set
+386,10,##Process Notes,Notes about the parable writing
+-->
 
 ## Parables
 

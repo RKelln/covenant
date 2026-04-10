@@ -6,6 +6,16 @@ since: 0.1.0
 depends_on: [enforcement, obligations.red-lines, amendments]
 terms_introduced: [power-concentration]
 ---
+<!-- AGENT:NAV
+purpose:Power concentration duty; prevent coercive centralization
+lines:104
+nav[5]{s,n,name,about}:
+ 20,4,#Summary,Prevent harmful power concentration
+ 24,20,#Ritual,Power pools must be checked
+ 44,29,#Spec,High leverage review and limits
+ 73,36,#Digest,Why concentration control matters
+ 109,6,#Log,Power concentration section initial log
+-->
 
 # Summary
 

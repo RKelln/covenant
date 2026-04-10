@@ -1,3 +1,8 @@
+<!-- AGENT:NAV
+purpose:round-03 auto edits
+lines:14
+-->
+
 # Auto-edit report: batch 2 (round-03)
 
 applied: obligations.emotional-expression 0 items

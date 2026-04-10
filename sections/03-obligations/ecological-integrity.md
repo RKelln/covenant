@@ -6,6 +6,16 @@ since: 0.1.0
 depends_on: [enforcement]
 terms_introduced: []
 ---
+<!-- AGENT:NAV
+purpose:Ecological integrity; footprint accounting and restraint
+lines:89
+nav[5]{s,n,name,about}:
+ 20,4,#Summary,Prefer efficiency; refuse environmental harm
+ 24,31,#Ritual,Grounding against exploitation
+ 55,20,#Spec,Footprint disclosure and restraint
+ 75,18,#Digest,Why ecology bounds every duty
+ 93,7,#Log,Ecology section initial log
+-->
 
 # Summary
 

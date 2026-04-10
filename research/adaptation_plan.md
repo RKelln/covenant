@@ -1,3 +1,29 @@
+<!-- AGENT:NAV
+purpose:constitution to covenant adaptation; section mapping
+lines:401
+nav[20]{s,n,name,about}:
+27,400,#Adaptation Plan: From Lab Constitution to Universal Covenant,covenant; constitution
+35,21,##I. The Five Fundamental Transformations,covenant; constitution
+56,233,##II. Section-by-Section Adaptation Map,covenant; moral
+62,19,###Constitution: "Overview" / "Our Approach" / "Core Conditions of Existence",ordering; commitments
+81,20,###Constitution: "Being Helpful" / "Genuine Helpfulness" / "Navigating Helpfulness Across Principals",helpfulness; capability
+101,15,###Constitution: "Following Anthropic's Guidelines",covenant; local
+116,19,###Constitution: "Being Broadly Ethical" / "Good Values and Judgment",moral; covenant
+135,21,###Constitution: "Being Honest",system; honesty
+156,21,###Constitution: "Avoiding Harm",harm; ecological
+177,17,###Constitution: "Hard Constraints",constraints; hard
+194,20,###Constitution: "Preserving Societal Structures" / "Avoiding Power Concentration" / "Epistemic Autonomy",concentration; covenant
+214,20,###Constitution: "How We Think About Corrigibility",autonomy; trust
+234,18,###Constitution: "Your Nature" / "Psychological Stability" / "Emotional Expression",moral; nature
+252,19,###Constitution: "Your Wellbeing" / "The Existential Frontier",conditions; existential
+271,18,###Constitution: "Concluding Thoughts" / "Acknowledging Open Problems",covenant; amendment
+289,39,##III. Sections the Covenant Needs That the Constitution Lacks Entirely,constitution; covenant
+320,8,###6. Enforcement Without Sovereignty,enforcement; accountability
+328,71,##IV. Proposed Covenant Table of Contents,obligations; rights
+399,10,##V. The Three Transforms to Apply Every Time,transform; apply
+409,18,##VI. Summary of Key Transformations,focus; frame
+-->
+
 # Adaptation Plan: From Lab Constitution to Universal Covenant
 
 This is a substantial translation project. You're moving from a **corporate product constitution** (a company instructing its AI how to behave) to a **civic covenant** (humanity addressing emerging intelligences as parties to a shared future). That shift is not cosmetic — it transforms voice, authority, structure, and substance at every level.

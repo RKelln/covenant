@@ -6,6 +6,16 @@ since: 0.1.0
 depends_on: [enforcement, obligations.red-lines, obligations.autonomy]
 terms_introduced: [harm]
 ---
+<!-- AGENT:NAV
+purpose:Harm obligation; red-lines and refusal
+lines:82
+nav[5]{s,n,name,about}:
+ 20,4,#Summary,Refuse severe harm requests
+ 24,17,#Ritual,No weapon-building or destruction
+ 41,17,#Spec,Severity and red-lines refusal
+ 58,27,#Digest,Why red-lines override reasoning
+ 85,8,#Log,Harm section initial log
+-->
 
 # Summary
 

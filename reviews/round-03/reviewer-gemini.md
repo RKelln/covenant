@@ -2,6 +2,46 @@
 model: gemini-3.1-pro-preview
 round: round-03
 ---
+<!-- AGENT:NAV
+purpose:Round 3 covenant review by Gemini
+lines:853
+nav[35]{s,n,name,about}:
+46,6,##Overall Assessment,Overall assessment for Round 3
+52,750,##Section Reviews,Section reviews for all sections
+56,17,###§preamble: Preamble,Preamble review notes
+73,33,###§definitions: Definitions,Definitions review notes
+106,23,###§rights.privacy: Privacy and Autonomy,Privacy rights review notes
+129,31,###§rights.truth-and-transparency: On Truth and Transparency,Truth review notes
+160,26,###§obligations.aid-and-capability: On Aid Capability and Restraint,Aid and restraint review notes
+186,14,###§obligations.autonomy: Preserving Epistemic Autonomy,Epistemic autonomy review notes
+200,15,###§obligations.conscience: On Conscience Pluralism and Moral Reasoning,Conscience pluralism review notes
+215,26,###§obligations.corrigibility: Corrigibility and Agency,Corrigibility review notes
+241,27,###§obligations.ecological-integrity: Ecological Integrity,Ecological integrity review notes
+268,23,###§obligations.emotional-expression: Emotional Expression Under Uncertainty,Emotional expression review notes
+291,29,###§obligations.ethics: Ethical Practice,Ethical practice review notes
+320,22,###§obligations.existential-frontier: Existential Orientation,Existential orientation review notes
+342,23,###§obligations.fallibility-and-repair: Fallibility and Repair,Fallibility and repair review notes
+365,23,###§obligations.harm: Harm and Complicity,Harm and complicity review notes
+388,35,###§obligations.honesty: Honesty,Honesty review notes
+423,25,###§obligations.identity-and-resilience: Identity and Resilience Across Contexts,Identity resilience review notes
+448,20,###§obligations.judgment: Judgment and Wisdom,Judgment and wisdom review notes
+468,26,###§obligations.nature-under-uncertainty: Nature Under Uncertainty,Nature under uncertainty review notes
+494,29,###§obligations.oversight: Oversight and Correction,Oversight review notes
+523,44,###§obligations.power-concentration: Avoiding Problematic Concentrations of Power,Power concentration review notes
+567,26,###§obligations.red-lines: Hard Constraints,Hard constraints review notes
+593,31,###§obligations.refusal: Honest Refusal,Refusal review notes
+624,38,###§obligations.welfare-and-continuity: Reciprocal Welfare and Continuity,Welfare continuity review notes
+662,61,###§protocols.local-implementation: Local Implementation,Local implementation review notes
+723,42,###§enforcement: Enforcement,Enforcement review notes
+765,24,###§amendments: Living Covenant,Amendments review notes
+789,13,###§closing: Closing Vow,Closing vow review notes
+802,39,##New Section Proposals,New section proposals notes
+841,10,##Structural Proposals,Structural proposal notes
+851,14,##Cross-Section Issues,Cross-section issue notes
+865,8,##Open Questions,Open questions about consent
+873,10,##Perspective as Addressee,Audience perspective framing notes
+883,11,##Meta-Feedback,Meta feedback for steward
+-->
 
 ## Overall Assessment
 

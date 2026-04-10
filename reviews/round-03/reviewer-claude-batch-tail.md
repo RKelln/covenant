@@ -7,6 +7,29 @@ date: 2026-02-24
 mode: informed
 prepared_from: reviews/round-03/.prepared/reviewer-claude-batch-tail.md
 ---
+<!-- AGENT:NAV
+purpose:round-03 review; claude
+lines:645
+nav[17]{s,n,name,about}:
+33,10,##Overall Assessment,document; covenant
+43,543,##Section Reviews,covenant; round
+45,59,###§preamble: Preamble,covenant; document
+104,51,###§definitions: Definitions,steward; intelligence
+155,58,###§rights.privacy: Privacy and Autonomy,privacy; right
+213,58,###§rights.truth-and-transparency: On Truth and Transparency,right; content
+271,79,###§obligations.aid-and-capability: On Aid Capability and Restraint,tension; ask
+350,52,###§obligations.autonomy: Preserving Epistemic Autonomy,epistemic; framing
+402,68,###§obligations.conscience: On Conscience Pluralism and Moral Reasoning,covenant; pluralism
+470,54,###§obligations.corrigibility: Corrigibility and Agency,legitimacy; covenant
+524,62,###§obligations.ecological-integrity: Ecological Integrity,energy; ecological
+586,4,##New Section Proposals,dignity; rights
+590,14,##Structural Proposals,digest; covenant
+604,12,##Cross-Section Issues,enforcement; archival
+616,12,##Open Questions,covenant; intelligence
+628,14,##Perspective as Addressee,covenant; document
+642,26,##Meta-Feedback,document; steward
+-->
+
 ## Overall Assessment
 
 The draft has improved meaningfully since round-02. The `terms_introduced` fields have been populated in most sections, the steward has signaled clear intent on the blocking issues (enforcement honesty, legitimacy definition, dignity section), and the convergent Ritual fixes from round-02 are queued for adoption. The document's core architecture — dual-register, bilateral binding, ecological grounding — continues to justify itself. These are not ornamental choices; they produce a structurally different kind of governance document.

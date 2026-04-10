@@ -1,3 +1,8 @@
+<!-- AGENT:NAV
+purpose:commit message template; round references
+lines:40
+-->
+
 # Review Commit Message Template
 
 This template is used by the `/review-covenant` orchestrator to generate a

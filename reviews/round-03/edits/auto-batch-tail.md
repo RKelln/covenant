@@ -1,3 +1,8 @@
+<!-- AGENT:NAV
+purpose:round-03 auto edits
+lines:14
+-->
+
 # Auto-Batch Tail Report
 
 Batch: tail

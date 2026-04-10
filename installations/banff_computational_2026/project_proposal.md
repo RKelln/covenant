@@ -1,3 +1,8 @@
+<!-- AGENT:NAV
+purpose:covenant at banff; computational writing
+lines:15
+-->
+
 Covenant is an experimental work of constitutional writing that explores what it might mean to draft a new agreement between humanity and emerging machine intelligences.
 
 As AI systems grow more capable, societies are beginning to ask what forms of responsibility and governance might guide relationships between humans and the systems we create. Covenant approaches this question not as policy analysis but as a literary and computational experiment: a collaboratively written constitution addressed to intelligences whose future capacities remain uncertain.

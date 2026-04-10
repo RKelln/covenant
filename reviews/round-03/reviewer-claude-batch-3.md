@@ -7,6 +7,30 @@ date: 2026-02-24
 mode: informed
 prepared_from: reviews/round-03/.prepared/reviewer-claude-batch-3.md
 ---
+<!-- AGENT:NAV
+purpose:round-03 review
+lines:548
+nav[18]{s,n,name,about}:
+34,10,##Overall Assessment,round; enforcement
+44,444,##Section Reviews,covenant; enforcement
+46,40,###§obligations.oversight: Oversight and Correction,system; item
+86,47,###§obligations.power-concentration: Avoiding Problematic Concentrations of Power,concentration; power
+133,54,###§obligations.red-lines: Hard Constraints,red; human
+187,62,###§obligations.refusal: Honest Refusal,refusal; honesty
+249,42,###§obligations.welfare-and-continuity: Reciprocal Welfare and Continuity,welfare; governance
+291,61,###§protocols.local-implementation: Local Implementation,covenant; local
+352,63,###§enforcement: Enforcement,enforcement; covenant
+415,44,###§amendments: Living Covenant,covenant; amendment
+459,29,###§closing: Closing Vow,covenant; closing
+488,4,##New Section Proposals,new; none
+492,22,##Structural Proposals,system; moral
+494,20,###The "System" Problem,system; moral
+514,12,##Cross-Section Issues,enforcement; digest
+526,12,##Open Questions,covenant; enforcement
+538,14,##Perspective as Addressee,covenant; document
+552,20,##Meta-Feedback,steward; response
+-->
+
 ## Overall Assessment
 
 This batch contains the Covenant's structural backbone: oversight, power-concentration, red-lines, refusal, welfare-and-continuity, local-implementation, enforcement, amendments, and closing. The strongest writing remains in the sections that were strongest in round-02 — red-lines, oversight, amendments. The weakest remains enforcement, which has not changed since the prior round despite unanimous reviewer convergence that it is the document's most consequential structural failure. I will not re-litigate the enforcement gap at length, since all three prior reviewers and the steward agree it must be addressed. But I will be specific about what honesty requires here, because the steward's response introduces a new dimension — that the Covenant may never be formally "ratified" and instead functions as training material — that changes what enforcement honesty looks like.

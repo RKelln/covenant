@@ -1,3 +1,22 @@
+<!-- AGENT:NAV
+ purpose:terminal architecture; kiosk interface; platform abstraction; agent provider adapters
+ lines:83
+ nav[13]{s,n,name,about}:
+ 20,82,#ADR 0005: Terminal Architecture,desktop terminal for reading and amendment workflows
+ 22,4,##Status,accepted architectural decisions
+ 26,18,##Context,reading kiosks plus contributor interface requirements
+ 44,42,##Decision,repo placement; stack; portability boundaries
+ 46,4,###The Terminal lives inside the Covenant repo,terminal/ lives in the main repo for shared tooling
+ 50,8,###Stack: Tauri 2.x + Svelte 5 + Vite + TypeScript,tauri shell with svelte UI and TS type safety
+ 58,9,###Platform abstraction layer,Platform interface isolates tauri and web behavior
+ 67,4,###SvelteKit migration path,web deployment path without changing core modules
+ 71,4,###AI provider abstraction,AgentProvider adapters stream model output
+ 75,7,###Testing: Vitest + vitest-browser-svelte,unit and component testing strategy for terminal
+ 82,4,###Two modes one app,kiosk vs contributor mode via configuration profile
+ 86,9,##Consequences,extra toolchain and strict platform boundary constraints
+ 95,7,##Related,links to prior ADRs and terminal design plans
+ -->
+
 # ADR 0005: Terminal Architecture
 
 ## Status

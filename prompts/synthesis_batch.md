@@ -1,3 +1,16 @@
+<!-- AGENT:NAV
+purpose:batch synthesis template; tier calibration
+lines:155
+nav[7]{s,n,name,about}:
+14,154,#Covenant Synthesis Prompt — Section Batch,tier; batch
+25,9,##Round Context,round; batch
+34,10,##Your Task,reviewers; found
+44,29,##Tier Calibration Rules (read before writing),tier; blocking
+73,11,##Section-Level Notes guidance,notes; tier
+84,6,##Reviewer Outputs,outputs; reviewer
+90,78,##Output Format,batch; tier
+-->
+
 # Covenant Synthesis Prompt — Section Batch
 
 This prompt is dispatched to a synthesizer subagent for one batch of sections.

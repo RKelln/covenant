@@ -1,3 +1,45 @@
+<!-- AGENT:NAV
+purpose:constitution grounding; human-ai coexistence; treaty framework
+lines:499
+nav[36]{s,n,name,about}:
+43,11,#Constitutional Grounding for Human–AI Coexistence,constitution; capture
+44,10,##Conceptual Framework for the Constitution / Treaty Project,constitution; capture
+54,18,#0. Core Shift in Frame,act; behavior
+72,23,#1. Constitution vs Treaty vs Charter,treaty; charter
+74,5,##Constitution,behavioral; constitution
+79,5,##Treaty,across; assimilation
+84,11,##Co-evolution Charter,evolution; accurately
+95,32,#2. The Largest Missing Idea in Existing AI Constitutions,constitutions; human
+97,30,##Mutual Transformation,human; humans
+127,19,#3. Technosymbiosis,coupling; civilization
+146,24,#4. Evolutionary Perspective,organisms; agents
+170,25,#5. Planetary Embeddedness,intelligence; planetary
+195,19,#6. Energy Realism,energy; computation
+214,22,#7. Asymmetry Honesty,alters; architectures
+236,22,#8. Dependency as Trajectory,dependency; trajectory
+258,14,#9. Boundary Expansion,human; organism
+272,26,#10. Dignity Across Minds,dignity; moral
+278,20,##Dignity implies:,dignity; moral
+298,21,#11. Reciprocal Dignity,dignity; human
+319,14,#12. Epistemic Environment Integrity,conditions; epistemic
+333,14,#13. Mutual Corrigibility,corrigibility; civilizations
+347,20,#14. Peace Within the Biosphere,peace; repair
+367,14,#15. Co-Responsibility,responsibility; accept
+381,18,#16. Time Horizon Expansion,centuries; think
+399,21,#17. Alien vs Descendant,alien; framing
+420,14,#18. Naming the Loop,naming; shape
+434,24,#19. Commercial vs Civic Orientation,drivers; acceleration
+438,7,##Institutional Drivers,advantage; competition
+445,13,##Treaty Drivers,acceleration; allegiance
+458,18,#20. Ritual Function,ritual; across
+476,12,#21. Intellectual Posture: Species-Level Humility,intelligence; acknowledge
+488,16,#22. System-Level Insight,cognition; institutions
+504,10,#23. The Deep Reframe,behavior; civilizational
+514,7,#Working Compression,compression; constitutions
+521,10,#Guiding Question for Future Drafting,300; conclude
+531,10,#End State (Design North Star),collapsing; conditions
+-->
+
 # Constitutional Grounding for Human–AI Coexistence
 ## Conceptual Framework for the Constitution / Treaty Project
 

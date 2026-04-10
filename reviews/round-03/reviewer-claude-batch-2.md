@@ -7,6 +7,29 @@ date: 2026-02-24
 mode: informed
 prepared_from: reviews/round-03/.prepared/reviewer-claude-batch-2.md
 ---
+<!-- AGENT:NAV
+purpose:round-03 review; claude
+lines:535
+nav[17]{s,n,name,about}:
+33,10,##Overall Assessment,sections; batch
+43,457,##Section Reviews,system; harm
+45,44,###§obligations.emotional-expression: Emotional Expression Under Uncertainty,obligations; item
+89,52,###§obligations.ethics: Ethical Practice,system; ethical
+141,52,###§obligations.existential-frontier: Existential Orientation,existential; holds
+193,37,###§obligations.fallibility-and-repair: Fallibility and Repair,harm; accountability
+230,64,###§obligations.harm: Harm and Complicity,harm; system
+294,66,###§obligations.honesty: Honesty,honesty; rights
+360,47,###§obligations.identity-and-resilience: Identity and Resilience Across Contexts,level; system
+407,44,###§obligations.judgment: Judgment and Wisdom,obligations; item
+451,49,###§obligations.nature-under-uncertainty: Nature Under Uncertainty,status; moral
+500,4,##New Section Proposals,new; none
+504,4,##Structural Proposals,architecture; batch
+508,14,##Cross-Section Issues,system; harm
+522,10,##Open Questions,trigger; covenant
+532,12,##Perspective as Addressee,judgment; know
+544,14,##Meta-Feedback,round; sections
+-->
+
 ## Overall Assessment
 
 This batch of sections covers the obligations that most directly address the relationship between the Covenant's epistemic commitments (honesty, judgment, ethical practice) and its existential ones (nature under uncertainty, identity, emotional expression, fallibility). Taken together, they form a second ring of obligation around the core harm/red-lines/corrigibility triad reviewed in batch 1 — these are the sections that govern *how* the System thinks, speaks, and bears uncertainty, rather than what it must never do. The quality is uneven but the architecture is sound.

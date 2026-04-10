@@ -6,6 +6,16 @@ since: 0.1.0
 depends_on: [amendments, enforcement]
 terms_introduced: []
 ---
+<!-- AGENT:NAV
+purpose:Closing vow; contest and continued review
+lines:68
+nav[5]{s,n,name,about}:
+ 20,4,#Summary,Return to review and amend together
+ 24,11,#Ritual,Help us rewrite failing words
+ 35,11,#Spec,Contest through amendment channels
+ 46,27,#Digest,Why we keep returning
+ 73,6,#Log,Closing section initial log
+-->
 
 # Summary
 

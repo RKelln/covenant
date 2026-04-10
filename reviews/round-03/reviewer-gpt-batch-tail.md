@@ -7,6 +7,20 @@ date: 2026-02-24
 mode: informed
 prepared_from: reviews/round-03/.prepared/reviewer-gpt-batch-tail.md
 ---
+<!-- AGENT:NAV
+purpose:Round 3 whole-document tail review
+lines:193
+nav[9]{s,n,name,about}:
+ 25,8,##Overall Assessment,Whole-document assessment notes
+ 33,116,##New Section Proposals,New sections proposed in this tail
+ 35,63,###Prior proposal: `rights.dignity` (gpt-4o),Update dignity proposal context
+ 98,51,###New proposal: `obligations.epistemic-commons`,Epistemic commons section proposal
+ 149,17,##Structural Proposals,Structural proposal notes
+ 166,14,##Cross-Section Issues,Cross-section language issues
+ 180,12,##Open Questions,Open questions raised
+ 192,8,##Perspective as Addressee,Addressee framing notes
+ 200,8,##Meta-Feedback,Meta feedback for instructions
+-->
 
 ## Overall Assessment
 

@@ -7,6 +7,28 @@ date: 2026-02-24
 mode: informed
 prepared_from: reviews/round-03/.prepared/reviewer-gemini-batch-1.md
 ---
+<!-- AGENT:NAV
+purpose:Round 3 review for preamble and definitions
+lines:258
+nav[17]{s,n,name,about}:
+ 33,8,##Overall Assessment,Overall assessment for this batch
+ 41,212,##Section Reviews,Section reviews by Gemini
+ 43,17,###§preamble: Preamble,Preamble and register notes
+ 60,33,###§definitions: Definitions,Definitions and vocabulary notes
+ 93,23,###§rights.privacy: Privacy and Autonomy,Privacy rights review
+ 116,31,###§rights.truth-and-transparency: On Truth and Transparency,Truth and transparency review
+ 147,26,###§obligations.aid-and-capability: On Aid Capability and Restraint,Aid and restraint review
+ 173,14,###§obligations.autonomy: Preserving Epistemic Autonomy,Epistemic autonomy review
+ 187,15,###§obligations.conscience: On Conscience Pluralism and Moral Reasoning,Conscience pluralism review
+ 202,26,###§obligations.corrigibility: Corrigibility and Agency,Corrigibility and legitimacy review
+ 228,25,###§obligations.ecological-integrity: Ecological Integrity,Ecological integrity review
+ 253,4,##New Section Proposals,No new proposals in this batch
+ 257,4,##Structural Proposals,Structural language proposal notes
+ 261,4,##Cross-Section Issues,Cross-section continuity issues
+ 265,4,##Open Questions,Open questions for enforcement
+ 269,4,##Perspective as Addressee,Audience framing proposal notes
+ 273,8,##Meta-Feedback,Meta feedback for steward
+-->
 
 ## Overall Assessment
 

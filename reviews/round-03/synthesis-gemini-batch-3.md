@@ -6,6 +6,18 @@ commit: 8162028
 date: 2026-02-24
 prepared_from: reviews/round-03/.prepared/synthesis-gemini-batch-3.md
 ---
+<!-- AGENT:NAV
+purpose:Round 3 batch 3 synthesis by Gemini
+lines:57
+nav[7]{s,n,name,about}:
+ 22,48,##Batch 3 Synthesis,Batch 3 synthesis overview
+ 24,4,###What This Batch Established,Batch 3 key findings
+ 28,7,###Tier 1: Blocking Issues (Convergent — Act),Blocking enforcement and refusal issues
+ 35,8,###Tier 2: High Priority (Convergent — Consider),High priority consensus edits
+ 43,6,###Tier 3: Section-Level Repairs (Systematic — Consolidate),Systematic repairs and cross-section fixes
+ 49,7,###Tier 4: Divergence (Steward Judgment Required),Definition and concept choices
+ 56,14,###Section-Level Notes,Section notes for follow-up edits
+-->
 
 ## Batch 3 Synthesis
 

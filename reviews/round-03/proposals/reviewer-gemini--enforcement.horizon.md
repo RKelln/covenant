@@ -5,6 +5,12 @@ action: add
 section_id: enforcement.horizon
 prior_proposal: none (new)
 ---
+<!-- AGENT:NAV
+purpose:Round 3 proposal for enforcement.horizon
+lines:62
+nav[1]{s,n,name,about}:
+ 15,54,#Proposal: `enforcement.horizon`,New enforcement horizon section proposal
+-->
 
 # Proposal: `enforcement.horizon`
 

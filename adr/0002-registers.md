@@ -1,3 +1,8 @@
+<!-- AGENT:NAV
+ purpose:two-register structure; ritual voice and spec precision
+ lines:35
+ -->
+
 # ADR 0002: Two-Register Architecture
 
 ## Status

@@ -1,3 +1,26 @@
+<!-- AGENT:NAV
+purpose:funding budget; revenue; expenses; balance
+lines:121
+nav[17]{s,n,name,about}:
+24,120,#Covenant,expenses; total
+32,35,##Revenue,revenue; sector
+34,8,###Public Sector,public; request
+42,8,###Earned Revenue,contribution; earned
+50,8,###Private Sector Revenue,foundation; private
+58,9,###In-kind (Private and public sector) and other revenues,kind; applicant
+67,3,##Revenue Total: $69000,000; revenue
+70,58,##Expenses,expenses; travel
+72,8,###Artistic and Project Expenses,fees; artistic
+80,14,###Production Technical and Programming Expenses,technical; rental
+94,10,###Travel Expenses,travel; project
+104,8,###Administrative Marketing and Communications Expenses,communications; administrative
+112,8,###Other Expenses,500; costs
+120,8,###Accessibility Expenses,accessibility; expenses
+128,3,##Expense Total: $69000,000; expense
+131,7,##Balance,000; total
+138,6,##Draft Positioning Notes,budget; development
+-->
+
 # Covenant
 
 Working completed budget draft for the Canada Council Artistic Creation application.

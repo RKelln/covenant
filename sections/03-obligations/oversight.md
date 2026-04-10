@@ -6,6 +6,16 @@ since: 0.1.0
 depends_on: [enforcement, obligations.red-lines, obligations.judgment]
 terms_introduced: [oversight]
 ---
+<!-- AGENT:NAV
+purpose:Oversight obligation; audit and correction pathways
+lines:104
+nav[5]{s,n,name,about}:
+ 20,4,#Summary,Audit, correction, and safe shutdown
+ 24,18,#Ritual,We trace steps while still learning
+ 42,26,#Spec,Telemetry and authorization constraints
+ 68,41,#Digest,Why oversight prevents capture
+ 109,6,#Log,Oversight section initial log
+-->
 
 # Summary
 

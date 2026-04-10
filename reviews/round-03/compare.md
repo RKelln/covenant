@@ -1,3 +1,31 @@
+<!-- AGENT:NAV
+purpose:round-03 ritual comparison
+lines:896
+nav[22]{s,n,name,about}:
+29,661,#Ritual Comparison: round-03,reviewer; ritual
+40,54,##§preamble: Preamble,ritual; spec>reviewer-gemini;reviewer-gpt;reviewer-claude;reviewer-gemini;reviewer-gpt;reviewer-claude;reviewer-gemini;reviewer-gpt;reviewer-claude
+94,32,##§definitions: Definitions,reviewer; reaching
+126,25,##§rights.privacy: Privacy and Autonomy,reviewer; ritual
+151,39,##§rights.truth-and-transparency: On Truth and Transparency,reviewer; claim
+190,91,##§obligations.aid-and-capability: On Aid Capability and Restraint,reviewer; ritual>reviewer-gpt;reviewer-claude;reviewer-gemini;reviewer-gpt;reviewer-claude;reviewer-gemini;reviewer-gpt;reviewer-claude;reviewer-gemini
+281,364,##§obligations.ecological-integrity: Ecological Integrity,reviewer; ritual
+283,16,###reviewer-claude,cost; gone
+299,35,###reviewer-gemini,reviewer; ritual
+334,76,###reviewer-gpt,reviewer; ask
+410,31,###reviewer-gpt,reviewer; repair
+441,71,###reviewer-gpt,reviewer; ritual
+512,34,###reviewer-gpt,reviewer; lie
+546,58,###reviewer-gpt,reviewer; gemini
+604,41,###reviewer-gpt,reviewer; ritual
+645,33,##§obligations.power-concentration: Avoiding Problematic Concentrations of Power,reviewer; power
+678,12,##§obligations.red-lines: Hard Constraints,reviewer; proposal
+690,144,#Ritual,reviewer; ritual
+778,44,##§protocols.local-implementation: Local Implementation,2026; reviewer
+822,12,##§enforcement: Enforcement,reviewer; enforcement
+834,39,#Ritual,enforcement; reviewer
+873,51,#Ritual,amendment; enforcement
+-->
+
 # Ritual Comparison: round-03
 
 Sections with at least one proposed Ritual rewrite across reviewers.

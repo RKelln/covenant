@@ -1,3 +1,8 @@
+<!-- AGENT:NAV
+purpose:public description; visitor experience
+lines:21
+-->
+
 # Covenant — Project Description
 
 ```{=html}

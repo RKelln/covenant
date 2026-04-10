@@ -3,6 +3,25 @@ round: round-03
 source: meta-feedback from reviewer-claude, reviewer-gpt, reviewer-gemini + synthesis
 date: 2026-02-25
 ---
+<!-- AGENT:NAV
+purpose:Round 3 workflow improvement notes
+lines:227
+nav[14]{s,n,name,about}:
+ 26,221,#Workflow Improvement Notes — Round 03,Round 3 process edits
+ 34,18,##1. What worked well (preserve),What to keep doing
+ 52,83,##2. Prompt structure improvements,Prompt and packet changes
+ 54,19,###2a. Move steward response before the sections-to-review,Reorder steward framing
+ 73,23,###2b. Slim the packet — foreground decision points,Reduce noise, highlight decisions
+ 96,19,###2c. Add "Document-Level Observations" section to output format,Add document-level output section
+ 115,20,###2d. Add theory-of-change prompt question,Add reasoning prompt
+ 135,47,##3. Output format improvements,Output formatting changes
+ 137,26,###3a. Distinguish "illustrative revision" from "proposed replacement",Clarify revision vocabulary
+ 163,19,###3b. Make offset-followup instruction standard protocol,Standardize offset followups
+ 182,24,##4. Review depth improvements,Deepen addressee-focused review
+ 184,22,###4a. Give more space to the addressee experience,More addressee attention
+ 206,17,##5. Gemini coverage pattern — signal not gap,Gemini coverage as signal
+ 223,24,##Priority order for implementation,Implementation priority ordering
+-->
 
 # Workflow Improvement Notes — Round 03
 

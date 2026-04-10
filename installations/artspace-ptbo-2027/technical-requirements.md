@@ -1,3 +1,8 @@
+<!-- AGENT:NAV
+purpose:equipment; setup; technical specs
+lines:83
+-->
+
 Covenant — Technical Requirements
 
 Space

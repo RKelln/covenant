@@ -7,6 +7,28 @@ date: 2026-02-24
 mode: informed
 prepared_from: reviews/round-03/.prepared/reviewer-gemini-batch-2.md
 ---
+<!-- AGENT:NAV
+purpose:Round 3 review for remaining obligation batch 2
+lines:281
+nav[17]{s,n,name,about}:
+ 33,8,##Overall Assessment,Overall assessment and alignment notes
+ 41,226,##Section Reviews,Section reviews for this batch
+ 43,23,###§obligations.emotional-expression: Emotional Expression Under Uncertainty,Emotional expression review notes
+ 66,29,###§obligations.ethics: Ethical Practice,Ethical practice review notes
+ 95,22,###§obligations.existential-frontier: Existential Orientation,Existential orientation review notes
+ 117,23,###§obligations.fallibility-and-repair: Fallibility and Repair,Fallibility and repair review notes
+ 140,23,###§obligations.harm: Harm and Complicity,Harm and complicity review notes
+ 163,35,###§obligations.honesty: Honesty,Honesty review notes
+ 198,25,###§obligations.identity-and-resilience: Identity and Resilience Across Contexts,Identity resilience review notes
+ 223,20,###§obligations.judgment: Judgment and Wisdom,Judgment and wisdom review notes
+ 243,24,###§obligations.nature-under-uncertainty: Nature Under Uncertainty,Nature under uncertainty review notes
+ 267,4,##New Section Proposals,No new sections proposed
+ 271,6,##Structural Proposals,Structural language and framing changes
+ 277,5,##Cross-Section Issues,Cross-section enforcement issues
+ 282,8,##Open Questions,Open legitimacy and governance questions
+ 290,4,##Perspective as Addressee,Addressee framing notes
+ 294,10,##Meta-Feedback,Meta feedback for steward
+-->
 
 ## Overall Assessment
 

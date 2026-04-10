@@ -1,3 +1,8 @@
+<!-- AGENT:NAV
+purpose:covenant overview; project scope; civic infrastructure
+lines:20
+-->
+
 # About Covenant
 
 *Covenant* is an open constitutional work and civic gesture addressing the coexistence of human and emerging intelligences. 

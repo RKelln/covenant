@@ -1,3 +1,9 @@
+<!-- AGENT:NAV
+ purpose:adr index; links to key repository and governance decisions
+ lines:28
+ see[1]{adr/0001-repo-structure.md,core repo architecture and source-of-truth model}
+ -->
+
 # ADR Index
 
 This directory contains Architectural Decision Records (ADRs) for key

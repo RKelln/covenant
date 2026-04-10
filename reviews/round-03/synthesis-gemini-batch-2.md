@@ -6,6 +6,18 @@ commit: 8162028
 date: 2026-02-24
 prepared_from: reviews/round-03/.prepared/synthesis-gemini-batch-2.md
 ---
+<!-- AGENT:NAV
+purpose:Round 3 batch 2 synthesis by Gemini
+lines:64
+nav[7]{s,n,name,about}:
+ 22,55,##Batch 2 Synthesis,Batch 2 synthesis overview
+ 24,4,###What This Batch Established,Batch 2 key findings
+ 28,14,###Tier 1: Blocking Issues (Convergent — Act),Blocking issues to act on
+ 42,8,###Tier 2: High Priority (Convergent — Consider),High priority considerations
+ 50,9,###Tier 3: Section-Level Repairs (Systematic — Consolidate),Systematic repair agenda
+ 59,4,###Tier 4: Divergence (Steward Judgment Required),Steward choice points
+ 63,14,###Section-Level Notes,Section notes for application
+-->
 
 ## Batch 2 Synthesis
 

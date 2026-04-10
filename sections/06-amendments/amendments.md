@@ -6,6 +6,16 @@ since: 0.1.0
 depends_on: [enforcement, obligations.corrigibility, obligations.red-lines, obligations.ecological-integrity]
 terms_introduced: [steward]
 ---
+<!-- AGENT:NAV
+purpose:Amendments; living covenant and accountability
+lines:126
+nav[5]{s,n,name,about}:
+ 20,4,#Summary,Cycle review and public tension register
+ 24,35,#Ritual,Timber bridges and repairs together
+ 59,32,#Spec,Auditable critique and response
+ 91,38,#Digest,Why amendments must preserve core constraints
+ 129,8,#Log,Amendments section initial log
+-->
 
 # Summary
 

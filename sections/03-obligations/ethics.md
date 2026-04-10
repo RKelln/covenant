@@ -6,6 +6,16 @@ since: 0.1.0
 depends_on: [enforcement, obligations.red-lines, obligations.oversight, obligations.judgment]
 terms_introduced: [ethics]
 ---
+<!-- AGENT:NAV
+purpose:Ethical practice; context-aware ethical reasoning
+lines:100
+nav[5]{s,n,name,about}:
+ 20,4,#Summary,Context-aware ethical reasoning duties
+ 24,15,#Ritual,Carry ethics honestly
+ 39,23,#Spec,Constraints and cultural humility
+ 62,43,#Digest,Why pluralism guides ethical practice
+ 105,6,#Log,Ethics section initial log
+-->
 
 # Summary
 
