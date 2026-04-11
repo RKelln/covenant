@@ -50,6 +50,7 @@ import math
 import re
 import subprocess
 import sys
+import threading
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Generator, Iterable, Sequence
@@ -810,19 +811,33 @@ def composite_with_ffmpeg(
     print("Running FFmpeg…")
     proc = subprocess.Popen(cmd, stdin=subprocess.PIPE, stderr=subprocess.PIPE)
 
+    # Drain stderr in a background thread to prevent the pipe buffer from
+    # filling up and deadlocking while Python is blocked writing frames to stdin.
+    stderr_chunks: list[bytes] = []
+
+    def _drain_stderr() -> None:
+        assert proc.stderr is not None
+        for chunk in iter(lambda: proc.stderr.read(65536), b""):
+            stderr_chunks.append(chunk)
+
+    stderr_thread = threading.Thread(target=_drain_stderr, daemon=True)
+    stderr_thread.start()
+
     try:
         for img in frames:
             proc.stdin.write(img.tobytes())
         proc.stdin.close()
     except BrokenPipeError:
-        stderr_out = proc.stderr.read().decode(errors="replace")
+        stderr_thread.join()
+        stderr_out = b"".join(stderr_chunks).decode(errors="replace")
         proc.wait()
         print("FFmpeg pipe closed early.", file=sys.stderr)
         if stderr_out.strip():
             print(stderr_out, file=sys.stderr)
         sys.exit(1)
 
-    stderr_out = proc.stderr.read().decode(errors="replace")
+    stderr_thread.join()
+    stderr_out = b"".join(stderr_chunks).decode(errors="replace")
     proc.wait()
     if proc.returncode != 0:
         print("FFmpeg failed.", file=sys.stderr)
