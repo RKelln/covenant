@@ -483,16 +483,16 @@ def stanza_hold_frames(
 ) -> int:
     """Return the hold frame count for a stanza.
 
-    With auto_timing: hold_secs is seconds for the first line; additional lines
-    are discounted by a sqrt curve — each line adds less time than the last.
-    A 1-line stanza holds for hold_secs; a 4-line stanza holds for 2× hold_secs
-    (not 4×), matching the sublinear nature of reading multi-line text.
+    With auto_timing: hold_secs is seconds per ~50 characters; duration scales
+    with sqrt(n_chars) so longer stanzas get more time but with diminishing
+    returns.  A 50-char stanza holds for hold_secs; a 200-char stanza holds for
+    2× hold_secs (not 4×).
 
     Without auto_timing: fixed hold_secs for every stanza.
     """
     if auto_timing:
-        n_lines = max(1, len(stanza.lines))
-        return max(1, int(hold_secs * math.sqrt(n_lines) * fps))
+        n_chars = max(1, len(stanza.text.replace("\n", " ")))
+        return max(1, int(hold_secs * math.sqrt(n_chars / 50) * fps))
     return max(1, int(hold_secs * fps))
 
 
@@ -515,11 +515,13 @@ def iter_frames(
     shadow_blur: Sequence[int] = (18,),
     shadow_color_rgba: tuple[int, int, int, int] = (0, 0, 0, 255),
     tail_frames: int = 0,
+    section_gap_secs: float = 0.0,
 ) -> Generator[Image.Image, None, None]:
     """Yield RGBA overlay frames one at a time — no disk I/O."""
     color_rgba = hex_to_rgba(color_hex)
     fade_frames = max(1, int(fade_secs * fps))
     gap_frames = max(0, int(gap_secs * fps))
+    section_gap_frames = max(0, int(section_gap_secs * fps))
     title_fade_frames = max(1, int(title_fade_secs * fps))
     title_hold_frames = max(1, int(title_hold_secs * fps))
 
@@ -600,6 +602,17 @@ def iter_frames(
         for _ in range(gap_frames):
             yield blank
 
+        # Extra pause at section boundaries (between the last stanza of one
+        # section and the first of the next).
+        next_stanza = stanzas[n + 1] if n + 1 < total else None
+        if (
+            section_gap_frames
+            and next_stanza
+            and next_stanza.section_id != stanza.section_id
+        ):
+            for _ in range(section_gap_frames):
+                yield blank
+
     print()
 
     # Seamless loop tail — transparent frames so the bg plays to its loop point
@@ -621,17 +634,23 @@ def count_frames(
     title_fade_secs: float,
     auto_timing: bool = False,
     tail_frames: int = 0,
+    section_gap_secs: float = 0.0,
 ) -> int:
     """Return total frame count without rendering anything."""
     fade = max(1, int(fade_secs * fps))
     gap = max(0, int(gap_secs * fps))
+    sec_gap = max(0, int(section_gap_secs * fps))
     t_fade = max(1, int(title_fade_secs * fps))
     t_hold = max(1, int(title_hold_secs * fps))
     title = 3 * t_fade + t_hold + gap
-    stanza_total = sum(
-        fade * 2 + stanza_hold_frames(s, hold_secs, fps, auto_timing) + gap
-        for s in stanzas
-    )
+    stanza_total = 0
+    for i, s in enumerate(stanzas):
+        stanza_total += (
+            fade * 2 + stanza_hold_frames(s, hold_secs, fps, auto_timing) + gap
+        )
+        next_s = stanzas[i + 1] if i + 1 < len(stanzas) else None
+        if sec_gap and next_s and next_s.section_id != s.section_id:
+            stanza_total += sec_gap
     return title + stanza_total + tail_frames
 
 
@@ -887,6 +906,13 @@ def build_parser() -> argparse.ArgumentParser:
         help="Silent gap between stanzas",
     )
     p.add_argument(
+        "--section-gap",
+        type=float,
+        default=0.0,
+        metavar="SECS",
+        help="Extra silent pause at section boundaries, on top of --gap (default 0)",
+    )
+    p.add_argument(
         "--title-hold",
         type=float,
         default=4.0,
@@ -1051,6 +1077,7 @@ def main():
         args.title_hold,
         args.title_fade,
         auto_timing=args.auto_timing,
+        section_gap_secs=args.section_gap,
     )
     total_secs = total_frames_est / args.fps
     mins, secs = divmod(int(total_secs), 60)
@@ -1144,6 +1171,7 @@ def main():
             auto_timing=args.auto_timing,
             shadow_blur=shadow_blur_list,
             shadow_color_rgba=hex_to_rgba(args.shadow_color),
+            section_gap_secs=args.section_gap,
         )
         n = write_frames_to_dir(frames, frames_dir)
         print(f"Done. {n} frames written to {frames_dir}")
@@ -1203,6 +1231,7 @@ def main():
         args.title_fade,
         auto_timing=args.auto_timing,
         tail_frames=tail_frames,
+        section_gap_secs=args.section_gap,
     )
     print(f"Total frames to pipe: {total_frames}")
 
@@ -1225,6 +1254,7 @@ def main():
         shadow_blur=shadow_blur_list,
         shadow_color_rgba=hex_to_rgba(args.shadow_color),
         tail_frames=tail_frames,
+        section_gap_secs=args.section_gap,
     )
     composite_with_ffmpeg(
         bg_path,
