@@ -483,35 +483,29 @@ def stanza_hold_frames(
 ) -> int:
     """Return the hold frame count for a stanza.
 
-    With auto_timing: hold_secs is the hold time for a median-length stanza
-    (~128 chars). Duration scales with a gentle curve so the longest stanza
-    (~300 chars) is about 60–70% longer than the median (not 2×), and the
-    shortest is proportionally shorter.
+    With auto_timing: piecewise linear remap of character count to a hold
+    multiplier, with three anchors:
 
+      <=  10 chars  ->  0.33× hold_secs
+         128 chars  ->  1.00× hold_secs  (median)
+      >= 256 chars  ->  1.85× hold_secs
+
+    hold_secs is the hold time for a median-length stanza (~128 chars).
     Without auto_timing: fixed hold_secs for every stanza.
     """
     if auto_timing:
         n_chars = max(1, len(stanza.text.replace("\n", " ")))
-        # Linear char scaling, anchored so the median stanza (~128 chars)
-        # holds for exactly hold_secs.
-        #
-        # For very short stanzas, we still want them to linger, but we
-        # want the *short-side* compression rather than a hard clamp.
-        #
-        # Let x = n_chars / 128. We map x in [0..1] to 0.5×x (so short stanzas
-        # move twice as slowly toward 0), and map x in [1..inf] to x.
-        x = n_chars / 128
-        multiplier = x if x >= 1 else 0.5 * x
-        # Bottom out at 0.5× so short stanzas never go faster than
-        # hold_secs/2.
-        multiplier = max(0.5, multiplier)
-
-        # Clamp in frame space to ensure the minimum survives conversion to
-        # integer frames without changing rounding policy.
-        raw_hold_frames = hold_secs * multiplier * fps
-        min_hold_frames = (hold_secs * 0.5) * fps
-        hold_frames = max(min_hold_frames, raw_hold_frames)
-        return max(1, int(hold_frames))
+        if n_chars <= 10:
+            mult = 0.33
+        elif n_chars >= 256:
+            mult = 1.85
+        elif n_chars <= 128:
+            t = (n_chars - 10) / (128 - 10)
+            mult = 0.33 + t * (1.00 - 0.33)
+        else:
+            t = (n_chars - 128) / (256 - 128)
+            mult = 1.00 + t * (1.85 - 1.00)
+        return max(1, int(hold_secs * mult * fps))
     return max(1, int(hold_secs * fps))
 
 
