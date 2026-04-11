@@ -492,10 +492,11 @@ def stanza_hold_frames(
     """
     if auto_timing:
         n_chars = max(1, len(stanza.text.replace("\n", " ")))
-        # Empirically tuned exponent: max/median char ratio is ~2.3× in this
-        # ritual, so (ratio**0.35) lands near ~1.35×. The additional
-        # human-reading pacing makes perceived time closer to ~1.6–1.7×.
-        return max(1, int(hold_secs * (n_chars / 128) ** 0.35 * fps))
+        # Linear char scaling, anchored so the median stanza (~128 chars)
+        # holds for exactly hold_secs.
+        #
+        # This is intentionally simple to tune perceptual pacing.
+        return max(1, int(hold_secs * (n_chars / 128) * fps))
     return max(1, int(hold_secs * fps))
 
 
