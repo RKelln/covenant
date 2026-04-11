@@ -505,7 +505,11 @@ def stanza_hold_frames(
         # Bottom out at 0.5× so short stanzas never go faster than
         # hold_secs/2.
         multiplier = max(0.5, multiplier)
-        return max(1, int(hold_secs * multiplier * fps))
+
+        # Use ceil (not int/floor) so the hold duration respects the
+        # intended minimum even at low frame counts / rounding.
+        hold_frames = math.ceil(hold_secs * multiplier * fps)
+        return max(1, hold_frames)
     return max(1, int(hold_secs * fps))
 
 
