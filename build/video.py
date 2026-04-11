@@ -495,10 +495,16 @@ def stanza_hold_frames(
         # Linear char scaling, anchored so the median stanza (~128 chars)
         # holds for exactly hold_secs.
         #
-        # For very short stanzas, we still want them to linger, so we clamp
-        # the effective multiplier at 0.5×. That means the shortest stanza
-        # won't be faster than hold_secs/2.
-        multiplier = max(0.5, n_chars / 128)
+        # For very short stanzas, we still want them to linger, but we
+        # want the *short-side* compression rather than a hard clamp.
+        #
+        # Let x = n_chars / 128. We map x in [0..1] to 0.5×x (so short stanzas
+        # move twice as slowly toward 0), and map x in [1..inf] to x.
+        x = n_chars / 128
+        multiplier = x if x >= 1 else 0.5 * x
+        # Bottom out at 0.5× so short stanzas never go faster than
+        # hold_secs/2.
+        multiplier = max(0.5, multiplier)
         return max(1, int(hold_secs * multiplier * fps))
     return max(1, int(hold_secs * fps))
 
