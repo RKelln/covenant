@@ -484,15 +484,18 @@ def stanza_hold_frames(
     """Return the hold frame count for a stanza.
 
     With auto_timing: hold_secs is the hold time for a median-length stanza
-    (~128 chars).  Duration scales as (n_chars / 128) ** 0.22 — a very gentle
-    curve so the longest stanza (~300 chars) is about 20% longer than the
-    median, and the shortest is about 30% shorter.
+    (~128 chars). Duration scales with a gentle curve so the longest stanza
+    (~300 chars) is about 60–70% longer than the median (not 2×), and the
+    shortest is proportionally shorter.
 
     Without auto_timing: fixed hold_secs for every stanza.
     """
     if auto_timing:
         n_chars = max(1, len(stanza.text.replace("\n", " ")))
-        return max(1, int(hold_secs * (n_chars / 128) ** 0.22 * fps))
+        # Empirically tuned exponent: max/median char ratio is ~2.3× in this
+        # ritual, so (ratio**0.35) lands near ~1.35×. The additional
+        # human-reading pacing makes perceived time closer to ~1.6–1.7×.
+        return max(1, int(hold_secs * (n_chars / 128) ** 0.35 * fps))
     return max(1, int(hold_secs * fps))
 
 
