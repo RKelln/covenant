@@ -35,8 +35,8 @@ Options:
     --preview SECS      Render only the first N seconds (for testing)
     --auto-timing       Scale hold time by character count (--hold = hold time for a median-length stanza)
     --frames-only DIR   Write PNG frames to DIR and exit (skip FFmpeg, for debugging)
-    --bg-tail SECS      Extend output after the last stanza. Positive: add N seconds of background.
-                        Negative: finish the current background loop cycle.
+    --bg-tail SECS      Extend output after the last stanza by N seconds of background.
+                        To finish the current background loop cycle instead, use --seamless-loop.
 
 Examples:
     uv run python build/video.py --bg loop.mp4
@@ -999,10 +999,8 @@ def build_parser() -> argparse.ArgumentParser:
         default=None,
         metavar="SECS",
         help=(
-            "Extend output after the last stanza. "
-            "Positive: add exactly this many seconds of background. "
-            "Negative (e.g. -1): finish the current background loop cycle "
-            "(adds remaining frames so the bg completes its loop)."
+            "Extend output after the last stanza by this many seconds of background. "
+            "To finish the current background loop cycle instead, use --seamless-loop."
         ),
     )
     p.add_argument(
@@ -1249,44 +1247,15 @@ def main():
             )
 
     if args.bg_tail is not None:
-        if args.bg_tail >= 0:
+        if args.bg_tail < 0:
+            print(
+                "  Warning: --bg-tail does not accept negative values; use --seamless-loop to finish the current background loop cycle. Skipping."
+            )
+        else:
             tail_frames += round(args.bg_tail * args.fps)
             print(
                 f"  Background tail: adding {args.bg_tail:.1f}s ({round(args.bg_tail * args.fps)} frames)."
             )
-        else:
-            # Negative: finish the current loop cycle of the background video.
-            try:
-                bg_duration = probe_video_duration(bg_path)
-                content_frames_so_far = (
-                    count_frames(
-                        stanzas,
-                        args.fps,
-                        args.hold,
-                        args.fade,
-                        args.gap,
-                        args.title_hold,
-                        args.title_fade,
-                        auto_timing=args.auto_timing,
-                    )
-                    + tail_frames
-                )
-                content_secs = content_frames_so_far / args.fps
-                # How far are we into the current bg loop cycle?
-                position_in_loop = content_secs % bg_duration
-                remaining_secs = (
-                    bg_duration - position_in_loop if position_in_loop > 0 else 0.0
-                )
-                extra_frames = round(remaining_secs * args.fps)
-                tail_frames += extra_frames
-                print(
-                    f"  Background tail: finishing current loop cycle — "
-                    f"adding {remaining_secs:.1f}s ({extra_frames} frames)."
-                )
-            except RuntimeError as e:
-                print(
-                    f"  Warning: could not probe bg duration for --bg-tail ({e}). Skipping."
-                )
 
     total_frames = count_frames(
         stanzas,
