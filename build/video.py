@@ -495,8 +495,11 @@ def stanza_hold_frames(
         # Linear char scaling, anchored so the median stanza (~128 chars)
         # holds for exactly hold_secs.
         #
-        # This is intentionally simple to tune perceptual pacing.
-        return max(1, int(hold_secs * (n_chars / 128) * fps))
+        # For very short stanzas, we still want them to linger, so we clamp
+        # the effective multiplier at 0.5×. That means the shortest stanza
+        # won't be faster than hold_secs/2.
+        multiplier = max(0.5, n_chars / 128)
+        return max(1, int(hold_secs * multiplier * fps))
     return max(1, int(hold_secs * fps))
 
 
