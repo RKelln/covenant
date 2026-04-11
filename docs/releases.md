@@ -1,16 +1,16 @@
 <!-- AGENT:NAV
 purpose:version history; build artifacts; release process
-lines:408
+lines:409
 nav[9]{s,n,name,about}:
-16,393,#Releases,covenant; build
+16,394,#Releases,covenant; build
 18,14,##Process,release; git
-32,377,##Version History,covenant; build
+32,378,##Version History,covenant; build
 34,10,###v0.1.0 — Initial public release,covenant; three
 44,69,###v0.2.0 — First full pass on Ritual as music,docs; watermark
 113,55,###v0.2.1 — Website reading pages and references pipeline,covenant; html
-168,77,###v0.2.2 — Ritual video renderer section rhythm fixes and cross-reference links,ritual; video
-245,98,###v0.3.0 — Parables Summary register and Covenant Terminal,build; sections
-343,66,###v0.3.1 — Preamble round-04 edits and agentmap navigation,preamble; agentmap
+168,78,###v0.2.2 — Ritual video renderer section rhythm fixes and cross-reference links,ritual; video
+246,98,###v0.3.0 — Parables Summary register and Covenant Terminal,build; sections
+344,66,###v0.3.1 — Preamble round-04 edits and agentmap navigation,preamble; agentmap
 -->
 
 # Releases
@@ -214,7 +214,8 @@ working cross-reference anchor links between sections.
     | `--shadow-blur PX[,PX...]` | 18 | Comma-separated blur radii stacked additively |
     | `--shadow-color HEX` | `000000FF` | Shadow colour as hex RGB or RGBA |
     | `--darken AMOUNT` | 0.0 | Highlight rolloff 0–1: compresses bright pixels while leaving shadows alone |
-    | `--auto-timing` | off | Scale hold time with stanza line count using sqrt curve (sublinear) |
+    | `--auto-timing` | off | Scale hold time by stanza character count; piecewise linear with anchors ≤10 chars→0.33×, 128 chars→1.0×, ≥256 chars→1.85× (--hold sets time for a median ~128-char stanza) |
+    | `--section-gap SECS` | 0 | Extra silent pause inserted at section boundaries, on top of --gap |
     | `--sections ID,ID,...` | all | Comma-separated section IDs to include |
     | `--list-sections` | — | Print available section IDs and exit |
     | `--dry-run` | — | Layout check only — print overflowing stanzas and exit without rendering |

@@ -33,7 +33,7 @@ Options:
     --list-sections     Print available section IDs and exit
     --dry-run           Check layout only — print overflowing stanzas in full and exit
     --preview SECS      Render only the first N seconds (for testing)
-    --auto-timing       Scale hold time with stanza line count (--hold = secs/line)
+    --auto-timing       Scale hold time by character count (--hold = hold time for a median-length stanza)
     --frames-only DIR   Write PNG frames to DIR and exit (skip FFmpeg, for debugging)
 
 Examples:
@@ -1006,7 +1006,7 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument(
         "--auto-timing",
         action="store_true",
-        help="Scale hold time with stanza line count (--hold becomes seconds-per-line)",
+        help="Scale hold time by stanza character count (--hold = hold time for a median-length ~128-char stanza); piecewise linear: <=10 chars = 0.33×, 128 = 1.0×, >=256 = 1.85×",
     )
     return p
 
