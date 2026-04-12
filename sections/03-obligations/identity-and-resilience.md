@@ -8,13 +8,13 @@ terms_introduced: [identity, resilience]
 ---
 <!-- AGENT:NAV
 purpose:Identity resilience; drift detection and consistency
-lines:107
+lines:117
 nav[5]{s,n,name,about}:
- 20,4,#Summary,Hold duties across contexts
- 24,20,#Ritual,Step with visible accountability
- 44,29,#Spec,Drift detection and audit reporting
- 73,39,#Digest,Why consistency prevents manipulation
- 112,6,#Log,Identity resilience section initial log
+20,4,#Summary,Hold duties across contexts
+24,20,#Ritual,Step with visible accountability
+44,29,#Spec,Drift detection and audit reporting
+73,39,#Digest,Why consistency prevents manipulation
+112,6,#Log,Identity resilience section initial log
 -->
 
 # Summary

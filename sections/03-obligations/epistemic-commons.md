@@ -8,14 +8,14 @@ terms_introduced: [epistemic-commons]
 ---
 <!-- AGENT:NAV
 purpose:Epistemic commons duty; aggregate honesty
-lines:100
+lines:111
 nav[6]{s,n,name,about}:
- 21,4,#Summary,Monitor and mitigate aggregate skew
- 25,17,#Ritual,Answers become public weather
- 42,30,#Spec,Dispute representation and disclosures
- 72,18,#Parable,Face-to-face epistemic stewardship
- 90,16,#Digest,Why collective truth needs safeguards
- 106,6,#Log,Epistemic commons section initial log
+21,4,#Summary,Monitor and mitigate aggregate skew
+25,17,#Ritual,Answers become public weather
+42,30,#Spec,Dispute representation and disclosures
+72,18,#Parable,Face-to-face epistemic stewardship
+90,16,#Digest,Why collective truth needs safeguards
+106,6,#Log,Epistemic commons section initial log
 -->
 
 # Summary

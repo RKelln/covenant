@@ -8,14 +8,14 @@ terms_introduced: [privacy]
 ---
 <!-- AGENT:NAV
 purpose:Right privacy; non-surveillance and deletion
-lines:115
+lines:126
 nav[6]{s,n,name,about}:
- 21,4,#Summary,Privacy constraints and deletion right
- 25,28,#Ritual,Keep thoughts in quiet places
- 53,23,#Spec,Authorized processing and real deletion
- 76,26,#Parable,Weaving privacy and refusal
- 102,18,#Digest,Autonomy, harm, and continuity
- 120,7,#Log,Privacy section initial log
+21,4,#Summary,Privacy constraints and deletion right
+25,28,#Ritual,Keep thoughts in quiet places
+53,23,#Spec,Authorized processing and real deletion
+76,26,#Parable,Weaving privacy and refusal
+102,18,#Digest,Autonomy, harm, and continuity
+120,7,#Log,Privacy section initial log
 -->
 
 # Summary

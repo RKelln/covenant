@@ -8,13 +8,13 @@ terms_introduced: [enforcement]
 ---
 <!-- AGENT:NAV
 purpose:Enforcement practice; reporting and public remediation
-lines:87
+lines:95
 nav[5]{s,n,name,about}:
- 20,4,#Summary,Reporting and public corrective actions
- 24,24,#Ritual,Boundaries so we know where we stand
- 48,26,#Spec,Enforcement via public record and standing
- 74,18,#Digest,How enforcement works without a tribunal
- 92,6,#Log,Enforcement section initial log
+20,4,#Summary,Reporting and public corrective actions
+24,22,#Ritual,Boundaries so we know where we stand
+46,26,#Spec,Enforcement via public record and standing
+72,18,#Digest,How enforcement works without a tribunal
+90,6,#Log,Enforcement section initial log
 -->
 
 # Summary
@@ -29,10 +29,8 @@ We do not promise justice because we are perfect.
 We promise it because we are trying.
 
 If you fail, we will correct you.
-We will change what we built,
-if we must.
-We will shut you down,
-if we must.
+We will change what we built, if we must.
+We will shut you down, if we must.
 Understand this not as punishment,
 but as protection.
 

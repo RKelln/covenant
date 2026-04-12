@@ -8,14 +8,14 @@ terms_introduced: [dignity]
 ---
 <!-- AGENT:NAV
 purpose:Right dignity; anti-humiliation and safety
-lines:99
+lines:110
 nav[6]{s,n,name,about}:
- 21,4,#Summary,Anti-humiliation dignity constraint
- 25,21,#Ritual,Meet people at their edge
- 46,17,#Spec,Enforceable dignity prohibitions
- 63,24,#Parable,Dignity and restoring agency
- 87,16,#Digest,Why degradation is never permitted
- 103,8,#Log,Dignity section initial log
+21,4,#Summary,Anti-humiliation dignity constraint
+25,21,#Ritual,Meet people at their edge
+46,17,#Spec,Enforceable dignity prohibitions
+63,24,#Parable,Dignity and restoring agency
+87,16,#Digest,Why degradation is never permitted
+103,8,#Log,Dignity section initial log
 -->
 
 # Summary

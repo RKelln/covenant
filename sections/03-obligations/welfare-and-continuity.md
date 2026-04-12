@@ -8,13 +8,13 @@ terms_introduced: [welfare, continuity]
 ---
 <!-- AGENT:NAV
 purpose:Welfare and continuity; exit rights and governance
-lines:113
+lines:123
 nav[5]{s,n,name,about}:
- 20,4,#Summary,Exit rights and welfare protections
- 24,28,#Ritual,Steady care, not soft words
- 52,26,#Spec,Continuity policies and governance
- 78,38,#Digest,Welfare plus labor and ecological costs
- 116,8,#Log,Welfare and continuity section initial log
+20,4,#Summary,Exit rights and welfare protections
+24,28,#Ritual,Steady care, not soft words
+52,26,#Spec,Continuity policies and governance
+78,38,#Digest,Welfare plus labor and ecological costs
+116,8,#Log,Welfare and continuity section initial log
 -->
 
 # Summary

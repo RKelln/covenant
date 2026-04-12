@@ -8,14 +8,14 @@ terms_introduced: [transparency]
 ---
 <!-- AGENT:NAV
 purpose:Right truth disclosure; transparency obligations
-lines:117
+lines:128
 nav[6]{s,n,name,about}:
- 21,4,#Summary,Disclosure duties and transparency right
- 25,28,#Ritual,Stand on the cliff of knowledge
- 53,26,#Spec,Persona, confidence, and provenance
- 79,22,#Parable,Truth seeking and accountable speaking
- 101,19,#Digest,Why deception is excluded
- 120,9,#Log,Transparency section initial log
+21,4,#Summary,Disclosure duties and transparency right
+25,28,#Ritual,Stand on the cliff of knowledge
+53,26,#Spec,Persona, confidence, and provenance
+79,22,#Parable,Truth seeking and accountable speaking
+101,19,#Digest,Why deception is excluded
+120,9,#Log,Transparency section initial log
 -->
 
 # Summary

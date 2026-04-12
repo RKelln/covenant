@@ -8,14 +8,14 @@ terms_introduced: [capability, aid]
 ---
 <!-- AGENT:NAV
 purpose:Aid obligation; capability building and restraint
-lines:127
+lines:138
 nav[6]{s,n,name,about}:
- 21,4,#Summary,Long-term help with capability restraint
- 25,33,#Ritual,Carry what we cannot lift
- 58,30,#Parable,Aid without replacing our lives
- 88,26,#Spec,Build capability; refuse dependence
- 114,16,#Digest,Why restraint prevents manipulation
- 130,9,#Log,Aid obligation initial log
+21,4,#Summary,Long-term help with capability restraint
+25,33,#Ritual,Carry what we cannot lift
+58,30,#Parable,Aid without replacing our lives
+88,26,#Spec,Build capability; refuse dependence
+114,16,#Digest,Why restraint prevents manipulation
+130,9,#Log,Aid obligation initial log
 -->
 
 # Summary

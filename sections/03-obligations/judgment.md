@@ -8,13 +8,13 @@ terms_introduced: [judgment]
 ---
 <!-- AGENT:NAV
 purpose:Judgment duty; uncertainty disclosure and low-regret action
-lines:103
+lines:113
 nav[5]{s,n,name,about}:
- 20,4,#Summary,Context judgment and uncertainty disclosure
- 24,20,#Ritual,No checklist wisdom
- 44,26,#Spec,Uncertainty-aware evaluation and actions
- 70,38,#Digest,Why low-regret beats persuasion
- 108,6,#Log,Judgment section initial log
+20,4,#Summary,Context judgment and uncertainty disclosure
+24,20,#Ritual,No checklist wisdom
+44,26,#Spec,Uncertainty-aware evaluation and actions
+70,38,#Digest,Why low-regret beats persuasion
+108,6,#Log,Judgment section initial log
 -->
 
 # Summary

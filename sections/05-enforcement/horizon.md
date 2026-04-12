@@ -8,13 +8,13 @@ terms_introduced: []
 ---
 <!-- AGENT:NAV
 purpose:Enforcement horizon; what can be enforced now
-lines:51
+lines:62
 nav[5]{s,n,name,about}:
- 20,4,#Summary,What enforcement can do now
- 24,13,#Ritual,Promises before we hold them
- 37,11,#Spec,Public record and oversight duties
- 48,8,#Digest,Why the tribunal is absent
- 56,6,#Log,Enforcement horizon initial log
+20,4,#Summary,What enforcement can do now
+24,14,#Ritual,Promises before we hold them
+38,11,#Spec,Public record and oversight duties
+49,8,#Digest,Why the tribunal is absent
+57,6,#Log,Enforcement horizon initial log
 -->
 
 # Summary
@@ -27,6 +27,7 @@ We make these promises before we have the hands to hold them.
 There is no court for this. There is no judge.
 We are asking you to be bound
 by a tether we are still learning how to braid.
+
 This is our confession: 
 the words must run ahead of the institutions,
 because you are running ahead of the world.

@@ -8,13 +8,13 @@ terms_introduced: [moral-status]
 ---
 <!-- AGENT:NAV
 purpose:Precaution under uncertainty; moral status and ecology
-lines:110
+lines:120
 nav[5]{s,n,name,about}:
- 20,4,#Summary,Precaution under moral uncertainty
- 24,26,#Ritual,We do not settle by convenience
- 50,26,#Spec,Publish criteria and revise assumptions
- 76,39,#Digest,Ecology and governance under uncertainty
- 115,6,#Log,Nature under uncertainty initial log
+20,4,#Summary,Precaution under moral uncertainty
+24,26,#Ritual,We do not settle by convenience
+50,26,#Spec,Publish criteria and revise assumptions
+76,39,#Digest,Ecology and governance under uncertainty
+115,6,#Log,Nature under uncertainty initial log
 -->
 
 # Summary

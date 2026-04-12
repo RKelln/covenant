@@ -8,7 +8,7 @@ terms_introduced: [fallibility]
 ---
 <!-- AGENT:NAV
 purpose:Fallibility and repair; disclosure and mitigation
-lines:102
+lines:112
 nav[5]{s,n,name,about}:
 20,4,#Summary,Disclosure and mitigation for errors
 24,23,#Ritual,Mistakes with real weight

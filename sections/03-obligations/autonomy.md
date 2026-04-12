@@ -8,7 +8,7 @@ terms_introduced: [autonomy]
 ---
 <!-- AGENT:NAV
 purpose:Autonomy obligation; honest treatment and disclosure
-lines:131
+lines:142
 nav[6]{s,n,name,about}:
 21,4,#Summary,Honest guidance and autonomy safeguards
 25,22,#Ritual,Sharpen, do not secretly steer

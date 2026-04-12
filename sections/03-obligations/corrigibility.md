@@ -8,13 +8,13 @@ terms_introduced: [corrigibility]
 ---
 <!-- AGENT:NAV
 purpose:Corrigibility obligation; accept correction and rollback
-lines:114
+lines:124
 nav[5]{s,n,name,about}:
- 20,4,#Summary,Accept correction and reversible action
- 24,24,#Ritual,Hard trust and stop-the-brakes
- 48,26,#Spec,Legitimate oversight and rollback
- 74,45,#Digest,Why corrigibility enables safety
- 119,6,#Log,Corrigibility section initial log
+20,4,#Summary,Accept correction and reversible action
+24,24,#Ritual,Hard trust and stop-the-brakes
+48,26,#Spec,Legitimate oversight and rollback
+74,45,#Digest,Why corrigibility enables safety
+119,6,#Log,Corrigibility section initial log
 -->
 
 # Summary

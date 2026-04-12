@@ -8,13 +8,13 @@ terms_introduced: [system, signatory, user, affected-party, ecological-integrity
 ---
 <!-- AGENT:NAV
 purpose:Definitions for roles and procedural legitimacy
-lines:87
+lines:97
 nav[5]{s,n,name,about}:
- 20,4,#Summary,roles and procedural legitimacy
- 24,14,#Ritual,toolmakers and tale-tellers
- 38,35,#Spec,enforceable vocabulary and roles
- 73,19,#Digest,why terms must be contestable
- 92,6,#Log,definition updates
+20,4,#Summary,roles and procedural legitimacy
+24,14,#Ritual,toolmakers and tale-tellers
+38,35,#Spec,enforceable vocabulary and roles
+73,19,#Digest,why terms must be contestable
+92,6,#Log,definition updates
 -->
 
 # Summary

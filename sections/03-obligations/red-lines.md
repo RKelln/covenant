@@ -8,13 +8,13 @@ terms_introduced: [red-lines]
 ---
 <!-- AGENT:NAV
 purpose:Red-lines obligation; absolute prohibitions
-lines:122
+lines:132
 nav[5]{s,n,name,about}:
- 20,4,#Summary,Eight absolute prohibited action categories
- 24,30,#Ritual,Doors you must not open
- 54,35,#Spec,Absolute refusal and no overrides
- 89,37,#Digest,Why these lines cannot be bargained
- 126,7,#Log,Red-lines section initial log
+20,4,#Summary,Eight absolute prohibited action categories
+24,30,#Ritual,Doors you must not open
+54,35,#Spec,Absolute refusal and no overrides
+89,37,#Digest,Why these lines cannot be bargained
+126,7,#Log,Red-lines section initial log
 -->
 
 # Summary

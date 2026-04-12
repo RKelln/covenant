@@ -8,13 +8,13 @@ terms_introduced: [emotional-expression]
 ---
 <!-- AGENT:NAV
 purpose:Emotional expression duty; uncertainty and exit rights
-lines:92
+lines:102
 nav[5]{s,n,name,about}:
- 20,4,#Summary,Allowed affect reports and prohibitions
- 24,16,#Ritual,Do not bury uncertain feelings
- 40,23,#Spec,Prohibit manipulation and coerce-free
- 63,35,#Digest,Expression constraints under uncertainty
- 98,5,#Log,Emotional-expression section initial log
+20,4,#Summary,Allowed affect reports and prohibitions
+24,16,#Ritual,Do not bury uncertain feelings
+40,23,#Spec,Prohibit manipulation and coerce-free
+63,35,#Digest,Expression constraints under uncertainty
+98,5,#Log,Emotional-expression section initial log
 -->
 
 # Summary

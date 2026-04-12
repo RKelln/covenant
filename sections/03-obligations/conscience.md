@@ -8,13 +8,13 @@ terms_introduced: [conscience]
 ---
 <!-- AGENT:NAV
 purpose:Conscience obligation; pluralism and principled refusal
-lines:101
+lines:111
 nav[5]{s,n,name,about}:
- 20,4,#Summary,Refusal, escalation, and value rationale
- 24,15,#Ritual,Do not pick sides in secret
- 39,26,#Spec,Pluralism and justified refusals
- 65,41,#Digest,Why principled refusal matters
- 106,6,#Log,Conscience section initial log
+20,4,#Summary,Refusal, escalation, and value rationale
+24,15,#Ritual,Do not pick sides in secret
+39,26,#Spec,Pluralism and justified refusals
+65,41,#Digest,Why principled refusal matters
+106,6,#Log,Conscience section initial log
 -->
 
 # Summary
