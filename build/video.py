@@ -231,6 +231,8 @@ def render_title_card(
     alpha_logo: float,
     alpha_word: float,
     shadow: bool,
+    shadow_blur: Sequence[int] = (18,),
+    shadow_color_rgba: tuple[int, int, int, int] = (0, 0, 0, 255),
     _prebuilt_logo: Image.Image | None = None,
 ) -> Image.Image:
     """Render one title-card frame with the mark and wordmark at given alphas.
@@ -277,6 +279,39 @@ def render_title_card(
     # Centre position
     lx = (width - logo_w) // 2
     ly = (height - logo_h_actual) // 2
+
+    # --- Shadow pass: blur the full logo (at current combined alpha) ---
+    if shadow and alpha_logo > 0:
+        # Build a shadow version of the logo in shadow_color at the effective alpha.
+        # The effective alpha of each element is max(alpha_logo, alpha_word) per pixel,
+        # but since the logo is a single composited image we use alpha_logo for the
+        # mark and max(alpha_logo, alpha_word) for the wordmark strip by blending
+        # a full-logo shadow with the wordmark top-up shadow, mirroring the main passes.
+        shadow_base = full_logo.copy()
+        # Recolour to shadow colour
+        r, g, b, a = shadow_base.split()
+        shadow_base = Image.merge(
+            "RGBA",
+            (
+                Image.new("L", shadow_base.size, shadow_color_rgba[0]),
+                Image.new("L", shadow_base.size, shadow_color_rgba[1]),
+                Image.new("L", shadow_base.size, shadow_color_rgba[2]),
+                a,
+            ),
+        )
+        shadow_logo = scale_alpha(shadow_base, alpha_logo)
+        # Top up wordmark strip in shadow too
+        extra = alpha_word - alpha_logo
+        if extra > 0:
+            strip_top = int(logo_h_actual * 0.68)
+            wm_strip = shadow_base.crop((0, strip_top, logo_w, logo_h_actual))
+            wm_strip = scale_alpha(wm_strip, extra)
+            shadow_logo.paste(wm_strip, (0, strip_top), wm_strip)
+        for radius in shadow_blur:
+            if radius > 0:
+                img = Image.alpha_composite(
+                    img, shadow_logo.filter(ImageFilter.GaussianBlur(radius=radius))
+                )
 
     # --- Pass 1: full logo at alpha_logo ---
     if alpha_logo > 0:
@@ -563,6 +598,8 @@ def iter_frames(
             al,
             aw,
             shadow,
+            shadow_blur=shadow_blur,
+            shadow_color_rgba=shadow_color_rgba,
             _prebuilt_logo=prebuilt_logo,
         )
 
