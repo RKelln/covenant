@@ -309,8 +309,10 @@ def render_title_card(
             shadow_logo.paste(wm_strip, (0, strip_top), wm_strip)
         for radius in shadow_blur:
             if radius > 0:
+                shadow_frame = Image.new("RGBA", (width, height), (0, 0, 0, 0))
+                shadow_frame.paste(shadow_logo, (lx, ly), shadow_logo)
                 img = Image.alpha_composite(
-                    img, shadow_logo.filter(ImageFilter.GaussianBlur(radius=radius))
+                    img, shadow_frame.filter(ImageFilter.GaussianBlur(radius=radius))
                 )
 
     # --- Pass 1: full logo at alpha_logo ---
