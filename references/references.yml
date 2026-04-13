@@ -40,6 +40,25 @@ references:
       - enforcement
       - amendments
 
+  - slug: klowden-tao_2026_mathematical-methods-human-thought
+    title: "Mathematical methods and human thought in the age of AI"
+    creator: "Tanya Klowden, Terence Tao"
+    year: 2026
+    url: "https://arxiv.org/abs/2603.26524"
+    license: restricted
+    tier: B
+    thesis: "AI is a natural evolution of human cognitive tools, and its development and application must remain fundamentally human-centered — augmenting rather than replacing human thought, requiring explicit attention to who bears the costs and benefits."
+    relevance: "Using mathematics as a case study, this paper details how AI decouples the form of intellectual work from the understanding and accountability that gave it meaning, how market-driven adoption operates as a structural prisoner's dilemma that forecloses deliberate evaluation, and how AI-generated content degrades shared epistemic infrastructure through citation contamination and 'odorless' technically correct outputs. These concrete mechanisms directly inform the Covenant's sections on epistemic integrity, cognitive dignity, disclosure obligations, and accountability for AI-generated errors."
+    informs_sections:
+      - obligations.epistemic-commons
+      - obligations.honesty
+      - rights.truth-and-transparency
+      - rights.dignity
+      - obligations.power-concentration
+      - obligations.oversight
+      - obligations.harm
+      - enforcement
+
 # Example entry (uncomment and fill when adding references):
 #
 #  - slug: haraway_1985_cyborg-manifesto
