@@ -37,6 +37,9 @@ Options:
     --frames-only DIR   Write PNG frames to DIR and exit (skip FFmpeg, for debugging)
     --bg-tail SECS      Extend output after the last stanza by N seconds of background.
                         To finish the current background loop cycle instead, use --seamless-loop.
+                        When combined with --seamless-loop and a loop cut still exists,
+                        the last (bg-tail / 8) seconds will fade the first bg frame in as
+                        a freeze overlay to visually mask the hard cut.
 
 Examples:
     uv run python build/video.py --bg loop.mp4
@@ -58,6 +61,8 @@ from pathlib import Path
 from typing import Generator, Iterable, Sequence
 
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
+from tqdm import tqdm
+import numpy as np
 
 from sections import strip_html_comments
 
@@ -206,7 +211,7 @@ def tint_logo(
     orig_w, orig_h = src.size
     scale = scale_height / orig_h
     new_w = int(orig_w * scale)
-    src = src.resize((new_w, scale_height), Image.LANCZOS)
+    src = src.resize((new_w, scale_height), Image.Resampling.LANCZOS)
 
     # Invert brightness: black (0) → opaque, white (255) → transparent
     # Use the luminance of the original pixel as the alpha mask
@@ -333,7 +338,9 @@ def render_title_card(
     return img
 
 
-def wrap_lines(text: str, font: ImageFont.FreeTypeFont, max_width: int) -> list[str]:
+def wrap_lines(
+    text: str, font: ImageFont.FreeTypeFont | ImageFont.ImageFont, max_width: int
+) -> list[str]:
     """Word-wrap text to fit within max_width pixels."""
     wrapped: list[str] = []
     for raw_line in text.splitlines():
@@ -371,10 +378,7 @@ def check_stanzas_fit(
     piping starts.
     """
     warnings: list[tuple[Stanza, str]] = []
-    try:
-        font = ImageFont.truetype(str(FONT_REGULAR), font_size)
-    except OSError:
-        return warnings  # can't check without the font
+    font = load_font(FONT_REGULAR, font_size)
 
     line_bbox = font.getbbox("Ag")
     line_height = int((line_bbox[3] - line_bbox[1]) * 1.55)
@@ -433,6 +437,20 @@ def check_frame_overflow(img: Image.Image, margin: int) -> str | None:
     return ", ".join(issues) if issues else None
 
 
+# Module-level font cache — keyed by (path, size) to avoid repeated disk reads.
+_font_cache: dict[tuple[str, int], ImageFont.FreeTypeFont | ImageFont.ImageFont] = {}
+
+
+def load_font(path: Path, size: int) -> ImageFont.FreeTypeFont | ImageFont.ImageFont:
+    key = (str(path), size)
+    if key not in _font_cache:
+        try:
+            _font_cache[key] = ImageFont.truetype(str(path), size)
+        except OSError:
+            _font_cache[key] = ImageFont.load_default()
+    return _font_cache[key]
+
+
 def render_stanza_frame(
     stanza: Stanza,
     width: int,
@@ -453,10 +471,7 @@ def render_stanza_frame(
     """
     img = Image.new("RGBA", (width, height), (0, 0, 0, 0))
 
-    try:
-        font = ImageFont.truetype(str(FONT_REGULAR), font_size)
-    except OSError:
-        font = ImageFont.load_default()
+    font = load_font(FONT_REGULAR, font_size)
 
     max_text_width = width - 2 * margin
     lines = wrap_lines(stanza.text, font, max_text_width)
@@ -509,12 +524,12 @@ def render_stanza_frame(
 def scale_alpha(img: Image.Image, factor: float) -> Image.Image:
     """Return a copy of *img* with its alpha channel scaled by *factor* (0.0–1.0).
 
-    This is used to produce fade frames from a single fully-rendered image,
-    avoiding redundant font loading and text layout on every fade step.
+    Uses numpy for fast in-place multiply — much faster than Pillow's point()
+    lambda at 4K resolutions.
     """
-    r, g, b, a = img.split()
-    a = a.point(lambda px: int(px * factor))
-    return Image.merge("RGBA", (r, g, b, a))
+    arr = np.array(img)  # H×W×4 uint8
+    arr[..., 3] = (arr[..., 3] * factor).astype(np.uint8)
+    return Image.fromarray(arr, "RGBA")
 
 
 def stanza_hold_frames(
@@ -568,8 +583,15 @@ def iter_frames(
     shadow_color_rgba: tuple[int, int, int, int] = (0, 0, 0, 255),
     tail_frames: int = 0,
     section_gap_secs: float = 0.0,
+    tail_fade_to_frame: Image.Image | None = None,
+    tail_fade_frames: int = 0,
 ) -> Generator[Image.Image, None, None]:
-    """Yield RGBA overlay frames one at a time — no disk I/O."""
+    """Yield RGBA overlay frames one at a time — no disk I/O.
+
+    When *tail_fade_to_frame* is set, the last *tail_fade_frames* frames of
+    the tail ramp the overlay from transparent to that image at full opacity,
+    masking a hard background loop cut.
+    """
     color_rgba = hex_to_rgba(color_hex)
     fade_frames = max(1, int(fade_secs * fps))
     gap_frames = max(0, int(gap_secs * fps))
@@ -626,10 +648,6 @@ def iter_frames(
     # ------------------------------------------------------------------
     total = len(stanzas)
     for n, stanza in enumerate(stanzas):
-        print(
-            f"\r  Stanza {n + 1}/{total} ({(n + 1) / total:.0%})…", end="", flush=True
-        )
-
         # Render once at full opacity; derive faded frames via alpha scaling.
         img_full = render_stanza_frame(
             stanza,
@@ -667,15 +685,20 @@ def iter_frames(
             for _ in range(section_gap_frames):
                 yield blank
 
-    print()
-
-    # Seamless loop tail — transparent frames so the bg plays to its loop point
+    # Seamless loop tail — transparent frames so the bg plays to its loop point,
+    # with an optional fade-to-first-frame overlay to mask a hard loop cut.
     if tail_frames > 0:
         print(
             f"  Appending {tail_frames} tail frames ({tail_frames / fps:.1f}s) for seamless loop…"
         )
-        for _ in range(tail_frames):
-            yield blank
+        fade_start = tail_frames - tail_fade_frames
+        for i in range(tail_frames):
+            if tail_fade_to_frame is not None and i >= fade_start:
+                # Ramp from 0 → 1 over the last tail_fade_frames frames
+                fade_progress = (i - fade_start + 1) / tail_fade_frames
+                yield scale_alpha(tail_fade_to_frame, fade_progress)
+            else:
+                yield blank
 
 
 def count_frames(
@@ -723,8 +746,97 @@ def write_frames_to_dir(frames: Iterable[Image.Image], out_dir: Path) -> int:
 
 
 # ---------------------------------------------------------------------------
-# FFmpeg compositing
+# Tail calculation
 # ---------------------------------------------------------------------------
+
+
+@dataclass
+class TailPlan:
+    """Result of compute_tail_plan — describes the tail to append after the last stanza."""
+
+    tail_frames: int = 0
+    tail_fade_frames: int = 0
+    needs_first_frame: bool = False  # True when caller must extract bg frame 0
+
+
+def compute_tail_plan(
+    seamless_loop: bool,
+    bg_tail: float | None,
+    bg_path: Path | None,
+    content_frames: int,
+    fps: int,
+) -> TailPlan:
+    """Compute the tail frame count and freeze-fade parameters, and print a single
+    human-readable summary line.
+
+    Rules:
+    - --seamless-loop alone: pad to next bg loop boundary.
+    - --bg-tail alone: add exactly bg_tail seconds.
+    - Both together:
+        * If the seamless tail fits within bg_tail, use the seamless tail (clean loop).
+        * Otherwise, use bg_tail seconds and schedule a freeze-fade overlay over the
+          last (bg_tail / 8) seconds to mask the hard loop cut.
+    """
+    plan = TailPlan()
+
+    seamless_tail_frames = 0
+    bg_duration: float = 0.0
+    content_secs = content_frames / fps
+
+    if seamless_loop and bg_path is not None:
+        try:
+            bg_duration = probe_video_duration(bg_path)
+            loops = math.ceil(content_secs / bg_duration)
+            target_secs = loops * bg_duration
+            seamless_tail_frames = round((target_secs - content_secs) * fps)
+        except RuntimeError as e:
+            print(
+                f"  Warning: could not probe bg duration for seamless loop ({e}). Skipping tail."
+            )
+            seamless_loop = False
+
+    if bg_tail is not None and bg_tail < 0:
+        print(
+            "  Warning: --bg-tail does not accept negative values; use --seamless-loop to finish the current background loop cycle. Skipping."
+        )
+        bg_tail = None
+
+    if seamless_loop and bg_tail is not None:
+        bg_tail_frames = round(bg_tail * fps)
+        loops = math.ceil(content_secs / bg_duration)
+        if seamless_tail_frames <= bg_tail_frames:
+            # Clean loop fits inside budget.
+            plan.tail_frames = seamless_tail_frames
+            print(
+                f"  Tail: bg is {bg_duration:.2f}s, content is {content_secs:.1f}s — "
+                f"seamless loop fits within {bg_tail:.1f}s bg-tail budget "
+                f"({seamless_tail_frames / fps:.1f}s tail to {loops}× loop). No fade needed."
+            )
+        else:
+            # Loop point beyond budget — use bg-tail with freeze-fade.
+            fade_secs = bg_tail / 8.0
+            plan.tail_frames = bg_tail_frames
+            plan.tail_fade_frames = min(max(1, round(fade_secs * fps)), bg_tail_frames)
+            plan.needs_first_frame = True
+            print(
+                f"  Tail: bg is {bg_duration:.2f}s, content is {content_secs:.1f}s — "
+                f"next loop point is {seamless_tail_frames / fps:.1f}s away, "
+                f"beyond the {bg_tail:.1f}s bg-tail budget. "
+                f"Adding {bg_tail:.1f}s tail with {fade_secs:.2f}s freeze-fade at end to mask loop cut."
+            )
+    elif seamless_loop:
+        plan.tail_frames = seamless_tail_frames
+        loops = math.ceil(content_secs / bg_duration)
+        target_secs = loops * bg_duration
+        print(
+            f"  Tail: bg is {bg_duration:.2f}s, content is {content_secs:.1f}s — "
+            f"padding {seamless_tail_frames / fps:.1f}s to reach {loops}× loop ({target_secs:.2f}s)."
+        )
+    elif bg_tail is not None:
+        plan.tail_frames = round(bg_tail * fps)
+        print(f"  Background tail: adding {bg_tail:.1f}s ({plan.tail_frames} frames).")
+
+    return plan
 
 
 def probe_video_size(path: Path) -> tuple[int, int]:
@@ -750,6 +862,41 @@ def probe_video_size(path: Path) -> tuple[int, int]:
     first_line = result.stdout.strip().splitlines()[0]
     w, h = first_line.split(",")
     return int(w), int(h)
+
+
+def extract_first_frame(path: Path, width: int, height: int) -> Image.Image:
+    """Extract the first frame of a video as a Pillow RGBA image.
+
+    Uses ffmpeg to decode a single frame and pipe it as raw RGBA bytes.
+    """
+    cmd = [
+        "ffmpeg",
+        "-y",
+        "-i",
+        str(path),
+        "-vf",
+        f"scale={width}:{height}:force_original_aspect_ratio=decrease,"
+        f"pad={width}:{height}:(ow-iw)/2:(oh-ih)/2:black",
+        "-frames:v",
+        "1",
+        "-f",
+        "rawvideo",
+        "-pix_fmt",
+        "rgba",
+        "pipe:1",
+    ]
+    result = subprocess.run(cmd, capture_output=True)
+    if result.returncode != 0:
+        raise RuntimeError(
+            f"ffmpeg failed extracting first frame from {path}: "
+            + result.stderr.decode(errors="replace").strip()
+        )
+    expected = width * height * 4
+    if len(result.stdout) < expected:
+        raise RuntimeError(
+            f"ffmpeg returned {len(result.stdout)} bytes for first frame, expected {expected}"
+        )
+    return Image.frombytes("RGBA", (width, height), result.stdout[:expected])
 
 
 def probe_video_duration(path: Path) -> float:
@@ -890,16 +1037,18 @@ def composite_with_ffmpeg(
 
     def _drain_stderr() -> None:
         assert proc.stderr is not None
-        for chunk in iter(lambda: proc.stderr.read(65536), b""):
+        for chunk in iter(lambda: proc.stderr.read(65536), b""):  # type: ignore
             stderr_chunks.append(chunk)
 
     stderr_thread = threading.Thread(target=_drain_stderr, daemon=True)
     stderr_thread.start()
 
     try:
-        for img in frames:
-            proc.stdin.write(img.tobytes())
-        proc.stdin.close()
+        for img in tqdm(
+            frames, total=total_frames, desc="  Frames", unit="fr", leave=True
+        ):
+            proc.stdin.write(img.tobytes())  # type: ignore
+        proc.stdin.close()  # type: ignore
     except BrokenPipeError:
         stderr_thread.join()
         stderr_out = b"".join(stderr_chunks).decode(errors="replace")
@@ -1167,42 +1316,30 @@ def main():
         )
 
     if args.dry_run:
-        # Seamless loop tail estimate (informational only)
-        if args.seamless_loop:
-            if args.bg:
-                bg_path_dry = Path(args.bg)
-                if bg_path_dry.exists():
-                    try:
-                        bg_duration = probe_video_duration(bg_path_dry)
-                        content_frames = count_frames(
-                            stanzas,
-                            args.fps,
-                            args.hold,
-                            args.fade,
-                            args.gap,
-                            args.title_hold,
-                            args.title_fade,
-                            auto_timing=args.auto_timing,
-                        )
-                        content_secs = content_frames / args.fps
-                        loops = math.ceil(content_secs / bg_duration)
-                        target_secs = loops * bg_duration
-                        tail_frames_dry = round((target_secs - content_secs) * args.fps)
-                        print(
-                            f"  Seamless loop: bg is {bg_duration:.2f}s, "
-                            f"content is {content_secs:.1f}s, "
-                            f"padding {tail_frames_dry / args.fps:.1f}s tail to reach {loops}× loop ({target_secs:.2f}s)."
-                        )
-                    except RuntimeError as e:
-                        print(
-                            f"  Warning: could not probe bg for seamless loop estimate ({e})."
-                        )
-                else:
-                    print(
-                        f"  Warning: --bg path not found, skipping seamless loop estimate."
-                    )
+        if args.seamless_loop or args.bg_tail is not None:
+            bg_path_dry = Path(args.bg) if args.bg else None
+            if bg_path_dry is None:
+                print("  Note: pass --bg to see tail estimate.")
+            elif not bg_path_dry.exists():
+                print(f"  Warning: --bg path not found, skipping tail estimate.")
             else:
-                print("  Note: pass --bg to see seamless loop tail estimate.")
+                content_frames_dry = count_frames(
+                    stanzas,
+                    args.fps,
+                    args.hold,
+                    args.fade,
+                    args.gap,
+                    args.title_hold,
+                    args.title_fade,
+                    auto_timing=args.auto_timing,
+                )
+                compute_tail_plan(
+                    args.seamless_loop,
+                    args.bg_tail,
+                    bg_path_dry,
+                    content_frames_dry,
+                    args.fps,
+                )
 
         if fit_warnings:
             print(f"\n--- DRY RUN: {len(fit_warnings)} overflowing stanza(s) ---\n")
@@ -1256,45 +1393,37 @@ def main():
     out_path = Path(args.out)
     out_path.parent.mkdir(parents=True, exist_ok=True)
 
-    # Seamless loop tail — pad to next multiple of bg video duration
-    tail_frames = 0
-    if args.seamless_loop:
+    # Compute tail
+    content_frames_live = count_frames(
+        stanzas,
+        args.fps,
+        args.hold,
+        args.fade,
+        args.gap,
+        args.title_hold,
+        args.title_fade,
+        auto_timing=args.auto_timing,
+    )
+    tail_plan = compute_tail_plan(
+        args.seamless_loop,
+        args.bg_tail,
+        bg_path,
+        content_frames_live,
+        args.fps,
+    )
+    tail_frames = tail_plan.tail_frames
+    tail_fade_frames = tail_plan.tail_fade_frames
+
+    tail_fade_to_frame: Image.Image | None = None
+    if tail_plan.needs_first_frame:
         try:
-            bg_duration = probe_video_duration(bg_path)
-            content_frames = count_frames(
-                stanzas,
-                args.fps,
-                args.hold,
-                args.fade,
-                args.gap,
-                args.title_hold,
-                args.title_fade,
-                auto_timing=args.auto_timing,
-            )
-            content_secs = content_frames / args.fps
-            loops = math.ceil(content_secs / bg_duration)
-            target_secs = loops * bg_duration
-            tail_frames = round((target_secs - content_secs) * args.fps)
-            print(
-                f"  Seamless loop: bg is {bg_duration:.2f}s, "
-                f"content is {content_secs:.1f}s, "
-                f"padding {tail_frames / args.fps:.1f}s tail to reach {loops}× loop ({target_secs:.2f}s)."
-            )
+            print(f"  Extracting first bg frame for freeze-fade…")
+            tail_fade_to_frame = extract_first_frame(bg_path, args.width, args.height)
         except RuntimeError as e:
             print(
-                f"  Warning: could not probe bg duration for seamless loop ({e}). Skipping tail."
+                f"  Warning: could not extract first bg frame ({e}). Skipping fade overlay."
             )
-
-    if args.bg_tail is not None:
-        if args.bg_tail < 0:
-            print(
-                "  Warning: --bg-tail does not accept negative values; use --seamless-loop to finish the current background loop cycle. Skipping."
-            )
-        else:
-            tail_frames += round(args.bg_tail * args.fps)
-            print(
-                f"  Background tail: adding {args.bg_tail:.1f}s ({round(args.bg_tail * args.fps)} frames)."
-            )
+            tail_fade_frames = 0
 
     total_frames = count_frames(
         stanzas,
@@ -1330,6 +1459,8 @@ def main():
         shadow_color_rgba=hex_to_rgba(args.shadow_color),
         tail_frames=tail_frames,
         section_gap_secs=args.section_gap,
+        tail_fade_to_frame=tail_fade_to_frame,
+        tail_fade_frames=tail_fade_frames,
     )
     composite_with_ffmpeg(
         bg_path,

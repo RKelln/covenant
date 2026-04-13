@@ -6,8 +6,13 @@ requires-python = ">=3.11"
 dependencies = [
     "jsonschema>=4.17",
     "markdown>=3.5",
+    "numpy>=2.4.4",
     "pillow>=10.0",
     "pyyaml>=6.0",
+    "tqdm>=4.67.3",
     "weasyprint>=61.0",
 ]
+
+[tool.pyright]
+extraPaths = ["build"]
 
