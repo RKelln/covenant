@@ -1,5 +1,5 @@
 --out
-dist/covenant_era_ritual.mp4
+dist/covenant_era_ritual_4k.mp4
 --fps
 30
 --hold
@@ -14,7 +14,7 @@ dist/covenant_era_ritual.mp4
 --title-fade
 1
 --font-size
-90
+120
 --shadow
 --shadow-blur
 2,8,24
@@ -22,3 +22,9 @@ dist/covenant_era_ritual.mp4
 0.8
 --section-gap
 2
+--margin
+50
+--width
+3840
+--height
+2160
