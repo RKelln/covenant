@@ -1,6 +1,6 @@
 <!-- AGENT:NAV
 purpose:known pitfalls; svelte; tauri; testing issues
-lines:63
+lines:73
 nav[5]{s,n,name,about}:
 12,62,#Footguns — Known Pitfalls,read; allow
 18,14,##Svelte 5,state; svelte

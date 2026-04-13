@@ -1,6 +1,6 @@
 <!-- AGENT:NAV
 purpose:synthesis instructions; convergence; divergence; decisions
-lines:212
+lines:222
 nav[5]{s,n,name,about}:
 12,211,#Synthesis Instructions,synthesis; round
 32,26,##What to Read,reviewer; read

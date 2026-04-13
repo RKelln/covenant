@@ -1,6 +1,6 @@
 <!-- AGENT:NAV
 purpose:music generation prompt; voice; instrumentation; setting
-lines:96
+lines:105
 nav[4]{s,n,name,about}:
 11,78,##Lyrics,voice; guitar
 89,6,##Style,guitar; marimba

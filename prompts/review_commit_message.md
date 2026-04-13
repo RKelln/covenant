@@ -1,6 +1,6 @@
 <!-- AGENT:NAV
 purpose:commit message template; round references
-lines:40
+lines:44
 -->
 
 # Review Commit Message Template

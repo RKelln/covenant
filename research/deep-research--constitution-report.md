@@ -1,6 +1,6 @@
 <!-- AGENT:NAV
 purpose:constitution research; universal approach; governance
-lines:113
+lines:125
 nav[7]{s,n,name,about}:
 14,112,#Constitution: Deep Research for a Universal Human–AI Constitution and Concept Album,cite; constitution
 18,12,##From corporate constitutions to public behavioral specs,cite; public

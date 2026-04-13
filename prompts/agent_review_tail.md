@@ -1,6 +1,6 @@
 <!-- AGENT:NAV
 purpose:tail batch review; cross-cutting observations
-lines:174
+lines:189
 nav[10]{s,n,name,about}:
 17,173,#Covenant Review Prompt Template — Tail Batch (Cross-Cutting),prior; round
 32,7,##Review Round Context,round; commit

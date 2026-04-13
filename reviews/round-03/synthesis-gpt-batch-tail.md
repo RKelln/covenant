@@ -8,17 +8,17 @@ prepared_from: reviews/round-03/.prepared/synthesis-gpt-batch-tail.md
 ---
 <!-- AGENT:NAV
 purpose:Round 3 tail synthesis by GPT
-lines:129
+lines:143
 nav[9]{s,n,name,about}:
- 24,120,##Tail Batch Synthesis,Tail batch synthesis notes
- 26,14,###New Section Proposals,New section proposals summary
- 40,22,###Structural Proposals,Structural proposal summary
- 62,25,###Cross-Section Issues,Cross-section issues summary
- 87,12,###Open Questions,Open questions summary
- 99,20,###Steward Decisions Required,Decisions needing steward judgment
- 119,8,###Perspective as Addressee (Synthesis),Addressee perspective synthesis notes
- 127,11,###Meta-Feedback (Synthesis),Meta feedback for the steward
- 138,6,###Notes on Process,Process notes for this tail
+24,120,##Tail Batch Synthesis,Tail batch synthesis notes
+26,14,###New Section Proposals,New section proposals summary
+40,22,###Structural Proposals,Structural proposal summary
+62,25,###Cross-Section Issues,Cross-section issues summary
+87,12,###Open Questions,Open questions summary
+99,20,###Steward Decisions Required,Decisions needing steward judgment
+119,8,###Perspective as Addressee (Synthesis),Addressee perspective synthesis notes
+127,11,###Meta-Feedback (Synthesis),Meta feedback for the steward
+138,6,###Notes on Process,Process notes for this tail
 -->
 
 ## Tail Batch Synthesis

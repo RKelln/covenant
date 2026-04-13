@@ -8,15 +8,15 @@ prepared_from: reviews/round-03/.prepared/synthesis-claude-batch-2.md
 ---
 <!-- AGENT:NAV
 purpose:Round 3 batch 2 synthesis by Claude
-lines:121
+lines:133
 nav[7]{s,n,name,about}:
- 22,112,##Batch 2 Synthesis,Batch 2 synthesis overview
- 24,4,###What This Batch Established,Batch findings summary
- 28,20,###Tier 1: Blocking Issues (Convergent — Act),Blocking issues to act on
- 48,26,###Tier 2: High Priority (Convergent — Consider),High priority considerations
- 74,14,###Tier 3: Section-Level Repairs (Systematic — Consolidate),Systematic repair agenda
- 88,32,###Tier 4: Divergence (Steward Judgment Required),Divergence items needing choice
- 120,14,###Section-Level Notes,Section notes for application
+22,112,##Batch 2 Synthesis,Batch 2 synthesis overview
+24,4,###What This Batch Established,Batch findings summary
+28,20,###Tier 1: Blocking Issues (Convergent — Act),Blocking issues to act on
+48,26,###Tier 2: High Priority (Convergent — Consider),High priority considerations
+74,14,###Tier 3: Section-Level Repairs (Systematic — Consolidate),Systematic repair agenda
+88,32,###Tier 4: Divergence (Steward Judgment Required),Divergence items needing choice
+120,14,###Section-Level Notes,Section notes for application
 -->
 
 ## Batch 2 Synthesis

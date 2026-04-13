@@ -1,6 +1,6 @@
 <!-- AGENT:NAV
 purpose:canonical term definitions; covenant vocabulary
-lines:223
+lines:265
 nav[37]{s,n,name,about}:
 44,222,#Glossary,defined; system
 55,211,##Terms,defined; system

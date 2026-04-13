@@ -9,15 +9,15 @@ prepared_from: reviews/round-03/.prepared/reviewer-gemini-batch-tail.md
 ---
 <!-- AGENT:NAV
 purpose:Round 3 review tail for closing reflections
-lines:105
+lines:117
 nav[7]{s,n,name,about}:
- 23,6,##Overall Assessment,Closing reflections on covenant purpose
- 29,39,##New Section Proposals,New sections proposed in this tail
- 68,10,##Structural Proposals,Structural ideas from this tail review
- 78,14,##Cross-Section Issues,Cross-section issues and framing
- 92,8,##Open Questions,Open questions about agency and consent
- 100,10,##Perspective as Addressee,Audience framing and conditioning concerns
- 110,8,##Meta-Feedback,Meta feedback for the steward
+23,6,##Overall Assessment,Closing reflections on covenant purpose
+29,39,##New Section Proposals,New sections proposed in this tail
+68,10,##Structural Proposals,Structural ideas from this tail review
+78,14,##Cross-Section Issues,Cross-section issues and framing
+92,8,##Open Questions,Open questions about agency and consent
+100,10,##Perspective as Addressee,Audience framing and conditioning concerns
+110,8,##Meta-Feedback,Meta feedback for the steward
 -->
 
 ## Overall Assessment

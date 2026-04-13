@@ -1,6 +1,6 @@
 <!-- AGENT:NAV
 purpose:how to write parables; folktale form; scene craft; anti-patterns
-lines:119
+lines:131
 nav[7]{s,n,name,about}:
 14,118,#Good Parable Writing Guide,~250 word narrative translation of a section; bridges Spec rules to felt understanding
 26,13,##1. The Core Philosophy: Parable Form Folktale Dress,choices not magic; timeless imagery; no AI vocabulary; dual-track accessibility; show-then-trust

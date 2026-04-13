@@ -1,6 +1,6 @@
 <!-- AGENT:NAV
 purpose:covenant overview; project scope; civic infrastructure
-lines:20
+lines:24
 -->
 
 # About Covenant

@@ -4,7 +4,7 @@ round: round-03
 ---
 <!-- AGENT:NAV
 purpose:Round 3 covenant review by Claude
-lines:1583
+lines:1623
 nav[35]{s,n,name,about}:
 46,10,##Overall Assessment,Round 3 overall critique
 56,1483,##Section Reviews,Section reviews by Claude

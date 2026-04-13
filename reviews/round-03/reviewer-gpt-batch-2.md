@@ -9,7 +9,7 @@ prepared_from: reviews/round-03/.prepared/reviewer-gpt-batch-2.md
 ---
 <!-- AGENT:NAV
 purpose:round-03 review; gpt
-lines:724
+lines:746
 nav[17]{s,n,name,about}:
 33,8,##Overall Assessment,enforcement; mostly
 41,664,##Section Reviews,enforcement; system

@@ -8,13 +8,13 @@ synthesized_by: synthesizer-gemini
 ---
 <!-- AGENT:NAV
 purpose:Round 3 synthesis by Gemini synthesizer
-lines:251
+lines:276
 nav[20]{s,n,name,about}:
 35,242,#Synthesis: round-03,Round 3 synthesis overview
 37,45,##Batch 1,Batch 1 synthesis snapshot
 43,7,###Tier 1: Blocking Issues (Convergent — Act),Blocking issues list
 67,15,###Section-Level Notes,Section-level notes
-82,56,##Batch 2,Batch 2 synthesis snapshot>What This Batch Established;Tier 4: Divergence (Steward Judgment Required)
+82,56,##Batch 2,Batch 2 synthesis snapshot>What This Batch Established;Tier 4: Divergence (Steward Judgment Required);What This Batch Established;Tier 4: Divergence (Steward Judgment Required);What This Batch Established;Tier 4: Divergence (Steward Judgment Required);What This Batch Established;Tier 4: Divergence (Steward Judgment Required)
 88,14,###Tier 1: Blocking Issues (Convergent — Act),Batch 2 blocking issues
 102,8,###Tier 2: High Priority (Convergent — Consider),High priority items list
 110,9,###Tier 3: Section-Level Repairs (Systematic — Consolidate),Systematic repair tasks
@@ -23,7 +23,7 @@ nav[20]{s,n,name,about}:
 151,8,###Tier 2: High Priority (Convergent — Consider),Batch 3 high priority edits
 165,7,###Tier 4: Divergence (Steward Judgment Required),Steward divergences list
 172,15,###Section-Level Notes,Section-level notes
-187,90,##Cross-Cutting (Tail Batch),Tail batch cross-section summary>Steward Decisions Required;Notes on Process
+187,90,##Cross-Cutting (Tail Batch),Tail batch cross-section summary>Steward Decisions Required;Notes on Process;Steward Decisions Required;Notes on Process;Steward Decisions Required;Notes on Process;Steward Decisions Required;Notes on Process
 189,17,###New Section Proposals,New section proposals summary
 206,22,###Structural Proposals,Structural recommendations
 228,7,###Cross-Section Issues,Cross-section issues notes

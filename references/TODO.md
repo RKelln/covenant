@@ -1,6 +1,6 @@
 <!-- AGENT:NAV
 purpose:reference tasks; papers; blogs; websites; gaps
-lines:64
+lines:78
 nav[9]{s,n,name,about}:
 16,6,#References TODO,files; humans
 18,4,##Papers,files; humans

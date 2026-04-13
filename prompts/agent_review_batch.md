@@ -1,6 +1,6 @@
 <!-- AGENT:NAV
 purpose:batch review template; section assessment
-lines:264
+lines:286
 nav[17]{s,n,name,about}:
 24,263,#Covenant Review Prompt Template,review; text
 38,7,##Review Round Context,round; commit

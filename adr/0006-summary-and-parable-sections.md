@@ -1,20 +1,20 @@
 <!-- AGENT:NAV
- purpose:section bundle additions; summary and parable; build and tone rules
- lines:135
- nav[12]{s,n,name,about}:
- 19,134,#ADR 0006: Summary and Parable Sections,adds summary and optional parable headings to bundles
- 21,4,##Status,accepted ADR
- 25,4,##Date,2026 section format update
- 29,22,##Context,readability gaps and missing narrative layer
- 51,81,##Decision,add required Summary and optional Parable headings
- 55,14,###Summary (required),two-sentence orientation before Ritual
- 69,10,###Parable (optional),short story illustrating constraints
- 79,16,###Interpretive authority,non-authoritative guidance only
- 95,11,###Updated heading order,new heading ordering within bundles
- 106,16,###Build tool changes,compose and render changes for Summary/Parable
- 122,10,###Documentation changes,style guidance and craft guide references
- 132,21,##Consequences,new summary burden and future-facing parable storage
- -->
+purpose:section bundle additions; summary and parable; build and tone rules
+lines:152
+nav[12]{s,n,name,about}:
+19,134,#ADR 0006: Summary and Parable Sections,adds summary and optional parable headings to bundles
+21,4,##Status,accepted ADR
+25,4,##Date,2026 section format update
+29,22,##Context,readability gaps and missing narrative layer
+51,81,##Decision,add required Summary and optional Parable headings
+55,14,###Summary (required),two-sentence orientation before Ritual
+69,10,###Parable (optional),short story illustrating constraints
+79,16,###Interpretive authority,non-authoritative guidance only
+95,11,###Updated heading order,new heading ordering within bundles
+106,16,###Build tool changes,compose and render changes for Summary/Parable
+122,10,###Documentation changes,style guidance and craft guide references
+132,21,##Consequences,new summary burden and future-facing parable storage
+-->
 
 # ADR 0006: Summary and Parable Sections
 

@@ -1,6 +1,6 @@
 <!-- AGENT:NAV
 purpose:references corpus; tier system; licensing; slug convention
-lines:141
+lines:155
 nav[9]{s,n,name,about}:
 16,140,#References Corpus,notes; covenant
 20,5,##Structure,references; notes

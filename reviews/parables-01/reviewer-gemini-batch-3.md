@@ -8,7 +8,7 @@ prepared_from: reviews/parables-01/.prepared/reviewer-gemini-batch-3.md
 ---
 <!-- AGENT:NAV
 purpose:Gemini parable review for closing sections
-lines:185
+lines:201
 nav[11]{s,n,name,about}:
 26,166,##Parables,Parable drafts for closing obligations
 28,19,###§obligations.welfare-and-continuity: Reciprocal Welfare and Continuity,Welfare continuity parable review

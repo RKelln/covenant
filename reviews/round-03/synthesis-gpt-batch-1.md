@@ -8,15 +8,15 @@ prepared_from: reviews/round-03/.prepared/synthesis-gpt-batch-1.md
 ---
 <!-- AGENT:NAV
 purpose:Round 3 batch 1 synthesis by GPT
-lines:72
+lines:84
 nav[7]{s,n,name,about}:
- 22,63,##Batch 1 Synthesis,Batch 1 synthesis overview
- 24,4,###What This Batch Established,Key batch findings summary
- 28,12,###Tier 1: Blocking Issues (Convergent — Act),Blocking issues to implement
- 40,7,###Tier 2: High Priority (Convergent — Consider),High priority considerations
- 47,8,###Tier 3: Section-Level Repairs (Systematic — Consolidate),Section repair agenda
- 55,16,###Tier 4: Divergence (Steward Judgment Required),Steward decision divergences
- 71,14,###Section-Level Notes,Section notes and obligations
+22,63,##Batch 1 Synthesis,Batch 1 synthesis overview
+24,4,###What This Batch Established,Key batch findings summary
+28,12,###Tier 1: Blocking Issues (Convergent — Act),Blocking issues to implement
+40,7,###Tier 2: High Priority (Convergent — Consider),High priority considerations
+47,8,###Tier 3: Section-Level Repairs (Systematic — Consolidate),Section repair agenda
+55,16,###Tier 4: Divergence (Steward Judgment Required),Steward decision divergences
+71,14,###Section-Level Notes,Section notes and obligations
 -->
 
 ## Batch 1 Synthesis

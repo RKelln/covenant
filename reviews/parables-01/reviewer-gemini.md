@@ -6,7 +6,7 @@ date: 2026-03-12
 ---
 <!-- AGENT:NAV
 purpose:Gemini parable review for the full document
-lines:369
+lines:395
 nav[21]{s,n,name,about}:
 34,344,##Parables,Parable drafts across all sections
 38,16,###§rights.truth-and-transparency: On Truth and Transparency,Truth and transparency parable draft

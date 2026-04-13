@@ -1,6 +1,6 @@
 <!-- AGENT:NAV
 purpose:batch synthesis template; tier calibration
-lines:155
+lines:167
 nav[7]{s,n,name,about}:
 14,154,#Covenant Synthesis Prompt — Section Batch,tier; batch
 25,9,##Round Context,round; batch

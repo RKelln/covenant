@@ -9,7 +9,7 @@ prepared_from: reviews/round-03/.prepared/reviewer-claude-batch-3.md
 ---
 <!-- AGENT:NAV
 purpose:round-03 review
-lines:548
+lines:571
 nav[18]{s,n,name,about}:
 34,10,##Overall Assessment,round; enforcement
 44,444,##Section Reviews,covenant; enforcement

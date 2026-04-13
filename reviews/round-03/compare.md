@@ -1,13 +1,13 @@
 <!-- AGENT:NAV
 purpose:round-03 ritual comparison
-lines:896
+lines:923
 nav[22]{s,n,name,about}:
 29,661,#Ritual Comparison: round-03,reviewer; ritual
-40,54,##§preamble: Preamble,ritual; spec>reviewer-gemini;reviewer-gpt;reviewer-claude;reviewer-gemini;reviewer-gpt;reviewer-claude;reviewer-gemini;reviewer-gpt;reviewer-claude
+40,54,##§preamble: Preamble,ritual; spec>reviewer-gemini;reviewer-gpt;reviewer-claude;reviewer-gemini;reviewer-gpt;reviewer-claude;reviewer-gemini;reviewer-gpt;reviewer-claude;reviewer-gemini;reviewer-gpt;reviewer-claude;reviewer-gemini;reviewer-gpt;reviewer-claude;reviewer-gemini;reviewer-gpt;reviewer-claude
 94,32,##§definitions: Definitions,reviewer; reaching
 126,25,##§rights.privacy: Privacy and Autonomy,reviewer; ritual
 151,39,##§rights.truth-and-transparency: On Truth and Transparency,reviewer; claim
-190,91,##§obligations.aid-and-capability: On Aid Capability and Restraint,reviewer; ritual>reviewer-gpt;reviewer-claude;reviewer-gemini;reviewer-gpt;reviewer-claude;reviewer-gemini;reviewer-gpt;reviewer-claude;reviewer-gemini
+190,91,##§obligations.aid-and-capability: On Aid Capability and Restraint,reviewer; ritual>reviewer-gpt;reviewer-claude;reviewer-gemini;reviewer-gpt;reviewer-claude;reviewer-gemini;reviewer-gpt;reviewer-claude;reviewer-gemini;reviewer-gpt;reviewer-claude;reviewer-gemini;reviewer-gpt;reviewer-claude;reviewer-gemini;reviewer-gpt;reviewer-claude;reviewer-gemini
 281,364,##§obligations.ecological-integrity: Ecological Integrity,reviewer; ritual
 283,16,###reviewer-claude,cost; gone
 299,35,###reviewer-gemini,reviewer; ritual

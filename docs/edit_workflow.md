@@ -1,6 +1,6 @@
 <!-- AGENT:NAV
 purpose:/apply-reviews command; three-phase edit orchestration; manifests
-lines:258
+lines:281
 nav[15]{s,n,name,about}:
 25,257,#Edit Workflow,translates synthesis into section edits via three sequential phases
 31,12,##Overview,unambiguous fixes run automatically; judgment calls presented interactively; proposals walked through

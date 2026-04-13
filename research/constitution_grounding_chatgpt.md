@@ -1,6 +1,6 @@
 <!-- AGENT:NAV
 purpose:constitution grounding; human-ai coexistence; treaty framework
-lines:499
+lines:540
 nav[36]{s,n,name,about}:
 43,11,#Constitutional Grounding for Human–AI Coexistence,constitution; capture
 44,10,##Conceptual Framework for the Constitution / Treaty Project,constitution; capture

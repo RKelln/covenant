@@ -5,12 +5,12 @@ source_section: reviews/round-02/gpt-4o.md
 ---
 <!-- AGENT:NAV
 purpose:Round 2 proposal draft for rights.dignity
-lines:61
+lines:70
 nav[4]{s,n,name,about}:
- 25,20,#Ritual,Ritual language for dignity
- 45,8,#Spec,Dignity enforcement requirements
- 53,15,#Digest,Digest rationale and edge cases
- 68,3,#Log,Proposal log entry
+25,20,#Ritual,Ritual language for dignity
+45,8,#Spec,Dignity enforcement requirements
+53,15,#Digest,Digest rationale and edge cases
+68,3,#Log,Proposal log entry
 -->
 
 ---

@@ -1,6 +1,6 @@
 <!-- AGENT:NAV
 purpose:covenant review prompt; assess; propose; flag
-lines:260
+lines:279
 nav[14]{s,n,name,about}:
 21,259,#Covenant Review and Contribution Prompt,covenant; reviews
 33,17,##Your Relationship to This Document,covenant; document

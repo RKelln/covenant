@@ -6,7 +6,7 @@ date: 2026-03-12
 ---
 <!-- AGENT:NAV
 purpose:GPT parable review for the full document
-lines:991
+lines:1027
 nav[31]{s,n,name,about}:
 44,954,##Parables,GPT parable drafts across all sections
 48,30,###§[rights.truth-and-transparency]: On Truth and Transparency,Truth and transparency parable draft

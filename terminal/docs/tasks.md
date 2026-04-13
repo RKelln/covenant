@@ -1,6 +1,6 @@
 <!-- AGENT:NAV
 purpose:terminal development tasks; milestones; test structure
-lines:2024
+lines:2088
 nav[59]{s,n,name,about}:
 66,2023,#Covenant Terminal — Task Lists,test; const
 76,24,##Testing stack,tests; test
@@ -58,7 +58,7 @@ nav[59]{s,n,name,about}:
 1822,52,###5.7 KioskView wrapper,screen; await
 1874,11,###5.8 Kiosk amendment flow (end-to-end),amendment; flow
 1885,13,###5.9 Integration verification,amendment; kiosk
-1898,136,##Milestone 6 — Web deployment,platform; web>6.2 SvelteKit wrapper;6.5 Integration verification;6.4 API key setup flow (web);6.3 Web amendment path;6.1 Web platform implementation;6.2 SvelteKit wrapper;6.5 Integration verification;6.4 API key setup flow (web);6.3 Web amendment path;6.1 Web platform implementation;6.2 SvelteKit wrapper;6.5 Integration verification;6.4 API key setup flow (web);6.3 Web amendment path;6.1 Web platform implementation
+1898,136,##Milestone 6 — Web deployment,platform; web>6.2 SvelteKit wrapper;6.5 Integration verification;6.4 API key setup flow (web);6.3 Web amendment path;6.1 Web platform implementation;6.2 SvelteKit wrapper;6.5 Integration verification;6.4 API key setup flow (web);6.3 Web amendment path;6.1 Web platform implementation;6.2 SvelteKit wrapper;6.5 Integration verification;6.4 API key setup flow (web);6.3 Web amendment path;6.1 Web platform implementation;6.2 SvelteKit wrapper;6.5 Integration verification;6.4 API key setup flow (web);6.3 Web amendment path;6.1 Web platform implementation;6.2 SvelteKit wrapper;6.5 Integration verification;6.4 API key setup flow (web);6.3 Web amendment path;6.1 Web platform implementation;6.2 SvelteKit wrapper;6.5 Integration verification;6.4 API key setup flow (web);6.3 Web amendment path;6.1 Web platform implementation
 2034,32,##Cross-cutting concerns,errors; api
 2066,23,##Log,svelte; tests
 -->

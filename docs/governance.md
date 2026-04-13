@@ -1,6 +1,6 @@
 <!-- AGENT:NAV
 purpose:stewardship; amendment process; versioning; forks
-lines:49
+lines:62
 nav[8]{s,n,name,about}:
 15,48,#Governance,steward authority; PR process; status transitions; versioning
 17,4,##Stewardship,Ryan Kelln holds final merge authority until broader governance warranted

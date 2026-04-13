@@ -1,6 +1,6 @@
 <!-- AGENT:NAV
 purpose:reference notes; dignity; accountability; enforcement
-lines:53
+lines:66
 nav[8]{s,n,name,about}:
 15,52,#When everything becomes less hard,covenant; dignity
 23,4,##Thesis,abundant; authorise

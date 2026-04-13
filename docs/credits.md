@@ -1,6 +1,6 @@
 <!-- AGENT:NAV
 purpose:project authorship; collaborative intelligence; design credits
-lines:27
+lines:31
 -->
 
 # Credits & Colophon

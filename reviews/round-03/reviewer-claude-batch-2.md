@@ -9,7 +9,7 @@ prepared_from: reviews/round-03/.prepared/reviewer-claude-batch-2.md
 ---
 <!-- AGENT:NAV
 purpose:round-03 review; claude
-lines:535
+lines:557
 nav[17]{s,n,name,about}:
 33,10,##Overall Assessment,sections; batch
 43,457,##Section Reviews,system; harm

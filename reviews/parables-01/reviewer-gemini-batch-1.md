@@ -8,7 +8,7 @@ prepared_from: reviews/parables-01/.prepared/reviewer-gemini-batch-1.md
 ---
 <!-- AGENT:NAV
 purpose:Gemini parable review for rights sections
-lines:195
+lines:213
 nav[13]{s,n,name,about}:
 28,176,##Parables,Parable drafts for early sections
 30,16,###§rights.truth-and-transparency: On Truth and Transparency,Truth and transparency parable draft

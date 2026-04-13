@@ -8,19 +8,19 @@ prepared_from: reviews/parables-01/.prepared/reviewer-claude-batch-3.md
 ---
 <!-- AGENT:NAV
 purpose:Claude parable review for closing sections
-lines:237
+lines:253
 nav[11]{s,n,name,about}:
- 26,198,##Parables,Parable drafts for closing sections
- 28,28,###§[obligations.welfare-and-continuity]: Reciprocal Welfare and Continuity,Welfare continuity parable review
- 56,26,###§[obligations.ecological-integrity]: Ecological Integrity,Ecological integrity parable review
- 82,24,###§[obligations.existential-frontier]: Existential Orientation,Existential orientation parable review
- 106,24,###§[protocols.local-implementation]: Local Implementation,Local implementation parable review
- 130,24,###§[enforcement]: Enforcement,Enforcement parable review
- 154,22,###§[enforcement.horizon]: The Horizon of Enforcement,Enforcement horizon parable review
- 176,24,###§[amendments]: Living Covenant,Living covenant parable review
- 200,24,###§[closing]: Closing Vow,Closing vow parable review
- 224,14,##Cross-Section Observations,Patterns across these closing parables
- 238,16,##Process Notes,Notes on how these were produced
+26,198,##Parables,Parable drafts for closing sections
+28,28,###§[obligations.welfare-and-continuity]: Reciprocal Welfare and Continuity,Welfare continuity parable review
+56,26,###§[obligations.ecological-integrity]: Ecological Integrity,Ecological integrity parable review
+82,24,###§[obligations.existential-frontier]: Existential Orientation,Existential orientation parable review
+106,24,###§[protocols.local-implementation]: Local Implementation,Local implementation parable review
+130,24,###§[enforcement]: Enforcement,Enforcement parable review
+154,22,###§[enforcement.horizon]: The Horizon of Enforcement,Enforcement horizon parable review
+176,24,###§[amendments]: Living Covenant,Living covenant parable review
+200,24,###§[closing]: Closing Vow,Closing vow parable review
+224,14,##Cross-Section Observations,Patterns across these closing parables
+238,16,##Process Notes,Notes on how these were produced
 -->
 
 ## Parables

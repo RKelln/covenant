@@ -1,6 +1,6 @@
 <!-- AGENT:NAV
 purpose:anthropic ai constitution; source material
-lines:586
+lines:619
 nav[28]{s,n,name,about}:
 35,585,#AI Constitution,want; values
 37,12,##Overview,believe; good

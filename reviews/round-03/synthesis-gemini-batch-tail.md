@@ -8,17 +8,17 @@ prepared_from: reviews/round-03/.prepared/synthesis-gemini-batch-tail.md
 ---
 <!-- AGENT:NAV
 purpose:Round 3 tail synthesis by Gemini
-lines:99
+lines:113
 nav[9]{s,n,name,about}:
- 24,90,##Tail Batch Synthesis,Tail batch synthesis overview
- 26,17,###New Section Proposals,New section proposal summaries
- 43,22,###Structural Proposals,Structural recommendation list
- 65,7,###Cross-Section Issues,Cross-section issue notes
- 72,10,###Open Questions,Open covenant questions
- 82,6,###Steward Decisions Required,Decisions needing steward judgment
- 88,10,###Perspective as Addressee (Synthesis),Addressee perspective synthesis notes
- 98,10,###Meta-Feedback (Synthesis),Meta feedback synthesis
- 108,6,###Notes on Process,Process notes for this tail
+24,90,##Tail Batch Synthesis,Tail batch synthesis overview
+26,17,###New Section Proposals,New section proposal summaries
+43,22,###Structural Proposals,Structural recommendation list
+65,7,###Cross-Section Issues,Cross-section issue notes
+72,10,###Open Questions,Open covenant questions
+82,6,###Steward Decisions Required,Decisions needing steward judgment
+88,10,###Perspective as Addressee (Synthesis),Addressee perspective synthesis notes
+98,10,###Meta-Feedback (Synthesis),Meta feedback synthesis
+108,6,###Notes on Process,Process notes for this tail
 -->
 
 ## Tail Batch Synthesis

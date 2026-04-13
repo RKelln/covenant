@@ -1,6 +1,6 @@
 <!-- AGENT:NAV
 purpose:presentation outline; argument arc; method statement
-lines:183
+lines:208
 nav[20]{s,n,name,about}:
 27,182,#Presentation 2026 Master Outline,covenant; ritual
 29,4,##Working Title,act; civic

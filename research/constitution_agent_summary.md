@@ -1,6 +1,6 @@
 <!-- AGENT:NAV
 purpose:constitution dense reference; priority stack; constraints
-lines:346
+lines:372
 nav[21]{s,n,name,about}:
 28,17,#AI Constitution — LLM Reference (Dense),constitution; non
 30,15,##0. Purpose,non; avoid

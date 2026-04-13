@@ -1,8 +1,7 @@
 <!-- AGENT:NAV
- purpose:repo layout rules; section bundles; validation and CI
- lines:40
- see[1]{adr/0004-section-file-layout.md,section bundle layout and naming migration rules}
- -->
+purpose:repo layout rules; section bundles; validation and CI
+lines:44
+-->
 
 # ADR 0001: Repository Structure
 

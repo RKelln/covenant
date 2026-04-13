@@ -8,19 +8,19 @@ prepared_from: reviews/parables-01/.prepared/reviewer-gpt-batch-3.md
 ---
 <!-- AGENT:NAV
 purpose:GPT parable review for closing sections
-lines:309
+lines:325
 nav[11]{s,n,name,about}:
- 26,290,##Parables,Parable drafts for closing themes
- 28,33,###§[obligations.welfare-and-continuity]: Reciprocal Welfare and Continuity,Welfare continuity parable draft
- 61,35,###§[obligations.ecological-integrity]: Ecological Integrity,Ecological integrity parable draft
- 96,41,###§[obligations.existential-frontier]: Existential Orientation,Existential orientation parable draft
- 137,37,###§[protocols.local-implementation]: Local Implementation,Local implementation parable draft
- 174,33,###§[enforcement]: Enforcement,Enforcement parable draft
- 207,41,###§[enforcement.horizon]: The Horizon of Enforcement,Enforcement horizon parable draft
- 248,31,###§[amendments]: Living Covenant,Living covenant parable draft
- 279,37,###§[closing]: Closing Vow,Closing vow parable draft
- 316,4,##Cross-Section Observations,Patterns across these closing parables
- 320,6,##Process Notes,Notes on batch handling and accounting
+26,290,##Parables,Parable drafts for closing themes
+28,33,###§[obligations.welfare-and-continuity]: Reciprocal Welfare and Continuity,Welfare continuity parable draft
+61,35,###§[obligations.ecological-integrity]: Ecological Integrity,Ecological integrity parable draft
+96,41,###§[obligations.existential-frontier]: Existential Orientation,Existential orientation parable draft
+137,37,###§[protocols.local-implementation]: Local Implementation,Local implementation parable draft
+174,33,###§[enforcement]: Enforcement,Enforcement parable draft
+207,41,###§[enforcement.horizon]: The Horizon of Enforcement,Enforcement horizon parable draft
+248,31,###§[amendments]: Living Covenant,Living covenant parable draft
+279,37,###§[closing]: Closing Vow,Closing vow parable draft
+316,4,##Cross-Section Observations,Patterns across these closing parables
+320,6,##Process Notes,Notes on batch handling and accounting
 -->
 
 ## Parables

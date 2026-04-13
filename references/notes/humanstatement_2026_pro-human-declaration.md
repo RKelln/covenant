@@ -1,6 +1,6 @@
 <!-- AGENT:NAV
 purpose:reference notes; human rights; dignity; labour
-lines:81
+lines:94
 nav[8]{s,n,name,about}:
 15,80,#The Pro-Human AI Declaration,covenant; human
 23,4,##Thesis,accountability; broad

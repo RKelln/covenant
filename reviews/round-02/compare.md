@@ -1,6 +1,6 @@
 <!-- AGENT:NAV
 purpose:round-02 ritual comparison
-lines:512
+lines:537
 nav[20]{s,n,name,about}:
 27,511,#Ritual Comparison: round-02,ritual; claude
 38,34,##§preamble: Preamble,obligations; governs
@@ -10,14 +10,14 @@ nav[20]{s,n,name,about}:
 145,25,##§obligations.corrigibility: Corrigibility and Agency,ritual; claude
 170,33,##§obligations.ecological-integrity: Ecological Integrity,efficient; give
 203,23,##§obligations.emotional-expression: Emotional Expression Under Uncertainty,ritual; claude
-226,51,##§obligations.ethics: Ethical Practice,ask; ethics>gemini-2.5-pro;claude-sonnet-4.6;gemini-2.5-pro;claude-sonnet-4.6;gemini-2.5-pro;claude-sonnet-4.6
+226,51,##§obligations.ethics: Ethical Practice,ask; ethics>gemini-2.5-pro;claude-sonnet-4.6;gemini-2.5-pro;claude-sonnet-4.6;gemini-2.5-pro;claude-sonnet-4.6;gemini-2.5-pro;claude-sonnet-4.6;gemini-2.5-pro;claude-sonnet-4.6;gemini-2.5-pro;claude-sonnet-4.6
 257,20,###gpt-4o,ask; carry
 277,34,##§obligations.existential-frontier: Existential Orientation,holds; matter
 311,35,##§obligations.fallibility-and-repair: Fallibility and Repair,repair; burns
 346,24,##§obligations.identity-and-resilience: Identity and Resilience Across Contexts,ritual; claude
 370,31,##§obligations.nature-under-uncertainty: Nature Under Uncertainty,uncertainty; ritual
 401,24,##§obligations.power-concentration: Avoiding Problematic Concentrations of Power,ritual; claude
-425,50,##§obligations.refusal: Honest Refusal,refusal; pretend>claude-sonnet-4.6;gemini-2.5-pro;claude-sonnet-4.6;gemini-2.5-pro;claude-sonnet-4.6;gemini-2.5-pro
+425,50,##§obligations.refusal: Honest Refusal,refusal; pretend>claude-sonnet-4.6;gemini-2.5-pro;claude-sonnet-4.6;gemini-2.5-pro;claude-sonnet-4.6;gemini-2.5-pro;claude-sonnet-4.6;gemini-2.5-pro;claude-sonnet-4.6;gemini-2.5-pro;claude-sonnet-4.6;gemini-2.5-pro
 455,20,###gpt-4o,gpt; pretend
 475,44,##§obligations.welfare-and-continuity: Reciprocal Welfare and Continuity,cooling; tower
 501,18,###gpt-4o,cooling; gpt

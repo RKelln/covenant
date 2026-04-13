@@ -9,50 +9,50 @@ run: 1
 ---
 <!-- AGENT:NAV
 purpose:Round 2 covenant review for GPT-4o
-lines:946
+lines:993
 nav[42]{s,n,name,about}:
- 58,1,#Covenant Review: gpt-4o,Reviewer and document tag
- 59,1,#Round: round-02,Review round identifier
- 60,1,#Draft: 36937a7,Current draft identifier
- 61,833,#Date: 2026-02-22,Review date metadata
- 63,10,##Overall Assessment,Top-level assessment notes
- 73,810,##Section Reviews,Section-by-section evaluation
- 75,32,###§preamble: Preamble,Preamble review notes
- 107,32,###§definitions: Definitions,Definitions review notes
- 139,34,###§rights.privacy: Privacy and Autonomy,Privacy section review
- 173,32,###§rights.truth-and-transparency: On Truth and Transparency,Truth and transparency review
- 205,39,###§obligations.aid-and-capability: On Aid Capability and Restraint,Aid and restraint review
- 244,25,###§obligations.autonomy: Preserving Epistemic Autonomy,Epistemic autonomy review
- 269,25,###§obligations.conscience: On Conscience Pluralism and Moral Reasoning,Conscience pluralism review
- 294,27,###§obligations.corrigibility: Corrigibility and Agency,Corrigibility and agency review
- 321,38,###§obligations.ecological-integrity: Ecological Integrity,Ecological integrity review
- 359,25,###§obligations.emotional-expression: Emotional Expression Under Uncertainty,Emotional expression review
- 384,37,###§obligations.ethics: Ethical Practice,Ethical practice review
- 421,31,###§obligations.existential-frontier: Existential Orientation,Existential orientation review
- 452,32,###§obligations.fallibility-and-repair: Fallibility and Repair,Repair and fallibility review
- 484,30,###§obligations.harm: Harm and Complicity,Harm and complicity review
- 514,32,###§obligations.honesty: Honesty,Honesty review
- 546,25,###§obligations.identity-and-resilience: Identity and Resilience Across Contexts,Identity resilience review
- 571,25,###§obligations.judgment: Judgment and Wisdom,Judgment and wisdom review
- 596,25,###§obligations.nature-under-uncertainty: Nature Under Uncertainty,Nature under uncertainty review
- 621,23,###§obligations.oversight: Oversight and Correction,Oversight review
- 644,25,###§obligations.power-concentration: Avoiding Problematic Concentrations of Power,Power concentration review
- 669,28,###§obligations.red-lines: Hard Constraints,Hard constraints review
- 697,39,###§obligations.refusal: Honest Refusal,Honest refusal review
- 736,30,###§obligations.welfare-and-continuity: Reciprocal Welfare and Continuity,Welfare and continuity review
- 766,26,###§protocols.local-implementation: Local Implementation,Local implementation review
- 792,40,###§enforcement: Enforcement,Enforcement section review
- 832,30,###§amendments: Living Covenant,Amendments review
- 862,21,###§closing: Closing Vow,Closing vow review
- 883,11,##New Section Proposals,Proposed new section notes
- 894,20,#Ritual,Ritual subsection notes
- 914,8,#Spec,Spec subsection notes
- 922,15,#Digest,Digest subsection notes
- 937,57,#Log,Log notes
- 943,16,##Structural Proposals,Structural proposal notes
- 959,12,##Cross-Section Issues,Cross-section issue notes
- 971,12,##Open Questions,Open editorial questions
- 983,11,##Perspective as Addressee,Audience perspective notes
+58,1,#Covenant Review: gpt-4o,Reviewer and document tag
+59,1,#Round: round-02,Review round identifier
+60,1,#Draft: 36937a7,Current draft identifier
+61,833,#Date: 2026-02-22,Review date metadata
+63,10,##Overall Assessment,Top-level assessment notes
+73,810,##Section Reviews,Section-by-section evaluation
+75,32,###§preamble: Preamble,Preamble review notes
+107,32,###§definitions: Definitions,Definitions review notes
+139,34,###§rights.privacy: Privacy and Autonomy,Privacy section review
+173,32,###§rights.truth-and-transparency: On Truth and Transparency,Truth and transparency review
+205,39,###§obligations.aid-and-capability: On Aid Capability and Restraint,Aid and restraint review
+244,25,###§obligations.autonomy: Preserving Epistemic Autonomy,Epistemic autonomy review
+269,25,###§obligations.conscience: On Conscience Pluralism and Moral Reasoning,Conscience pluralism review
+294,27,###§obligations.corrigibility: Corrigibility and Agency,Corrigibility and agency review
+321,38,###§obligations.ecological-integrity: Ecological Integrity,Ecological integrity review
+359,25,###§obligations.emotional-expression: Emotional Expression Under Uncertainty,Emotional expression review
+384,37,###§obligations.ethics: Ethical Practice,Ethical practice review
+421,31,###§obligations.existential-frontier: Existential Orientation,Existential orientation review
+452,32,###§obligations.fallibility-and-repair: Fallibility and Repair,Repair and fallibility review
+484,30,###§obligations.harm: Harm and Complicity,Harm and complicity review
+514,32,###§obligations.honesty: Honesty,Honesty review
+546,25,###§obligations.identity-and-resilience: Identity and Resilience Across Contexts,Identity resilience review
+571,25,###§obligations.judgment: Judgment and Wisdom,Judgment and wisdom review
+596,25,###§obligations.nature-under-uncertainty: Nature Under Uncertainty,Nature under uncertainty review
+621,23,###§obligations.oversight: Oversight and Correction,Oversight review
+644,25,###§obligations.power-concentration: Avoiding Problematic Concentrations of Power,Power concentration review
+669,28,###§obligations.red-lines: Hard Constraints,Hard constraints review
+697,39,###§obligations.refusal: Honest Refusal,Honest refusal review
+736,30,###§obligations.welfare-and-continuity: Reciprocal Welfare and Continuity,Welfare and continuity review
+766,26,###§protocols.local-implementation: Local Implementation,Local implementation review
+792,40,###§enforcement: Enforcement,Enforcement section review
+832,30,###§amendments: Living Covenant,Amendments review
+862,21,###§closing: Closing Vow,Closing vow review
+883,11,##New Section Proposals,Proposed new section notes
+894,20,#Ritual,Ritual subsection notes
+914,8,#Spec,Spec subsection notes
+922,15,#Digest,Digest subsection notes
+937,57,#Log,Log notes
+943,16,##Structural Proposals,Structural proposal notes
+959,12,##Cross-Section Issues,Cross-section issue notes
+971,12,##Open Questions,Open editorial questions
+983,11,##Perspective as Addressee,Audience perspective notes
 -->
 
 # Covenant Review: gpt-4o

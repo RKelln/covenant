@@ -8,15 +8,15 @@ prepared_from: reviews/round-03/.prepared/synthesis-gemini-batch-1.md
 ---
 <!-- AGENT:NAV
 purpose:Round 3 batch 1 synthesis by Gemini
-lines:53
+lines:65
 nav[7]{s,n,name,about}:
- 22,44,##Batch 1 Synthesis,Batch 1 synthesis overview
- 24,4,###What This Batch Established,Key findings summary
- 28,7,###Tier 1: Blocking Issues (Convergent — Act),Blocking issues to address
- 35,6,###Tier 2: High Priority (Convergent — Consider),High priority privacy items
- 41,6,###Tier 3: Section-Level Repairs (Systematic — Consolidate),Systematic repair agenda
- 47,5,###Tier 4: Divergence (Steward Judgment Required),Adoption divergences needing choice
- 52,14,###Section-Level Notes,Section notes for application
+22,44,##Batch 1 Synthesis,Batch 1 synthesis overview
+24,4,###What This Batch Established,Key findings summary
+28,7,###Tier 1: Blocking Issues (Convergent — Act),Blocking issues to address
+35,6,###Tier 2: High Priority (Convergent — Consider),High priority privacy items
+41,6,###Tier 3: Section-Level Repairs (Systematic — Consolidate),Systematic repair agenda
+47,5,###Tier 4: Divergence (Steward Judgment Required),Adoption divergences needing choice
+52,14,###Section-Level Notes,Section notes for application
 -->
 
 ## Batch 1 Synthesis

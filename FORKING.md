@@ -1,7 +1,7 @@
 <!-- AGENT:NAV
- purpose:forking guidance; preserve IDs; maintain two-register structure
- lines:33
- -->
+purpose:forking guidance; preserve IDs; maintain two-register structure
+lines:37
+-->
 
 # Forking the Covenant
 

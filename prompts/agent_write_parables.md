@@ -1,6 +1,6 @@
 <!-- AGENT:NAV
 purpose:parable writing prompt; narrative craft
-lines:185
+lines:205
 nav[15]{s,n,name,about}:
 22,184,#Covenant Parable Writing Prompt Template,parable; writing
 36,6,##Round Context,round; commit

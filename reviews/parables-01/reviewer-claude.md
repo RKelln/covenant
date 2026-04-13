@@ -6,7 +6,7 @@ date: 2026-03-12
 ---
 <!-- AGENT:NAV
 purpose:Claude parable review for the full document
-lines:893
+lines:929
 nav[31]{s,n,name,about}:
 44,802,##Parables,Parable drafts across the document
 48,24,###§[rights.truth-and-transparency]: On Truth and Transparency,Truth and transparency parable review

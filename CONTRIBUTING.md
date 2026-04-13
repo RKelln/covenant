@@ -1,17 +1,17 @@
 <!-- AGENT:NAV
- purpose:contribution workflow; setup; review and licensing
- lines:67
- nav[9]{s,n,name,about}:
- 16,66,#Contributing to Covenant,civic contribution; PR flow; validation expectations
- 20,15,##Setup,dependency setup; uv sync; build command environment
- 35,29,##How to Contribute,propose changes; edit sections; open pull requests
- 39,10,###Proposing a Text Change,edit existing section; update log; run validate
- 49,9,###Proposing a New Section,scaffold new section; write registers; add assembly
- 58,6,###Adding a Reference,add reference entry; optional notes; open PR
- 64,9,##Review Process,steward review criteria; structural checks; voice fit
- 73,5,##Code of Conduct,careful disagreement; respect; shared responsibility
- 78,4,##License,CC BY terms; contribution licensing agreement
- -->
+purpose:contribution workflow; setup; review and licensing
+lines:81
+nav[9]{s,n,name,about}:
+16,66,#Contributing to Covenant,civic contribution; PR flow; validation expectations
+20,15,##Setup,dependency setup; uv sync; build command environment
+35,29,##How to Contribute,propose changes; edit sections; open pull requests
+39,10,###Proposing a Text Change,edit existing section; update log; run validate
+49,9,###Proposing a New Section,scaffold new section; write registers; add assembly
+58,6,###Adding a Reference,add reference entry; optional notes; open PR
+64,9,##Review Process,steward review criteria; structural checks; voice fit
+73,5,##Code of Conduct,careful disagreement; respect; shared responsibility
+78,4,##License,CC BY terms; contribution licensing agreement
+-->
 
 # Contributing to Covenant
 

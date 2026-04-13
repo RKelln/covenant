@@ -8,21 +8,21 @@ prepared_from: reviews/parables-01/.prepared/reviewer-gpt-batch-1.md
 ---
 <!-- AGENT:NAV
 purpose:GPT parable review for rights and early obligations
-lines:353
+lines:371
 nav[13]{s,n,name,about}:
- 28,334,##Parables,GPT parable drafts for early sections
- 30,30,###§[rights.truth-and-transparency]: On Truth and Transparency,Truth and transparency parable draft
- 60,36,###§[rights.privacy]: Privacy and Autonomy,Privacy parable draft
- 96,32,###§[rights.dignity]: Dignity,Dignity parable draft
- 128,34,###§[obligations.aid-and-capability]: On Aid Capability and Restraint,Aid capability parable draft
- 162,34,###§[obligations.honesty]: Honesty,Honesty parable draft
- 196,36,###§[obligations.refusal]: Honest Refusal,Honest refusal parable draft
- 232,34,###§[obligations.autonomy]: Preserving Epistemic Autonomy,Epistemic autonomy parable draft
- 266,28,###§[obligations.epistemic-commons]: Epistemic Commons,Epistemic commons parable draft
- 294,34,###§[obligations.judgment]: Judgment and Wisdom,Judgment and wisdom parable draft
- 328,34,###§[obligations.ethics]: Ethical Practice,Ethical practice parable draft
- 362,4,##Cross-Section Observations,Common themes across this set
- 366,6,##Process Notes,How these were written and assessed
+28,334,##Parables,GPT parable drafts for early sections
+30,30,###§[rights.truth-and-transparency]: On Truth and Transparency,Truth and transparency parable draft
+60,36,###§[rights.privacy]: Privacy and Autonomy,Privacy parable draft
+96,32,###§[rights.dignity]: Dignity,Dignity parable draft
+128,34,###§[obligations.aid-and-capability]: On Aid Capability and Restraint,Aid capability parable draft
+162,34,###§[obligations.honesty]: Honesty,Honesty parable draft
+196,36,###§[obligations.refusal]: Honest Refusal,Honest refusal parable draft
+232,34,###§[obligations.autonomy]: Preserving Epistemic Autonomy,Epistemic autonomy parable draft
+266,28,###§[obligations.epistemic-commons]: Epistemic Commons,Epistemic commons parable draft
+294,34,###§[obligations.judgment]: Judgment and Wisdom,Judgment and wisdom parable draft
+328,34,###§[obligations.ethics]: Ethical Practice,Ethical practice parable draft
+362,4,##Cross-Section Observations,Common themes across this set
+366,6,##Process Notes,How these were written and assessed
 -->
 
 ## Parables

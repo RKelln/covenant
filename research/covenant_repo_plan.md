@@ -1,11 +1,11 @@
 <!-- AGENT:NAV
 purpose:covenant repository specification; structure; design decisions
-lines:1547
+lines:1592
 nav[40]{s,n,name,about}:
 47,1422,#Covenant Repository Implementation Specification,sections; covenant
 56,39,##1. Project Overview,agents; per
 95,77,##2. Repository File Structure,yml; covenant
-172,75,##3. Root Files,add; never>3.1 `README.md`;3.2 `LICENSE`;3.3 `AGENTS.md`;3.1 `README.md`;3.2 `LICENSE`;3.3 `AGENTS.md`;3.1 `README.md`;3.2 `LICENSE`;3.3 `AGENTS.md`
+172,75,##3. Root Files,add; never>3.1 `README.md`;3.2 `LICENSE`;3.3 `AGENTS.md`;3.1 `README.md`;3.2 `LICENSE`;3.3 `AGENTS.md`;3.1 `README.md`;3.2 `LICENSE`;3.3 `AGENTS.md`;3.1 `README.md`;3.2 `LICENSE`;3.3 `AGENTS.md`;3.1 `README.md`;3.2 `LICENSE`;3.3 `AGENTS.md`;3.1 `README.md`;3.2 `LICENSE`;3.3 `AGENTS.md`
 247,11,##How to Edit an Existing Section,add; edit
 258,9,##How to Add a Reference,references; add
 267,24,##Register Constraints,reference; register
@@ -23,19 +23,19 @@ nav[40]{s,n,name,about}:
 579,57,###4.2 `docs/STYLE_GUIDE.md`,spec; language
 636,30,###4.3 `docs/I18N.md`,translation; language
 666,72,###4.4 `docs/GLOSSARY.md`,defined; covenant
-738,113,##5. JSON Schemas (`/schemas/`),type; description>5.2 `schemas/assembly.schema.json`;5.1 `schemas/section.schema.json`;5.2 `schemas/assembly.schema.json`;5.1 `schemas/section.schema.json`;5.2 `schemas/assembly.schema.json`;5.1 `schemas/section.schema.json`
-851,74,##6. Section Bundle Format,sections; rights>6.1 Required Structure;6.3 Seed Sections;6.2 Template;6.1 Required Structure;6.3 Seed Sections;6.2 Template;6.1 Required Structure;6.3 Seed Sections;6.2 Template
-925,61,##7. Assembly Manifests (`/assemblies/`),sections; covenant>7.1 `assemblies/covenant.full.yml`;7.2 `assemblies/covenant.ritual.yml`;7.3 `assemblies/covenant.spec.yml`;7.1 `assemblies/covenant.full.yml`;7.2 `assemblies/covenant.ritual.yml`;7.3 `assemblies/covenant.spec.yml`;7.1 `assemblies/covenant.full.yml`;7.2 `assemblies/covenant.ritual.yml`;7.3 `assemblies/covenant.spec.yml`
-986,72,##8. References Corpus (`/references/`),references; notes>8.3 `references/notes/.gitkeep`;8.2 `references/references.yml`;8.1 `references/README.md`;8.3 `references/notes/.gitkeep`;8.2 `references/references.yml`;8.1 `references/README.md`;8.3 `references/notes/.gitkeep`;8.2 `references/references.yml`;8.1 `references/README.md`
+738,113,##5. JSON Schemas (`/schemas/`),type; description>5.2 `schemas/assembly.schema.json`;5.1 `schemas/section.schema.json`;5.2 `schemas/assembly.schema.json`;5.1 `schemas/section.schema.json`;5.2 `schemas/assembly.schema.json`;5.1 `schemas/section.schema.json`;5.2 `schemas/assembly.schema.json`;5.1 `schemas/section.schema.json`;5.2 `schemas/assembly.schema.json`;5.1 `schemas/section.schema.json`;5.2 `schemas/assembly.schema.json`;5.1 `schemas/section.schema.json`
+851,74,##6. Section Bundle Format,sections; rights>6.1 Required Structure;6.3 Seed Sections;6.2 Template;6.1 Required Structure;6.3 Seed Sections;6.2 Template;6.1 Required Structure;6.3 Seed Sections;6.2 Template;6.1 Required Structure;6.3 Seed Sections;6.2 Template;6.1 Required Structure;6.3 Seed Sections;6.2 Template;6.1 Required Structure;6.3 Seed Sections;6.2 Template
+925,61,##7. Assembly Manifests (`/assemblies/`),sections; covenant>7.1 `assemblies/covenant.full.yml`;7.2 `assemblies/covenant.ritual.yml`;7.3 `assemblies/covenant.spec.yml`;7.1 `assemblies/covenant.full.yml`;7.2 `assemblies/covenant.ritual.yml`;7.3 `assemblies/covenant.spec.yml`;7.1 `assemblies/covenant.full.yml`;7.2 `assemblies/covenant.ritual.yml`;7.3 `assemblies/covenant.spec.yml`;7.1 `assemblies/covenant.full.yml`;7.2 `assemblies/covenant.ritual.yml`;7.3 `assemblies/covenant.spec.yml`;7.1 `assemblies/covenant.full.yml`;7.2 `assemblies/covenant.ritual.yml`;7.3 `assemblies/covenant.spec.yml`;7.1 `assemblies/covenant.full.yml`;7.2 `assemblies/covenant.ritual.yml`;7.3 `assemblies/covenant.spec.yml`
+986,72,##8. References Corpus (`/references/`),references; notes>8.3 `references/notes/.gitkeep`;8.2 `references/references.yml`;8.1 `references/README.md`;8.3 `references/notes/.gitkeep`;8.2 `references/references.yml`;8.1 `references/README.md`;8.3 `references/notes/.gitkeep`;8.2 `references/references.yml`;8.1 `references/README.md`;8.3 `references/notes/.gitkeep`;8.2 `references/references.yml`;8.1 `references/README.md`;8.3 `references/notes/.gitkeep`;8.2 `references/references.yml`;8.1 `references/README.md`;8.3 `references/notes/.gitkeep`;8.2 `references/references.yml`;8.1 `references/README.md`
 1058,154,##9. Architectural Decision Records (`/adr/`),adr; ritual
 1060,41,###9.1 `adr/0001-repo-structure.md`,repository; git
 1101,50,###9.2 `adr/0002-registers.md`,ritual; registers
 1151,61,###9.3 `adr/0003-ids-and-crossrefs.md`,ids; aliases
 1212,192,##10. Build Tools (`/build/`),assembly; sections
-1214,61,###10.1 `build/validate.py`,sections; assembly>Hard Errors (Must Block CI);Warnings (Print but Don't Fail);Hard Errors (Must Block CI);Warnings (Print but Don't Fail);Hard Errors (Must Block CI);Warnings (Print but Don't Fail)
+1214,61,###10.1 `build/validate.py`,sections; assembly>Hard Errors (Must Block CI);Warnings (Print but Don't Fail);Hard Errors (Must Block CI);Warnings (Print but Don't Fail);Hard Errors (Must Block CI);Warnings (Print but Don't Fail);Hard Errors (Must Block CI);Warnings (Print but Don't Fail);Hard Errors (Must Block CI);Warnings (Print but Don't Fail);Hard Errors (Must Block CI);Warnings (Print but Don't Fail)
 1275,56,###10.2 `build/scaffold.py`,category; folder
 1331,73,###10.3 `build/compose.py`,assembly; content
-1404,65,##11. CI Configuration,name; validate>11.2 `.github/PULL_REQUEST_TEMPLATE.md`;11.1 `.github/workflows/ci.yml`;11.2 `.github/PULL_REQUEST_TEMPLATE.md`;11.1 `.github/workflows/ci.yml`;11.2 `.github/PULL_REQUEST_TEMPLATE.md`;11.1 `.github/workflows/ci.yml`
+1404,65,##11. CI Configuration,name; validate>11.2 `.github/PULL_REQUEST_TEMPLATE.md`;11.1 `.github/workflows/ci.yml`;11.2 `.github/PULL_REQUEST_TEMPLATE.md`;11.1 `.github/workflows/ci.yml`;11.2 `.github/PULL_REQUEST_TEMPLATE.md`;11.1 `.github/workflows/ci.yml`;11.2 `.github/PULL_REQUEST_TEMPLATE.md`;11.1 `.github/workflows/ci.yml`;11.2 `.github/PULL_REQUEST_TEMPLATE.md`;11.1 `.github/workflows/ci.yml`;11.2 `.github/PULL_REQUEST_TEMPLATE.md`;11.1 `.github/workflows/ci.yml`
 1469,124,#Council Summary: Covenant Repository Design,covenant; build
 1471,28,##What Was Decided (Settled Don't Revisit),covenant; forks
 1499,32,##Where the Council Disagreed (And How It Was Resolved),covenant; text

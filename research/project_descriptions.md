@@ -1,8 +1,8 @@
 <!-- AGENT:NAV
 purpose:project descriptions; artist statement; why this matters
-lines:268
+lines:293
 nav[20]{s,n,name,about}:
-27,53,##Constitution Project description (long “one-page”),constitution; ritual>The album as rehearsal space;The album as rehearsal space;The album as rehearsal space
+27,53,##Constitution Project description (long “one-page”),constitution; ritual>The album as rehearsal space;The album as rehearsal space;The album as rehearsal space;The album as rehearsal space;The album as rehearsal space;The album as rehearsal space
 35,11,###Two registers: ritual and spec,constitution; register
 52,20,###“Protocol art” as method not aesthetic,constitution; future
 72,8,###Why this matters now,constitution; voice

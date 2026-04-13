@@ -1,6 +1,6 @@
 <!-- AGENT:NAV
 purpose:craft guide; how to write well in the Ritual register
-lines:380
+lines:405
 nav[20]{s,n,name,about}:
 27,379,#Good Ritual Writing Guide,prerequisite: read writing_context.md first; this is craft only
 33,10,##0. What the Ritual Register Is,vocal score; spoken before read; beautiful but not vague

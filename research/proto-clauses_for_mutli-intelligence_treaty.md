@@ -1,6 +1,6 @@
 <!-- AGENT:NAV
 purpose:treaty proto-clauses; co-evolution; dignity; power; time
-lines:322
+lines:343
 nav[16]{s,n,name,about}:
 23,11,#Proto-Clauses for a Co-Evolution Treaty,aloud; clauses
 24,10,##Working Draft — Ritual Register,aloud; directional

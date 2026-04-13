@@ -1,6 +1,6 @@
 <!-- AGENT:NAV
 purpose:conversion framework; source material transformation
-lines:228
+lines:245
 nav[12]{s,n,name,about}:
 19,227,#Covenant Conversion Prompt,source; covenant
 26,12,##Your Source Material,wrong; corporate

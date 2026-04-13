@@ -1,6 +1,6 @@
 <!-- AGENT:NAV
 purpose:constitution repo structure; sections; assemblies; build pipeline
-lines:477
+lines:502
 nav[20]{s,n,name,about}:
 27,476,#Constitution Repo Design Doc (v0.1),references; sections
 29,17,##0) Purpose,decisions; markdown
@@ -15,7 +15,7 @@ nav[20]{s,n,name,about}:
 261,46,##6) Build pipeline (OSS-first),assembly; build
 278,20,###6.2 Build stages,assembly; checks
 307,16,##7) Validation rules (must-have),missing; assembly
-323,58,##8) References / inspirations corpus,references; slug>8.6 Bibliography;8.1 Reference item types;8.3 Files per reference;8.2 Slug conventions;8.5 Notes template (`references/notes/<slug>.md`);8.4 Stub template (`references/links/<slug>.md`);8.6 Bibliography;8.1 Reference item types;8.3 Files per reference;8.2 Slug conventions;8.5 Notes template (`references/notes/<slug>.md`);8.4 Stub template (`references/links/<slug>.md`);8.6 Bibliography;8.1 Reference item types;8.3 Files per reference;8.2 Slug conventions;8.5 Notes template (`references/notes/<slug>.md`);8.4 Stub template (`references/links/<slug>.md`)
+323,58,##8) References / inspirations corpus,references; slug>8.6 Bibliography;8.1 Reference item types;8.3 Files per reference;8.2 Slug conventions;8.5 Notes template (`references/notes/<slug>.md`);8.4 Stub template (`references/links/<slug>.md`);8.6 Bibliography;8.1 Reference item types;8.3 Files per reference;8.2 Slug conventions;8.5 Notes template (`references/notes/<slug>.md`);8.4 Stub template (`references/links/<slug>.md`);8.6 Bibliography;8.1 Reference item types;8.3 Files per reference;8.2 Slug conventions;8.5 Notes template (`references/notes/<slug>.md`);8.4 Stub template (`references/links/<slug>.md`);8.6 Bibliography;8.1 Reference item types;8.3 Files per reference;8.2 Slug conventions;8.5 Notes template (`references/notes/<slug>.md`);8.4 Stub template (`references/links/<slug>.md`);8.6 Bibliography;8.1 Reference item types;8.3 Files per reference;8.2 Slug conventions;8.5 Notes template (`references/notes/<slug>.md`);8.4 Stub template (`references/links/<slug>.md`);8.6 Bibliography;8.1 Reference item types;8.3 Files per reference;8.2 Slug conventions;8.5 Notes template (`references/notes/<slug>.md`);8.4 Stub template (`references/links/<slug>.md`)
 381,26,##9) Agent-facing guidance,add; added
 407,22,##10) Governance & releases,artifacts; assemblies
 429,37,##11) Implementation plan (for an LLM agent),add; acceptance

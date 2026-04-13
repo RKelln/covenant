@@ -1,7 +1,7 @@
 <!-- AGENT:NAV
- purpose:two-register structure; ritual voice and spec precision
- lines:35
- -->
+purpose:two-register structure; ritual voice and spec precision
+lines:39
+-->
 
 # ADR 0002: Two-Register Architecture
 

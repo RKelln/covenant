@@ -1,18 +1,19 @@
 <!-- AGENT:NAV
 purpose:project file index for covenant
-lines:217
-files[180]{path,lines,about}:
+lines:221
+files[184]{path,lines,about}:
 CONTRIBUTING.md,81,contribution workflow; setup; review and licensing
 FORKING.md,37,forking guidance; preserve IDs; maintain two-register structure
 README.md,156,project overview; registers; website; build; contribution paths
 adr/
-0001-repo-structure.md,45,repo layout rules; section bundles; validation and CI
+0001-repo-structure.md,44,repo layout rules; section bundles; validation and CI
 0002-registers.md,39,two-register structure; ritual voice and spec precision
 0003-ids-and-crossrefs.md,32,permanent section IDs; cross-reference syntax; aliasing
 0004-section-file-layout.md,61,section bundle layout; category paths; naming migration
 0005-terminal-architecture.md,101,terminal architecture; kiosk interface; platform abstraction; agent provider adapters
 0006-summary-and-parable-sections.md,152,section bundle additions; summary and parable; build and tone rules
-README.md,33,adr index; links to key repository and governance decisions
+0007-outreach-directory.md,68,outreach directory structure; replaces installations/ and docs/talks/; materials subfolder rationale
+README.md,35,adr index; links to key repository and governance decisions
 docs/
 agent_reviews.md,392,parallel multi-model review; synthesis; editorial workflow
 credits.md,31,project authorship; collaborative intelligence; design credits
@@ -27,16 +28,13 @@ project_summary.md,24,covenant overview; project scope; civic infrastructure
 releases.md,409,version history; build artifacts; release process
 style_guide.md,434,normative language; voice; formatting; cross-reference conventions
 writing_context.md,255,agent briefing; what Covenant is; two registers; writing role
-docs/talks/
-covenant-review-pipeline.md,636,Multi-model review pipeline flow
-covenant_presentation_10m.marp.md,912,Covenant 10m deck for speech-act training
-covenant_presentation_7m.marp.md,750,Covenant 7m deck on ritual and specification
-practical_ethical_ai_infrastructure_6m.marp.md,573,Practical ethics deck for AI communities
-installations/
-promo_lines.md,290,promotional copy; marketing excerpts; tailoring guide
-installations/ars_electronica_2026/
+outreach/grants/cca_ca_27/
+application.md,257,canada council application; covenant project
+budget.md,143,funding budget; revenue; expenses; balance
+budget_template.md,210,budget template; expense categories; planning notes
+outreach/installations/ars_electronica_2026/
 application.md,155,project description; objectives; ai use; lessons learned
-installations/artspace-ptbo-2027/
+outreach/installations/artspace-ptbo-2027/
 artist-statement.md,17,artist vision; installation concept
 description.md,25,public description; visitor experience
 image-list.md,81,image documentation; artwork references
@@ -44,14 +42,18 @@ material-cost-display.md,487,material accounting; energy; water; labor costs
 prompts.md,180,visualization prompts; image generation requests
 proposal.md,323,installation proposal; layout; tech requirements; budget
 technical-requirements.md,87,equipment; setup; technical specs
-installations/banff_computational_2026/
-project_proposal.md,19,covenant at banff; computational writing
-installations/cca_ca_27/
-application.md,257,canada council application; covenant project
-budget.md,143,funding budget; revenue; expenses; balance
-budget_template.md,210,budget template; expense categories; planning notes
-installations/covenant-gallery/
+outreach/installations/covenant-gallery/
 covenant_installation.md,494,Gallery installation overview and visitor oath station
+outreach/materials/
+README.md,14,copy;descriptions;documents;outreach;project;promotional;submission;application
+promo_lines.md,290,promotional copy; marketing excerpts; tailoring guide
+outreach/residencies/banff_computational_2026/
+project_proposal.md,19,covenant at banff; computational writing
+outreach/talks/
+covenant-review-pipeline.md,636,Multi-model review pipeline flow
+covenant_presentation_10m.marp.md,912,Covenant 10m deck for speech-act training
+covenant_presentation_7m.marp.md,750,Covenant 7m deck on ritual and specification
+practical_ethical_ai_infrastructure_6m.marp.md,573,Practical ethics deck for AI communities
 prompts/
 agent_review.md,279,covenant review prompt; assess; propose; flag
 agent_review_batch.md,286,batch review template; section assessment
@@ -60,6 +62,7 @@ agent_write_parables.md,205,parable writing prompt; narrative craft
 constitution_to_covenant.md,245,conversion framework; source material transformation
 edit_batch.md,129,edit application template; manifest-driven edits
 review_commit_message.md,44,commit message template; round references
+ritual_to_song.md,136,style;repetition;text;want;suno;avoid;lyrics;musical
 synthesis.md,222,synthesis instructions; convergence; divergence; decisions
 synthesis_batch.md,167,batch synthesis template; tier calibration
 synthesis_tail.md,181,tail batch synthesis; cross-cutting synthesis
@@ -78,11 +81,12 @@ constitution_overview.md,370,constitution section summary; overview; helpfulness
 constitution_repo_design_doc.md,502,constitution repo structure; sections; assemblies; build pipeline
 covenant_repo_plan.md,1592,covenant repository specification; structure; design decisions
 deep-research--constitution-report.md,125,constitution research; universal approach; governance
+deep-research-ethics-of-asymmetic-contact.md,303,contact;cite;human;indigenous;ohchr;non;entity;ipviic
 model_writing_styles_comparative_analysis.md,553,model writing comparison; quality rankings; parable techniques
 presentation_2026_master_outline.md,208,presentation outline; argument arc; method statement
 project_descriptions.md,293,project descriptions; artist statement; why this matters
 proto-clauses_for_mutli-intelligence_treaty.md,343,treaty proto-clauses; co-evolution; dignity; power; time
-quotations.md,12,candidate quotations; epigraphs
+quotations.md,22,candidate quotations; epigraphs
 suno_v1.md,105,music generation prompt; voice; instrumentation; setting
 reviews/parables-01/
 parables-synthesis.md,666,Parable synthesis plan for rights sections

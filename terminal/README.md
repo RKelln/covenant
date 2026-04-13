@@ -1,6 +1,6 @@
 <!-- AGENT:NAV
 purpose:covenant terminal app; setup; running; directory structure
-lines:139
+lines:152
 nav[8]{s,n,name,about}:
 15,138,#Covenant Terminal,tauri; dev
 23,13,##What it is,fork; full

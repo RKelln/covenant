@@ -7,7 +7,7 @@ synthesized_by: claude-sonnet-4.6
 ---
 <!-- AGENT:NAV
 purpose:Round 2 synthesis of reviews and repairs
-lines:188
+lines:213
 nav[20]{s,n,name,about}:
 34,180,#Synthesis: Round 02,Review synthesis overview
 36,8,##What This Round Established,What the reviewers converged on

@@ -9,46 +9,46 @@ run: 1
 ---
 <!-- AGENT:NAV
 purpose:Round 2 covenant review for Gemini
-lines:955
+lines:998
 nav[38]{s,n,name,about}:
- 54,1,#Covenant Review: gemini-2.5-pro,Reviewer and document tag
- 55,1,#Round: round-02,Round identifier
- 56,1,#Draft: 36937a7,Current draft identifier
- 57,942,#Date: 2026-02-22,Review date metadata
- 59,10,##Overall Assessment,Top-level assessment
- 69,871,##Section Reviews,Section-by-section critiques
- 71,34,###§preamble: Preamble,Preamble review notes
- 105,38,###§definitions: Definitions,Definitions review notes
- 143,32,###§rights.privacy: Privacy and Autonomy,Privacy section review
- 175,38,###§rights.truth-and-transparency: On Truth and Transparency,Truth and transparency review
- 213,39,###§obligations.aid-and-capability: On Aid Capability and Restraint,Aid capability review
- 252,26,###§obligations.autonomy: Preserving Epistemic Autonomy,Epistemic autonomy review
- 278,25,###§obligations.conscience: On Conscience Pluralism and Moral Reasoning,Conscience pluralism review
- 303,34,###§obligations.corrigibility: Corrigibility and Agency,Corrigibility review
- 337,39,###§obligations.ecological-integrity: Ecological Integrity,Ecological integrity review
- 376,30,###§obligations.emotional-expression: Emotional Expression Under Uncertainty,Emotional expression review
- 406,37,###§obligations.ethics: Ethical Practice,Ethical practice review
- 443,31,###§obligations.existential-frontier: Existential Orientation,Existential orientation review
- 474,32,###§obligations.fallibility-and-repair: Fallibility and Repair,Fallibility and repair review
- 506,28,###§obligations.harm: Harm and Complicity,Harm and complicity review
- 534,32,###§obligations.honesty: Honesty,Honesty review
- 566,31,###§obligations.identity-and-resilience: Identity and Resilience Across Contexts,Identity resilience review
- 597,30,###§obligations.judgment: Judgment and Wisdom,Judgment and wisdom review
- 627,33,###§obligations.nature-under-uncertainty: Nature Under Uncertainty,Nature under uncertainty review
- 660,30,###§obligations.oversight: Oversight and Correction,Oversight and correction review
- 690,31,###§obligations.power-concentration: Avoiding Problematic Concentrations of Power,Power concentration review
- 721,28,###§obligations.red-lines: Hard Constraints,Hard constraints review
- 749,39,###§obligations.refusal: Honest Refusal,Honest refusal review
- 788,35,###§obligations.welfare-and-continuity: Reciprocal Welfare and Continuity,Welfare continuity review
- 823,26,###§protocols.local-implementation: Local Implementation,Local implementation review
- 849,38,###§enforcement: Enforcement,Enforcement review
- 887,30,###§amendments: Living Covenant,Living covenant review
- 917,23,###§closing: Closing Vow,Closing vow review
- 940,4,##New Section Proposals,None or minimal additions
- 944,18,##Structural Proposals,Structural changes proposals
- 962,14,##Cross-Section Issues,Shared issues across sections
- 976,12,##Open Questions,Open editorial questions
- 988,11,##Perspective as Addressee,Who is addressed and how
+54,1,#Covenant Review: gemini-2.5-pro,Reviewer and document tag
+55,1,#Round: round-02,Round identifier
+56,1,#Draft: 36937a7,Current draft identifier
+57,942,#Date: 2026-02-22,Review date metadata
+59,10,##Overall Assessment,Top-level assessment
+69,871,##Section Reviews,Section-by-section critiques
+71,34,###§preamble: Preamble,Preamble review notes
+105,38,###§definitions: Definitions,Definitions review notes
+143,32,###§rights.privacy: Privacy and Autonomy,Privacy section review
+175,38,###§rights.truth-and-transparency: On Truth and Transparency,Truth and transparency review
+213,39,###§obligations.aid-and-capability: On Aid Capability and Restraint,Aid capability review
+252,26,###§obligations.autonomy: Preserving Epistemic Autonomy,Epistemic autonomy review
+278,25,###§obligations.conscience: On Conscience Pluralism and Moral Reasoning,Conscience pluralism review
+303,34,###§obligations.corrigibility: Corrigibility and Agency,Corrigibility review
+337,39,###§obligations.ecological-integrity: Ecological Integrity,Ecological integrity review
+376,30,###§obligations.emotional-expression: Emotional Expression Under Uncertainty,Emotional expression review
+406,37,###§obligations.ethics: Ethical Practice,Ethical practice review
+443,31,###§obligations.existential-frontier: Existential Orientation,Existential orientation review
+474,32,###§obligations.fallibility-and-repair: Fallibility and Repair,Fallibility and repair review
+506,28,###§obligations.harm: Harm and Complicity,Harm and complicity review
+534,32,###§obligations.honesty: Honesty,Honesty review
+566,31,###§obligations.identity-and-resilience: Identity and Resilience Across Contexts,Identity resilience review
+597,30,###§obligations.judgment: Judgment and Wisdom,Judgment and wisdom review
+627,33,###§obligations.nature-under-uncertainty: Nature Under Uncertainty,Nature under uncertainty review
+660,30,###§obligations.oversight: Oversight and Correction,Oversight and correction review
+690,31,###§obligations.power-concentration: Avoiding Problematic Concentrations of Power,Power concentration review
+721,28,###§obligations.red-lines: Hard Constraints,Hard constraints review
+749,39,###§obligations.refusal: Honest Refusal,Honest refusal review
+788,35,###§obligations.welfare-and-continuity: Reciprocal Welfare and Continuity,Welfare continuity review
+823,26,###§protocols.local-implementation: Local Implementation,Local implementation review
+849,38,###§enforcement: Enforcement,Enforcement review
+887,30,###§amendments: Living Covenant,Living covenant review
+917,23,###§closing: Closing Vow,Closing vow review
+940,4,##New Section Proposals,None or minimal additions
+944,18,##Structural Proposals,Structural changes proposals
+962,14,##Cross-Section Issues,Shared issues across sections
+976,12,##Open Questions,Open editorial questions
+988,11,##Perspective as Addressee,Who is addressed and how
 -->
 
 # Covenant Review: gemini-2.5-pro

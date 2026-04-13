@@ -7,9 +7,9 @@ prior_proposal: none (new)
 ---
 <!-- AGENT:NAV
 purpose:Round 3 proposal for epistemic commons
-lines:86
+lines:92
 nav[1]{s,n,name,about}:
- 15,78,#Proposal: `obligations.epistemic-commons`,Epistemic commons anchor proposal
+15,78,#Proposal: `obligations.epistemic-commons`,Epistemic commons anchor proposal
 -->
 
 # Proposal: `obligations.epistemic-commons`

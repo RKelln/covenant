@@ -1,6 +1,6 @@
 <!-- AGENT:NAV
 purpose:edit application template; manifest-driven edits
-lines:116
+lines:129
 nav[8]{s,n,name,about}:
 15,115,#Covenant Edit Batch Prompt Template,items; text
 28,6,##Batch context,date; manifest

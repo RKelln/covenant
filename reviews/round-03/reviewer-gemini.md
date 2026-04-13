@@ -4,7 +4,7 @@ round: round-03
 ---
 <!-- AGENT:NAV
 purpose:Round 3 covenant review by Gemini
-lines:853
+lines:893
 nav[35]{s,n,name,about}:
 46,6,##Overall Assessment,Overall assessment for Round 3
 52,750,##Section Reviews,Section reviews for all sections

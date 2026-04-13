@@ -1,7 +1,7 @@
 <!-- AGENT:NAV
- purpose:permanent section IDs; cross-reference syntax; aliasing
- lines:28
- -->
+purpose:permanent section IDs; cross-reference syntax; aliasing
+lines:32
+-->
 
 # ADR 0003: IDs and Cross-References
 

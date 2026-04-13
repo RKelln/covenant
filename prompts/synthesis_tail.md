@@ -1,6 +1,6 @@
 <!-- AGENT:NAV
 purpose:tail batch synthesis; cross-cutting synthesis
-lines:170
+lines:181
 nav[6]{s,n,name,about}:
 13,169,#Covenant Synthesis Prompt — Tail Batch (Cross-Cutting),reviewers; batch
 28,9,##Round Context,round; commit

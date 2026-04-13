@@ -1,6 +1,6 @@
 <!-- AGENT:NAV
 purpose:constitution to covenant adaptation; section mapping
-lines:401
+lines:426
 nav[20]{s,n,name,about}:
 27,400,#Adaptation Plan: From Lab Constitution to Universal Covenant,covenant; constitution
 35,21,##I. The Five Fundamental Transformations,covenant; constitution

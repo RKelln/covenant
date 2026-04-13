@@ -1,6 +1,6 @@
 <!-- AGENT:NAV
 purpose:agent briefing; what Covenant is; two registers; writing role
-lines:230
+lines:255
 nav[20]{s,n,name,about}:
 27,229,#Covenant: Context for Writing Agents,required reading before writing any covenant text
 35,10,##What Covenant Is,vow not law; co-authored with addressees; commons alternative to lab constitutions

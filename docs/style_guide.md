@@ -1,11 +1,11 @@
 <!-- AGENT:NAV
 purpose:normative language; voice; formatting; cross-reference conventions
-lines:409
+lines:434
 nav[20]{s,n,name,about}:
 27,408,#Style Guide,governs all markdown; both registers; parables; documentation
 33,43,##1. Normative Language,terminology rules and RFC 2119 keywords for Spec register>trademarks;keywords;usage;docs
 41,22,###1.2 Keywords (RFC 2119),MUST/MUST NOT/SHALL/SHOULD/MAY; exact meanings; Spec register only
-76,106,##2. Voice and Tone,per-register writing rules for all six section parts>spoken;enforceable;folktale;rationale;changelog;2.4 Parable (optional)
+76,106,##2. Voice and Tone,per-register writing rules for all six section parts>spoken;enforceable;folktale;rationale;changelog;2.4 Parable (optional);2.4 Parable (optional);2.4 Parable (optional);2.4 Parable (optional);2.4 Parable (optional)
 78,25,###2.1 Summary,concrete and specific; more informative than Ritual; no filler phrases
 103,14,###2.2 Ritual Register,spoken aloud; short breathable clauses; plain vocabulary; no jargon
 117,18,###2.3 Spec Register,inspection surface; numbered items; Bold Title per item; enforcement linkage required

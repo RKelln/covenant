@@ -1,6 +1,6 @@
 <!-- AGENT:NAV
 purpose:constitution section summary; overview; helpfulness; ethics
-lines:335
+lines:370
 nav[30]{s,n,name,about}:
 41,21,#Overall Summary,broad; framework
 62,309,#Section-by-Section Summary,avoid; constitution

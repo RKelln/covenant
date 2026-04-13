@@ -4,7 +4,7 @@ round: round-03
 ---
 <!-- AGENT:NAV
 purpose:Round 3 covenant review by GPT
-lines:2300
+lines:2340
 nav[35]{s,n,name,about}:
 46,8,##Overall Assessment,Round 3 overall GPT critique
 54,2109,##Section Reviews,Section reviews for the full doc
@@ -35,7 +35,7 @@ nav[35]{s,n,name,about}:
 1883,101,###§enforcement: Enforcement,Enforcement review notes
 1984,108,###§amendments: Living Covenant,Amendments review notes
 2092,71,###§closing: Closing Vow,Closing vow review notes
-2163,116,##New Section Proposals,New section proposal updates>New proposal: `obligations.epistemic-commons`;Prior proposal: `rights.dignity` (gpt-4o)
+2163,116,##New Section Proposals,New section proposal updates>New proposal: `obligations.epistemic-commons`;Prior proposal: `rights.dignity` (gpt-4o);New proposal: `obligations.epistemic-commons`;Prior proposal: `rights.dignity` (gpt-4o);New proposal: `obligations.epistemic-commons`;Prior proposal: `rights.dignity` (gpt-4o);New proposal: `obligations.epistemic-commons`;Prior proposal: `rights.dignity` (gpt-4o)
 2279,17,##Structural Proposals,Structural proposal notes
 2296,14,##Cross-Section Issues,Cross-section issues notes
 2310,12,##Open Questions,Open editorial questions

@@ -8,23 +8,23 @@ synthesized_by: synthesizer-claude
 ---
 <!-- AGENT:NAV
 purpose:Round 3 synthesis by Claude synthesizer
-lines:457
+lines:482
 nav[20]{s,n,name,about}:
 35,448,#Synthesis: round-03,Round 3 synthesis overview
-37,98,##Batch 1,Batch 1 synthesis snapshot>What This Batch Established;Tier 3: Section-Level Repairs (Systematic — Consolidate);Section-Level Notes
+37,98,##Batch 1,Batch 1 synthesis snapshot>What This Batch Established;Tier 3: Section-Level Repairs (Systematic — Consolidate);Section-Level Notes;What This Batch Established;Tier 3: Section-Level Repairs (Systematic — Consolidate);Section-Level Notes;What This Batch Established;Tier 3: Section-Level Repairs (Systematic — Consolidate);Section-Level Notes;What This Batch Established;Tier 3: Section-Level Repairs (Systematic — Consolidate);Section-Level Notes
 43,23,###Tier 1: Blocking Issues (Convergent — Act),Blocking actions list
 66,23,###Tier 2: High Priority (Convergent — Consider),High priority considerations
 99,21,###Tier 4: Divergence (Steward Judgment Required),Steward choice items
-135,113,##Batch 2,Batch 2 synthesis snapshot>What This Batch Established;Tier 3: Section-Level Repairs (Systematic — Consolidate)
+135,113,##Batch 2,Batch 2 synthesis snapshot>What This Batch Established;Tier 3: Section-Level Repairs (Systematic — Consolidate);What This Batch Established;Tier 3: Section-Level Repairs (Systematic — Consolidate);What This Batch Established;Tier 3: Section-Level Repairs (Systematic — Consolidate);What This Batch Established;Tier 3: Section-Level Repairs (Systematic — Consolidate)
 141,20,###Tier 1: Blocking Issues (Convergent — Act),Blocking items in batch 2
 161,26,###Tier 2: High Priority (Convergent — Consider),High priority items in batch 2
 201,32,###Tier 4: Divergence (Steward Judgment Required),Steward divergences in batch 2
 233,15,###Section-Level Notes,Section notes and edits
-248,101,##Batch 3,Batch 3 synthesis snapshot>What This Batch Established;Tier 2: High Priority (Convergent — Consider);Section-Level Notes
+248,101,##Batch 3,Batch 3 synthesis snapshot>What This Batch Established;Tier 2: High Priority (Convergent — Consider);Section-Level Notes;What This Batch Established;Tier 2: High Priority (Convergent — Consider);Section-Level Notes;What This Batch Established;Tier 2: High Priority (Convergent — Consider);Section-Level Notes;What This Batch Established;Tier 2: High Priority (Convergent — Consider);Section-Level Notes
 254,20,###Tier 1: Blocking Issues (Convergent — Act),Blocking items in batch 3
 288,16,###Tier 3: Section-Level Repairs (Systematic — Consolidate),Systematic repair tasks
 304,30,###Tier 4: Divergence (Steward Judgment Required),Steward divergences in batch 3
-349,134,##Cross-Cutting (Tail Batch),Tail batch cross-section summary>Notes on Process;Steward Decisions Required;Cross-Section Issues
+349,134,##Cross-Cutting (Tail Batch),Tail batch cross-section summary>Notes on Process;Steward Decisions Required;Cross-Section Issues;Notes on Process;Steward Decisions Required;Cross-Section Issues;Notes on Process;Steward Decisions Required;Cross-Section Issues;Notes on Process;Steward Decisions Required;Cross-Section Issues
 351,17,###New Section Proposals,New section proposals summary
 368,25,###Structural Proposals,Structural proposal notes
 407,18,###Open Questions,Open questions summary
