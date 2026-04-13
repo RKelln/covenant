@@ -1,21 +1,21 @@
 <!-- AGENT:NAV
- purpose:terminal architecture; kiosk interface; platform abstraction; agent provider adapters
- lines:83
- nav[13]{s,n,name,about}:
- 20,82,#ADR 0005: Terminal Architecture,desktop terminal for reading and amendment workflows
- 22,4,##Status,accepted architectural decisions
- 26,18,##Context,reading kiosks plus contributor interface requirements
- 44,42,##Decision,repo placement; stack; portability boundaries
- 46,4,###The Terminal lives inside the Covenant repo,terminal/ lives in the main repo for shared tooling
- 50,8,###Stack: Tauri 2.x + Svelte 5 + Vite + TypeScript,tauri shell with svelte UI and TS type safety
- 58,9,###Platform abstraction layer,Platform interface isolates tauri and web behavior
- 67,4,###SvelteKit migration path,web deployment path without changing core modules
- 71,4,###AI provider abstraction,AgentProvider adapters stream model output
- 75,7,###Testing: Vitest + vitest-browser-svelte,unit and component testing strategy for terminal
- 82,4,###Two modes one app,kiosk vs contributor mode via configuration profile
- 86,9,##Consequences,extra toolchain and strict platform boundary constraints
- 95,7,##Related,links to prior ADRs and terminal design plans
- -->
+purpose:terminal architecture; kiosk interface; platform abstraction; agent provider adapters
+lines:101
+nav[13]{s,n,name,about}:
+20,82,#ADR 0005: Terminal Architecture,desktop terminal for reading and amendment workflows
+22,4,##Status,accepted architectural decisions
+26,18,##Context,reading kiosks plus contributor interface requirements
+44,42,##Decision,repo placement; stack; portability boundaries
+46,4,###The Terminal lives inside the Covenant repo,terminal/ lives in the main repo for shared tooling
+50,8,###Stack: Tauri 2.x + Svelte 5 + Vite + TypeScript,tauri shell with svelte UI and TS type safety
+58,9,###Platform abstraction layer,Platform interface isolates tauri and web behavior
+67,4,###SvelteKit migration path,web deployment path without changing core modules
+71,4,###AI provider abstraction,AgentProvider adapters stream model output
+75,7,###Testing: Vitest + vitest-browser-svelte,unit and component testing strategy for terminal
+82,4,###Two modes one app,kiosk vs contributor mode via configuration profile in outreach/installations/<venue>/
+86,9,##Consequences,extra toolchain and strict platform boundary constraints
+95,7,##Related,links to prior ADRs; terminal design plans; outreach/installations/artspace-ptbo-2027/
+-->
 
 # ADR 0005: Terminal Architecture
 
@@ -81,7 +81,7 @@ A thin `AgentProvider` interface with `chat(params): AsyncIterable<ChatChunk>` f
 
 ### Two modes, one app
 
-Installation kiosk and contributor desktop are distinguished by a configuration profile, not separate applications. A `terminal-config.json` file (in `installations/<venue>/`) controls the kiosk's council roster, moderation model, session timeout, and amendment workflow.
+Installation kiosk and contributor desktop are distinguished by a configuration profile, not separate applications. A `terminal-config.json` file (in `outreach/installations/<venue>/`) controls the kiosk's council roster, moderation model, session timeout, and amendment workflow.
 
 ## Consequences
 
@@ -98,4 +98,4 @@ Installation kiosk and contributor desktop are distinguished by a configuration 
 - `terminal/docs/plan.md` — full design plan
 - `terminal/docs/tasks.md` — TDD task lists for all milestones
 - `docs/agent_reviews.md` — the batch review pipeline the Terminal extends into real-time
-- `installations/artspace-ptbo-2027/` — the first installation context
+- `outreach/installations/artspace-ptbo-2027/` — the first installation context

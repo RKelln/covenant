@@ -86,14 +86,14 @@ watermark-interactive:
 
 # ── Slides ──────────────────────────────────────────────────────────────────
 #
-#   make slides                              — build all talks in docs/talks/
-#   make slides FILE=docs/talks/covenant-review-pipeline.md
+#   make slides                              — build all talks in outreach/talks/
+#   make slides FILE=outreach/talks/covenant-review-pipeline.md
 #   make slides-pdf                          — render all talks to PDF
 #   make slides-open                         — build and open in browser
 #
 
 D2_LAYOUT ?= elk
-TALK_FILES = $(wildcard docs/talks/*.md)
+TALK_FILES = $(wildcard outreach/talks/*.md)
 SLIDE_INPUTS = $(if $(FILE),$(FILE),$(TALK_FILES))
 TALK_NAME = $(if $(FILE),$(patsubst %.marp,%,$(basename $(notdir $(FILE)))),)
 SLIDES_TALK_DIR = $(if $(TALK_NAME),dist/talks/$(TALK_NAME),)
@@ -106,7 +106,7 @@ slides:
 	if [ -n "$(FILE)" ] && [ ! -f "$(FILE)" ]; then \
 		echo "Error: FILE not found: $(FILE)"; \
 		echo "Available talks:"; \
-		ls -1 docs/talks/*.md; \
+		ls -1 outreach/talks/*.md; \
 		exit 1; \
 	fi; \
 	for file in $(SLIDE_INPUTS); do \
@@ -126,7 +126,7 @@ slides-pdf:
 	if [ -n "$(FILE)" ] && [ ! -f "$(FILE)" ]; then \
 		echo "Error: FILE not found: $(FILE)"; \
 		echo "Available talks:"; \
-		ls -1 docs/talks/*.md; \
+		ls -1 outreach/talks/*.md; \
 		exit 1; \
 	fi; \
 	for file in $(SLIDE_INPUTS); do \

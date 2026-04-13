@@ -1,8 +1,7 @@
 <!-- AGENT:NAV
- purpose:adr index; links to key repository and governance decisions
- lines:28
- see[1]{adr/0001-repo-structure.md,core repo architecture and source-of-truth model}
- -->
+purpose:adr index; links to key repository and governance decisions
+lines:35
+-->
 
 # ADR Index
 
@@ -24,6 +23,9 @@ repository and governance decisions.
 - [0006-summary-and-parable-sections.md](0006-summary-and-parable-sections.md)
   — Addition of Summary (required) and Parable (optional) headings to the
   section bundle format.
+- [0007-outreach-directory.md](0007-outreach-directory.md) — Introduction of
+  `outreach/` top-level directory, replacing `installations/` and `docs/talks/`,
+  with subfolders for installations, talks, grants, and shared materials.
 
 ## Conventions
 

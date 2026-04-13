@@ -9,7 +9,7 @@ nav[11]{s,n,name,about}:
 93,23,###Build Locally,dependencies; uv sync; make targets for builds
 116,6,###Contribute,propose changes via PR and update logs
 122,4,###Fork,how to create a new edition fork
-126,17,##Structure,repo layout: sections; assemblies; docs; build tools
+126,17,##Structure,repo layout: sections; assemblies; docs; outreach; build tools
 143,5,##License,CC BY licensing terms for text and repo content
 148,4,##Contact,reach the stewards via email
 152,5,##Stewards,steward list and public links
@@ -138,7 +138,7 @@ See [FORKING.md](FORKING.md) for guidance on creating your own edition.
 | `/prompts/` | Agent review and synthesis prompt templates |
 | `/reviews/` | Multi-model review rounds and syntheses |
 | `/research/` | Early planning and research notes |
-| `/installations/` | Physical installation proposals and documentation |
+| `/outreach/` | Outreach materials — installations, talks, grants, shared copy |
 
 ## License
 

@@ -3,7 +3,7 @@
 build-slides.py — Build Marp slide sources by rendering D2 blocks and bundling assets.
 
 Usage:
-    python3 build/build-slides.py docs/talks/covenant-review-pipeline.md
+    python3 build/build-slides.py outreach/talks/covenant-review-pipeline.md
 """
 
 import os
@@ -15,7 +15,7 @@ from pathlib import Path
 from urllib.parse import urlsplit, urlunsplit
 
 REPO = Path(__file__).parent.parent
-TALK_DIR = REPO / "docs" / "talks"
+TALK_DIR = REPO / "outreach" / "talks"
 DIST_TALK_DIR = REPO / "dist" / "talks"
 
 
@@ -109,7 +109,11 @@ def trim_type_prefix(rel_path, asset_type):
         "docs": {"docs", "doc", "documents"},
     }
     if first in prefixes.get(asset_type, set()):
-        trimmed = Path(*rel_path.parts[1:]) if len(rel_path.parts) > 1 else Path(rel_path.name)
+        trimmed = (
+            Path(*rel_path.parts[1:])
+            if len(rel_path.parts) > 1
+            else Path(rel_path.name)
+        )
         return trimmed
     return rel_path
 
@@ -183,7 +187,7 @@ def rewrite_local_references(md_text, source_dir, output_dir, asset_dir):
             output_dir,
             asset_dir,
         )
-        return f'{match.group(1)}={match.group(2)}{rewritten}{match.group(2)}'
+        return f"{match.group(1)}={match.group(2)}{rewritten}{match.group(2)}"
 
     def replace_css_url(match):
         rewritten = rewrite_reference_path(
@@ -273,7 +277,7 @@ def convert_markdown(md_text, blocks, diagram_dir, embed=False):
             else:
                 # Use Markdown image syntax so Marp rewrites the path correctly
                 rel = svg_path.relative_to(diagram_dir.parent.parent)
-                img_tag = f'\n![{block["id"]}]({rel})\n'
+                img_tag = f"\n![{block['id']}]({rel})\n"
             result = result[: block["start"]] + img_tag + result[block["end"] :]
         else:
             img_tag = f"\n<!-- {block['id']}: SVG not found -->\n"

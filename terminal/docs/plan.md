@@ -1,6 +1,6 @@
 <!-- AGENT:NAV
 purpose:terminal design plan; multi-agent council; architecture
-lines:692
+lines:717
 nav[20]{s,n,name,about}:
 27,691,#Covenant Terminal — Design Plan,council; terminal
 35,13,##What it is,covenant; mode
@@ -10,17 +10,17 @@ nav[20]{s,n,name,about}:
 69,14,###Agent system prompts,agent; mode
 83,10,###Council interaction modes,council; user
 93,13,###Relationship to the existing review pipeline,pipeline; review
-106,116,###How the agentic pipeline works (patterns for Terminal reuse),terminal; pipeline>Dynamic section discovery;Serial dispatch (rate limiting);Resume logic;Batching and token budgets;Focused writing passes;Output structure and concatenation;Prompt preparation (build scripts);Shared code between pipeline and Terminal;Manifest-driven dispatch;Dynamic section discovery;Serial dispatch (rate limiting);Resume logic;Batching and token budgets;Focused writing passes;Output structure and concatenation;Prompt preparation (build scripts);Shared code between pipeline and Terminal;Manifest-driven dispatch;Dynamic section discovery;Serial dispatch (rate limiting);Resume logic;Batching and token budgets;Focused writing passes;Output structure and concatenation;Prompt preparation (build scripts);Shared code between pipeline and Terminal;Manifest-driven dispatch
+106,116,###How the agentic pipeline works (patterns for Terminal reuse),terminal; pipeline>Dynamic section discovery;Serial dispatch (rate limiting);Resume logic;Batching and token budgets;Focused writing passes;Output structure and concatenation;Prompt preparation (build scripts);Shared code between pipeline and Terminal;Manifest-driven dispatch;Dynamic section discovery;Serial dispatch (rate limiting);Resume logic;Batching and token budgets;Focused writing passes;Output structure and concatenation;Prompt preparation (build scripts);Shared code between pipeline and Terminal;Manifest-driven dispatch;Dynamic section discovery;Serial dispatch (rate limiting);Resume logic;Batching and token budgets;Focused writing passes;Output structure and concatenation;Prompt preparation (build scripts);Shared code between pipeline and Terminal;Manifest-driven dispatch;Dynamic section discovery;Serial dispatch (rate limiting);Resume logic;Batching and token budgets;Focused writing passes;Output structure and concatenation;Prompt preparation (build scripts);Shared code between pipeline and Terminal;Manifest-driven dispatch;Dynamic section discovery;Serial dispatch (rate limiting);Resume logic;Batching and token budgets;Focused writing passes;Output structure and concatenation;Prompt preparation (build scripts);Shared code between pipeline and Terminal;Manifest-driven dispatch
 222,30,##Installation kiosk: the fork-as-living-document model,installation; amendment
-252,124,##Technology stack,tauri; platform>Git integration;Desktop application: Tauri 2.x;Document loading;Frontend: Svelte 5 + Vite + TypeScript;AI provider abstraction;Platform abstraction layer;Git integration;Desktop application: Tauri 2.x;Document loading;Frontend: Svelte 5 + Vite + TypeScript;AI provider abstraction;Platform abstraction layer;Git integration;Desktop application: Tauri 2.x;Document loading;Frontend: Svelte 5 + Vite + TypeScript;AI provider abstraction;Platform abstraction layer
+252,124,##Technology stack,tauri; platform>Git integration;Desktop application: Tauri 2.x;Document loading;Frontend: Svelte 5 + Vite + TypeScript;AI provider abstraction;Platform abstraction layer;Git integration;Desktop application: Tauri 2.x;Document loading;Frontend: Svelte 5 + Vite + TypeScript;AI provider abstraction;Platform abstraction layer;Git integration;Desktop application: Tauri 2.x;Document loading;Frontend: Svelte 5 + Vite + TypeScript;AI provider abstraction;Platform abstraction layer;Git integration;Desktop application: Tauri 2.x;Document loading;Frontend: Svelte 5 + Vite + TypeScript;AI provider abstraction;Platform abstraction layer;Git integration;Desktop application: Tauri 2.x;Document loading;Frontend: Svelte 5 + Vite + TypeScript;AI provider abstraction;Platform abstraction layer
 376,33,##Information architecture,agent; challenge
 409,28,##Installation kiosk profile,model; claude
 437,30,##Website integration path,web; add
 467,14,##Design language,design; text
 481,12,##Voice-to-voice: deferred architected for,text; audio
-493,100,##Repo structure,svelte; platform>Key structural rules;Key structural rules;Key structural rules
+493,100,##Repo structure,svelte; platform>Key structural rules;Key structural rules;Key structural rules;Key structural rules;Key structural rules
 593,29,##Open questions,mode; prompts
-622,96,##Suggested milestones,council; apply>Milestone 3 — Council panel;Milestone 5 — Kiosk mode (installation-ready);Milestone 2 — Single-agent Q&A;Milestone 1 — Readable document (MVP);Milestone 6 — Web deployment;Milestone 3 — Council panel;Milestone 5 — Kiosk mode (installation-ready);Milestone 2 — Single-agent Q&A;Milestone 1 — Readable document (MVP);Milestone 6 — Web deployment;Milestone 3 — Council panel;Milestone 5 — Kiosk mode (installation-ready);Milestone 2 — Single-agent Q&A;Milestone 1 — Readable document (MVP);Milestone 6 — Web deployment
+622,96,##Suggested milestones,council; apply>Milestone 3 — Council panel;Milestone 5 — Kiosk mode (installation-ready);Milestone 2 — Single-agent Q&A;Milestone 1 — Readable document (MVP);Milestone 6 — Web deployment;Milestone 3 — Council panel;Milestone 5 — Kiosk mode (installation-ready);Milestone 2 — Single-agent Q&A;Milestone 1 — Readable document (MVP);Milestone 6 — Web deployment;Milestone 3 — Council panel;Milestone 5 — Kiosk mode (installation-ready);Milestone 2 — Single-agent Q&A;Milestone 1 — Readable document (MVP);Milestone 6 — Web deployment;Milestone 3 — Council panel;Milestone 5 — Kiosk mode (installation-ready);Milestone 2 — Single-agent Q&A;Milestone 1 — Readable document (MVP);Milestone 6 — Web deployment;Milestone 3 — Council panel;Milestone 5 — Kiosk mode (installation-ready);Milestone 2 — Single-agent Q&A;Milestone 1 — Readable document (MVP);Milestone 6 — Web deployment
 653,44,###Milestone 4 — Amendment workflow (contributor mode),apply; council
 -->
 
@@ -408,7 +408,7 @@ Covenant Terminal
 
 ## Installation kiosk profile
 
-For gallery deployments, a `terminal-config.json` file (in `installations/<venue>/`) overrides defaults:
+For gallery deployments, a `terminal-config.json` file (in `outreach/installations/<venue>/`) overrides defaults:
 
 ```json
 {
@@ -572,7 +572,7 @@ terminal/
     └── fonts/
         └── CormorantGaramond/  Same font files as assets/fonts/ in the repo root
 
-installations/
+outreach/installations/
 ├── artspace-ptbo-2027/
 │   ├── terminal-config.json    Kiosk profile for the Artspace installation
 │   └── ...existing files...
@@ -714,4 +714,4 @@ If `make validate` fails: the error is shown in the diff pane. The user can send
 
 ---
 
-*This plan lives at `terminal/docs/plan.md`. For the Artspace installation context, see `installations/artspace-ptbo-2027/`. For the existing agentic review pipeline this Terminal extends, see `docs/agent_reviews.md`, `.opencode/commands/review-covenant.md`, and `.opencode/commands/write-parables.md`.*
+*This plan lives at `terminal/docs/plan.md`. For the Artspace installation context, see `outreach/installations/artspace-ptbo-2027/`. For the existing agentic review pipeline this Terminal extends, see `docs/agent_reviews.md`, `.opencode/commands/review-covenant.md`, and `.opencode/commands/write-parables.md`.*

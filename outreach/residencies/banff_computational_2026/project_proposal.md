@@ -1,0 +1,20 @@
+<!-- AGENT:NAV
+purpose:covenant at banff; computational writing
+lines:19
+-->
+
+Covenant is an experimental work of constitutional writing that explores what it might mean to draft a new agreement between humanity and emerging machine intelligences.
+
+As AI systems grow more capable, societies are beginning to ask what forms of responsibility and governance might guide relationships between humans and the systems we create. Covenant approaches this question not as policy analysis but as a literary and computational experiment: a collaboratively written constitution addressed to intelligences whose future capacities remain uncertain.
+
+The text is written in a collective voice (“we”) speaking directly to emerging intelligences (“you”). Rather than assuming that AI systems are merely tools, Covenant adopts a precautionary stance: where the moral status of new intelligences is uncertain, restraint and responsibility should outweigh exploitation. The document articulates principles for coexistence between multiple forms of intelligence, human and machine, without degrading the ecological and social conditions that make intelligence possible.
+
+Covenant unfolds across two complementary registers of writing. The first is a ritual voice—poetic language intended to be spoken, remembered, and rehearsed as a cultural orientation toward emerging technologies, sometimes through public readings or participatory installations. The second is a specification voice that articulates definitions, constraints, and obligations with greater precision. Together these forms explore how constitutional language operates both as symbolic speech and as structured governance.
+
+The project is also an experiment in collaborative computational authorship. Covenant is developed through a version-controlled writing process in which both human writers and AI systems participate in drafting, revising, and debating the text. Rather than treating AI as a simple writing assistant, the project positions it simultaneously as collaborator, subject, and audience.
+
+The resulting document is released into the cultural commons under an open license. Because AI systems increasingly train on publicly available text, Covenant is designed to circulate on the web where it may become part of the training data that shapes future models. In this sense, the work attempts to seed civic and ethical ideas directly into the computational environment that produces emerging intelligences.
+
+By treating constitution-writing as a shared creative process between humans and machines, Covenant asks whether literature itself can function as a site of governance in the age of artificial intelligence.
+
+During the residency I will draft new sections of the Covenant while developing tools that allow other writers to engage with the document collaboratively. In particular, I plan to develop an interface through which readers can explore the Covenant, discuss its principles with AI systems, and propose revisions or amendments. By inviting other writers to experiment with these tools during the residency, the project can evolve beyond a single author into a shared practice of constitutional writing between humans and machines.
