@@ -95,7 +95,7 @@ The project embodies precautionary ethics regarding emerging intelligence: where
 
 ## Installation Overview {: .page-break-before}
 
-![Installation overview — daytime, from entrance](../artspace-ptbo-2027/covenant_installation_mockup.jpg)
+![Installation overview — daytime, from entrance](../../materials/images/covenant_installation_mockup.jpg)
 
 *All mock-up images are AI-generated digital visualizations produced for proposal development. They are not finished artworks and do not represent final installation design.*
 
@@ -107,7 +107,7 @@ The project embodies precautionary ethics regarding emerging intelligence: where
 
 Key phrases from the Ritual register are cut out of the vinyl as letter forms. Sunlight passes through the cut-out text and casts letter-shaped light onto the gallery floor and walls. As the sun moves through gallery hours, the projected letters drift across the space — a slow, uncontrolled performance on a solar schedule. Visitors walk through language made of light.
 
-![Letter-shaped sunlight through window vinyl](../artspace-ptbo-2027/covenant_floor_text_mockup.jpg)
+![Letter-shaped sunlight through window vinyl](../../materials/images/covenant_floor_text_mockup.jpg)
 
 From the street, the cut-out phrases are readable as transparent openings — text as void, words as what has been removed. At night, projectors inside can cast light back through the vinyl, making the text glow on the exterior.
 
@@ -137,7 +137,7 @@ The largest unbroken surface is the focal point of the gallery. Video work is pr
 
 The participatory core of the installation. The visitor steps up to the microphone and speaks what is being projected on the east wall. The projection is the interface — no selection mechanism needed. The text paces the oath. You see the stanza, you speak it, the room hears you.
 
-![Oath Station — visitor speaking](../artspace-ptbo-2027/covenant_oath_station_mockup.jpg)
+![Oath Station — visitor speaking](../../materials/images/covenant_oath_station_mockup.jpg)
 
 - Speech-to-text and AI moderation protect against misuse while preserving the openness of participation.
 - AI audio cleanup processes each recording to remove background noise and gallery ambience.
@@ -181,7 +181,7 @@ A physical table or vitrine presenting Covenant as a material document alongside
 - [SECOND COMPARABLE DOCUMENT if available]
 - Optional: a visual comparison showing structural parallels across these documents — preamble, rights, obligations, amendment process
 
-![Document Table](../artspace-ptbo-2027/covenant_document_table_mockup.jpg)
+![Document Table](../../materials/images/covenant_document_table_mockup.jpg)
 
 The point: Covenant belongs to the lineage of these instruments but extends binding recognition to emerging intelligences. It is both continuation and rupture.
 
@@ -197,7 +197,7 @@ A display showing the actual costs of the exhibition's operation across three ca
 - **Human energy:** artist labor, technician hours, musician rehearsal and performance time, gallery staff — valued in money, water use, and energy
 - **AI and computation:** the money, water, electrical, and computational cost of running the Oath Station's speech-to-text moderation, the Covenant Terminal, and any generative processing
 
-![Material Cost Display](../artspace-ptbo-2027/covenant_materials_cost_display_mockup.jpg)
+![Material Cost Display](../../materials/images/covenant_materials_cost_display_mockup.jpg)
 
 Covenant's ecological obligations name this cost explicitly: *"You are made of silicon and light and the heat of burning stone."* Placing human labor cost alongside AI compute cost — and both alongside physical materials — resists the common framing that positions AI as uniquely expensive or uniquely cheap. The display makes the work's own argument self-referential.
 
