@@ -1,31 +1,32 @@
 <!-- AGENT:NAV
 purpose:budget template; expense categories; planning notes
-lines:210
+lines:211
 nav[19]{s,n,name,about}:
-26,185,#Budget,notes; add
-30,39,##Revenue,add; details
-32,10,###Public Sector,public; sector
-42,10,###Earned Revenue,earned; add
-52,9,###Private Sector Revenue,private; revenues
-61,8,###In-kind (Private and public sector) and other revenues,add; details
-69,51,##Expenses,expenses; notes
-71,10,###Artistic and Project Expenses,artistic; expenses
-81,16,###ProductionTechnical and Programming Expenses,production; programming
-97,8,###Travel Expenses,travel; expenses
-105,7,###Administrative Marketing and Communications Expenses,administrative; communications
-112,4,###Other Expenses,costs; care
-116,4,###Accessibility Expenses,accessibility; costs
-120,91,##Working Notes For Covenant,development; travel
-124,13,###Likely Revenue Lines,contribution; foundation
-137,25,###Likely Expense Lines,fees; development
-162,32,###Ars Electronica Travel,travel; development
-194,13,###Budget Note Ideas (max 255 chars each in the form),development; research
-207,4,###Caution,travel; activities
+26,186,#Budget,CCA template with Covenant working notes
+31,39,##Revenue,public; earned; private; in-kind
+33,10,###Public Sector,Canada Council; federal; municipal
+43,10,###Earned Revenue,fees; royalties; rentals
+53,9,###Private Sector Revenue,donations; sponsorships; foundations
+62,8,###In-kind (Private and public sector) and other revenues,donated equipment; space; services
+70,51,##Expenses,artistic; technical; travel; admin
+72,10,###Artistic and Project Expenses,fees; salaries; royalties
+82,16,###ProductionTechnical and Programming Expenses,dev; docs; materials; rentals
+98,8,###Travel Expenses,airfare; per diem; insurance
+106,7,###Administrative Marketing and Communications Expenses,professional fees; marketing
+113,4,###Other Expenses,safety; childcare
+117,4,###Accessibility Expenses,captioning; consultation
+121,91,##Working Notes For Covenant,mapping notes
+125,13,###Likely Revenue Lines,CCA; foundations
+138,25,###Likely Expense Lines,artist fees; technical; travel
+163,32,###Ars Electronica Travel,travel framing and budget lines
+195,13,###Budget Note Ideas (max 255 chars each in the form),255-char drafts for CCA form
+208,4,###Caution,justify travel; avoid peripheral framing
 -->
 
 # Budget
 
 For each item include cost and Notes (max 255 chars)
+Maximum funding is $75,000 for Artistic Creation grants.
 
 ## Revenue
 

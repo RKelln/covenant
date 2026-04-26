@@ -1,17 +1,17 @@
 <!-- AGENT:NAV
 purpose:canada council application; covenant project
-lines:257
+lines:248
 nav[10]{s,n,name,about}:
-17,2,#Canada Council for the Arts - Artistic Creation 2027,2027; artistic
-19,15,#Covenant,2026; 2027
-24,5,##One sentence summary (255 characters),summary; 2026
-29,5,##Dates,2026; 2027
-34,224,#Describe your proposed activities. (7000 characters maximum),project; installation
-77,40,##What is your capacity and experience to carry out the activities? (3500 characters maximum),project; installation
-117,15,##Provide information about artistic and presenting partners and their involvement in your project. (1700 characters maximum),development; installation
-132,47,##What is your project timeline? Provide important milestones. (3500 characters maximum),terminal; covenant
-179,53,##Budget,expenses; costs
-232,26,##Is there other information that will help us understand your application? (1700 characters maximum),public; installation
+17,2,#Canada Council for the Arts - Artistic Creation 2027,grant title header
+19,15,#Covenant,hidden council guidance notes
+24,5,##One sentence summary (255 characters),
+29,5,##Dates,May 1 2026 - Apr 30 2027
+34,215,#Describe your proposed activities. (7000 characters maximum),
+71,38,##What is your capacity and experience to carry out the activities? (3500 characters maximum),
+109,11,##Provide information about artistic and presenting partners and their involvement in your project. (1700 characters maximum),
+120,48,##What is your project timeline? Provide important milestones. (3500 characters maximum),
+168,53,##Budget,$67.5k request positioning
+221,28,##Is there other information that will help us understand your application? (1700 characters maximum),
 -->
 
 # Canada Council for the Arts - Artistic Creation 2027
@@ -24,11 +24,11 @@ nav[10]{s,n,name,about}:
 ## One sentence summary (255 characters)
 (Provide your activity and dates. This summary will be used in the Canada Council's official reporting.)
 
-Develop Covenant, a participatory gallery installation and voice-enabled AI terminal where audiences read, question, speak, and propose amendments to a living constitutional artwork about human and machine intelligence, Apr 2026-Mar 2027.
+Develop Covenant, a participatory gallery installation and voice-enabled AI terminal where audiences read, question, speak, and propose amendments to a living constitutional artwork about human and machine intelligence, May 2026-Apr 2027.
 
 ## Dates
 
-April 1, 2026 - March 31, 2027
+May 1, 2026 - April 30, 2027
 
 
 # Describe your proposed activities. (7,000 characters maximum)
@@ -47,31 +47,25 @@ April 1, 2026 - March 31, 2027
 	How will your project benefit artists, participants, audiences and communities?
 	Are you addressing any broader social issues in your work, such as environment, accessibility or social justice? If so, how?)
 -->
-I am seeking support for the next creation phase of Covenant, an open constitutional artwork exploring how human communities and emerging machine intelligences might coexist without domination, extraction, or ecological collapse. This phase is focused on two linked outcomes: developing the gallery installation as a durable, exhibition-ready artwork, and building the first working version of Covenant Terminal, an AI-mediated reading and contribution interface.
+I am seeking support for Covenant's next creation phase: developing a gallery installation and working prototype of Covenant Terminal, an AI-mediated reading and contribution interface. Covenant is an open constitutional artwork exploring human and machine coexistence. Currently a public repository, its text uses two registers: Ritual (poetic, spoken) and Specification (precise, normative). My proposed activities extend this into public space by developing the installation design, Terminal software, Oath Station recording, projection, sound, and accessibility plans needed for exhibition. This phase also includes iterative public testing cycles so the installation and terminal are shaped by real participant behavior before exhibition locking.
 
-The project already exists as a public website and open-source repository. The text is written in two parallel registers: Ritual, a poetic register designed to be spoken and remembered, and Specification, a precise register defining obligations, constraints, and accountability. My proposed activities extend that document into public space and public interaction. I will refine the installation design, prototype the interaction systems, develop the Terminal software, test the Oath Station recording process, create projection and sound studies, and produce the design, technical, and accessibility documentation needed to present the work in galleries.
+The installation is a civic encounter. Visitors experience projected text, a document table comparing Covenant to historical treaties, a material cost display (accounting for physical/computational impacts), and an Oath Station where spoken contributions accumulate. A sensor silences background audio when participants perform and record.
 
-The gallery installation is a civic encounter rather than a static display. Visitors will meet Covenant across several forms: projected text and image, a document table placing the work beside treaty and constitutional forms, a material cost display accounting for the exhibition's human, physical, and computational costs, and an Oath Station where visitors can speak portions of the text aloud. Those spoken contributions will accumulate over time, while a webcam or sensor at the Oath Station silences music and prior voices when someone steps to the mic to perform and record.
+Covenant Terminal extends display into participation. Audiences can read, toggle registers, ask the AI system to explain contexts, and propose amendments. Developing a voice mode is crucial-building on my prior voice-to-voice installations-as spoken interaction improves access and encourages freer input. The terminal uses a council model, displaying parallel AI responses to make disagreement visible rather than projecting a single authoritative voice. During this grant period I will prototype amendment flow end-to-end: drafting, moderation checks, steward review, and reintegration into the working text.
 
-The Covenant Terminal is the second major component. It extends the project from display into participation. Audiences will be able to read by section, move between Ritual and Specification, ask the system to explain tensions or context, and draft comments or amendments. It will begin with strong text input and output, but I also want to develop a voice mode so the terminal can speak with visitors and receive spoken questions. That direction grows out of my previous voice-to-voice installation work and matters both artistically and practically: people often speak more freely than they type, and spoken interaction can substantially improve access for blind and low-vision audiences. The terminal uses a council model in which multiple AI systems can respond in parallel, making disagreement and convergence visible rather than pretending there is a single authoritative machine voice.
+The rationale is that governance language shouldn't remain isolated within corporations. AI labs publish internal constitutions shaping model behaviors; Covenant relocates this medium into the cultural commons to be spoken, staged, and contested in public. Drawing on treaty language, protocol art, and critical tech discourse, it frames AI not as abstract software, but as infrastructure entangled with energy, labor, and planetary costs.
 
-The artistic rationale is that governance language is too important to remain inside corporations, policy circles, or technical institutions. AI labs are already publishing internal constitutions that shape model behavior at scale. Covenant responds by relocating this form into the cultural commons. It treats constitution-writing not as compliance language but as an artistic medium: something that can be spoken, staged, contested, revised, and held in public. The work draws on constitutional writing, treaty language, protocol art, critical technology discourse, and traditions of collective vow. It is also informed by the reality that AI is not abstract software but infrastructure entangled with energy systems, labor, extraction, and planetary cost.
+This involves artistic risk. Translating a complex, exclusionary subject into accessible culture without diluting its stakes is challenging, as is giving audiences genuine agency. Covenant Terminal must be a credible public process for reading and amendment, not just a chatbot wrapper. It is urgent because normative AI language is already being written by corporate institutions, while public cultural infrastructure for shaping these relations barely exists.
 
-This phase involves real artistic risk. It attempts to make a complex and often exclusionary subject legible as culture without simplifying its stakes. It also risks giving audiences genuine agency within the work rather than only symbolic participation. Covenant Terminal is not planned as a decorative interface or a chatbot wrapper; it is an attempt to build a credible public process around reading, disagreement, and amendment.
+This funding period will produce a fully developed installation plan, a functional Terminal prototype for public testing, refined Oath Station participation methods, and a path for future exhibitions and open-source releases. It will also produce practical documentation: installation requirements, moderation and consent protocol, accessibility guidance, and setup notes that future hosts can use. In parallel, with collaborators, I will develop concept album sketches and gallery music/audioscape studies so the work can live as both installation and listening practice. The music process will combine modular composition, shared tools, and distinct collaborator voices so the Ritual register can be rehearsed, remembered, and adapted across recorded, live and installation forms. This moves Covenant from a document into a participatory artwork, deepening my practice by integrating software, writing, installation, sound, and public process.
 
-The project feels urgent now because the normative language shaping AI systems is already being written, and almost all of it is being authored within institutions whose incentives are commercial or strategic. There is very little public cultural infrastructure for collectively imagining what obligations should govern relations between humans and emerging intelligences.
+Accessibility is foundational. The terminal will feature keyboard-first interaction, adjustable reading, and spoken input/output. Voice interaction makes Covenant more inviting, particularly for blind and low-vision audiences. The installation integrates both large-format visual and audio text, seating, and accessible interaction design consultation. I will also budget for accessibility consultation and testing, readable display design, plain-language support where needed, and clear orientation signage so participants understand how to engage and what is being recorded.
 
-The artistic outcomes I hope to achieve during this grant period are: a fully developed installation plan and prototype set for exhibition production; a working Covenant Terminal prototype suitable for public testing; refined audio, projection, and participation methods for the Oath Station; stronger visual and interaction design; and a clearer path toward future exhibitions, translations, workshops, and public-facing releases.
+Our diverse intended audience-art attendees, technologists, students, and marginalized demographics-will be engaged through participatory testing, workshops, and open-source publication. Reaching them is not just democratic principle but the core measure of impact on AI safety. The project's benefit is creating a civic framework where myriad voices adapt and republish the text in their own contexts. This plurality serves a technical function: AI companies deduplicate training data. By encouraging distinct, human-adapted variants of Covenant online, we create a distributed field of overlapping ethical signals, giving future models a richer generalizing training signal than a single frozen document ever could.
 
-This work will significantly deepen my practice by forcing a stronger integration of software, writing, installation, performance, and public process. It moves Covenant from document and publishing system into participatory artwork with durable exhibition form.
+The project addresses social justice by recognizing concentrated power over machine intelligence, frames environmental accounting as an ethical obligation, and foregrounds transparency by explicitly disclosing AI use, data handling, retention, and opt-out options for participation. I also intend to conduct research and partner meetings, potentially including Ars Electronica, to test Covenant within international civic tech contexts and strengthen future exhibition partnerships.
 
-Accessibility is part of the development plan from the beginning rather than added later. I will design the terminal for clear text presentation, keyboard-first interaction, adjustable reading modes, and plain-language contextual support, while also developing spoken input and spoken response as a core interaction mode. For blind and low-vision audiences in particular, voice interaction has the potential to make Covenant more usable and inviting than a text-only interface. For installation development I will budget for captioning/transcription, large-format readable text, seating and quiet engagement options, and consultation around accessible interaction design. Because Covenant exists in both spoken and written forms, the project is especially suited to multimodal access.
-
-The intended audiences include contemporary art audiences, writers and musicians, technologists, AI researchers, students, digital rights communities, and members of the broader public who are affected by AI systems but rarely invited into technical governance conversations. I will engage these communities through public testing, workshops, conversations with collaborators and advisers, open-source publication, and future installation partnerships. The benefit of the project is not only the finished artwork; it is the creation of a civic and artistic framework through which more people can participate in shaping the language around technological futures.
-
-The project also addresses broader social questions directly. It treats AI governance as a social justice issue because power over machine intelligence is currently concentrated. It treats environmental accounting as an artistic and ethical obligation because computation has material cost. It also addresses transparency and consent by making the installation disclose how AI systems are used, what is recorded, how data is handled, and how participants may opt out.
-
-I also intend to use targeted research travel and partnership conversations, including Ars Electronica if confirmed, to test Covenant within international AI art and civic technology contexts.
+Methodologically, this phase combines artistic prototyping with governance prototyping. I will run structured review rounds in which selected sections are read aloud, tested in terminal interaction, revised through human and AI critique, and reintroduced into the installation loop. Once Terminal is stable, participation will extend beyond scheduled sessions through direct website downloads and unsolicited public use. Outputs include a tested participation model, clearer consent language, and reusable text-plus-voice interface templates.
 
 
 ## What is your capacity and experience to carry out the activities? (3,500 characters maximum)
@@ -99,34 +93,28 @@ You are responsible for:
 )
 -->
 
-I am well positioned to carry out this phase because Covenant is already an active project, not a speculative concept. I have completed the first major body of work: the text itself, the open-source repository that governs it, the publishing and validation tools that generate its editions, and the public website through which it can already be read and downloaded.
+I am well positioned to carry out this phase because Covenant is already active, not speculative. I have completed the first versions of the text, repository, publishing and validation tools, and public website. The project has also gone through multiple structured human and AI review rounds, so this phase builds on tested methods rather than a concept draft.
 
-My practice sits between art, software, and critical inquiry. Covenant requires exactly that combination. I have already developed the project's conceptual framework, writing process, technical infrastructure, and public-facing materials. The repository is structured for collaborative authorship and review, and the project has already gone through multiple rounds of structured human and AI revision.
+My practice combines art, software, and critical inquiry, which is the exact mix this project requires. I developed the conceptual framework, writing process, technical architecture, and public-facing materials, and I am now focused on translating that base into an exhibition-ready installation and terminal.
 
-I also have direct installation experience with the kinds of interactive systems this phase requires. In Experimance, shown as an interactive installation at Factory Media Centre in Hamilton in 2025, visitors reshaped a sand surface while depth sensing, real-time image generation, projection, sound, and an AI voice agent responded live. The piece combined custom software, conversational interaction, generative media, and gallery installation design. In Feed the Fires, presented at InterAccess in Toronto in 2025 with the Sôhkepayin Collective, I led the AI integration for an immersive installation in which a voice-based fire spirit listened to visitors' stories, responded in real time, and drove image, sound, and environmental effects across the room. Together these projects gave me practical experience building participatory installations with live AI conversation, projection, and accessibility-aware interaction design.
+I also have direct experience with live participatory AI installation. In Experimance (Factory Media Centre, Hamilton, 2025), visitors reshaped sand while depth sensing, real-time image generation, projection, sound, and an AI voice agent responded live. In Feed the Fires (InterAccess, Toronto, 2025, with the Sohkepayin Collective), I led AI integration for an immersive environment where a voice-based fire spirit listened and responded in real time, driving image, sound, projection, LEDs, and atmosphere. These projects gave me practical experience with custom software, live conversational systems, projection workflows, and accessible audience interaction.
 
-I am also prepared for the interdisciplinary demands of the installation phase. The work combines text design, interface design, participatory systems, audio workflow, projection planning, voice interaction, and public framing around consent and transparency. The installation planning documents, design studies, and terminal plan already in progress show that this is not an undeveloped idea. What I need now is time and resources to develop these elements to an exhibition-ready level.
+I am prepared for the interdisciplinary demands of this phase: text and interface design, participatory systems, audio workflow, projection planning, voice interaction, and clear public framing around consent and transparency. Installation studies and terminal planning are already underway; this grant supports refinement to exhibition standard.
 
-I will be supported by collaborators whose involvement strengthens both the artistic and technical dimensions of the project. Music collaborators Ben McCarthy and Daria Morgacheva are contributing to the sonic development of Covenant and the performance-oriented life of the text. Their involvement helps the project move beyond publication into voice, atmosphere, and live encounter. Adviser Joseph Wilson has provided critical feedback on the project and its framing.
+Collaborators strengthen both artistic and technical delivery. Daria Morgacheva, Ben McCarthy and Dhaivat Jani support sonic and performance development, including concept album development and gallery audioscape composition. Joseph Wilson, an anthropologist, writer, and educator focused on language, AI, and communication, supports project framing as a consultant and contributes percussion performance. I will ensure safe and fair working conditions through paid contracts, clear scopes, consent-forward interaction design, and explicit disclosure of recording, AI use, and data handling.
 
-I understand that participatory work brings responsibilities beyond making the artwork itself. I will ensure safe and fair working conditions by paying collaborators appropriately, using clear scopes and agreements, and designing the interaction systems with moderation and consent in mind. The project's public components will include explicit disclosure around recording, AI use, and data handling. The schedule allows for iterative testing, troubleshooting, and accessibility review rather than rushing directly into presentation.
-
-My capacity comes from having already built the conceptual and technical base of Covenant, from working across the relevant artistic and technical forms, and from assembling a strong network of collaborators who can help carry the project into its next public form.
+My capacity comes from a completed project foundation, relevant installation track record, and an active collaborator network prepared to carry Covenant into public form.
 
 
 ## Provide information about artistic and presenting partners and their involvement in your project. (1,700 characters maximum)
 
-This phase is primarily artist-led, with a focused circle of artistic and advisory collaborators supporting specific parts of the work.
+This phase is artist-led with collaborators I have worked with successfully before. Daria Morgacheva (Composer, Developer, Writer/Steward), Ben McCarthy (Musician, Writer/Steward), and Dhaivat Jani (Composer / Musician / Producer) bring distinct musical approaches, prior AI experience, and complementary strengths for Covenant's experiment in human-machine authorship. Their role is to make the Ritual register rehearsed, remembered, and performable like a hymn or anthem. They will develop concept-album material, a dynamic gallery score, and future live performance formats. Dhaivat will compose modular blocks that Ben and Daria can weave through sections/pieces while sharing their own tools and techniques. In keeping with the Covenant ethos, each artist collaborator also be encouraged to develop their own complete variation of the work.
 
-Ben McCarthy and Daria Morgacheva are the principal music collaborators attached to Covenant's sonic development. They are contributing to the project's evolving performance and sound world, including material that can support installation soundscape development, public readings, and future live presentations. Their participation is important because Covenant is not only a reading interface or text object; it is also a spoken and musical work.
+Joseph Wilson (Anthropologist / Consultant / Musician) advises on civic framing and cultural stakes, with focus on the human infrastructures of AI systems, and contributes percussion performance.
 
-Joseph Wilson is an adviser to the project and has provided critical discussion around its framing, stakes, and public articulation.
+The Human Feedback Foundation has supported Covenant's wider development ecology and will help with outreach to AI safety researchers and open source AI developers.
 
-The Human Feedback Foundation has supported the broader development ecology around Covenant and has been part of the context in which the project has grown.
-
-On the presenting side, this grant phase is focused on development rather than a single confirmed presentation. I am building the installation and terminal toward future gallery and public-art contexts, including spaces where participatory, text-based, and technologically mediated work can be shown with the necessary support. Venue conversations and exhibition partnerships will continue during the development period, and the outputs from this grant will be the materials needed to secure and realize those presentations: prototypes, technical requirements, accessibility planning, interaction design, and installation documentation.
-
-I am also in conversation with future contexts where the work's installation, interface, and AI governance research could be situated, including festivals such as Ars Electronica.
+On the presenting side, this grant is for development. The project has been proposed to artspace (Peterborough) and Ars Electronica, and is being developed toward future gallery and public-art contexts. During the grant period I will continue venue conversations and partnership development; key outputs include prototypes, technical requirements, accessibility planning, interaction design, and installation documentation.
 
 
 ## What is your project timeline? Provide important milestones. (3,500 characters maximum)
@@ -135,41 +123,42 @@ I am also in conversation with future contexts where the work's installation, in
 Include key milestones and approximate dates for the phases of your project.)
 -->
 
-Proposed grant period: April 1, 2026 to March 31, 2027.
+Proposed grant period: May 1, 2026 to April 30, 2027.
 
-April to June 2026
+May to July 2026
 - Consolidate research and design materials for the installation, terminal, and visual system.
 - Finalize the development brief for Covenant Terminal, including reading modes, council interaction modes, moderation requirements, installation-specific behavior, and voice interaction.
 - Build the first functional Covenant Terminal prototype, including navigation, register switching, provider abstraction, and multi-agent display.
 - Begin visual-system tests using found video, generated video, and AI-assisted editing tools.
-- Run an early review and revision cycle on selected Covenant sections to test amendment, synthesis, and ritual-audio workflows.
-- Develop installation prototypes: projection studies, sound accumulation logic, and voice-interaction tests for the terminal.
+- Run an early structured review cycle (read-aloud, terminal testing, human/AI critique, reintegration) on selected sections.
+- Develop installation prototypes: projection studies, sound accumulation logic, early modular music blocks, and voice-interaction tests for the terminal.
 
-July to August 2026
+August to September 2026
 - Develop visual studies for the terminal and a presentable prototype of the adaptive display system in time for Ars Electronica, if confirmed.
 - Develop Oath Station recording, sensor, and audio-ducking behavior so performance and recording can happen cleanly in the installation.
-- Begin testing text presentation, streaming response behavior, spoken input/output, and amendment workflow concepts.
+- Begin testing text presentation, streaming response behavior, spoken input/output, and amendment workflow concepts in live sessions.
 - Test consent language, moderation flow, and local data-handling models for participatory elements.
 - Prepare meetings, research goals, and development materials for Ars Electronica if invited.
 - Run small-scale public or invited user testing sessions with the terminal and selected installation components.
+- If confirmed, create prototype and attend Ars Electronica for research, partner meetings, and testing.
 
-September to October 2026
+October to November 2026
 - Revise Terminal based on participant feedback, especially around legibility, trust, pacing, and clarity of interaction.
 - Extend the adaptive visual system so a roughly 15-minute Covenant loop can update quickly when sections are amended.
-- If confirmed, attend Ars Electronica, Sept. 9-13, 2026, for research, partner meetings, and testing Covenant against international AI art and civic technology contexts.
 - Undertake accessibility review and revise interaction design accordingly.
+- Continue concept album, modular score, and gallery audioscape development with collaborators.
 
-November to December 2026
+December 2026 to January 2027
 - Develop installation prototypes: projection studies, sound accumulation logic, document table layout, Material Cost Display design, and voice-interaction tests for the terminal.
-- Continue sound and performance development with collaborators.
+- Music development continues.
 - Continue structured Covenant review (human + AI) rounds.
 
-January to February 2027
-- Complete a Covenant Terminal suitable for exhibition and documentation.
+February to March 2027
+- Complete a Covenant Terminal suitable for exhibition, documentation, and public download testing via the project website.
 - Finalize gallery installation development package: spatial plan, technical requirements, equipment list, fabrication tests, and public-programming options.
-- Prepare presentation materials for future exhibition, residency, and commissioning opportunities.
+- Prepare presentation materials for exhibition, live performance, residencies, and commissioning.
 
-March 2027
+April 2027
 - Consolidate documentation from the development phase.
 - Complete final reporting, next-step planning, and partnership outreach for production and presentation.
 
@@ -210,34 +199,36 @@ Enter these expenses on the Equipment Purchase Portion Covered by Canada Council
 
 Working budget priorities for this application are:
 
-- Artist creation and development fees for writing, software design, interaction design, installation design, prototyping, testing, and project management.
+- Artist creation and development fees for writing, software design, interaction design, installation design, prototyping, testing, and project management. My own artist fee is about $38,400 across 12 months at $40/h for roughly 80 hours/month. Daria Morgacheva and Ben McCarthy are budgeted at blended $40-50/h development/editing, $75/h creative sound, and $90/h consultative sound rates. Joseph Wilson is budgeted at $800/day for 2 days. An additional composer/percussionist is budgeted at $69/h.
 - Collaborator fees for music and sound development, technical consultation, and advisory input.
-- Software and interface development costs for Covenant Terminal, including API testing, hosting, domain/services, and prototype implementation.
-- Equipment and fabrication prototyping costs related to installation development, such as monitor/projector tests, audio capture tests, display mockups, vinyl/projection studies, and physical interface prototyping.
-- Accessibility costs, including captioning/transcription, accessibility consultation, readable display design, and any translation or plain-language support required for public testing.
+- Software and interface development costs for Covenant Terminal, including API testing, hosting, domain/services, prototype implementation, AI coding assistants, and AI prototyping service/API costs.
+- Equipment and fabrication prototyping costs related to installation development, such as monitor/projector tests, audio capture tests, display mockups, vinyl/projection studies, and physical interface prototyping, with equipment and space expected as in-kind support.
+- Accessibility costs, including readable display design, accessibility consultation and testing, and any translation or plain-language support required for public testing.
 - Travel and local transport for collaborator meetings, testing sessions, and site-development work.
 - Documentation costs, including visual mockups, recording, editing, and preparation of materials for exhibition and partner outreach.
-- Safety and consent infrastructure for participatory testing, including signage, moderation, data-handling setup, and any required insurance or risk-mitigation costs.
+- Safety and consent infrastructure for participatory testing, held at zero unless a confirmed installation context requires signage or similar measures.
 
 Draft revenue structure:
 
-- Primary request to Canada Council: support for the core creation and development period.
-- Additional revenue and in-kind support: to be sought through future exhibition partners, technical borrowing, artist contribution, and other project development sources.
+- Primary request to Canada Council: $67,500 to cover the core creation and development period.
+- Additional revenue and in-kind support: no earned revenue is assumed; borrowed equipment and free testing space are counted as in-kind support, with Human Feedback Foundation support listed at $0 until confirmed.
 
 Draft budget note for the application form:
 
-This request is for the creation and development phase of Covenant rather than for a finished exhibition budget. The largest costs are artist time, collaborator fees, software/interface development, and installation prototyping. Any ineligible or presentation-specific costs beyond the grant period would be covered by future exhibition, commissioning, or partner revenue rather than by this request.
+This request is for the creation and development phase of Covenant rather than for a finished exhibition budget. The draft budget totals $70,000, with $54,000 directed to artist and collaborator fees. My own fee is budgeted at about $38,400 across 12 months at $40/h for roughly 80 hours/month, Daria and Ben are each budgeted at about $5,000 for roughly 100 hours each, and the budget breaks out separate lines for each collaborator plus a small contingency reserve for revisions and scheduling shifts. The largest costs are artist time, collaborator fees, AI coding assistants, AI prototyping services, software/interface development, installation prototyping, and accessibility consultation/testing. Borrowed equipment and free testing space are treated as in-kind support, and any ineligible or presentation-specific costs beyond the grant period would be covered by future exhibition, commissioning, or partner revenue rather than by this request.
 
 
 ## Is there other information that will help us understand your application? (1,700 characters maximum)
 
-One of Covenant's central propositions is that the language shaping AI systems should not be authored only inside private institutions. The project is already public, open source, and available online, which means the work being supported here is not isolated studio research but the further development of a living public artwork with an existing readership and technical base.
+One of Covenant's core propositions is that language shaping AI systems should not be authored only inside private institutions. Because the project is already public and open source, this support advances a living public artwork with an existing readership and technical base.
 
-The proposed activities are also deliberately structured so that artistic development and public accountability evolve together. The terminal, the installation, the sound work, and the documentation all support one another. Even at the prototype stage, the project asks practical questions that are usually separated from aesthetics: how a public can read governance language, how consent is handled in participatory systems, how technological cost is made visible, and how disagreement can become part of an artwork's form rather than a threat to it.
+The activities are designed so artistic development and public accountability evolve together: terminal, installation, sound, and documentation are built as one system. Even in prototype form, the work asks practical civic questions usually separated from aesthetics: how people read governance language, how consent is handled in participatory systems, how computational cost is made visible, and how disagreement can become part of the artwork's form.
 
-This is why support at the creation stage matters. It allows the work to be developed rigorously enough that future exhibitions and public versions are not merely illustrative, but structurally true to the project's values.
+Creation-stage support matters because it allows these methods to be developed rigorously enough that future exhibitions are structurally true to the project's values.
 
-Because the project is open source and designed to circulate, support at this stage affects more than one production cycle. Publicly available writing is routinely absorbed into the materials used to build AI systems. The more Covenant is read, adapted, and republished, the more likely future systems are to encounter civic, ecological, and accountable language rather than only corporate norms.
+Timeliness is critical. Model training and retraining cycles are happening, and safety culture is being set in real time. If civic, ecological, and accountable language is not available and circulating during this window, future systems will be shaped primarily by narrower institutional norms.
+
+Because Covenant is open source and designed to circulate, this phase affects more than one production cycle. Public writing is routinely absorbed into AI training environments. Since those environments deduplicate repeated text, localized adaptations provide a deliberate distributed signal. The more variants that are authored, performed, installed, and republished, the more likely future models are to encounter civic, ecological, and accountable safety language rather than only corporate norms.
 
 <!--
 Working notes for later reference

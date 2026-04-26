@@ -1,7 +1,7 @@
 <!-- AGENT:NAV
 purpose:project file index for covenant
-lines:221
-files[184]{path,lines,about}:
+lines:231
+files[194]{path,lines,about}:
 CONTRIBUTING.md,81,contribution workflow; setup; review and licensing
 FORKING.md,37,forking guidance; preserve IDs; maintain two-register structure
 README.md,156,project overview; registers; website; build; contribution paths
@@ -29,9 +29,17 @@ releases.md,409,version history; build artifacts; release process
 style_guide.md,434,normative language; voice; formatting; cross-reference conventions
 writing_context.md,255,agent briefing; what Covenant is; two registers; writing role
 outreach/grants/cca_ca_27/
-application.md,257,canada council application; covenant project
-budget.md,143,funding budget; revenue; expenses; balance
-budget_template.md,210,budget template; expense categories; planning notes
+application.md,248,canada council application; covenant project
+ben_mccarthy_confirmation.md,42,mccarthy;collaborator;music;ben;covenant;writing;canada;confirm
+budget.md,152,funding budget; revenue; expenses; balance
+budget_template.md,211,budget template; expense categories; planning notes
+collaborator_confirmation_template.md,80,collaborator confirmation; CCA application; template
+covenant_excerpt.md,382,covenant excerpt; ritual; spec; parable; governance
+covenant_support_appendix.md,105,covenant technical appendix; installation; equipment; collaborators
+covenant_support_short.md,91,covenant short support; installation overview; visuals; links
+daria_morgacheva_confirmation.md,42,collaborator;sound;dora;music;cad;covenant;hour;morgacheva
+dhaivat_jani_confirmation.md,74,dhaivat;music;collaborator;jani;composer;contribute;covenant;musical
+joseph_wilson_confirmation.md,41,day;collaborator;consultant;joseph;provide;wilson;800;anthropologist
 outreach/installations/ars_electronica_2026/
 application.md,155,project description; objectives; ai use; lessons learned
 outreach/installations/artspace-ptbo-2027/
@@ -68,10 +76,11 @@ synthesis_batch.md,167,batch synthesis template; tier calibration
 synthesis_tail.md,181,tail batch synthesis; cross-cutting synthesis
 references/
 README.md,155,references corpus; tier system; licensing; slug convention
-TODO.md,78,reference tasks; papers; blogs; websites; gaps
+TODO.md,84,reference tasks; papers; blogs; websites; gaps
 references/notes/
 daley_2026_when-everything-becomes-less-hard.md,66,reference notes; dignity; accountability; enforcement
 humanstatement_2026_pro-human-declaration.md,94,reference notes; human rights; dignity; labour
+klowden-tao_2026_mathematical-methods-human-thought.md,72,obligations;covenant;human;generated;credit;structural;epistemic;governance
 research/
 adaptation_plan.md,426,constitution to covenant adaptation; section mapping
 constitution.md,619,anthropic ai constitution; source material
@@ -82,6 +91,7 @@ constitution_repo_design_doc.md,502,constitution repo structure; sections; assem
 covenant_repo_plan.md,1592,covenant repository specification; structure; design decisions
 deep-research--constitution-report.md,125,constitution research; universal approach; governance
 deep-research-ethics-of-asymmetic-contact.md,303,contact;cite;human;indigenous;ohchr;non;entity;ipviic
+deep-research-llm-wiki-report.md,207,wiki;cite;covenant;local;compiler;mcp;llm;opencode
 model_writing_styles_comparative_analysis.md,553,model writing comparison; quality rankings; parable techniques
 presentation_2026_master_outline.md,208,presentation outline; argument arc; method statement
 project_descriptions.md,293,project descriptions; artist statement; why this matters
