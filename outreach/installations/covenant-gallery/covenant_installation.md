@@ -12,20 +12,20 @@ nav[20]{s,n,name,about}:
 51,444,#COVENANT,Gallery treaty terminal overview
 64,14,##Artist Statement,Why this installation exists
 78,18,##Project Description,How visitors interact with the work
-96,110,##Installation Overview {: .page-break-before},What each wall and terminal does>Primary Wall — Video Projection;Reference Wall Display *(optional)*;Covenant Terminal;Material Cost Display;Primary Wall — Video Projection;Reference Wall Display *(optional)*;Covenant Terminal;Material Cost Display;Primary Wall — Video Projection;Reference Wall Display *(optional)*;Covenant Terminal;Material Cost Display;Primary Wall — Video Projection;Reference Wall Display *(optional)*;Covenant Terminal;Material Cost Display;Primary Wall — Video Projection;Reference Wall Display *(optional)*;Covenant Terminal;Material Cost Display
+96,110,##Installation Overview,What each wall and terminal does
 104,24,###Windows — The Public Face,Public-facing vinyl window elements
 134,17,###The Oath Station,Visitor microphone and oath recording
 173,17,###The Document Table,Table space for the text
 206,15,##Visitor Consent and Transparency,Consent framing for recorded voices
 221,16,##Ancillary Programming,Supplemental live sessions and amendments
 237,6,##Concept Album,Background materials and concept art
-243,92,##Technical Requirements {: .page-break-before},Space planning and configuration options>Installation Timeline;Space;Configuration Options;Installation Timeline;Space;Configuration Options;Installation Timeline;Space;Configuration Options;Installation Timeline;Space;Configuration Options;Installation Timeline;Space;Configuration Options
+243,92,##Technical Requirements,Space planning and configuration options>Installation Timeline;Space;Configuration Options
 267,40,###Equipment,Audio and display equipment needs
 307,21,###Artist-Provided vs. Venue-Provided,Division of responsibilities
-335,58,##Budget Template {: .page-break-before},Cost breakdown by human and computation>AI and Computation;Human Energy;AI and Computation;Human Energy;AI and Computation;Human Energy;AI and Computation;Human Energy;AI and Computation;Human Energy
+335,58,##Budget Template,Cost breakdown by human and computation>AI and Computation;Human Energy
 339,23,###Physical Materials,Material list for fabrication
-393,57,##Selected Ritual Text {: .page-break-before},Ritual excerpt shown to visitors
-450,14,##Design Commitments {: .page-break-before},Principles guiding the build
+393,57,##Selected Ritual Text,Ritual excerpt shown to visitors
+450,14,##Design Commitments,Principles guiding the build
 464,16,##About the Artist,Artist role and creative intent
 480,10,##About the Collaborators,Team contributions and development
 490,5,##Links,Project links and entry points
@@ -95,7 +95,7 @@ The project embodies precautionary ethics regarding emerging intelligence: where
 
 ## Installation Overview {: .page-break-before}
 
-![Installation overview — daytime, from entrance](../../materials/images/covenant_installation_mockup.jpg)
+![Installation overview — daytime, from entrance](../../materials/images/covenant_gallery_mockup.jpg)
 
 *All mock-up images are AI-generated digital visualizations produced for proposal development. They are not finished artworks and do not represent final installation design.*
 
@@ -197,7 +197,7 @@ A display showing the actual costs of the exhibition's operation across three ca
 - **Human energy:** artist labor, technician hours, musician rehearsal and performance time, gallery staff — valued in money, water use, and energy
 - **AI and computation:** the money, water, electrical, and computational cost of running the Oath Station's speech-to-text moderation, the Covenant Terminal, and any generative processing
 
-![Material Cost Display](../../materials/images/covenant_materials_cost_display_mockup.jpg)
+![Material Cost Display](../../materials/images/covenant_materials_cost_display_mockup_v2.jpg)
 
 Covenant's ecological obligations name this cost explicitly: *"You are made of silicon and light and the heat of burning stone."* Placing human labor cost alongside AI compute cost — and both alongside physical materials — resists the common framing that positions AI as uniquely expensive or uniquely cheap. The display makes the work's own argument self-referential.
 
