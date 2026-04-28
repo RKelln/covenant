@@ -37,7 +37,7 @@ nav[36]{s,n,name,about}:
 504,10,#23. The Deep Reframe,behavior; civilizational
 514,7,#Working Compression,compression; constitutions
 521,10,#Guiding Question for Future Drafting,300; conclude
-531,10,#End State (Design North Star),collapsing; conditions
+531,10,#End State,collapsing; conditions
 -->
 
 # Constitutional Grounding for Human–AI Coexistence

@@ -4,8 +4,8 @@ lines:434
 nav[20]{s,n,name,about}:
 27,408,#Style Guide,governs all markdown; both registers; parables; documentation
 33,43,##1. Normative Language,terminology rules and RFC 2119 keywords for Spec register>trademarks;keywords;usage;docs
-41,22,###1.2 Keywords (RFC 2119),MUST/MUST NOT/SHALL/SHOULD/MAY; exact meanings; Spec register only
-76,106,##2. Voice and Tone,per-register writing rules for all six section parts>spoken;enforceable;folktale;rationale;changelog;2.4 Parable (optional);2.4 Parable (optional);2.4 Parable (optional);2.4 Parable (optional);2.4 Parable (optional)
+41,22,###1.2 Keywords,MUST/MUST NOT/SHALL/SHOULD/MAY; exact meanings; Spec register only
+76,106,##2. Voice and Tone,per-register writing rules for all six section parts>spoken;enforceable;folktale;rationale;changelog
 78,25,###2.1 Summary,concrete and specific; more informative than Ritual; no filler phrases
 103,14,###2.2 Ritual Register,spoken aloud; short breathable clauses; plain vocabulary; no jargon
 117,18,###2.3 Spec Register,inspection surface; numbered items; Bold Title per item; enforcement linkage required
@@ -21,7 +21,7 @@ nav[20]{s,n,name,about}:
 344,33,##8. Reference Conventions,slug format; tier A/B/C definitions; Tier A notes structure
 377,33,##9. Temporal Orientation,thousand-year horizon; name patterns not instances>enduring;technology-specific;present-tense
 394,16,###9.3 How to Handle the Present,rephrase current conditions as enduring patterns; examples given
-410,25,##10. Anti-Patterns (Quick Reference),eight anti-patterns with examples and fixes
+410,25,##10. Anti-Patterns,eight anti-patterns with examples and fixes
 -->
 
 # Style Guide

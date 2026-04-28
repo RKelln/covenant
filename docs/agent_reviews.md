@@ -4,7 +4,7 @@ nav[20]{s,n,name,about}:
 26,367,#Agent Review Process,multi-model independent review; steward synthesis; iterative revision
 32,8,##Overview,parallel-first prevents ordering bias; deliberation in later rounds
 40,40,##Directory Structure,round folders; reviews; proposals; synthesis marks completion
-80,63,##Workflow,round structure: independent review; synthesis; revision>independent;informed;subsequent;Revision Pass;Revision Pass;Revision Pass;Revision Pass;Revision Pass
+80,63,##Workflow,~round;reviews;review;synthesis;context>Revision Pass
 82,23,###Round 1: Independent Review,models review draft without seeing each other
 113,18,###Round 2: Informed Review,models respond to prior reviews; surface genuine disagreement
 131,12,###Subsequent Rounds,repeat until convergence or diminishing returns
@@ -18,7 +18,7 @@ nav[20]{s,n,name,about}:
 280,10,###Prompts,separate templates for batch and tail (cross-cutting)
 290,16,###Flow,reviews → per-batch synthesis → merged synthesis
 314,16,##Future: Steward UI for Proposal Comparison,compare tool deferred until volume justifies it
-330,63,##Applying Edits: `/apply-reviews`,three phases: auto; interactive; proposals>editor;auto-rules;synthesis-precedence;structure;The `editor` subagent;Auto-classification rules;Synthesis file precedence;Three-phase structure;The `editor` subagent;Auto-classification rules;Synthesis file precedence;Three-phase structure;The `editor` subagent;Auto-classification rules;Synthesis file precedence;Three-phase structure;The `editor` subagent;Auto-classification rules;Synthesis file precedence;Three-phase structure;The `editor` subagent;Auto-classification rules;Synthesis file precedence;Three-phase structure
+330,63,##Applying Edits: `/apply-reviews`,~items;reviews;round;synthesis;edits>The `editor` subagent;Auto-classification rules;Synthesis file precedence;Three-phase structure
 348,12,###`steward.md` integration,steward file overrides auto-classification tier assignments
 372,21,###Files,build scripts; editor agent; manifests; reports; deferred items
 -->

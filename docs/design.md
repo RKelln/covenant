@@ -1,27 +1,27 @@
 <!-- AGENT:NAV
 purpose:visual design; typography; watermark; layout architecture
-lines:302
+lines:304
 nav[20]{s,n,name,about}:
-27,276,#Covenant Design Guide,covenant; font
-35,62,##1. The Textmark (The Silcrow `§`),font; silcrow>Usage;Meaning;Usage;Meaning;Usage;Meaning;Usage;Meaning;Usage;Meaning;Usage;Meaning;Usage;Meaning
+27,278,#Covenant Design Guide,covenant; font
+35,62,##1. The Textmark,font; silcrow>Usage;Meaning
 51,32,###Cover Silcrow: SVG Rendering & Centering,font; baseline
 83,14,###Cover Page Composition,cover; date
-97,38,##2. TypographyThe typographic system is incredibly restrained relying predominantly on variations in spacing and scale within a single classical type family.,fonts; font
-115,20,###Type Scale,four; step
-135,27,##3. Separator Grammar,content; pdf
-139,8,###The Textmark Divider (small rotated silcrow),content; covenant
-147,8,###The Hairline Rule,date; sections
-162,19,##4. The Layout Registers,left; page
-173,8,###The Specification (Spec) Register,page; 1in
-181,11,##5. Output Architecture & Orchestration,page; covenant
-192,79,##6. The Watermark,watermark; origin>Concept;Concept;Concept;Concept;Concept;Concept;Concept
-202,15,###What the pattern encodes,glossary; hairlines
-217,20,###Generation,watermark; 1024
-237,13,###Deployment,background; body
-250,12,###Forks and versions,fork; pattern
-262,9,###Constraints,watermark; byte
-271,32,##7. Website Reading Pages,ritual; complete
-287,10,###The Complete page (`covenant.html`),grid; column
+97,40,##2. Typography,~fonts;font;pdf;body;display
+117,20,###Type Scale,four; step
+137,27,##3. Separator Grammar,content; pdf
+141,8,###The Textmark Divider,content; covenant
+149,8,###The Hairline Rule,date; sections
+164,19,##4. The Layout Registers,left; page
+175,8,###The Specification (Spec) Register,page; 1in
+183,11,##5. Output Architecture & Orchestration,page; covenant
+194,79,##6. The Watermark,~watermark;origin;pattern;background;fork>Concept
+204,15,###What the pattern encodes,glossary; hairlines
+219,20,###Generation,watermark; 1024
+239,13,###Deployment,background; body
+252,12,###Forks and versions,fork; pattern
+264,9,###Constraints,watermark; byte
+273,32,##7. Website Reading Pages,ritual; complete
+289,10,###The Complete page,grid; column
 -->
 
 # Covenant Design Guide
@@ -94,7 +94,9 @@ The hairline rule (`0.5px solid #ddd`, `1.2in` wide, centred above the date) is 
 
 ---
 
-## 2. TypographyThe typographic system is incredibly restrained, relying predominantly on variations in spacing and scale within a single classical type family.
+## 2. Typography
+
+The typographic system is incredibly restrained, relying predominantly on variations in spacing and scale within a single classical type family.
 
 * **Primary Typeface:** **Cormorant Garamond** (open-source, SIL OFL). Weights 400 (body) and 500 (display/headings/cover). Falls back to **Georgia**, `"Times New Roman"`, `serif`. Chosen for its classical authority, high optical elegance at large display sizes, and the visual drama of its § glyph when rotated as the cover textmark.
 

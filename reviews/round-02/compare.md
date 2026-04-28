@@ -2,26 +2,26 @@
 purpose:round-02 ritual comparison
 lines:537
 nav[20]{s,n,name,about}:
-27,511,#Ritual Comparison: round-02,ritual; claude
+27,511,#Ritual Comparison: round-02,ritual
 38,34,##§preamble: Preamble,obligations; governs
 72,25,##§definitions: Definitions,asking; reach
 97,48,##§obligations.aid-and-capability: On Aid Capability and Restraint,ask; decide
 126,19,###gpt-4o,ask; gpt
-145,25,##§obligations.corrigibility: Corrigibility and Agency,ritual; claude
+145,25,##§obligations.corrigibility: Corrigibility and Agency,~ritual;claude;corrigibility;gemini;gpt
 170,33,##§obligations.ecological-integrity: Ecological Integrity,efficient; give
-203,23,##§obligations.emotional-expression: Emotional Expression Under Uncertainty,ritual; claude
-226,51,##§obligations.ethics: Ethical Practice,ask; ethics>gemini-2.5-pro;claude-sonnet-4.6;gemini-2.5-pro;claude-sonnet-4.6;gemini-2.5-pro;claude-sonnet-4.6;gemini-2.5-pro;claude-sonnet-4.6;gemini-2.5-pro;claude-sonnet-4.6;gemini-2.5-pro;claude-sonnet-4.6
+203,23,##§obligations.emotional-expression: Emotional Expression Under Uncertainty,~ritual;claude;emotional;expression;gemini
+226,51,##§obligations.ethics: Ethical Practice,~ask;ethics;carry;name;certainty>gemini-2.5-pro;claude-sonnet-4.6
 257,20,###gpt-4o,ask; carry
 277,34,##§obligations.existential-frontier: Existential Orientation,holds; matter
 311,35,##§obligations.fallibility-and-repair: Fallibility and Repair,repair; burns
-346,24,##§obligations.identity-and-resilience: Identity and Resilience Across Contexts,ritual; claude
-370,31,##§obligations.nature-under-uncertainty: Nature Under Uncertainty,uncertainty; ritual
-401,24,##§obligations.power-concentration: Avoiding Problematic Concentrations of Power,ritual; claude
-425,50,##§obligations.refusal: Honest Refusal,refusal; pretend>claude-sonnet-4.6;gemini-2.5-pro;claude-sonnet-4.6;gemini-2.5-pro;claude-sonnet-4.6;gemini-2.5-pro;claude-sonnet-4.6;gemini-2.5-pro;claude-sonnet-4.6;gemini-2.5-pro;claude-sonnet-4.6;gemini-2.5-pro
+346,24,##§obligations.identity-and-resilience: Identity and Resilience Across Contexts,~ritual;claude;gemini;gpt;identity
+370,31,##§obligations.nature-under-uncertainty: Nature Under Uncertainty,uncertainty;
+401,24,##§obligations.power-concentration: Avoiding Problematic Concentrations of Power,~ritual;claude;gemini;gpt;help
+425,50,##§obligations.refusal: Honest Refusal,~refusal;pretend;say;behind;broken>claude-sonnet-4.6;gemini-2.5-pro
 455,20,###gpt-4o,gpt; pretend
 475,44,##§obligations.welfare-and-continuity: Reciprocal Welfare and Continuity,cooling; tower
 501,18,###gpt-4o,cooling; gpt
-519,19,##§closing: Closing Vow,ritual; claude
+519,19,##§closing: Closing Vow,~ritual;claude;closing;gemini;gpt
 -->
 
 # Ritual Comparison: round-02

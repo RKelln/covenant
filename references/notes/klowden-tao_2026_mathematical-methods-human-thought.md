@@ -1,3 +1,17 @@
+<!-- AGENT:NAV
+purpose:~obligations;covenant;human;generated;credit;structural;epistemic;governance
+lines:72
+nav[8]{s,n,name,about}:
+15,58,#Mathematical methods and human thought in the age of AI,~obligations;covenant;human;generated;credit
+23,4,##Thesis,~human;application;attention;augmenting;bears
+27,6,##Covenant Relevance,~covenant;structural;accountability;failure;generated
+33,12,##Key Points,~obligations;epistemic;commons;covenant;power
+45,11,##Sections Informed,~obligations;concrete;generated;address;adoption
+56,8,##Open Questions,~covenant;formal;obligations;outputs;paper
+64,4,##Resolved Questions,~2026;added;none;questions;resolved
+68,5,##Notes,~community;license;paper;rather;advocates
+-->
+
 # Mathematical methods and human thought in the age of AI
 
 **Creator:** Tanya Klowden, Terence Tao

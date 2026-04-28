@@ -8,13 +8,13 @@ nav[20]{s,n,name,about}:
 51,26,###1.1 Claude: The Philosopher,across; alternatives
 77,26,###1.2 Gemini: The Engineer,constraints; governance
 103,26,###1.3 GPT: The Communicator,problem; constraints
-129,107,##Part 2: Writing Quality and Style,claude; feel>2.3 Conceptual Density vs. Abstraction;2.3 Conceptual Density vs. Abstraction;2.3 Conceptual Density vs. Abstraction;2.3 Conceptual Density vs. Abstraction;2.3 Conceptual Density vs. Abstraction;2.3 Conceptual Density vs. Abstraction
-131,61,###2.1 Prose Quality,work; claude>Claude: Expository + Architectural;Gemini: Direct + Tactical;GPT: Balanced + Readable;Claude: Expository + Architectural;Gemini: Direct + Tactical;GPT: Balanced + Readable;Claude: Expository + Architectural;Gemini: Direct + Tactical;GPT: Balanced + Readable;Claude: Expository + Architectural;Gemini: Direct + Tactical;GPT: Balanced + Readable;Claude: Expository + Architectural;Gemini: Direct + Tactical;GPT: Balanced + Readable;Claude: Expository + Architectural;Gemini: Direct + Tactical;GPT: Balanced + Readable
+129,107,##Part 2: Writing Quality and Style,~claude;feel;sometimes;work;metaphors>2.3 Conceptual Density vs. Abstraction
+131,61,###2.1 Prose Quality,~work;claude;feel;doesn;paragraphs>Claude: Expository + Architectural;Gemini: Direct + Tactical;GPT: Balanced + Readable
 192,31,###2.2 Metaphor and Imagery,metaphors; feel
 236,85,##Part 3: Parable Writing Technique,narrative; test
-238,59,###3.1 Structural Differences,test; arc>Claude: Literary Elaboration;Gemini: Stark Compression;GPT: Narrative Arc;Claude: Literary Elaboration;Gemini: Stark Compression;GPT: Narrative Arc;Claude: Literary Elaboration;Gemini: Stark Compression;GPT: Narrative Arc;Claude: Literary Elaboration;Gemini: Stark Compression;GPT: Narrative Arc;Claude: Literary Elaboration;Gemini: Stark Compression;GPT: Narrative Arc;Claude: Literary Elaboration;Gemini: Stark Compression;GPT: Narrative Arc
+238,59,###3.1 Structural Differences,~test;arc;character;feel;length>Claude: Literary Elaboration;Gemini: Stark Compression;GPT: Narrative Arc
 297,24,###3.2 Parable Quality by Criterion,claude; gemini
-321,52,##Part 4: Critical Depth and Problem Analysis,problem; identifies>4.2 Handling of Deferred Questions;4.2 Handling of Deferred Questions;4.2 Handling of Deferred Questions;4.2 Handling of Deferred Questions;4.2 Handling of Deferred Questions;4.2 Handling of Deferred Questions
+321,52,##Part 4: Critical Depth and Problem Analysis,~problem;identifies;steward;analysis;fix>4.2 Handling of Deferred Questions
 323,31,###4.1 How Each Model Identifies Problems,identifies; problem
 373,34,##Part 5: Comparative Quality Rankings,claude; gemini
 407,39,##Part 6: Specific Examples,approach; digest

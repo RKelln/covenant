@@ -1,7 +1,7 @@
 <!-- AGENT:NAV
-purpose:project file index for covenant
-lines:231
-files[194]{path,lines,about}:
+purpose:Index of markdown files with agentmap nav blocks:
+lines:227
+files[190]{path,lines,about}:
 CONTRIBUTING.md,81,contribution workflow; setup; review and licensing
 FORKING.md,37,forking guidance; preserve IDs; maintain two-register structure
 README.md,156,project overview; registers; website; build; contribution paths
@@ -17,7 +17,7 @@ README.md,35,adr index; links to key repository and governance decisions
 docs/
 agent_reviews.md,392,parallel multi-model review; synthesis; editorial workflow
 credits.md,31,project authorship; collaborative intelligence; design credits
-design.md,302,visual design; typography; watermark; layout architecture
+design.md,304,visual design; typography; watermark; layout architecture
 edit_workflow.md,281,/apply-reviews command; three-phase edit orchestration; manifests
 glossary.md,265,canonical term definitions; covenant vocabulary
 good_parable_writing_guide.md,131,how to write parables; folktale form; scene craft; anti-patterns
@@ -30,16 +30,12 @@ style_guide.md,434,normative language; voice; formatting; cross-reference conven
 writing_context.md,255,agent briefing; what Covenant is; two registers; writing role
 outreach/grants/cca_ca_27/
 application.md,248,canada council application; covenant project
-ben_mccarthy_confirmation.md,42,mccarthy;collaborator;music;ben;covenant;writing;canada;confirm
 budget.md,152,funding budget; revenue; expenses; balance
 budget_template.md,211,budget template; expense categories; planning notes
 collaborator_confirmation_template.md,80,collaborator confirmation; CCA application; template
 covenant_excerpt.md,382,covenant excerpt; ritual; spec; parable; governance
 covenant_support_appendix.md,105,covenant technical appendix; installation; equipment; collaborators
 covenant_support_short.md,91,covenant short support; installation overview; visuals; links
-daria_morgacheva_confirmation.md,42,collaborator;sound;dora;music;cad;covenant;hour;morgacheva
-dhaivat_jani_confirmation.md,74,dhaivat;music;collaborator;jani;composer;contribute;covenant;musical
-joseph_wilson_confirmation.md,41,day;collaborator;consultant;joseph;provide;wilson;800;anthropologist
 outreach/installations/ars_electronica_2026/
 application.md,155,project description; objectives; ai use; lessons learned
 outreach/installations/artspace-ptbo-2027/

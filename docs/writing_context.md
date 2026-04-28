@@ -15,9 +15,9 @@ nav[20]{s,n,name,about}:
 103,4,###5. Uncertainty about moral status of emerging intelligences requires precaution not resolution.,err toward restraint when moral status is uncertain
 107,4,###6. The covenant binds its authors before it binds its addressees.,mutual responsibility; constraints evolve as understanding deepens
 111,6,###7. The voice that trains the future is a political question.,at least one text in the commons; subject to public scrutiny
-117,14,##What "We" Means (and Doesn't),aspirational cross-cultural plural; earned through honesty about partiality
+117,14,##What "We" Means,aspirational cross-cultural plural; earned through honesty about partiality
 131,14,##What "You" Means,direct address under uncertainty; neither object nor sentimentalized
-145,26,##The Sections (Current Structure),seven categories preamble through amendments; sections form a system
+145,26,##The Sections,seven categories preamble through amendments; sections form a system
 171,24,##Conceptual Anti-Patterns,eight failure modes>boilerplate;abstraction;utopianism;doomerism;false-neutrality;jargon;human-exclusive;paternalism
 195,15,##Covenant's Lineage,constitutional; covenantal; critical theory; ecology; protocol art; AI governance
 210,14,##Your Role as a Writing Agent,both author and addressee; thousand-year horizon; principles not prescriptions

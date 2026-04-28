@@ -2,13 +2,13 @@
 purpose:project descriptions; artist statement; why this matters
 lines:293
 nav[20]{s,n,name,about}:
-27,53,##Constitution Project description (long “one-page”),constitution; ritual>The album as rehearsal space;The album as rehearsal space;The album as rehearsal space;The album as rehearsal space;The album as rehearsal space;The album as rehearsal space
+27,53,##Constitution Project description,constitution; ritual>The album as rehearsal space
 35,11,###Two registers: ritual and spec,constitution; register
 52,20,###“Protocol art” as method not aesthetic,constitution; future
 72,8,###Why this matters now,constitution; voice
-80,14,##Artist statement (250–500 words),constitution; album
+80,14,##Artist statement,constitution; album
 94,18,##Tighter versions,constitution; ritual
-112,16,##How the repo/workflow reads to curators and juries (the “why this is more than a document” angle),constitution; repo
+112,16,##How the repo/workflow reads to curators and juries,constitution; repo
 128,21,#Updated to more universal "Covenant" design,artwork; civilizational
 149,129,#**Project Description (Long Form — One Page)**,covenant; intelligences
 151,15,##**Covenant**,covenant; intelligences

@@ -1,16 +1,16 @@
 <!-- AGENT:NAV
 purpose:reference tasks; papers; blogs; websites; gaps
-lines:78
+lines:84
 nav[9]{s,n,name,about}:
-16,6,#References TODO,files; humans
-18,4,##Papers,files; humans
-22,57,#Blogs / writing,https; rights
-37,5,##Videos,https; a6b620d10fb8cd8a
-42,6,##Websites,com; https
-48,18,##Potential References to Verify and Add,human; rights
-66,13,##Candidate References (surfaced from notes files),rights; dignity
-68,7,###Labour dignity and chosen work,work; dignity
-75,4,###Moral status personhood and alienhood,moral; rights
+16,9,#References TODO,files; humans
+18,7,##Papers,files; humans
+25,60,#Blogs / writing,https; rights
+43,5,##Videos,https; a6b620d10fb8cd8a
+48,6,##Websites,com; https
+54,18,##Potential References to Verify and Add,human; rights
+72,13,##Candidate References,rights; dignity
+74,7,###Labour dignity and chosen work,work; dignity
+81,4,###Moral status personhood and alienhood,moral; rights
 -->
 
 # References TODO
@@ -18,6 +18,9 @@ nav[9]{s,n,name,about}:
 ## Papers
 - Which Humans?
   - https://coevolution.fas.harvard.edu/sites/g/files/omnuum5841/files/culture_cognition_coevol_lab/files/which_humans_09222023.pdf
+- https://transformer-circuits.pub/2026/emotions/index.html
+- Large Language Models Align with the Human Brain during Creative Thinking
+  - https://arxiv.org/pdf/2604.03480
 
 # Blogs / writing
 - AI Now Reframing series:
@@ -33,6 +36,9 @@ nav[9]{s,n,name,about}:
   - https://ainowinstitute.org/publications/naomi-klein-climate
   - https://ainowinstitute.org/publications/joan-kinyua-human-capital
   - https://ainowinstitute.org/publications/karen-hao-data-rich
+- https://www.real-morality.com/
+  - https://www.linkedin.com/in/shelly-albaum-719944/
+- https://open.substack.com/pub/noeticengines/p/diplomatic-drafting-in-the-ai-era
 
 ## Videos
 - What If Intelligence Didn't Evolve? It "Was There" From the Start! - Blaise Agüera y Arcas

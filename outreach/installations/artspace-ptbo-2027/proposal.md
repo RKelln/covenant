@@ -2,12 +2,12 @@
 purpose:installation proposal; layout; tech requirements; budget
 lines:323
 nav[20]{s,n,name,about}:
-27,297,#Covenant — Installation Proposal for Artspace Peterborough (2027),covenant; wall
+27,297,#Covenant — Installation Proposal for Artspace Peterborough,covenant; wall
 33,6,##One-Line Summary,agreement; belonging
 39,10,##Project Description,emerging; register
 49,24,##Alignment with the 2027 Call,treaty; covenant
 73,26,##Light and Projection Strategy,gallery; light
-99,87,##Gallery Layout,covenant; wall>East Wall — Primary Projection (26');Windows (south wall) — The Public Face;North Wall — Section Context Display (\~14');West Wall — Stations (16');East Wall — Primary Projection (26');Windows (south wall) — The Public Face;North Wall — Section Context Display (\~14');West Wall — Stations (16');East Wall — Primary Projection (26');Windows (south wall) — The Public Face;North Wall — Section Context Display (\~14');West Wall — Stations (16');East Wall — Primary Projection (26');Windows (south wall) — The Public Face;North Wall — Section Context Display (\~14');West Wall — Stations (16');East Wall — Primary Projection (26');Windows (south wall) — The Public Face;North Wall — Section Context Display (\~14');West Wall — Stations (16');East Wall — Primary Projection (26');Windows (south wall) — The Public Face;North Wall — Section Context Display (\~14');West Wall — Stations (16');East Wall — Primary Projection (26');Windows (south wall) — The Public Face;North Wall — Section Context Display (\~14');West Wall — Stations (16')
+99,87,##Gallery Layout,~covenant;wall;gallery;text;oath>East Wall — Primary Projection;Windows (south wall) — The Public Face;North Wall — Section Context Display;West Wall — Stations
 123,18,###The Oath Station,gallery; oath
 141,18,###Covenant Terminal,covenant; document
 159,13,###The Document Table,covenant; artspace

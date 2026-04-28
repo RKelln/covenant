@@ -21,9 +21,9 @@ nav[59]{s,n,name,about}:
 565,65,###2.2 OpenRouter adapter,adapter; const
 630,40,###2.3 Config types and loader,config; const
 670,50,###2.4 AgentColumn component,agentcolumn; screen
-720,23,###2.5 CouncilPanel component (single-agent version),councilpanel; screen
+720,23,###2.5 CouncilPanel component,councilpanel; screen
 743,52,###2.6 InputBar component,screen; await
-795,35,###2.7 Chat orchestration (single agent),chat; content
+795,35,###2.7 Chat orchestration,chat; content
 830,39,###2.8 SettingsView component,screen; test
 869,7,###2.9 Wire Q&A into the reader view,reader; view
 876,10,###2.10 Integration verification,api; appear
@@ -37,7 +37,7 @@ nav[59]{s,n,name,about}:
 1115,35,###3.7 Roster configuration UI,add; roster
 1150,10,###3.8 Integration verification,agents; respond
 1160,28,##M3 Quality Pass ✅,mode; agent
-1188,382,##Milestone 4 — Amendment workflow (contributor mode),const; expect
+1188,382,##Milestone 4 — Amendment workflow,const; expect
 1192,30,###4.1 `platform.writeFile()` — new platform capability,platform; writefile
 1222,67,###4.2 `amendment/editor.ts` — editor model invocation,const; text
 1289,38,###4.3 `amendment/diff.ts` — section diff computation,diff; computediff
@@ -48,7 +48,7 @@ nav[59]{s,n,name,about}:
 1475,73,###4.8 `amendment/commit.ts`,git; calls
 1548,9,###4.9 Wire apply flow in App.svelte,apply; diffview
 1557,13,###4.10 Integration verification,apply; council
-1570,328,##Milestone 5 — Kiosk mode (installation-ready),test; const
+1570,328,##Milestone 5 — Kiosk mode,test; const
 1574,34,###5.1 Kiosk config loading,config; kiosk
 1608,56,###5.2 Moderation agent,amendment; test
 1664,44,###5.3 Local fork commit + rebuild trigger,commit; rebuild
@@ -56,10 +56,10 @@ nav[59]{s,n,name,about}:
 1755,37,###5.5 ConsentModal component,modal; consentmodal
 1792,30,###5.6 WaitingState component,onwake; screen
 1822,52,###5.7 KioskView wrapper,screen; await
-1874,11,###5.8 Kiosk amendment flow (end-to-end),amendment; flow
+1874,11,###5.8 Kiosk amendment flow,amendment; flow
 1885,13,###5.9 Integration verification,amendment; kiosk
-1898,136,##Milestone 6 — Web deployment,platform; web>6.2 SvelteKit wrapper;6.5 Integration verification;6.4 API key setup flow (web);6.3 Web amendment path;6.1 Web platform implementation;6.2 SvelteKit wrapper;6.5 Integration verification;6.4 API key setup flow (web);6.3 Web amendment path;6.1 Web platform implementation;6.2 SvelteKit wrapper;6.5 Integration verification;6.4 API key setup flow (web);6.3 Web amendment path;6.1 Web platform implementation;6.2 SvelteKit wrapper;6.5 Integration verification;6.4 API key setup flow (web);6.3 Web amendment path;6.1 Web platform implementation;6.2 SvelteKit wrapper;6.5 Integration verification;6.4 API key setup flow (web);6.3 Web amendment path;6.1 Web platform implementation;6.2 SvelteKit wrapper;6.5 Integration verification;6.4 API key setup flow (web);6.3 Web amendment path;6.1 Web platform implementation
-2034,32,##Cross-cutting concerns,errors; api
+1898,136,##Milestone 6 — Web deployment,~platform;web;test;const;localstorage>6.2 SvelteKit wrapper;6.5 Integration verification;6.4 API key setup flow;6.3 Web amendment path;6.1 Web platform implementation
+2034,32,##Cross-cutting concerns,~errors;api;close;code;fallback
 2066,23,##Log,svelte; tests
 -->
 

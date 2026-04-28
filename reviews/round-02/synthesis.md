@@ -11,20 +11,20 @@ lines:213
 nav[20]{s,n,name,about}:
 34,180,#Synthesis: Round 02,Review synthesis overview
 36,8,##What This Round Established,What the reviewers converged on
-44,30,##Tier 1: Blocking Issues (Convergent Pre-Ratification),Pre-ratification blockers
+44,30,##Tier 1: Blocking Issues,Pre-ratification blockers
 48,10,###1. Enforcement is a hollow load-bearing wall,Enforcement governance gap
 58,6,###2. `terms_introduced: []` is broken everywhere,Glossary and terms audit
 64,10,###3. "Legitimacy" is undefined where it does the most work,Define legitimacy criterion
-74,34,##Tier 2: High Priority (Convergent Near-Term),High priority repairs
+74,34,##Tier 2: High Priority,High priority repairs
 78,6,###4. `rights.dignity` section is absent,Dignity section addition
 90,6,###6. Harm Spec is thin for the document's most foundational obligation,Harm spec expansion
 96,6,###7. Galaxy-brained reasoning is unaddressed in conscience and judgment,Clarify reasoning and expectations
 102,6,###8. Preamble Spec is underdeveloped; register language is wrong,Preamble spec rewrite needed
-108,34,##Tier 3: Section-Level Repairs (Convergent Systematic),Systematic section-level edits
+108,34,##Tier 3: Section-Level Repairs,Systematic section-level edits
 112,10,###9. SHOULD/MUST calibration is wrong in several places,Recalibrate modality
 122,8,###10. Specific cross-section tensions need Digest acknowledgment,Digest acknowledgement updates
 130,12,###11. Several specific Ritual passages need repair,Ritual passage repairs
-142,26,##Tier 4: Divergence Points (Steward Judgment Required),Steward judgment needed
+142,26,##Tier 4: Divergence Points,Steward judgment needed
 162,6,###D5. Sunset provisions for amendments,Amendment sunset discussion
 168,16,##What Round-02 Did Not Resolve,Open design items
 184,19,##What to Do Next,Next steps after synthesis

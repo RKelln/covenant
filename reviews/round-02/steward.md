@@ -8,7 +8,7 @@ purpose:Round 2 steward response and edit plan
 lines:132
 nav[20]{s,n,name,about}:
 32,101,#Steward Response: Round 02,Steward response summary
-44,71,##Act — editing this round,Edit plan and agreed actions>6. Harm Spec is thin for the document's most foundational obligation;6. Harm Spec is thin for the document's most foundational obligation;6. Harm Spec is thin for the document's most foundational obligation;6. Harm Spec is thin for the document's most foundational obligation
+44,71,##Act — editing this round,~ritual;spec;want;constitution;current>6. Harm Spec is thin for the document's most foundational obligation
 46,9,###1. Enforcement is a hollow load-bearing wall,Develop enforcement and governance gap
 55,3,###2. `terms_introduced: []` is broken everywhere,Fix glossary term introductions
 58,8,###3. "Legitimacy" is undefined where it does the most work,Define legitimacy criterion

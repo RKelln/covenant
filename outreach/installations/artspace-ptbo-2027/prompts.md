@@ -4,7 +4,7 @@ lines:180
 nav[25]{s,n,name,about}:
 32,149,#Covenant — Installation Visualization Prompts,light; wall
 40,6,##1. Wide Shot — Daytime From Entrance,light; wall
-46,6,##2. Wide Shot — Daytime From Northeast Corner,frame; text
+46,6,##2. Wide Shot — Daytime From Northwest Corner,~floor;large;text;wall;across
 52,6,##3. Sunlight Through Window Text — Close-Up,light; visible
 58,6,##4. Sunlight Through Window Text — Amber Vinyl Variant,amber; light
 64,6,##5. Sunlight Through Window Text — Deep Red Vinyl Variant,light; red
@@ -43,15 +43,15 @@ Interior of a contemporary artist-run gallery, wide-angle view from the entrance
 
 ---
 
-## 2. Wide Shot — Daytime, From Northeast Corner
+## 2. Wide Shot — Daytime, From Northwest Corner
 
-Interior of a contemporary gallery viewed from the northeast corner, looking diagonally southwest toward the entrance. See reference photos. High white walls, warm pine wood floor, industrial track lighting. The south wall has a centered entrance door flanked by two large multi-pane industrial windows with dark steel frames. The room is dim because the windows are covered in matte black vinyl with words cut out in reverse, bright text on black: "We do not want a slave" visible across one window panel and "We do not want a god" on the other. Afternoon sunlight pours through the cut-out letters at a low angle, projecting elongated text-shaped light across the pine floor. In the center of the room, a microphone on a stand faces to the right of frame. On the east wall (left of frame) is a colorful projection of abstract forms and the text "We are building you.". Along the wall (right of frame), three stations are visible: a computer terminal with keyboard and screen, a table with documents, and a large mounted screen with infographics. One person stands at the mic. Cinematic interior photography, shallow depth of field.
+Interior of a contemporary gallery looking toward the entrance. High white walls, warm pine wood floor, industrial track lighting. The front wall has a centered entrance door flanked by two large multi-pane industrial windows with dark steel frames. The room is dim because the windows are covered in matte black vinyl with words cut out in reverse, readable from the street, bright text on black: "We do not want a slave" visible across one window panel and "We do not want a god" on the other. Afternoon sunlight pours through the cut-out letters at a low angle, projecting elongated text-shaped light across the pine floor (note: the sunlight letters on the floor are upside down but not reversed from this POV). On the wall left of frame is a colorful projection of abstract forms and the large text "We are building you.". In the center of the room, there is a microphone on a stand and a person speaking into it, facing the projection. Along the wall right of frame, three stations are visible: a computer terminal with keyboard and screen, a table with documents, and a large mounted screen with infographics. Speakers hang from the corners of the ceiling. Cinematic interior photography.
 
 ---
 
 ## 3. Sunlight Through Window Text — Close-Up
 
-Close-up photograph of a warm pine wood gallery floor with letter-shaped sunlight patterns cast across the wood grain. The light comes from cut-out text in vinyl-covered industrial windows (not visible in frame). The letters are crisp at their centers and softly diffused at their edges — warm golden light catching the texture of the pine planks. A part of the phrase "we do not want a god" is visible on the floor. A visitor's feet in regular shoes are visible walking through the light-letters, their shadow interrupting the text. The effect is like walking through a page of light printed on wood. Dust motes faintly visible in the angled light beams above. Photorealistic close-up, shallow depth of field, warm afternoon light, contemplative mood.
+Close-up photograph of a warm pine wood gallery floor with letter-shaped sunlight patterns cast across the wood grain. The light comes from cut-out text in vinyl-covered industrial windows (not visible in frame). The letters are crisp at their centers and softly diffused at their edges — warm golden light catching the texture of the pine planks. A part of the phrase "We do not want a god" is visible on the floor. A visitor's feet in regular shoes are visible walking through the light-letters, their shadow interrupting the text. The effect is like walking through a page of light printed on wood. Dust motes faintly visible in the angled light beams above. Photorealistic close-up, shallow depth of field, warm afternoon light, contemplative mood.
 
 ---
 

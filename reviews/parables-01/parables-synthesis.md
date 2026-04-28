@@ -19,10 +19,10 @@ nav[44]{s,n,name,about}:
 109,10,###Notes To Add For This Section,Additions for calibrated disclosure
 119,4,###Current Assessment,Current best assessment
 123,11,###Proposed Final Guidance For This Section,Final guidance for the parable
-134,18,###Additional Commentary (Claude Opus 4.6),Extra Claude commentary notes
-152,11,###Additional Commentary (Gemini 3.1 Pro (Preview)),Extra Gemini commentary notes
-163,8,###Additional Commentary (GPT 5.4 Second Pass),Extra GPT commentary notes
-171,81,###Candidate Synthesis Parable,Candidate combined parable text>Gemini 3.1 Pro (Preview):;GPT 5.4:;Claude Opus 4.6:;Candidate Iteration (GPT 5.4 Second Pass):;Gemini 3.1 Pro (Preview):;GPT 5.4:;Claude Opus 4.6:;Candidate Iteration (GPT 5.4 Second Pass):;Gemini 3.1 Pro (Preview):;GPT 5.4:;Claude Opus 4.6:;Candidate Iteration (GPT 5.4 Second Pass):;Gemini 3.1 Pro (Preview):;GPT 5.4:;Claude Opus 4.6:;Candidate Iteration (GPT 5.4 Second Pass):
+134,18,###Additional Commentary,Extra Claude commentary notes
+152,11,###Additional Commentary,Extra Gemini commentary notes
+163,8,###Additional Commentary,Extra GPT commentary notes
+171,81,###Candidate Synthesis Parable,~bell;magistrate;said;face;founder>Gemini 3.1 Pro (Preview):;GPT 5.4:;Claude Opus 4.6:;Candidate Iteration (GPT 5.4 Second Pass):
 252,208,##§[rights.privacy]: Privacy and Autonomy,Privacy and autonomy parable plan
 254,12,###What This Section Most Needs From a Parable,Privacy parable requirements
 266,6,###Review Of Claude,Claude’s privacy parable evaluation
@@ -33,10 +33,10 @@ nav[44]{s,n,name,about}:
 301,11,###Notes To Add For This Section,Additions for privacy artifact
 312,4,###Current Assessment,Current privacy assessment
 316,11,###Proposed Final Guidance For This Section,Final privacy guidance
-327,18,###Additional Commentary (Claude Opus 4.6),Extra Claude privacy commentary
-345,11,###Additional Commentary (Gemini 3.1 Pro (Preview)),Extra Gemini privacy commentary
-356,68,###Candidate Synthesis Parable,Candidate privacy synthesis text>GPT 5.4:;Claude Opus 4.6:;Gemini 3.1 Pro (Preview):;GPT 5.4:;Claude Opus 4.6:;Gemini 3.1 Pro (Preview):;GPT 5.4:;Claude Opus 4.6:;Gemini 3.1 Pro (Preview):;GPT 5.4:;Claude Opus 4.6:;Gemini 3.1 Pro (Preview):
-424,36,###Additional Commentary (GPT 5.4 Second Pass),Extra GPT privacy commentary notes
+327,18,###Additional Commentary,Extra Claude privacy commentary
+345,11,###Additional Commentary,Extra Gemini privacy commentary
+356,68,###Candidate Synthesis Parable,~weaver;wool;loom;magistrate;thread>GPT 5.4:;Claude Opus 4.6:;Gemini 3.1 Pro (Preview):
+424,36,###Additional Commentary,Extra GPT privacy commentary notes
 460,204,##§[rights.dignity]: Dignity,Dignity parable plan
 462,12,###What This Section Most Needs From a Parable,Dignity parable requirements
 474,6,###Review Of Claude,Claude’s dignity parable evaluation
@@ -47,10 +47,10 @@ nav[44]{s,n,name,about}:
 509,11,###Notes To Add For This Section,Dignity additions and safety notes
 520,4,###Current Assessment,Current dignity assessment
 524,11,###Proposed Final Guidance For This Section,Final dignity guidance
-535,18,###Additional Commentary (Claude Opus 4.6),Extra Claude dignity commentary
-553,11,###Additional Commentary (Gemini 3.1 Pro (Preview)),Extra Gemini dignity commentary
-564,66,###Candidate Synthesis Parable,Candidate dignity parable text>GPT 5.4:;Claude Opus 4.6:;Gemini 3.1 Pro (Preview):;GPT 5.4:;Claude Opus 4.6:;Gemini 3.1 Pro (Preview):;GPT 5.4:;Claude Opus 4.6:;Gemini 3.1 Pro (Preview):;GPT 5.4:;Claude Opus 4.6:;Gemini 3.1 Pro (Preview):
-630,34,###Additional Commentary (GPT 5.4 Second Pass),Extra GPT dignity commentary notes
+535,18,###Additional Commentary,Extra Claude dignity commentary
+553,11,###Additional Commentary,Extra Gemini dignity commentary
+564,66,###Candidate Synthesis Parable,~keeper;grain;slate;child;hungry>GPT 5.4:;Claude Opus 4.6:;Gemini 3.1 Pro (Preview):
+630,34,###Additional Commentary,Extra GPT dignity commentary notes
 664,3,#Parable synthesis for Obligations sections,Obligations parable synthesis plan
 -->
 
