@@ -1,16 +1,17 @@
 <!-- AGENT:NAV
 purpose:reference tasks; papers; blogs; websites; gaps
-lines:84
-nav[9]{s,n,name,about}:
-16,9,#References TODO,files; humans
-18,7,##Papers,files; humans
-25,60,#Blogs / writing,https; rights
-43,5,##Videos,https; a6b620d10fb8cd8a
-48,6,##Websites,com; https
-54,18,##Potential References to Verify and Add,human; rights
-72,13,##Candidate References,rights; dignity
-74,7,###Labour dignity and chosen work,work; dignity
-81,4,###Moral status personhood and alienhood,moral; rights
+lines:97
+nav[10]{s,n,name,about}:
+17,20,#References TODO,files; humans
+19,7,##Papers,files; humans
+26,11,##Books,
+37,62,#Blogs / writing,https; rights
+55,7,##Videos,https; a6b620d10fb8cd8a
+62,6,##Websites,com; https
+68,18,##Potential References to Verify and Add,human; rights
+86,13,##Candidate References,rights; dignity
+88,7,###Labour dignity and chosen work,work; dignity
+95,4,###Moral status personhood and alienhood,moral; rights
 -->
 
 # References TODO
@@ -22,6 +23,17 @@ nav[9]{s,n,name,about}:
 - Large Language Models Align with the Human Brain during Creative Thinking
   - https://arxiv.org/pdf/2604.03480
 
+## Books
+- The AI Mirror by Shannon Vallor
+  - "The design and skillful uses of things encode and express our mutual respect, gratitude, care, and love for one another and for the world." (13.24)
+    - RK: including the building of intelligences!
+  - "Our ideas are always bigger than we are; that’s why the human struggle for justice and freedom will remain a war without end. But that doesn’t mean that ideas don’t have power, or that they don’t lend their shape to material things and systems. Our humane ideas and visions enlarge and refine our artifacts." (13.25)
+  - "Technology began in the cave, the field, in the home. It was the art of making and keeping a home for others, before it was the art of anything else. It was the art of healing, of warming, of feeding and defending and sustaining a world, even when the limits of a person’s world might not have stretched beyond one’s sight from a high perch. What was the vital pretechnical program then?" (13.38)
+
+  It was to enable a future for oneself and family on uncertain, fragile, dangerous ground, a future that had to be brought into being with the help of others who depend on you, while you depend on them. Technology begins in a world where the future of one’s home and family is never a given, never promised, but built and carefully kept through the skillful use of tools to collectively provide the “necessary services” that life requires to endure." (13.39)
+  - "What we make real will never replicate our ideal visions. We can only make human things weighted down by our own imperfection and fragility. But visions of possibilities are moral and political tonics that can give us what Weizenbaum called the “civil courage” to collectively start repairing and rebuilding the world for others. That is the only vital pretechnical program for a sustainable future, with or without AI." (13.63)
+  - "Lewis Mumford, who in 1934’s Technics and Civilization observed that the perfection of a machine “involves in some degree its disappearance.”14 Mumford’s vision, though unabashedly utopian, saw truly advanced technologies as making themselves gradually obsolete, inconspicuous, reticent, carving out more room for organic and humane forms of life, rather than crowding them out." (13.74)
+  - "The true soul of technology is not efficiency but generosity; it is the gift of a future. To perform the necessary services for others to survive; to shield them from harm; to repair and heal; to educate and train; to feed, nurture, and comfort. AI can be remade for a humane future, reconceived as a tool for these ends, measured and valued only to the extent that it can be proven to serve them. If we choose. If we demand." (13.79)
 # Blogs / writing
 - AI Now Reframing series:
   - https://ainowinstitute.org/publications/open-source
@@ -44,7 +56,9 @@ nav[9]{s,n,name,about}:
 - What If Intelligence Didn't Evolve? It "Was There" From the Start! - Blaise Agüera y Arcas
   - https://youtu.be/M2iX6HQOoLg?si=q4vs9YnvivpE6gFY
   - https://app.rescript.info/session/a6b620d10fb8cd8a?share=ff7gb6HpezOR3DF-gr9-rCoMFzzEgUjLQK6voV5XVWY
-
+- https://youtu.be/BETHWKaXX4k?si=uj3ZQt8ZLn58bwyz
+  - Chameleon looking in a mirror
+  - People and machines becoming more alike
 ## Websites
 - Anthropic's Claude Constitution
   - https://www.anthropic.com/constitution

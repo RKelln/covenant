@@ -12,7 +12,7 @@ nav[20]{s,n,name,about}:
 51,444,#COVENANT,Gallery treaty terminal overview
 64,14,##Artist Statement,Why this installation exists
 78,18,##Project Description,How visitors interact with the work
-96,110,##Installation Overview,What each wall and terminal does
+96,110,##Installation Overview,What each wall and terminal does>Primary Wall;Reference Wall;Covenant Terminal;Material Cost Display
 104,24,###Windows — The Public Face,Public-facing vinyl window elements
 134,17,###The Oath Station,Visitor microphone and oath recording
 173,17,###The Document Table,Table space for the text
