@@ -8,7 +8,9 @@
 		"makefile.configureOnOpen": false,
 		"chat.tools.terminal.autoApprove": {
 			"make": true,
-			"uv": true
+			"uv": true,
+			"pdfinfo": true,
+			"pdftotext": true
 		}
 	}
 }
