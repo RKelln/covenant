@@ -38,7 +38,7 @@ If your task involves writing covenant language — even one sentence — you **
 6.  **Assembly manifests are authoritative** for what appears in each edition and in what order.
 7.  **Glossary is canonical for terms.** Every term in a section's `terms_introduced` must exist in `/docs/glossary.md`.
 8.  **Do not add forced line breaks in markdown files.** Outside of poetic ritual text, do not insert line breaks to enforce a specific line width.
-
+9.  **Use `uv` for Python.** This project uses `uv` to manage Python dependencies.
 ---
 
 ## Section Bundle Format
