@@ -42,5 +42,5 @@ Covenant takes a precautionary stance: where moral status is uncertain, restrain
 **How It Lives:** It lives online as a public website and versioned repository; it is being adapted into other forms, including a participatory installation with projected text, voice performance, and an amendment interface, a concept album, and other cultural works that make AI governance experiential.
 
 <p style="text-align: center; font-size: 8.5pt; margin-top: 0.22in; margin-bottom: 0;">
-	covenant.website | github.com/RKelln/covenant | ryan.kelln@gmail.com
+	<a href="https://covenant.website">covenant.website</a> | <a href="https://github.com/RKelln/covenant">github.com/RKelln/covenant</a> | <a href="mailto:ryan.kelln@gmail.com">ryan.kelln@gmail.com</a>
 </p>
