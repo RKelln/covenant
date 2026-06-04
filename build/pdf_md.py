@@ -52,12 +52,24 @@ def markdown_to_html(markdown_text: str) -> str:
   )
 
 
+def metadata_flag(metadata: dict, key: str, default: bool = False) -> bool:
+  value = metadata.get(key, default)
+  if isinstance(value, bool):
+    return value
+  if isinstance(value, str):
+    return value.strip().lower() in {"1", "true", "yes", "on"}
+  return bool(value)
+
+
 def render_markdown_to_pdf(md_file: Path, out_file: Path) -> None:
     source = md_file.read_text(encoding="utf-8")
     metadata, source = extract_frontmatter(source)
 
     title = str(metadata.get("title") or md_file.stem.replace("-", " ").title())
     subtitle = f"By {metadata.get('artist')}" if metadata.get("artist") else ""
+    cover_enabled = metadata_flag(metadata, "cover", default=True)
+    layout = str(metadata.get("layout") or "default").strip().lower()
+    doc_class = "doc brief-layout" if layout == "brief" else "doc"
 
     body = markdown_to_html(source)
 
@@ -83,8 +95,8 @@ def render_markdown_to_pdf(md_file: Path, out_file: Path) -> None:
   <title>{title}</title>
 </head>
 <body>
-  {cover}
-  <main class=\"doc\">{body}</main>
+  {cover if cover_enabled else ''}
+  <main class=\"{doc_class}\">{body}</main>
 </body>
 </html>
 """
@@ -111,6 +123,14 @@ body {
 .doc {
   max-width: 7in;
   margin: 0 auto;
+}
+
+.brief-layout {
+  max-width: 6.8in;
+}
+
+.brief-layout > :first-child {
+  margin-top: 0 !important;
 }
 
 .cover-page {
@@ -247,9 +267,60 @@ h1 { font-size: 22pt; margin: 0 0 0.5rem; font-weight: 500; }
 h2 { font-size: 16pt; margin: 1.2rem 0 0.4rem; }
 h3 { font-size: 13pt; margin: 1rem 0 0.3rem; }
 
+p {
+  margin: 0.7rem 0;
+}
+
+ul, ol {
+  margin: 0.55rem 0 0.7rem 1.2rem;
+  padding: 0;
+}
+
+li + li {
+  margin-top: 0.18rem;
+}
+
 p, li {
   orphans: 3;
   widows: 3;
+}
+
+.brief-layout p {
+  margin: 0.48rem 0;
+}
+
+.brief-layout ul,
+.brief-layout ol {
+  margin: 0.3rem 0 0.55rem 1.15rem;
+}
+
+.brief-layout li + li {
+  margin-top: 0.1rem;
+}
+
+.brief-layout h2 {
+  font-size: 14pt;
+  margin: 0.8rem 0 0.2rem;
+}
+
+.brief-layout .section-gap {
+  height: 0.1in;
+}
+
+.brief-layout blockquote.hero-quote,
+.brief-layout p.hero-quote {
+  margin-top: 0.34in;
+  margin-bottom: 0.28in;
+}
+
+.brief-layout blockquote.hero-quote-soft,
+.brief-layout p.hero-quote-soft,
+.brief-layout blockquote.hero-quote-left,
+.brief-layout p.hero-quote-left {
+  margin: 0.18in auto;
+  max-width: 6in;
+  font-size: 14pt;
+  line-height: 1.22;
 }
 
 img {

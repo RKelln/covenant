@@ -1,7 +1,7 @@
 <!-- AGENT:NAV
 purpose:Index of markdown files with agentmap nav blocks:
-lines:227
-files[190]{path,lines,about}:
+lines:228
+files[191]{path,lines,about}:
 CONTRIBUTING.md,81,contribution workflow; setup; review and licensing
 FORKING.md,37,forking guidance; preserve IDs; maintain two-register structure
 README.md,156,project overview; registers; website; build; contribution paths
@@ -49,7 +49,8 @@ technical-requirements.md,87,equipment; setup; technical specs
 outreach/installations/covenant-gallery/
 covenant_installation.md,494,Gallery installation overview and visitor oath station
 outreach/materials/
-README.md,14,copy;descriptions;documents;outreach;project;promotional;submission;application
+README.md,24,copy;descriptions;documents;outreach;project;promotional;submission;application
+covenant_one_page_brief.md,46,Covenant one page brief for outreach
 promo_lines.md,290,promotional copy; marketing excerpts; tailoring guide
 outreach/residencies/banff_computational_2026/
 project_proposal.md,19,covenant at banff; computational writing
@@ -72,7 +73,7 @@ synthesis_batch.md,167,batch synthesis template; tier calibration
 synthesis_tail.md,181,tail batch synthesis; cross-cutting synthesis
 references/
 README.md,155,references corpus; tier system; licensing; slug convention
-TODO.md,84,reference tasks; papers; blogs; websites; gaps
+TODO.md,98,reference tasks; papers; blogs; websites; gaps
 references/notes/
 daley_2026_when-everything-becomes-less-hard.md,66,reference notes; dignity; accountability; enforcement
 humanstatement_2026_pro-human-declaration.md,94,reference notes; human rights; dignity; labour
